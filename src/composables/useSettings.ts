@@ -3,25 +3,15 @@ import type { QuizLength } from '../domain/quiz';
 
 export const SETTINGS_KEY = 'hps-settings-v1';
 
-export type ThemeId = 'dossier' | 'notion' | 'owl';
-
 export type Settings = {
   shuffleOptions: boolean;
   quizLength: QuizLength;
-  theme: ThemeId;
 };
 
 const DEFAULTS: Settings = {
   shuffleOptions: true,
   quizLength: 'all',
-  theme: 'dossier',
 };
-
-function applyThemeToDom(theme: ThemeId): void {
-  if (typeof document !== 'undefined' && document.documentElement) {
-    document.documentElement.dataset.theme = theme;
-  }
-}
 
 export function parseSettings(raw: string | null): Settings {
   const result: Settings = { ...DEFAULTS };
@@ -31,7 +21,6 @@ export function parseSettings(raw: string | null): Settings {
     if (data && typeof data === 'object') {
       if (typeof data.shuffleOptions === 'boolean') result.shuffleOptions = data.shuffleOptions;
       if (data.quizLength === 'random' || data.quizLength === 'all' || data.quizLength === 'shuffled') result.quizLength = data.quizLength;
-      if (data.theme === 'dossier' || data.theme === 'notion' || data.theme === 'owl') result.theme = data.theme;
     }
   } catch {
     // повреждённые данные — используем значения по умолчанию
@@ -41,11 +30,8 @@ export function parseSettings(raw: string | null): Settings {
 
 function read(): Settings {
   try {
-    const s = parseSettings(localStorage.getItem(SETTINGS_KEY));
-    applyThemeToDom(s.theme);
-    return s;
+    return parseSettings(localStorage.getItem(SETTINGS_KEY));
   } catch {
-    applyThemeToDom(DEFAULTS.theme);
     return { ...DEFAULTS };
   }
 }
@@ -76,11 +62,5 @@ export function useSettings() {
     save();
   }
 
-  function setTheme(value: ThemeId): void {
-    settings.value = { ...settings.value, theme: value };
-    applyThemeToDom(value);
-    save();
-  }
-
-  return { settings, setShuffle, setQuizLength, setTheme };
+  return { settings, setShuffle, setQuizLength };
 }

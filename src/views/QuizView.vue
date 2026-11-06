@@ -32,7 +32,6 @@ const poolSize = computed(() => topics.value?.reduce((sum, t) => sum + t.questio
 const { data: reactions } = useJson<AnswerReactions>('reactions.json');
 const { reaction, portrait, showReaction, clearReaction } = useAnswerReaction(reactions);
 
-const forceReactions = ref(false);
 const started = ref(false);
 const finished = ref(false);
 const studyMode = ref(false);
@@ -87,7 +86,7 @@ function backToStart(): void {
 function onAnswer(answer: UserAnswer): void {
   if (activeStudy.value || answers.value[index.value]) return;
   answers.value[index.value] = answer;
-  showReaction(isCorrect(question.value!, answer), forceReactions.value);
+  showReaction(isCorrect(question.value!, answer));
 }
 
 function next(): void {
@@ -178,10 +177,6 @@ watch(rawTopics, backToStart);
             <span>Режим обучения: правильные ответы проставлены сразу</span>
           </label>
           <ShuffleToggle />
-          <label class="toggle">
-            <input v-model="forceReactions" type="checkbox" data-test="force-reactions" />
-            <span>Показывать реплику после каждого ответа (для проверки)</span>
-          </label>
 
           <div class="btn-row">
             <button type="button" class="btn" data-test="start" :disabled="!poolSize || !!rangeError" @click="start">Начать</button>
@@ -207,10 +202,6 @@ watch(rawTopics, backToStart);
             <span v-if="activeRange && total < poolSize" class="muted" data-test="original-number">№ {{ activeRange.from + index }} в полном списке</span>
             <span v-if="activeStudy" class="badge" data-test="study-badge">Режим обучения</span>
             <ShuffleToggle />
-          <label class="toggle">
-            <input v-model="forceReactions" type="checkbox" data-test="force-reactions" />
-            <span>Показывать реплику после каждого ответа (для проверки)</span>
-          </label>
           </div>
           <p v-if="isAll" class="muted" data-test="topic-label">Тема: {{ item.topicTitle }}</p>
           <KeepAlive>

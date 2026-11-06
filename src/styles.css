@@ -1,54 +1,5 @@
-/* ==========================================================================
-   HP Seasons: Visual Themes (Dossier, Notion, O.W.L.)
-   ========================================================================== */
-
-/* 1. ТЕМА «АРХИВ МИНИСТЕРСТВА МАГИИ» (dossier) — по умолчанию */
-:root,
-[data-theme="dossier"] {
-  --bg: #ece4d4;
-  --surface: #f7f1e6;
-  --surface-alt: #eee6d7;
-  --text: #211c15;
-  --muted: #6e6556;
-  --primary: #7c2d12;
-  --primary-hover: #5d220d;
-  --primary-soft: #e3d2be;
-  --ok: #1e5a32;
-  --ok-soft: #d5ebd9;
-  --bad: #991b1b;
-  --bad-soft: #fbd5d5;
-  --border: #c8bba6;
-  --border-strong: #9e8d75;
-  --radius: 4px;
-  --font-main: 'PT Serif', Georgia, 'Times New Roman', serif;
-  --font-accent: 'Courier Prime', 'Courier New', monospace;
-  --shadow: 0 2px 5px rgba(40, 30, 20, 0.12);
-}
-
-/* 2. ТЕМА «МИНИМАЛИСТИЧНАЯ БАЗА ЗНАНИЙ» (notion) */
-[data-theme="notion"] {
-  --bg: #f7f7f5;
-  --surface: #ffffff;
-  --surface-alt: #f1f1ef;
-  --text: #37352f;
-  --muted: #787774;
-  --primary: #2383e2;
-  --primary-hover: #1b6bb8;
-  --primary-soft: #e8f3fc;
-  --ok: #0f7b6c;
-  --ok-soft: #edf6f5;
-  --bad: #eb5757;
-  --bad-soft: #fdeeee;
-  --border: #e9e9e7;
-  --border-strong: #d3d3d0;
-  --radius: 8px;
-  --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
-  --font-accent: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
-  --shadow: 0 1px 3px rgba(15, 15, 15, 0.06);
-}
-
-/* 3. ТЕМА «ЭКЗАМЕН С.О.В.» (owl) */
-[data-theme="owl"] {
+/* Оформление «Экзамен С.О.В.» */
+:root {
   --bg: #f8f4ea;
   --surface: #fffdf7;
   --surface-alt: #f3eedf;
@@ -173,48 +124,6 @@ a:hover {
   background: var(--primary-soft);
   color: var(--primary);
   font-weight: 700;
-}
-
-/* Сегментный переключатель темы */
-.theme-selector {
-  display: inline-flex;
-  background: var(--surface-alt);
-  padding: 0.2rem;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  gap: 0.2rem;
-}
-
-.theme-selector__btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  padding: 0.3rem 0.55rem;
-  border: 0;
-  background: transparent;
-  color: var(--muted);
-  border-radius: var(--radius);
-  font-family: var(--font-main);
-  font-size: 0.85rem;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  white-space: nowrap;
-}
-
-.theme-selector__btn:hover {
-  color: var(--text);
-}
-
-.theme-selector__btn.is-active {
-  background: var(--surface);
-  color: var(--text);
-  font-weight: 700;
-  box-shadow: var(--shadow);
-}
-
-.theme-selector__icon {
-  font-size: 0.9rem;
-  line-height: 1;
 }
 
 /* ==========================================================================
@@ -519,92 +428,20 @@ a:hover {
   font-size: 0.95rem;
 }
 
-/* Переключаемые тематические блоки в AnswerFeedback */
-.feedback__dossier-stamp,
-.feedback__owl-header,
-.feedback__notion-header {
-  display: none;
-}
-
-/* 1. Декорации темы ДОСЬЕ */
-[data-theme="dossier"] .feedback__dossier-stamp {
-  display: block;
-  float: right;
-  margin-left: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-[data-theme="dossier"] .stamp {
-  display: inline-block;
-  padding: 0.25rem 0.6rem;
-  border: 2px dashed currentColor;
-  border-radius: 2px;
-  font-family: var(--font-accent);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  transform: rotate(-3deg);
-}
-
-[data-theme="dossier"] .stamp--ok {
-  color: var(--ok);
-  background: rgba(30, 90, 50, 0.08);
-}
-
-[data-theme="dossier"] .stamp--bad {
-  color: var(--bad);
-  background: rgba(142, 28, 28, 0.08);
-}
-
-[data-theme="dossier"] .stamp--study {
-  color: var(--primary);
-  background: rgba(107, 38, 38, 0.08);
-}
-
-[data-theme="dossier"] .question__prompt::before {
-  content: "§ ";
-  color: var(--muted);
-  font-family: var(--font-accent);
-}
-
-/* 2. Декорации темы NOTION */
-[data-theme="notion"] .feedback {
-  border-width: 1px;
-}
-
-[data-theme="notion"] .feedback__notion-header {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.6rem;
-  padding-bottom: 0.4rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-[data-theme="notion"] .feedback__notion-icon {
-  font-size: 1.15rem;
-}
-
-[data-theme="notion"] .feedback__notion-title {
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-/* 3. Декорации темы ЭКЗАМЕН С.О.В. */
-[data-theme="owl"] .feedback {
+/* Пометки экзаменатора */
+.feedback {
   border-left: 5px solid currentColor;
 }
 
-[data-theme="owl"] .feedback--ok {
+.feedback--ok {
   border-left-color: var(--ok);
 }
 
-[data-theme="owl"] .feedback--bad {
+.feedback--bad {
   border-left-color: var(--bad);
 }
 
-[data-theme="owl"] .feedback__owl-header {
+.feedback__owl-header {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -612,23 +449,23 @@ a:hover {
   margin-bottom: 0.5rem;
 }
 
-[data-theme="owl"] .feedback__owl-title {
+.feedback__owl-title {
   font-weight: 700;
   font-size: 1rem;
 }
 
-[data-theme="owl"] .feedback__owl-grade {
+.feedback__owl-grade {
   font-family: var(--font-accent);
   font-size: 1.45rem;
   font-weight: 700;
   line-height: 1;
 }
 
-[data-theme="owl"] .feedback__owl-grade--ok {
+.feedback__owl-grade--ok {
   color: var(--ok);
 }
 
-[data-theme="owl"] .feedback__owl-grade--bad {
+.feedback__owl-grade--bad {
   color: var(--bad);
 }
 

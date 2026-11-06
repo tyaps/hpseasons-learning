@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed, provide, ref, watch } from 'vue';
 import { RouterLink, RouterView, useRoute } from 'vue-router';
-import ThemeSelector from './components/ThemeSelector.vue';
 import { useJson } from './composables/useContent';
 import { useCreatureSelection } from './composables/useCreatureSelection';
 import type { RuleSummary } from './types/content';
@@ -46,7 +45,6 @@ watch(() => route.name, (to, from) => {
           <RouterLink to="/monsters" active-class="is-active">Монстробук</RouterLink>
           <RouterLink to="/creature-settings" active-class="is-active">Существа в тестах<span v-if="monsters"> ({{ selectedCount }} из {{ monsters.length }})</span></RouterLink>
         </nav>
-        <ThemeSelector />
       </div>
     </div>
   </header>

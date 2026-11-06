@@ -1,7 +1,7 @@
 import { onDeactivated, onScopeDispose, ref, toValue, type MaybeRefOrGetter } from 'vue';
 import type { AnswerReactions } from '../types/content';
 
-export const REACTION_CHANCE = 0.1;
+export const REACTION_CHANCE = 0.33;
 export const REACTION_DURATION_MS = 3000;
 
 export function useAnswerReaction(messages: MaybeRefOrGetter<AnswerReactions | undefined>, random = Math.random) {
@@ -14,10 +14,10 @@ export function useAnswerReaction(messages: MaybeRefOrGetter<AnswerReactions | u
     reaction.value = null;
     portrait.value = null;
   }
-  function showReaction(correct: boolean, always = false): void {
+  function showReaction(correct: boolean): void {
     clearReaction();
     const options = toValue(messages)?.[correct ? 'success' : 'failure'];
-    if (!options?.length || (!always && random() >= REACTION_CHANCE)) return;
+    if (!options?.length || random() >= REACTION_CHANCE) return;
     reaction.value = options[Math.floor(random() * options.length)] ?? null;
     const portraits = toValue(messages)?.portraits;
     portrait.value = portraits?.length ? portraits[Math.floor(random() * portraits.length)] ?? null : 'assets/characters/red_hat.jpg';

@@ -14,25 +14,12 @@ defineProps<{ question: Question; correct: boolean; study?: boolean; reaction?: 
 <template>
   <div class="feedback" :class="study || correct ? 'feedback--ok' : 'feedback--bad'" role="status">
     <div class="feedback__content">
-      <!-- Атмосферный штамп для темы «Архив Министерства» -->
-      <div class="feedback__dossier-stamp" aria-hidden="true">
-        <span v-if="study" class="stamp stamp--study">СПРАВКА</span>
-        <span v-else-if="correct" class="stamp stamp--ok">ОДОБРЕНО</span>
-        <span v-else class="stamp stamp--bad">АННУЛИРОВАНО</span>
-      </div>
-
-      <!-- Заголовок для темы «Экзамен С.О.В.» -->
+      <!-- Пометка экзаменатора -->
       <div class="feedback__owl-header" aria-hidden="true">
         <span class="feedback__owl-title">Пометка экзаменатора:</span>
         <span v-if="!study" class="feedback__owl-grade" :class="correct ? 'feedback__owl-grade--ok' : 'feedback__owl-grade--bad'">
           {{ correct ? '«Превосходно!»' : '«Ошибка!»' }}
         </span>
-      </div>
-
-      <!-- Заголовок для темы «База знаний Notion» -->
-      <div class="feedback__notion-header" aria-hidden="true">
-        <span class="feedback__notion-icon">{{ study ? '📖' : correct ? '✅' : '💡' }}</span>
-        <span class="feedback__notion-title">{{ study ? 'Материал для изучения' : correct ? 'Верный ответ' : 'Разбор вопроса' }}</span>
       </div>
 
       <p v-if="!study" class="feedback__verdict">{{ correct ? 'Верно!' : 'Неверно' }}</p>

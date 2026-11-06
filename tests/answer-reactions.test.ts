@@ -36,15 +36,15 @@ describe('Реплика персонажа после ответа', () => {
     expect(quiz.find('[data-test="answer-reaction"]').exists()).toBe(false);
     quiz.unmount();
   });
-  it.each([0.1, 0.9])('не показывает реплику при случайном числе %s', async chance => {
+  it.each([0.33, 0.9])('не показывает реплику при случайном числе %s', async chance => {
     vi.spyOn(Math, 'random').mockReturnValue(chance);
     const { wrapper } = await start();
     await wrapper.find('[data-option-id="a"]').trigger('click');
     expect(wrapper.find('[data-test="answer-reaction"]').exists()).toBe(false);
     wrapper.unmount();
   });
-  it('показывает при числе ниже 0.1, выбирает реплику и не повторяет при просмотре прошлого ответа', async () => {
-    vi.spyOn(Math, 'random').mockReturnValue(0.099).mockReturnValueOnce(0.099).mockReturnValueOnce(0.75);
+  it('показывает при числе ниже 0.33, выбирает реплику и не повторяет при просмотре прошлого ответа', async () => {
+    vi.spyOn(Math, 'random').mockReturnValue(0.329).mockReturnValueOnce(0.329).mockReturnValueOnce(0.75);
     const { wrapper } = await start();
     await wrapper.find('[data-option-id="a"]').trigger('click');
     expect(wrapper.find('[data-test="answer-reaction"]').text()).toBe('Так держать!');
@@ -69,33 +69,27 @@ describe('Реплика персонажа после ответа', () => {
     mockFetch({ 'data/topics/t.json': topic, 'data/rules.json': [], 'data/reactions.json': {
       ...messages, portraits: ['assets/characters/first.jpg', 'assets/characters/last.jpg'],
     } });
-    vi.spyOn(Math, 'random').mockReturnValue(value);
+    vi.spyOn(Math, 'random').mockReturnValue(value).mockReturnValueOnce(0);
     const { wrapper } = await mountAt('/topic/t');
-    await wrapper.find('[data-test="force-reactions"]').setValue(true);
+
     await wrapper.find('[data-test="start"]').trigger('click');
     await wrapper.find('[data-option-id="a"]').trigger('click');
     expect(wrapper.find('[data-test="answer-reaction"] img').attributes('src')).toBe(`/data/assets/characters/${file}`);
     wrapper.unmount();
   });
-  it('переключает шанс на 100% и обратно на 10% для новых ответов', async () => {
-    vi.spyOn(Math, 'random').mockReturnValue(0.9);
+  it('не показывает выбор оформления или проверочный флажок до и после старта', async () => {
     const { wrapper } = await mountAt('/topic/t');
-    expect((wrapper.find('[data-test="force-reactions"]').element as HTMLInputElement).checked).toBe(false);
-    await wrapper.find('[data-test="force-reactions"]').setValue(true);
+    expect(wrapper.find('.theme-selector').exists()).toBe(false);
+    expect(wrapper.find('[data-test="force-reactions"]').exists()).toBe(false);
     await wrapper.find('[data-test="start"]').trigger('click');
-    await wrapper.find('[data-option-id="a"]').trigger('click');
-    expect(wrapper.find('[data-test="answer-reaction"]').text()).toBe('Так держать!');
-    await wrapper.find('[data-test="force-reactions"]').setValue(false);
-    await wrapper.find('[data-test="next"]').trigger('click');
-    await wrapper.find('[data-option-id="b"]').trigger('click');
-    expect(wrapper.find('[data-test="answer-reaction"]').exists()).toBe(false);
+    expect(wrapper.find('[data-test="force-reactions"]').exists()).toBe(false);
     wrapper.unmount();
   });
   it('не срабатывает в режиме обучения', async () => {
     vi.spyOn(Math, 'random').mockReturnValue(0);
     const { wrapper } = await mountAt('/topic/t');
     await wrapper.find('[data-test="study-toggle"]').setValue(true);
-    await wrapper.find('[data-test="force-reactions"]').setValue(true);
+
     await wrapper.find('[data-test="start"]').trigger('click');
     expect(wrapper.find('.feedback').exists()).toBe(true);
     expect(wrapper.find('[data-test="answer-reaction"]').exists()).toBe(false);
