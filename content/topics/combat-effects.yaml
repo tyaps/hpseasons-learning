@@ -1,0 +1,199 @@
+id: combat-effects
+title: Постэффекты и ошибки в бою
+description: Шок, повторные атаки, физическая защита и надрыв
+order: 4
+questions:
+  - id: repeat-faint
+    type: single
+    prompt: Что произойдёт при нарушении правила трёх атакующих чар?
+    options:
+      - id: a
+        text: Чара сработает, исполнитель потеряет сознание на 15 минут
+        correct: true
+      - id: b
+        text: Чара не сработает без последствий
+      - id: c
+        text: Сломается палочка цели
+    explanation: >-
+      Повтор атакующей боевой чары без двух других атакующих боевых чар срабатывает, но исполнитель теряет
+      сознание на 15 минут. Смена уровня повторяемой чары не помогает.
+    rule: combat-effects#repeat-faint
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: fire-water-after
+    type: single
+    prompt: Каков постэффект Инсендио или Делювиум Максима, прошедших сами без лечения?
+    options:
+      - id: b
+        text: Полная неуязвимость на час
+      - id: c
+        text: Никаких последствий
+      - id: a
+        text: Минус один уровень чар на 1,5 часа или до лечения
+        correct: true
+    explanation: >-
+      Если Инсендио или Делювиум начиная с Максимы не лечили и эффект прошёл сам по времени, уровень чар
+      снижается на один на полтора часа или до лечения; для пережитых Ультим действует отдельное правило до
+      лечения.
+    rule: combat-effects#fire-water-after
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: ultima-after
+    type: single
+    prompt: Что происходит после пережитой Ультимы, если её не лечили и она прошла сама?
+    options:
+      - id: c
+        text: Все чары усиливаются на уровень
+      - id: a
+        text: Уровень чар снижен на один до лечения
+        correct: true
+      - id: b
+        text: Возвращается полная сила без ограничений
+    explanation: >-
+      Если волшебник выжил после Ультимы, её не лечили и она прошла сама по времени, уровень чар снижается на
+      один до лечения.
+    rule: combat-effects#ultima-after
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: simpla-after
+    type: single
+    prompt: Что означает снижение уровня чар на один для симплового волшебника?
+    options:
+      - id: a
+        text: Он вообще не может делать чары
+        correct: true
+      - id: b
+        text: Он получает доступ к Максиме
+      - id: c
+        text: Ограничение не имеет эффекта
+    explanation: >-
+      При снижении уровня чар на один максимный волшебник теряет Максиму, а симпловый не может делать чары
+      вообще.
+    rule: combat-effects#simpla-after
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: shock
+    type: single
+    prompt: Что делать в бою, если не понимаешь, какая чара попала?
+    options:
+      - id: b
+        text: Игнорировать атаку
+      - id: c
+        text: Считать любое попадание Люмосом
+      - id: a
+        text: Впасть в шок на 15 минут
+        correct: true
+    explanation: >-
+      Если непонятно, какая чара пришла, волшебник падает в шок на 15 минут. Можно выйти раньше, выяснив
+      действие чары и начав его отыгрыш.
+    rule: combat-effects#shock
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: shock-memory
+    type: single
+    prompt: Что персонаж запоминает во время шока?
+    options:
+      - id: c
+        text: Только имена нападавших
+      - id: a
+        text: Ничего из происходящего
+        correct: true
+      - id: b
+        text: Все разговоры дословно
+    explanation: >-
+      Шок отыгрывается как потеря сознания: нужно упасть, ничего не делать и не запоминать происходящее. Он не
+      лечится, но проходит сам через 15 минут без последствий.
+    rule: combat-effects#shock-memory
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: nonus
+    type: single
+    prompt: Как обозначить обоснованное несрабатывание чары?
+    options:
+      - id: a
+        text: «Нонус прокатус!»
+        correct: true
+      - id: b
+        text: «Репаро!»
+      - id: c
+        text: Молча не реагировать
+    explanation: >-
+      Если есть основания, по которым чара не действует, обозначают это формулой «Нонус прокатус!», чтобы
+      противник понял результат. Допустимо кратко назвать причину.
+    rule: combat-effects#nonus
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: overstrain
+    type: single
+    prompt: Что происходит при самостоятельном применении выученной, но не положенной по возрасту чары?
+    options:
+      - id: b
+        text: Только пятнадцатисекундный смех
+      - id: c
+        text: Автоматическое повышение возраста
+      - id: a
+        text: "Надрыв: невозможность колдовать и дезориентация"
+        correct: true
+    explanation: >-
+      Применение выученного заклинания, не положенного по возрасту, вызывает надрыв: невозможность колдовать и
+      дезориентацию. Это тяжёлое магическое повреждение; лечится в госпитале или разрешается в Отделе Тайн.
+    rule: combat-effects#overstrain
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: physical-shield
+    type: single
+    prompt: От чего защищает эффект «защита от физических воздействий»?
+    options:
+      - id: c
+        text: От взгляда Василиска
+      - id: a
+        text: От магического контактного оружия и материальных атак существ
+        correct: true
+      - id: b
+        text: От любых дистанционных чар
+    explanation: >-
+      Защита от физических воздействий прикрывает от магического оружия, контактных чар и материальных атак
+      существ. Она не защищает от дистанционных чар и нематериальных эффектов, например взгляда Василиска.
+    rule: combat-effects#physical-shield
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: creature-shield
+    type: single
+    prompt: Поможет ли обычный щит от удара дубиной тролля с эффектом Ступефая?
+    options:
+      - id: a
+        text: Нет, это физическое воздействие, а не чара
+        correct: true
+      - id: b
+        text: Да, всегда Энервейт
+      - id: c
+        text: Да, любой щит
+    explanation: >-
+      Удар тролля или огонь феникса может называться эффектом чары для удобства, но сам чарой не является.
+      Обычные щиты помогают, когда существо действительно колдует; от физических атак нужна соответствующая
+      защита или уклонение.
+    rule: combat-effects#creature-shield
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: weapon
+    type: single
+    prompt: Сколько ударов требуется для эффекта магического контактного оружия?
+    options:
+      - id: b
+        text: Один любой удар
+      - id: c
+        text: Три удара в одну точку за минуту
+      - id: a
+        text: Два с разных сторон с интервалом не более 2 секунд
+        correct: true
+    explanation: >-
+      Эффект магического контактного оружия требует двух последовательных ударов с разных сторон с промежутком
+      не более двух секунд. Одиночный удар эффекта не имеет; повреждение задаёт описание артефакта.
+    rule: combat-effects#weapon
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: carried-cover
+    type: single
+    prompt: Можно ли нести предмет перед собой, прикрываясь им от чар?
+    options:
+      - id: c
+        text: Да, если это стул
+      - id: a
+        text: Нет
+        correct: true
+      - id: b
+        text: Да, даже под Мобиликорпусом
+    explanation: >-
+      Запрещено прикрываться от атак переносимыми перед собой предметами или телами, в том числе под
+      Мобиликорпусом. Естественные неподвижные препятствия учитываются по правилу видимости.
+    rule: combat-effects#carried-cover
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit

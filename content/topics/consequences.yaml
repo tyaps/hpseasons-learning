@@ -1,85 +1,261 @@
-# Демонстрационная тема: показывает формат, не является официальными правилами игры.
 id: consequences
-title: Последствия
-description: К чему приводит колдовство и кто за это отвечает
-order: 2
+title: Последствия и колдомедицина
+description: Постэффекты, надрыв, лечение и Паспорт Последствий
+order: 3
 questions:
-  - id: q1
+  - id: passport
     type: single
-    prompt: Что происходит с колдующим после серии сложных заклинаний?
+    prompt: Что нужно взять после лечения поражения Ультимой?
     options:
-      - { id: a, text: "Ничего, магия не утомляет" }
-      - { id: b, text: Он устаёт и нуждается в отдыхе, correct: true }
-      - { id: c, text: Он теряет палочку }
-    explanation: Чем сложнее заклинание, тем сильнее устаёт колдующий.
-    rule: consequences#fatigue
-
-  - id: q2
+      - id: a
+        text: Паспорт Последствий
+        correct: true
+      - id: b
+        text: Новую палочку
+      - id: c
+        text: Разрешение на дуэль
+    explanation: >-
+      После лечения серьёзных магических повреждений, включая любые поражения Ультимами, требуется специальная
+      карточка — Паспорт Последствий. Это относится также к смертельным ядам и неправильному колдомедицинскому
+      лечению.
+    rule: consequences#passport
+    source: https://docs.google.com/document/d/1TxzGn_pZs_JJiHY8s0HG_vOTj5Ml6Q5O3Zi3qX813f0/edit
+  - id: passport-where
     type: single
-    prompt: Заклинание попало не в ту цель. Кто отвечает за результат?
+    prompt: Где находятся коробки Паспортов Последствий?
     options:
-      - { id: a, text: "Тот, в кого попало заклинание" }
-      - { id: b, text: "Тот, кто произнёс заклинание", correct: true }
-      - { id: c, text: "Никто, это случайность" }
-    explanation: Ответственность за результат несёт тот, кто произнёс заклинание.
-    rule: consequences#responsibility
-
-  - id: q3
-    type: multiple
-    prompt: Что считается тяжёлым нарушением?
-    options:
-      - { id: a, text: Применение Круциатуса к человеку, correct: true }
-      - { id: b, text: Применение Люмоса }
-      - { id: c, text: Применение Империуса к человеку, correct: true }
-    explanation: Применение непростительных заклятий к человеку — тяжёлое нарушение.
-    rule: consequences#forbidden
-
-  - id: q4
+      - id: b
+        text: Только в дуэльном клубе
+      - id: c
+        text: Только в магазине палочек
+      - id: a
+        text: В Св. Мунго, колдомедицинском крыле Школы и Приёмной Отдела Тайн
+        correct: true
+    explanation: >-
+      Коробки Паспортов Последствий размещаются в госпитале Св. Мунго, колдомедицинском крыле Школы и Приёмной
+      Отдела Тайн.
+    rule: consequences#passport-where
+    source: https://docs.google.com/document/d/1TxzGn_pZs_JJiHY8s0HG_vOTj5Ml6Q5O3Zi3qX813f0/edit
+  - id: passport-when
     type: single
-    prompt: Как называется третье непростительное заклятие, кроме Империуса и Круциатуса?
+    prompt: Когда начинают действовать Последствия из карточки?
     options:
-      - { id: a, text: Авада Кедавра, correct: true }
-      - { id: b, text: Экспеллиармус }
-      - { id: c, text: Инкарцеро }
-    explanation: Третье непростительное заклятие — Авада Кедавра.
-    rule: spells#unforgivable
-
-  - id: q5
+      - id: c
+        text: Только после следующего семестра
+      - id: a
+        text: После окончания лечения основного недуга, иногда с задержкой
+        correct: true
+      - id: b
+        text: Всегда до попадания чары
+    explanation: >-
+      Последствия начинаются после окончания лечения основного недуга; проявление может запаздывать на час,
+      два или до следующего утра. За вылеченным пациентом полезно приглядывать.
+    rule: consequences#passport-when
+    source: https://docs.google.com/document/d/1TxzGn_pZs_JJiHY8s0HG_vOTj5Ml6Q5O3Zi3qX813f0/edit
+  - id: unknown-injury
     type: single
-    prompt: Что нужно персонажу после серии сложных заклинаний?
+    prompt: Что делать с непонятным повреждением, если колдомедик тоже не знает эффекта?
     options:
-      - { id: a, text: Отдых, correct: true }
-      - { id: b, text: Новая палочка }
-      - { id: c, text: Разрешение преподавателя }
-    explanation: После серии сложных заклинаний персонажу нужен отдых.
-    rule: consequences#fatigue
-
-  - id: q6
-    type: multiple
-    prompt: От чего зависит усталость колдующего?
-    options:
-      - { id: a, text: От сложности заклинаний, correct: true }
-      - { id: b, text: От числа заклинаний подряд, correct: true }
-      - { id: c, text: От цвета мантии }
-    explanation: Чем сложнее заклинание и чем больше их подряд, тем сильнее устаёт колдующий.
-    rule: consequences#fatigue
-
-  - id: q7
+      - id: a
+        text: Впасть в кому и уточнить в Отделе Тайн
+        correct: true
+      - id: b
+        text: Выбрать самый лёгкий эффект
+      - id: c
+        text: Игнорировать повреждение
+    explanation: >-
+      Неясный эффект сначала уточняют невыразимо у колдомедика. Если и он не знает, персонаж впадает в кому, а
+      игрок уточняет в Отделе Тайн.
+    rule: consequences#unknown-injury
+    source: https://docs.google.com/document/d/1TxzGn_pZs_JJiHY8s0HG_vOTj5Ml6Q5O3Zi3qX813f0/edit
+  - id: coma-marker
     type: single
-    prompt: Применение непростительных заклятий к человеку — это...
+    prompt: Что оставить при необходимости отлучиться, пока персонаж в коме?
     options:
-      - { id: a, text: Допустимая самооборона }
-      - { id: b, text: Тяжёлое нарушение, correct: true }
-      - { id: c, text: Мелкий проступок }
-    explanation: Применение непростительных заклятий к человеку — тяжёлое нарушение.
-    rule: consequences#forbidden
-
-  - id: q8
+      - id: b
+        text: Только личную записку без предметов
+      - id: c
+        text: Ничего, тело исчезает
+      - id: a
+        text: Маркер тела и все игровые предметы
+        correct: true
+    explanation: >-
+      При необходимости отлучиться, пока тело персонажа без сознания, оставляют маркер тела с указанием комы и
+      просьбой сообщать о перемещениях в Отдел Тайн, а также все игровые предметы.
+    rule: consequences#coma-marker
+    source: https://docs.google.com/document/d/1TxzGn_pZs_JJiHY8s0HG_vOTj5Ml6Q5O3Zi3qX813f0/edit
+  - id: paramedic
     type: single
-    prompt: Кто несёт ответственность, если заклинание оказалось сильнее, чем ожидалось?
+    prompt: Есть ли у фельдшера Клятва Колдомедика?
     options:
-      - { id: a, text: "Тот, кто колдовал", correct: true }
-      - { id: b, text: Автор игры }
-      - { id: c, text: Свидетели }
-    explanation: Ответственность за результат несёт тот, кто произнёс заклинание.
-    rule: consequences#responsibility
+      - id: c
+        text: Только на время экзамена
+      - id: a
+        text: Нет
+        correct: true
+      - id: b
+        text: Да, по определению
+    explanation: >-
+      Фельдшер глубоко интересуется колдомедициной и может иметь стажировку, но Клятвы Колдомедика не имеет.
+      Фельдшерский уровень должен быть отмечен в заявке.
+    rule: consequences#paramedic
+    source: https://docs.google.com/document/d/1TxzGn_pZs_JJiHY8s0HG_vOTj5Ml6Q5O3Zi3qX813f0/edit
+  - id: senior
+    type: single
+    prompt: Кто может брать личных учеников и принимать Клятву Колдомедика?
+    options:
+      - id: a
+        text: Старший Целитель
+        correct: true
+      - id: b
+        text: Любой стажёр
+      - id: c
+        text: Любой пациент после лечения
+    explanation: >-
+      Старший Целитель — опытный колдомедик, владеющий минимум тремя колдомедицинскими Ультимами; может брать
+      личных учеников и принимать Клятву у других.
+    rule: consequences#senior
+    source: https://docs.google.com/document/d/1TxzGn_pZs_JJiHY8s0HG_vOTj5Ml6Q5O3Zi3qX813f0/edit
+  - id: oath
+    type: single
+    prompt: Может ли колдомедик с Клятвой отказать нуждающемуся в помощи?
+    options:
+      - id: b
+        text: Да, если пациент с другого факультета
+      - id: c
+        text: Да, если пациент беден
+      - id: a
+        text: Нет, если тот просит или очевидно нуждается в помощи
+        correct: true
+    explanation: >-
+      Клятва запрещает вредить пациентам и раскрывать их тайны. При просьбе о необходимой помощи либо
+      очевидном состоянии, требующем помощи, колдомедик с Клятвой не может отказать.
+    rule: consequences#oath
+    source: https://docs.google.com/document/d/1TxzGn_pZs_JJiHY8s0HG_vOTj5Ml6Q5O3Zi3qX813f0/edit
+  - id: white-cross
+    type: single
+    prompt: При каких условиях действует неприкосновенность представителя Белого Креста?
+    options:
+      - id: c
+        text: Только во сне
+      - id: a
+        text: При исполнении в плаще и соблюдении нейтралитета
+        correct: true
+      - id: b
+        text: Всегда, даже при атаке на противника
+    explanation: >-
+      Представители Белого Креста в голубых или лазурных плащах с белым крестом неприкосновенны при исполнении
+      и соблюдении нейтралитета. Их защищаемые пациенты тоже неприкосновенны.
+    rule: consequences#white-cross
+    source: https://docs.google.com/document/d/1TxzGn_pZs_JJiHY8s0HG_vOTj5Ml6Q5O3Zi3qX813f0/edit
+  - id: social-immunity
+    type: single
+    prompt: Какова природа неприкосновенности Белого Креста?
+    options:
+      - id: a
+        text: Социальная и этическая
+        correct: true
+      - id: b
+        text: Абсолютный магический щит
+      - id: c
+        text: Иммунитет только к огню
+    explanation: >-
+      Неприкосновенность Белого Креста — социальная и этическая, а не магическая. Атаковать физически
+      возможно, но джентльмен или леди этого не сделает.
+    rule: consequences#social-immunity
+    source: https://docs.google.com/document/d/1TxzGn_pZs_JJiHY8s0HG_vOTj5Ml6Q5O3Zi3qX813f0/edit
+  - id: medium-injury
+    type: single
+    prompt: Кто может вылечить повреждения средней тяжести в поле?
+    options:
+      - id: b
+        text: Только Мастер целитель в стационаре
+      - id: c
+        text: Никто, они неизлечимы
+      - id: a
+        text: Фельдшер
+        correct: true
+    explanation: >-
+      В модели четыре уровня повреждений: лёгкие, средней тяжести, тяжёлые и неизлечимые. Среднюю тяжесть
+      может вылечить фельдшер в полевых условиях.
+    rule: consequences#medium-injury
+    source: https://docs.google.com/document/d/1TxzGn_pZs_JJiHY8s0HG_vOTj5Ml6Q5O3Zi3qX813f0/edit
+  - id: heavy-injury
+    type: single
+    prompt: Где лечатся тяжёлые повреждения?
+    options:
+      - id: c
+        text: Только самостоятельно во сне
+      - id: a
+        text: У колдомедиков в стационаре
+        correct: true
+      - id: b
+        text: Любой бытовой чарой на месте
+    explanation: Тяжёлые магические повреждения лечатся только колдомедиками в стационаре.
+    rule: consequences#heavy-injury
+    source: https://docs.google.com/document/d/1TxzGn_pZs_JJiHY8s0HG_vOTj5Ml6Q5O3Zi3qX813f0/edit
+  - id: follow-up
+    type: single
+    prompt: Что делать, если пропущен назначенный после лечения приём?
+    options:
+      - id: a
+        text: Сообщить колдомедикам или в Отдел Тайн
+        correct: true
+      - id: b
+        text: Считать лечение полностью завершённым
+      - id: c
+        text: Начать заново проходить чиповку палочки
+    explanation: >-
+      Лечение иногда лишь временно устраняет симптомы. Назначенное полное обследование обязательно; о
+      пропущенном приёме сообщают колдомедикам или в Отдел Тайн из-за возможных постэффектов.
+    rule: consequences#follow-up
+    source: https://docs.google.com/document/d/1TxzGn_pZs_JJiHY8s0HG_vOTj5Ml6Q5O3Zi3qX813f0/edit
+  - id: unconscious-info
+    type: single
+    prompt: Что сообщать медику, если персонаж без сознания?
+    options:
+      - id: b
+        text: Полный список мыслей нападавшего
+      - id: c
+        text: Любые скрытые диагнозы как очевидные
+      - id: a
+        text: Видимые повреждения, не названия неизвестных ему чар
+        correct: true
+    explanation: >-
+      Без сознания невыразимо тихо сообщают видимые раны, ожоги, порванную одежду и иные признаки. Без
+      дополнительной диагностики медик не видит названий чар; их не сообщают, если персонаж не знает
+      воздействия.
+    rule: consequences#unconscious-info
+    source: https://docs.google.com/document/d/1TxzGn_pZs_JJiHY8s0HG_vOTj5Ml6Q5O3Zi3qX813f0/edit
+  - id: potion-consent
+    type: single
+    prompt: Можно ли не пить лечебное зелье по жизни?
+    options:
+      - id: c
+        text: Только если персонаж без сознания
+      - id: a
+        text: Да, отыграть приём, сообщить медику и вылить порцию
+        correct: true
+      - id: b
+        text: Нет, лечение обязывает пить
+    explanation: >-
+      Игрок может не пить лечебное зелье при нежелании или опасении аллергии: сообщает медику, что выпил,
+      выливает порцию либо просит медика вылить и отыгрывает эффект.
+    rule: consequences#potion-consent
+    source: https://docs.google.com/document/d/1TxzGn_pZs_JJiHY8s0HG_vOTj5Ml6Q5O3Zi3qX813f0/edit
+  - id: clothes
+    type: single
+    prompt: Что делать, если раздевание для лечения некомфортно?
+    options:
+      - id: a
+        text: Невыразимо попросить оставить комфортное количество одежды
+        correct: true
+      - id: b
+        text: Обязательно терпеть до конца процедуры
+      - id: c
+        text: Перестать отыгрывать повреждение
+    explanation: >-
+      При лечении можно попросить оставить комфортное количество одежды; игрок сам следит за своим комфортом и
+      сообщает о видимых под одеждой ранах и метках.
+    rule: consequences#clothes
+    source: https://docs.google.com/document/d/1TxzGn_pZs_JJiHY8s0HG_vOTj5Ml6Q5O3Zi3qX813f0/edit

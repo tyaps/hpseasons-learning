@@ -1,0 +1,313 @@
+id: potions
+title: Зельеварение
+description: Дозы, хранение, подливание, ингредиенты и обучение
+order: 6
+questions:
+  - id: classes
+    type: single
+    prompt: На какие три группы по сложности делятся зелья?
+    options:
+      - id: a
+        text: Простые, ВИП и Ультра
+        correct: true
+      - id: b
+        text: Симпла, Максима и Ультима
+      - id: c
+        text: Бытовые, контактные и веерные
+    explanation: >-
+      Зелья делятся на Простые, ВИП-составы и Ультра-класс; принадлежность состава указана в Тинктурнике.
+      Веритасерум — пример Ультра-класса.
+    rule: potions#classes
+    source: https://docs.google.com/document/d/1xLx98e-YjDWiz1ZEAWCDJzbBVr4gT7n5_oV24C-D0hQ/edit
+  - id: semester
+    type: single
+    prompt: Сохранится ли в следующем семестре состав со сроком «1 семестр», сваренный в конце игры?
+    options:
+      - id: b
+        text: Да, на полный следующий семестр
+      - id: c
+        text: Да, если перелить в другую бутылку
+      - id: a
+        text: Нет, потребуется готовить заново
+        correct: true
+    explanation: >-
+      Срок «1 семестр» заканчивается вместе с текущим семестром, даже если состав приготовлен в последние часы
+      игры. Заготовка за несколько дней до игры допустима.
+    rule: potions#semester
+    source: https://docs.google.com/document/d/1xLx98e-YjDWiz1ZEAWCDJzbBVr4gT7n5_oV24C-D0hQ/edit
+  - id: warm
+    type: single
+    prompt: Что означает срок хранения «пока тёплое»?
+    options:
+      - id: c
+        text: Перед употреблением можно разогреть через месяц
+      - id: a
+        text: Употребить сразу, пока не остыло
+        correct: true
+      - id: b
+        text: Хранить до конца года
+    explanation: Пометка «пока тёплое» означает, что состав не хранится и употребляется сразу до остывания.
+    rule: potions#warm
+    source: https://docs.google.com/document/d/1xLx98e-YjDWiz1ZEAWCDJzbBVr4gT7n5_oV24C-D0hQ/edit
+  - id: small-dose
+    type: single
+    prompt: Будет ли эффект от количества меньше указанной дозировки?
+    options:
+      - id: a
+        text: Нет
+        correct: true
+      - id: b
+        text: Да, но вдвое короче
+      - id: c
+        text: Да, но только от Ультра-состава
+    explanation: Дозировка — минимальное количество зелья для эффекта. Меньшее количество эффекта не даёт.
+    rule: potions#small-dose
+    source: https://docs.google.com/document/d/1xLx98e-YjDWiz1ZEAWCDJzbBVr4gT7n5_oV24C-D0hQ/edit
+  - id: large-dose
+    type: single
+    prompt: Как обычно влияет увеличение дозы выше минимальной на силу и длительность зелья?
+    options:
+      - id: b
+        text: Всегда удваивает эффект
+      - id: c
+        text: Всегда превращает его в яд
+      - id: a
+        text: Не влияет
+        correct: true
+    explanation: >-
+      По общему правилу превышение дозы не меняет силу и длительность эффекта. Исключения прямо названы в
+      тинктуре, например Приворотное, Отворотное и Ночи Кабирии.
+    rule: potions#large-dose
+    source: https://docs.google.com/document/d/1xLx98e-YjDWiz1ZEAWCDJzbBVr4gT7n5_oV24C-D0hQ/edit
+  - id: base
+    type: single
+    prompt: Можно ли подлить зелье на основе гранатового сока в гранатовый сок?
+    options:
+      - id: c
+        text: Только если выпить сразу
+      - id: a
+        text: Нет, основа и напиток не должны совпадать
+        correct: true
+      - id: b
+        text: Да, это обязательное условие
+    explanation: При подливании основа зелья не должна совпадать с жидкостью, куда его добавляют.
+    rule: potions#base
+    source: https://docs.google.com/document/d/1xLx98e-YjDWiz1ZEAWCDJzbBVr4gT7n5_oV24C-D0hQ/edit
+  - id: dilution
+    type: single
+    prompt: Одну дозу зелья подлили в бокал. Сколько нужно выпить для эффекта?
+    options:
+      - id: a
+        text: Весь бокал
+        correct: true
+      - id: b
+        text: Одну каплю
+      - id: c
+        text: Ровно половину независимо от объёма
+    explanation: >-
+      После подливания нужно употребить не меньше полной дозы. Если в бокале одна доза, нужно выпить весь
+      бокал; если две — достаточно половины.
+    rule: potions#dilution
+    source: https://docs.google.com/document/d/1xLx98e-YjDWiz1ZEAWCDJzbBVr4gT7n5_oV24C-D0hQ/edit
+  - id: poison-mixture
+    type: single
+    prompt: Что происходит при добавлении односоставного яда в зелье?
+    options:
+      - id: b
+        text: Яд всегда обезвреживается
+      - id: c
+        text: Оба эффекта обязательно усиливаются
+      - id: a
+        text: Зелье портится, яд работает
+        correct: true
+    explanation: >-
+      При добавлении односоставного яда, например яда Василиска, в зелье состав портится, а яд сохраняет
+      действие.
+    rule: potions#poison-mixture
+    source: https://docs.google.com/document/d/1xLx98e-YjDWiz1ZEAWCDJzbBVr4gT7n5_oV24C-D0hQ/edit
+  - id: mix
+    type: single
+    prompt: Можно ли смешать два готовых зелья, сохранив их свойства?
+    options:
+      - id: c
+        text: Да, если цвет одинаковый
+      - id: a
+        text: Нет, это запрещённое действие, состав портится
+        correct: true
+      - id: b
+        text: Да, любое сочетание работает
+    explanation: >-
+      Готовые зелья нельзя смешивать друг с другом. Зелья с запретом подливания нельзя смешивать вообще ни с
+      чем.
+    rule: potions#mix
+    source: https://docs.google.com/document/d/1xLx98e-YjDWiz1ZEAWCDJzbBVr4gT7n5_oV24C-D0hQ/edit
+  - id: state
+    type: single
+    prompt: Можно ли превратить питьевое зелье в пар, сохранив свойства?
+    options:
+      - id: a
+        text: Нет
+        correct: true
+      - id: b
+        text: Да, если нагреть на свечке
+      - id: c
+        text: Да, если зелье простое
+    explanation: >-
+      Зелья нельзя трансфигурировать или менять их агрегатное состояние без последствий: питьевой состав не
+      сохраняет свойства при представлении паром или льдом.
+    rule: potions#state
+    source: https://docs.google.com/document/d/1xLx98e-YjDWiz1ZEAWCDJzbBVr4gT7n5_oV24C-D0hQ/edit
+  - id: recipe
+    type: single
+    prompt: Кто может менять состав или тинктуру, руководствуясь опытом?
+    options:
+      - id: b
+        text: Любой первокурсник
+      - id: c
+        text: Любой покупатель зелья
+      - id: a
+        text: Адепт
+        correct: true
+    explanation: >-
+      Самостоятельно менять ингредиенты или тинктуру нельзя; это может делать Адепт, руководствуясь опытом и
+      здравым смыслом.
+    rule: potions#recipe
+    source: https://docs.google.com/document/d/1xLx98e-YjDWiz1ZEAWCDJzbBVr4gT7n5_oV24C-D0hQ/edit
+  - id: ultra-teacher
+    type: single
+    prompt: Кто может обучать конкретному Ультра-зелью?
+    options:
+      - id: c
+        text: Любой владелец котла
+      - id: a
+        text: Адепт, который сам умеет его варить
+        correct: true
+      - id: b
+        text: Любой, прочитавший название
+    explanation: >-
+      Обучать Ультра-зелью может только Адепт, который сам умеет эту Ультру. Ученику нужны возраст, опыт варки
+      ВИПов, склонность и релевантный опыт.
+    rule: potions#ultra-teacher
+    source: https://docs.google.com/document/d/1xLx98e-YjDWiz1ZEAWCDJzbBVr4gT7n5_oV24C-D0hQ/edit
+  - id: prank-study
+    type: single
+    prompt: Можно ли самостоятельно выучить хулиганское зелье по тинктурнику?
+    options:
+      - id: a
+        text: Да
+        correct: true
+      - id: b
+        text: Нет, всегда нужен Мастер
+      - id: c
+        text: Только после 72 лет
+    explanation: Хулиганские зелья — подвид простых; их можно научиться варить самостоятельно по тинктурнику.
+    rule: potions#prank-study
+    source: https://docs.google.com/document/d/1xLx98e-YjDWiz1ZEAWCDJzbBVr4gT7n5_oV24C-D0hQ/edit
+  - id: component-age
+    type: single
+    prompt: Какой облик даст волос, взятый у волшебника пять лет назад?
+    options:
+      - id: b
+        text: Его нынешний облик
+      - id: c
+        text: Всегда облик ребёнка
+      - id: a
+        text: Облик на момент взятия волоса
+        correct: true
+    explanation: >-
+      Симпатический компонент не меняется вместе с волшебником. Волос пятилетней давности даёт в Оборотном
+      зелье образ пятилетней давности.
+    rule: potions#component-age
+    source: https://docs.google.com/document/d/1xLx98e-YjDWiz1ZEAWCDJzbBVr4gT7n5_oV24C-D0hQ/edit
+  - id: component-use
+    type: single
+    prompt: На сколько составов можно использовать один симпатический компонент?
+    options:
+      - id: c
+        text: На три независимо от размера
+      - id: a
+        text: На один
+        correct: true
+      - id: b
+        text: На любое число при разрезании
+    explanation: Один симпатический компонент используется на один состав; делить один волос на много варок нельзя.
+    rule: potions#component-use
+    source: https://docs.google.com/document/d/1xLx98e-YjDWiz1ZEAWCDJzbBVr4gT7n5_oV24C-D0hQ/edit
+  - id: component-register
+    type: single
+    prompt: Где указать имеющийся симпатический компонент?
+    options:
+      - id: a
+        text: В заявке в поле для штуковин, с примерной датой получения
+        correct: true
+      - id: b
+        text: Только на этикетке котла
+      - id: c
+        text: Нигде, такие компоненты не учитываются
+    explanation: Имеющийся симпатический компонент указывают в заявке в поле для штуковин с примерной датой получения.
+    rule: potions#component-register
+    source: https://docs.google.com/document/d/1xLx98e-YjDWiz1ZEAWCDJzbBVr4gT7n5_oV24C-D0hQ/edit
+  - id: poison-consent
+    type: single
+    prompt: Что нужно для привоза смертельного яда на игру?
+    options:
+      - id: b
+        text: Только непрозрачная бутылка
+      - id: c
+        text: Только разрешение однокурсника
+      - id: a
+        text: Согласование с Отделом Тайн
+        correct: true
+    explanation: >-
+      Смертельные яды редки: их добывают по игре либо согласовывают до игры с мастерами в Отделе Тайн. Обычные
+      несмертельные яды можно привозить как общедоступные ингредиенты.
+    rule: potions#poison-consent
+    source: https://docs.google.com/document/d/1xLx98e-YjDWiz1ZEAWCDJzbBVr4gT7n5_oV24C-D0hQ/edit
+  - id: poison-shelf
+    type: single
+    prompt: Каков обычный срок годности смертельного яда, если не указано иное?
+    options:
+      - id: c
+        text: Бессрочно
+      - id: a
+        text: Год с изготовления
+        correct: true
+      - id: b
+        text: Пятнадцать минут
+    explanation: >-
+      Срок годности смертельного яда — один год с момента изготовления, если описание конкретного яда не
+      задаёт иной срок.
+    rule: potions#poison-shelf
+    source: https://docs.google.com/document/d/1xLx98e-YjDWiz1ZEAWCDJzbBVr4gT7n5_oV24C-D0hQ/edit
+  - id: allergy
+    type: single
+    prompt: Как можно поступить при аллергии на компонент зелья?
+    options:
+      - id: a
+        text: Отыграть приём, вылить зелье и пояснить, что оно выпито
+        correct: true
+      - id: b
+        text: Обязательно выпить всю дозу по жизни
+      - id: c
+        text: Игнорировать игровой эффект без пояснений
+    explanation: >-
+      При аллергии или отказе от алкоголя допустимо лишь отыграть употребление: изобразить приём, вылить зелье
+      и невыразимо пояснить, что оно выпито. Игровой эффект сохраняется.
+    rule: potions#allergy
+    source: https://docs.google.com/document/d/1xLx98e-YjDWiz1ZEAWCDJzbBVr4gT7n5_oV24C-D0hQ/edit
+  - id: real-brew
+    type: single
+    prompt: Можно ли начать игру под зельем, которого никто физически не сварил?
+    options:
+      - id: b
+        text: Да, достаточно написать название
+      - id: c
+        text: Да, если персонаж богат
+      - id: a
+        text: Нет
+        correct: true
+    explanation: >-
+      Нельзя быть под эффектом зелья в начале игры или на сыгровке, если его физически не сварил тот, кто
+      умеет. Требуется реально подготовить состав и отыграть употребление.
+    rule: potions#real-brew
+    source: https://docs.google.com/document/d/1xLx98e-YjDWiz1ZEAWCDJzbBVr4gT7n5_oV24C-D0hQ/edit

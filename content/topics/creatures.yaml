@@ -1,87 +1,428 @@
-# Демонстрационная тема: показывает формат, не является официальными правилами игры.
 id: creatures
-title: Существа
-description: Кто восприимчив к какой магии
-order: 3
+title: Волшебные существа
+description: Взаимодействия, приручение, дементоры, боггарты и нежить
+order: 5
 questions:
-  - id: q1
+  - id: safe-contact
     type: single
-    prompt: Что помогает против дементора?
+    prompt: Как моделируют когти, укусы и удерживание существ?
     options:
-      - { id: a, text: Заклинание Патронуса, correct: true }
-      - { id: b, text: Обычное боевое заклинание }
-      - { id: c, text: Серебро }
-      - { id: d, text: Смех }
-    explanation: Дементоры не восприимчивы к обычным боевым заклинаниям, но отступают перед Патронусом.
-    rule: creatures#dementors
-    source: https://hp-seasons.ru/
-
-  - id: q2
-    type: multiple
-    prompt: Что верно про оборотней?
-    options:
-      - { id: a, text: Укус в полнолуние заразен, correct: true }
-      - { id: b, text: Серебро причиняет им особенно сильный вред, correct: true }
-      - { id: c, text: Они боятся Люмоса }
-    explanation: Укус оборотня в полнолуние заразен, а серебро причиняет им особенно сильный вред.
-    rule: creatures#werewolves
-
-  - id: q3
+      - id: a
+        text: Символически, объявляя эффект словами
+        correct: true
+      - id: b
+        text: Настоящими силовыми захватами
+      - id: c
+        text: Ударами до падения игрока
+    explanation: >-
+      Боёвка преимущественно бесконтактная. Когти, хвосты, рваные раны и удерживание моделируют символически и
+      объявляют словами; толкать, ронять и бить игроков нельзя.
+    rule: creatures#safe-contact
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: scream
     type: single
-    prompt: Каким заклинанием побеждают боггарта?
+    prompt: Что позволяет непрерывный крик, пока существо рвёт жертву и ещё не сообщило эффект?
     options:
-      - { id: a, text: Риддикулус, correct: true }
-      - { id: b, text: Люмос }
-      - { id: c, text: Экспеллиармус }
-    explanation: Боггарта побеждает заклинание Риддикулус и смех.
-    rule: creatures#boggarts
-
-  - id: q4
+      - id: b
+        text: Одновременно колдовать без ограничений
+      - id: c
+        text: Мгновенно уничтожить любое существо
+      - id: a
+        text: Отложить получение эффекта, ничего другого не делая
+        correct: true
+    explanation: >-
+      Если существо начало «рвать», но ещё не сообщило эффект, можно непрерывно кричать: пока крик длится,
+      эффект не получен, но иные действия запрещены. Если существо спугнули за это время, урона нет.
+    rule: creatures#scream
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: hold
     type: single
-    prompt: В какой облик превращается боггарт?
+    prompt: Можно ли аппарировать из объявленного удержания сильным существом?
     options:
-      - { id: a, text: В самого сильного противника }
-      - { id: b, text: "В самый сильный страх того, кто на него смотрит", correct: true }
-      - { id: c, text: В дементора }
-    explanation: Боггарт принимает облик самого сильного страха того, кто на него смотрит.
-    rule: creatures#boggarts
-
-  - id: q5
+      - id: c
+        text: Да, если закрыть глаза
+      - id: a
+        text: Нет, пока оно держит
+        correct: true
+      - id: b
+        text: Да, удержание мешает только ходьбе
+    explanation: >-
+      При объявленном удержании достаточно сильным существом жертва не может сама убежать, аппарировать или
+      иначе сопротивляться, пока её держат.
+    rule: creatures#hold
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: pet-ingredient
     type: single
-    prompt: Как дементоры реагируют на обычные боевые заклинания?
+    prompt: Можно ли собирать ингредиент с простого домашнего питомца без приручения?
     options:
-      - { id: a, text: Не восприимчивы, correct: true }
-      - { id: b, text: Погибают сразу }
-      - { id: c, text: Становятся сильнее }
-    explanation: Дементоры не восприимчивы к обычным боевым заклинаниям.
-    rule: creatures#dementors
-
-  - id: q6
-    type: multiple
-    prompt: Что помогает справиться с боггартом?
-    options:
-      - { id: a, text: Заклинание Риддикулус, correct: true }
-      - { id: b, text: Смех, correct: true }
-      - { id: c, text: Заклинание Патронуса }
-    explanation: Боггарта побеждает заклинание Риддикулус и смех.
-    rule: creatures#boggarts
-
-  - id: q7
+      - id: a
+        text: Нет
+        correct: true
+      - id: b
+        text: Да, каждый час
+      - id: c
+        text: Да, после любого Люмоса
+    explanation: >-
+      Домашний питомец без взаимодействия по приручению ингредиентов не даёт. Задания приручения могут
+      принести ингредиент или привести к потере существа.
+    rule: creatures#pet-ingredient
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: one-pet
     type: single
-    prompt: Когда укус оборотня заразен?
+    prompt: Сколько питомцев можно приручать одновременно?
     options:
-      - { id: a, text: В любое время суток }
-      - { id: b, text: В полнолуние, correct: true }
-      - { id: c, text: Только днём }
-    explanation: Укус оборотня в полнолуние заразен.
-    rule: creatures#werewolves
-
-  - id: q8
+      - id: b
+        text: Трёх
+      - id: c
+        text: Любое количество
+      - id: a
+        text: Одного
+        correct: true
+    explanation: Приручать более одного питомца одновременно невозможно. Не все зверьки пригодны для приручения.
+    rule: creatures#one-pet
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: pet-marker
     type: single
-    prompt: Какой металл особенно опасен для оборотней?
+    prompt: Каким маркером отмечены подходящие дикие зверьки для начала приручения?
     options:
-      - { id: a, text: Золото }
-      - { id: b, text: Серебро, correct: true }
-      - { id: c, text: Медь }
-    explanation: Серебро причиняет оборотням особенно сильный вред.
-    rule: creatures#werewolves
+      - id: c
+        text: Голубая лента на запястье
+      - id: a
+        text: MAGIC с кодом T-1
+        correct: true
+      - id: b
+        text: Белая дуэльная палочка
+    explanation: >-
+      Для начала приручения ищут зверька с маркером MAGIC и кодом T-1, затем обращаются в Отдел Тайн за
+      специальным ботом с заданиями.
+    rule: creatures#pet-marker
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: pet-success
+    type: single
+    prompt: Куда обратиться после успешного приручения, когда зверёк даёт ингредиент?
+    options:
+      - id: a
+        text: В Отдел Тайн
+        correct: true
+      - id: b
+        text: Только в дуэльный клуб
+      - id: c
+        text: Никуда, успех не фиксируется
+    explanation: >-
+      После получения ингредиента по итогам приручения обращаются в Отдел Тайн, где Невыразимцы фиксируют
+      успех. Погибшего или сбежавшего зверька также сдают туда.
+    rule: creatures#pet-success
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: pet-cub
+    type: single
+    prompt: Сколько семестров растёт правильно приручаемый детёныш крупного существа?
+    options:
+      - id: b
+        text: Один час
+      - id: c
+        text: Десять семестров
+      - id: a
+        text: Два семестра
+        correct: true
+    explanation: >-
+      Детёныш крупного существа растёт два семестра, каждый семестр даря ингредиент при правильном приручении,
+      затем уходит в лес; игрушку сдают в Отдел Тайн.
+    rule: creatures#pet-cub
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: pet-small
+    type: single
+    prompt: Сколько семестров живёт взрослое маленькое существо в модели приручения?
+    options:
+      - id: c
+        text: Двенадцать
+      - id: a
+        text: Четыре
+        correct: true
+      - id: b
+        text: Два
+    explanation: >-
+      Взрослое маленькое существо живёт четыре семестра. Каждый цикл требует нового приручения и может
+      подарить ингредиент; после срока зверька сдают в Отдел Тайн.
+    rule: creatures#pet-small
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: super-transfiguration
+    type: single
+    prompt: Действует ли трансфигурация на сверхволшебных существ по общему правилу?
+    options:
+      - id: a
+        text: Нет
+        correct: true
+      - id: b
+        text: Да, всегда Симпла
+      - id: c
+        text: Да, если существо летает
+    explanation: >-
+      Для сверхволшебных существ общее правило: трансфигурация не действует, иммунитет к чарам очень силён;
+      частные уязвимости описаны отдельно.
+    rule: creatures#super-transfiguration
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: boggart-form
+    type: single
+    prompt: В какой облик обычно превращается боггарт перед волшебником?
+    options:
+      - id: b
+        text: В любимого питомца
+      - id: c
+        text: Всегда в чёрный дым
+      - id: a
+        text: В его худший страх
+        correct: true
+    explanation: >-
+      Боггарт принимает форму существа, объекта или предмета, которого стоящий перед ним волшебник боится
+      больше всего; для разных людей выглядит по-разному.
+    rule: creatures#boggart-form
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: boggart-name
+    type: single
+    prompt: Почему боггарту нельзя давать имя?
+    options:
+      - id: c
+        text: Он теряет способность менять форму
+      - id: a
+        text: Его сила возрастает, он выходит из-под контроля
+        correct: true
+      - id: b
+        text: Он немедленно становится домашним питомцем
+    explanation: >-
+      В справочнике существ прямо сказано не давать боггартам имён: это увеличивает их силу и делает
+      неподконтрольными.
+    rule: creatures#boggart-name
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: dementor-near
+    type: single
+    prompt: Можно ли применять Патронус, оказавшись в двух метрах от дементора?
+    options:
+      - id: a
+        text: Нет, на такой дистанции это невозможно
+        correct: true
+      - id: b
+        text: Да, на любой дистанции
+      - id: c
+        text: Только если шептать
+    explanation: >-
+      На расстоянии двух метров от дементора невозможно применять Патронус; убегать и применять другие
+      заклинания можно.
+    rule: creatures#dementor-near
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: dementor-touch
+    type: single
+    prompt: Каков непосредственный эффект касания дементора?
+    options:
+      - id: b
+        text: Цель становится невидимой на час
+      - id: c
+        text: Только выпадает палочка
+      - id: a
+        text: Нельзя двигаться и колдовать, нужно сесть или лечь на 15 секунд
+        correct: true
+    explanation: >-
+      Касание дементора вызывает полную неспособность двигаться и колдовать: нужно сесть или лечь на 15
+      секунд.
+    rule: creatures#dementor-touch
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: dementor-patronus
+    type: single
+    prompt: Как удерживать одного дементора на расстоянии Патронусом?
+    options:
+      - id: c
+        text: Громко смеяться без света
+      - id: a
+        text: Направлять на него луч, не используя другую чару
+        correct: true
+      - id: b
+        text: Один раз включить фонарь и убрать его
+    explanation: >-
+      Патронус отгоняет одного дементора на 7 метров и не даёт подойти, пока луч направлен на него и волшебник
+      не использует другое заклинание.
+    rule: creatures#dementor-patronus
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: dementor-avada
+    type: single
+    prompt: Действует ли Авада Кедавра на дементора?
+    options:
+      - id: a
+        text: Нет
+        correct: true
+      - id: b
+        text: Да, мгновенно уничтожает
+      - id: c
+        text: Обездвиживает на пять минут
+    explanation: >-
+      Согласно разделу о дементоре, Авада Кедавра на него не действует; трансфигурация также не действует,
+      обычными чарами его не поразить.
+    rule: creatures#dementor-avada
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: dementor-interrupted
+    type: single
+    prompt: Что обычно происходит при поцелуе дементора, прерванном раньше 60 секунд?
+    options:
+      - id: b
+        text: Мгновенное полное восстановление
+      - id: c
+        text: Вечное превращение в камень
+      - id: a
+        text: Бессознательное состояние на пять минут
+        correct: true
+    explanation: >-
+      Поцелуй дементора, прерванный раньше 60 секунд, обычно вводит жертву в бессознательное состояние на пять
+      минут; об иных случаях сообщают отдельно.
+    rule: creatures#dementor-interrupted
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: aconite
+    type: single
+    prompt: Предотвращает ли аконит превращение оборотня?
+    options:
+      - id: c
+        text: Да, навсегда снимает проклятие
+      - id: a
+        text: Нет, позволяет контролировать себя, но превращение происходит
+        correct: true
+      - id: b
+        text: Да, полностью отменяет превращение
+    explanation: Оборотень, принявший аконит, может контролировать себя, но превращение всё равно произойдёт.
+    rule: creatures#aconite
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: werewolf-transform
+    type: single
+    prompt: Какие чары не спадают с оборотня при превращении?
+    options:
+      - id: a
+        text: Ультимы
+        correct: true
+      - id: b
+        text: Только бытовые Симплы
+      - id: c
+        text: Все без исключения спадают
+    explanation: В момент превращения с оборотня спадают все чары, кроме Ультимы.
+    rule: creatures#werewolf-transform
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: yeti-laesa
+    type: single
+    prompt: На сколько Лаэза Кордис Ультима обездвиживает Карпатского Йети?
+    options:
+      - id: b
+        text: На 45 минут
+      - id: c
+        text: Навсегда
+      - id: a
+        text: На одну минуту
+        correct: true
+    explanation: >-
+      Лаэза Кордис Ультима обездвиживает Карпатского Йети на одну минуту; Авада Кедавра также обездвиживает
+      его на минуту.
+    rule: creatures#yeti-laesa
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: yeti-transform
+    type: single
+    prompt: Что происходит после пяти минут трансфигурации Карпатского Йети?
+    options:
+      - id: c
+        text: Он становится домашним питомцем
+      - id: a
+        text: Возвращается исходная форма и появляется иммунитет к этому превращению
+        correct: true
+      - id: b
+        text: Он навсегда теряет разум
+    explanation: >-
+      Трансфигурация любого уровня превращает Йети на пять минут, после чего он возвращается и приобретает
+      иммунитет к конкретному превращению. Для длительного превращения требуется серия разных вариантов по
+      полным правилам.
+    rule: creatures#yeti-transform
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: ghoul-ground
+    type: single
+    prompt: Что делает Лаэза Кордис Ультима с упырём на земле?
+    options:
+      - id: a
+        text: Загоняет под землю на минуту
+        correct: true
+      - id: b
+        text: Убивает навсегда
+      - id: c
+        text: Обездвиживает на 45 минут
+    explanation: >-
+      Лаэза Кордис Ультима загоняет находящегося на земле упыря под землю на минуту. Это актуальная поправка
+      взамен старого правила о пяти минутах обездвиживания.
+    rule: creatures#ghoul-ground
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: ghoul-air
+    type: single
+    prompt: Как действует Лаэза Кордис Ультима на упыря не на земле?
+    options:
+      - id: b
+        text: Упырь исчезает навсегда
+      - id: c
+        text: Упырь немедленно закапывается в камень
+      - id: a
+        text: Упырь падает на 30 секунд
+        correct: true
+    explanation: Если Лаэза Кордис Ультима попадает в упыря не на земле, он падает на 30 секунд.
+    rule: creatures#ghoul-air
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: ghoul-hidden
+    type: single
+    prompt: Уязвим ли закопавшийся упырь для обычных чар?
+    options:
+      - id: c
+        text: Только для Люмоса
+      - id: a
+        text: Нет, под землёй он неуязвим для чар
+        correct: true
+      - id: b
+        text: Да, для всех Симпл
+    explanation: >-
+      Под землёй упырь неуязвим для чар; его местоположение заметно по взгорбленной земле. Закапывание или
+      выкапывание занимает полторы секунды.
+    rule: creatures#ghoul-hidden
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: ghoul-floor
+    type: single
+    prompt: Может ли упырь выкопаться на каменном или деревянном полу?
+    options:
+      - id: a
+        text: Нет
+        correct: true
+      - id: b
+        text: Да, без ограничений
+      - id: c
+        text: Только при свете Люмоса
+    explanation: Упырь не может выкапываться на деревянном или каменном полу либо объектах.
+    rule: creatures#ghoul-floor
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: ghoul-millet
+    type: single
+    prompt: Что нужно для отвлечения упыря просом?
+    options:
+      - id: b
+        text: Молча спрятать крупу в далёком углу
+      - id: c
+        text: Показать рисунок крупы
+      - id: a
+        text: Бросить крупу перед ним и привлечь внимание криком «Просо»
+        correct: true
+    explanation: >-
+      Для отвлечения крупу бросают перед упырём и привлекают внимание криком «Просо». Обычно это даёт не более
+      десяти секунд; уже пожирающего жертву упыря просо не отвлечёт.
+    rule: creatures#ghoul-millet
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+  - id: ghoul-salt
+    type: single
+    prompt: Как действует кольцо соли с возвышенными стихами против упыря?
+    options:
+      - id: c
+        text: Немедленно уничтожает упыря
+      - id: a
+        text: Не позволяет проникнуть внутрь, даже под землёй
+        correct: true
+      - id: b
+        text: Работает только как украшение
+    explanation: >-
+      Упырь, как нежить, не может проникнуть в кольцо соли, внутри которого с чувством читают возвышенные
+      стихи или поют возвышенные песни; запрет действует и под землёй.
+    rule: creatures#ghoul-salt
+    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit

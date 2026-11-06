@@ -1,0 +1,287 @@
+id: transfiguration
+title: Трансфигурация
+description: Превращения, зачарования, свитки и ограничения
+order: 7
+questions:
+  - id: essence
+    type: single
+    prompt: Что изменяет трансфигурация согласно описанию дисциплины?
+    options:
+      - id: a
+        text: Внешние явленные свойства, не внутреннюю суть
+        correct: true
+      - id: b
+        text: Любую внутреннюю суть без ограничений
+      - id: c
+        text: Только воспоминания
+    explanation: >-
+      Трансфигурация изменяет внешние, явленные свойства объекта, не затрагивая внутренней сути. Это включает
+      физические параметры и наделение волшебными особенностями.
+    rule: transfiguration#essence
+    source: https://hp-seasons.ru/transfiguracziya/
+  - id: order
+    type: single
+    prompt: Для каких знаков сохраняются исключения из свободного порядка зачарования?
+    options:
+      - id: b
+        text: Все знаки без исключения
+      - id: c
+        text: Только Порождение
+      - id: a
+        text: Область и Ультима
+        correct: true
+    explanation: >-
+      Поправка от 24 февраля 2026 года разрешает свободный порядок знаков зачарования, кроме Области и
+      Ультимы.
+    rule: transfiguration#order
+    source: https://hp-seasons.ru/transfiguracziya/
+  - id: will
+    type: single
+    prompt: Что нужно вписать в свиток при вложении Воли волшебника?
+    options:
+      - id: c
+        text: Название любого созвездия
+      - id: a
+        text: Имя волшебника
+        correct: true
+      - id: b
+        text: Только дату рождения игрока
+    explanation: При вложении Воли волшебника в свиток обязательно вписывают его имя.
+    rule: transfiguration#will
+    source: https://hp-seasons.ru/transfiguracziya/
+  - id: strength
+    type: single
+    prompt: В какой предмет можно вложить знак Силы?
+    options:
+      - id: a
+        text: В достаточно прочный предмет
+        correct: true
+      - id: b
+        text: В любую тонкую бумажку
+      - id: c
+        text: Только в жидкость
+    explanation: >-
+      Знак Силы вкладывают только в прочные предметы: если вещь легко разломать или разорвать руками человека
+      средней силы, она недостаточно прочна.
+    rule: transfiguration#strength
+    source: https://hp-seasons.ru/transfiguracziya/
+  - id: product
+    type: single
+    prompt: Как знак Изделие влияет на исходный объект?
+    options:
+      - id: b
+        text: Всегда сохраняет его полностью
+      - id: c
+        text: Только меняет ему имя
+      - id: a
+        text: Уничтожает или перерабатывает его
+        correct: true
+    explanation: >-
+      Знак Изделие уничтожает или перерабатывает исходный объект как материал. Порождение, в отличие от него,
+      исходный объект не затрагивает.
+    rule: transfiguration#product
+    source: https://hp-seasons.ru/transfiguracziya/
+  - id: barrier-spell
+    type: single
+    prompt: Можно ли свободно колдовать чару, вложенную тобой в барьер?
+    options:
+      - id: c
+        text: Да, но только на себя
+      - id: a
+        text: Нет, на время вложения она теряется
+        correct: true
+      - id: b
+        text: Да, вложение ничего не меняет
+    explanation: >-
+      Вложив чару в барьер, волшебник временно теряет её. Если всё же скастовал, нужно идти в Отдел Тайн:
+      барьер продолжает стоять, а невозможное совершено сверхусилием за счёт магии.
+    rule: transfiguration#barrier-spell
+    source: https://hp-seasons.ru/transfiguracziya/
+  - id: golem
+    type: single
+    prompt: Какую форму должен иметь почти неуязвимый к чарам сверхсильный голем?
+    options:
+      - id: a
+        text: Плотная человекообразная статуя
+        correct: true
+      - id: b
+        text: Любая табуретка
+      - id: c
+        text: Пустой доспех
+    explanation: >-
+      Сверхсильный голем, почти неуязвимый к чарам, может быть только плотной статуей человекообразной формы;
+      табуретка и пустой доспех не подходят.
+    rule: transfiguration#golem
+    source: https://hp-seasons.ru/transfiguracziya/
+  - id: remove-alone
+    type: single
+    prompt: Можно ли совместно «скинуться» знаками, чтобы снять превращение?
+    options:
+      - id: b
+        text: Да, обязательно втроём
+      - id: c
+        text: Да, если все первокурсники
+      - id: a
+        text: Нет, снимающий работает строго один
+        correct: true
+    explanation: >-
+      Для создания Зачарования или Превращения можно объединить знаки нескольких волшебников, но при снятии
+      волшебник должен работать строго в одиночку.
+    rule: transfiguration#remove-alone
+    source: https://hp-seasons.ru/transfiguracziya/
+  - id: levels-separate
+    type: single
+    prompt: Считаются ли Инсендио Максима и Ультима одной чарой при вложении?
+    options:
+      - id: c
+        text: Да, если донор один
+      - id: a
+        text: Нет, это две разные чары
+        correct: true
+      - id: b
+        text: Да, различается только громкость
+    explanation: >-
+      Инсендио Максима и Инсендио Ультима при вложении — разные чары; для разной степени воздействия нужны
+      отдельные доноры. Аналогично для других чар.
+    rule: transfiguration#levels-separate
+    source: https://hp-seasons.ru/transfiguracziya/
+  - id: useful-symbol
+    type: single
+    prompt: Можно ли вложить знак, который ничего не делает?
+    options:
+      - id: a
+        text: Нет, ему нужна строка рабочего функционала в закрытом содержании
+        correct: true
+      - id: b
+        text: Да, ради симметрии
+      - id: c
+        text: Да, если знак красивый
+    explanation: >-
+      Каждому вложенному символу должна соответствовать обязательная строка рабочего функционала в закрытом
+      содержании свитка; бесполезные знаки вкладывать нельзя.
+    rule: transfiguration#useful-symbol
+    source: https://hp-seasons.ru/transfiguracziya/
+  - id: words
+    type: single
+    prompt: Можно ли использовать несуществующие слова в цепочке превращения?
+    options:
+      - id: b
+        text: Да, любые придуманные
+      - id: c
+        text: Только если написать латиницей
+      - id: a
+        text: Нет, слова должны находиться хотя бы в одном словаре
+        correct: true
+    explanation: >-
+      Несуществующие слова в свитках запрещены: слова цепочки должны находиться хотя бы в одном словаре. Отдел
+      Тайн может сверяться со словарями.
+    rule: transfiguration#words
+    source: https://hp-seasons.ru/transfiguracziya/
+  - id: read-scroll
+    type: single
+    prompt: Как посмотреть чужой свиток, не снимая трансфигурацию?
+    options:
+      - id: c
+        text: Просто коснуться палочкой и ничего не говорить
+      - id: a
+        text: Внятно произнести приёмы или символы и добавить «Метагнозио»
+        correct: true
+      - id: b
+        text: Прочитать молча
+    explanation: >-
+      Чужой свиток нельзя читать молча: нужно чётко произнести приёмы на греческом либо символы на арамейском
+      и закончить словом «Метагнозио».
+    rule: transfiguration#read-scroll
+    source: https://hp-seasons.ru/transfiguracziya/
+  - id: areas
+    type: single
+    prompt: Сколько Областей может одновременно поставить один трансфигуратор?
+    options:
+      - id: a
+        text: Не более трёх
+        correct: true
+      - id: b
+        text: Не более семи
+      - id: c
+        text: Неограниченно
+    explanation: >-
+      Каждый трансфигуратор может поставить не более трёх Областей. После третьей знак недоступен для новых
+      зачарований, пока одну не снимут; при случайной четвёртой идут в Отдел Тайн.
+    rule: transfiguration#areas
+    source: https://hp-seasons.ru/transfiguracziya/
+  - id: household
+    type: single
+    prompt: Можно ли вкладывать бытовые чары в Зачарование по обновлённым правилам?
+    options:
+      - id: b
+        text: Да, любые
+      - id: c
+        text: Только Люмос и Акцио
+      - id: a
+        text: Нет; Морфеус отдельно остаётся допустимым
+        correct: true
+    explanation: Бытовые чары больше нельзя вкладывать в Зачарование. Морфеус по явному уточнению всё ещё можно.
+    rule: transfiguration#household
+    source: https://hp-seasons.ru/transfiguracziya/
+  - id: decorative
+    type: single
+    prompt: На какие объекты действует декоративная трансфигурация?
+    options:
+      - id: c
+        text: Только животных
+      - id: a
+        text: Только неживые
+        correct: true
+      - id: b
+        text: Только части собственного тела
+    explanation: >-
+      Косметической трансфигурации больше нет; декоративная работает только с неживыми объектами. Превращать
+      части себя с её помощью нельзя.
+    rule: transfiguration#decorative
+    source: https://hp-seasons.ru/transfiguracziya/
+  - id: senses
+    type: single
+    prompt: С какого расстояния должны различаться органы зрения, слуха или речи на предмете?
+    options:
+      - id: a
+        text: С полуметра
+        correct: true
+      - id: b
+        text: Со ста метров
+      - id: c
+        text: Только через лупу
+    explanation: >-
+      Размер органов зрения, слуха и речи должен быть ясно различим другим волшебником с полуметра. Незаметные
+      глаза на крошечном кольце не дают ему зрения.
+    rule: transfiguration#senses
+    source: https://hp-seasons.ru/transfiguracziya/
+  - id: recording
+    type: single
+    prompt: Разрешена ли техника для записи аудио и видео как обычное вложение Памяти?
+    options:
+      - id: b
+        text: Да, любой телефон
+      - id: c
+        text: Да, если спрятать камеру
+      - id: a
+        text: Нет
+        correct: true
+    explanation: >-
+      Технику записи аудио и видео запрещено использовать как вложение Памяти. Особые игровые записывающие
+      предметы согласуются и чипуются индивидуально в Отделе Тайн с наклейкой Magic.
+    rule: transfiguration#recording
+    source: https://hp-seasons.ru/transfiguracziya/
+  - id: after-death
+    type: single
+    prompt: Что происходит с трансфигурацией после смерти создавшего её волшебника?
+    options:
+      - id: c
+        text: Автоматически становится Ультимой
+      - id: a
+        text: Она продолжает работать и содержит частицы его магии
+        correct: true
+      - id: b
+        text: Сразу исчезает
+    explanation: Если волшебник умер, его трансфигурация продолжает работать и содержит частицы его магии.
+    rule: transfiguration#after-death
+    source: https://hp-seasons.ru/transfiguracziya/

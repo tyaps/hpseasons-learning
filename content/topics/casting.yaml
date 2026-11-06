@@ -1,0 +1,483 @@
+id: casting
+title: Применение чар
+description: Дистанция, видимость, щиты, обучение и волшебные палочки
+order: 1
+questions:
+  - id: levels
+    type: single
+    prompt: Какие три уровня силы чар названы в Гримуаре?
+    options:
+      - id: a
+        text: Симпла, Максима, Ультима
+        correct: true
+      - id: b
+        text: Новичок, Умелец, Адепт
+      - id: c
+        text: Лёгкий, средний, смертельный
+    explanation: "У чар есть максимум три уровня силы: Симпла, Максима и Ультима; отдельные чары имеют не все три уровня."
+    rule: casting#levels
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: range
+    type: single
+    prompt: Какова обычная максимальная дистанция боевой чары?
+    options:
+      - id: b
+        text: 7 метров от кончика палочки
+      - id: c
+        text: 15 метров от сердца до сердца
+      - id: a
+        text: 7 метров от сердца до сердца
+        correct: true
+    explanation: Боевая дистанция составляет от 0 до 7 метров и измеряется «от сердца до сердца».
+    rule: casting#range
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: start-distance
+    type: single
+    prompt: Можно ли начать боевую чару, если до цели один метр?
+    options:
+      - id: c
+        text: Да, если это Симпла
+      - id: a
+        text: Нет, начинать ближе двух метров запрещено
+        correct: true
+      - id: b
+        text: Да, если цель смотрит на атакующего
+    explanation: >-
+      Начинать боевую чару при расстоянии до цели менее двух метров запрещено; завершить уже начатую по
+      приблизившейся цели можно.
+    rule: casting#start-distance
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: escape-range
+    type: single
+    prompt: Цель успела отбежать дальше 7 метров до завершения чары. Что происходит?
+    options:
+      - id: a
+        text: Чара не срабатывает
+        correct: true
+      - id: b
+        text: Чара догоняет цель
+      - id: c
+        text: Чара автоматически ослабевает до Симплы
+    explanation: Если цель выходит за границу боевого расстояния до завершения чары, чара не срабатывает.
+    rule: casting#escape-range
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: flying-range
+    type: single
+    prompt: Как считается расстояние между летящим на метле и объектом на земле?
+    options:
+      - id: b
+        text: Как 2 метра
+      - id: c
+        text: Только по горизонтальной проекции
+      - id: a
+        text: Как более 7 метров
+        correct: true
+    explanation: >-
+      Между полётом на метле и объектом на земле выразимо считается более 7 метров. Аналогичное правило
+      действует для второго этажа и земли.
+    rule: casting#flying-range
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: visibility
+    type: single
+    prompt: Какую часть цели должен видеть атакующий при завершении чары?
+    options:
+      - id: c
+        text: Любую часть одежды
+      - id: a
+        text: Две трети тела или лицо
+        correct: true
+      - id: b
+        text: Только кончик палочки
+    explanation: >-
+      Атакующий должен видеть две трети тела цели или её лицо; сам он должен быть открыт цели не менее чем на
+      две трети тела.
+    rule: casting#visibility
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: glass
+    type: single
+    prompt: Пройдёт ли чара сквозь стационарное прозрачное стекло?
+    options:
+      - id: a
+        text: Нет
+        correct: true
+      - id: b
+        text: Да, если видно лицо
+      - id: c
+        text: Только Ультима
+    explanation: Стационарное стекло и прозрачные объекты препятствуют чарам, даже когда цель хорошо видна.
+    rule: casting#glass
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: grille
+    type: single
+    prompt: Что сказано о решётке как препятствии для чар?
+    options:
+      - id: b
+        text: Решётка блокирует все чары
+      - id: c
+        text: Решётка пропускает только бытовые чары
+      - id: a
+        text: Решётка не является препятствием
+        correct: true
+    explanation: Чары действуют сквозь проёмы и решётки, а также через дым и туман; занавески их не пропускают.
+    rule: casting#grille
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: named
+    type: single
+    prompt: Зачем добавлять описание цели к названию чары?
+    options:
+      - id: c
+        text: Чтобы обойти стену
+      - id: a
+        text: Чтобы пояснить, в кого колдуют
+        correct: true
+      - id: b
+        text: Чтобы увеличить дальность
+    explanation: >-
+      Именная чара уточняет цель в ситуации неопределённости, но не отменяет правила дистанции и видимости.
+      Невыразимые имена использовать нельзя.
+    rule: casting#named
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: no-detection
+    type: single
+    prompt: Поможет ли «Ступефай, оборотень» выяснить, кто из незнакомцев оборотень?
+    options:
+      - id: a
+        text: Нет, колдующий должен понимать, в кого направляет чару
+        correct: true
+      - id: b
+        text: Да, чара выберет оборотня
+      - id: c
+        text: Да, но только ночью
+    explanation: >-
+      Именную чару нельзя использовать для проверки неизвестного свойства цели: она не выбирает за колдующего,
+      кто является оборотнем.
+    rule: casting#no-detection
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: rule-three
+    type: single
+    prompt: Когда можно повторить ту же атакующую боевую чару?
+    options:
+      - id: b
+        text: После любого бытового заклинания
+      - id: c
+        text: Сразу, если изменить уровень силы
+      - id: a
+        text: После двух других атакующих боевых чар
+        correct: true
+    explanation: >-
+      Одну атакующую боевую чару независимо от уровня можно повторять лишь через две другие атакующие боевые
+      чары. Бытовые чары в этот счёт не входят.
+    rule: casting#rule-three
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: shield-strength
+    type: single
+    prompt: Что требуется от соответствующего щита для защиты без штрафа за слабость?
+    options:
+      - id: c
+        text: Любой уровень, если произнести громко
+      - id: a
+        text: Тот же уровень силы или выше
+        correct: true
+      - id: b
+        text: Всегда только Ультима
+    explanation: Соответствующий атаке щит той же силы или выше отбивает чару без обморока за недостаточную силу.
+    rule: casting#shield-strength
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: weak-shield
+    type: single
+    prompt: Что случится при отражении чары щитом на один уровень слабее?
+    options:
+      - id: a
+        text: Чара отбита, защищающийся теряет сознание на 15 секунд
+        correct: true
+      - id: b
+        text: Чара действует в полную силу
+      - id: c
+        text: Защищающийся теряет палочку навсегда
+    explanation: Щит на один уровень слабее атаки отражает её, но защищающийся падает в обморок на 15 секунд.
+    rule: casting#weak-shield
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: shield-window
+    type: single
+    prompt: Сколько примерно времени есть, чтобы начать щит после прилёта чары?
+    options:
+      - id: b
+        text: Десять секунд
+      - id: c
+        text: Минута
+      - id: a
+        text: Одна секунда
+        correct: true
+    explanation: После прилёта чары есть примерно одна секунда, чтобы начать делать соответствующий щит.
+    rule: casting#shield-window
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: shield-queue
+    type: single
+    prompt: Как защищаться от нескольких пришедших подряд чар?
+    options:
+      - id: c
+        text: Сначала отбить самую сильную независимо от очереди
+      - id: a
+        text: Непрерывно делать щиты в порядке поступления чар
+        correct: true
+      - id: b
+        text: Поставить один щит от последней чары
+    explanation: >-
+      Для последовательности атак щиты делают непрерывно в порядке поступления. Прерывание или нарушение
+      порядка пропускает ещё не отражённые чары.
+    rule: casting#shield-queue
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: cover
+    type: single
+    prompt: Как принять одиночную чару, предназначенную другому?
+    options:
+      - id: a
+        text: В течение секунды встать между ним и атакующим, обозначив «Закрыл!»
+        correct: true
+      - id: b
+        text: Коснуться защищаемого спустя минуту
+      - id: c
+        text: Произнести имя атакующего из укрытия
+    explanation: >-
+      В течение одной секунды после завершения атаки можно встать между целью и атакующим и жестом и словом
+      обозначить принятие чары. Касаться защищаемого не нужно; затем допустим щит.
+    rule: casting#cover
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: contact-back
+    type: single
+    prompt: Разрешены ли контактные чары со спины?
+    options:
+      - id: b
+        text: Да, если цель не заметила
+      - id: c
+        text: Только ночью
+      - id: a
+        text: Нет
+        correct: true
+    explanation: >-
+      Контактные чары нельзя делать со спины; их исполняют максимально аккуратно для безопасности другого
+      игрока.
+    rule: casting#contact-back
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: contact-ultima
+    type: single
+    prompt: Можно ли применить контактную чару к исполняющему Ультиму?
+    options:
+      - id: c
+        text: Да, если коснуться одежды
+      - id: a
+        text: Нет
+        correct: true
+      - id: b
+        text: Да, если это Морфеус
+    explanation: Контактные чары нельзя применять к волшебнику, который исполняет чару уровня Ультима.
+    rule: casting#contact-ultima
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: fan-angle
+    type: single
+    prompt: Какую зону поражает веерная чара?
+    options:
+      - id: a
+        text: Конус 90 градусов перед колдующим
+        correct: true
+      - id: b
+        text: Круг на 360 градусов
+      - id: c
+        text: Только ближайшего человека
+    explanation: >-
+      Веерная чара атакует существ в конусе 90 градусов перед колдующим; дистанция и видимость продолжают
+      действовать.
+    rule: casting#fan-angle
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: fan-cover
+    type: single
+    prompt: Можно ли спасти другого от веерной чары, закрыв его собой?
+    options:
+      - id: b
+        text: Да, если закрыть лицо
+      - id: c
+        text: Да, если крикнуть «Закрыл!» дважды
+      - id: a
+        text: Нет, под эффект попадут оба
+        correct: true
+    explanation: >-
+      Закрыть собой от веерной чары нельзя: оба волшебника попадают под её действие и должны защищаться щитами
+      самостоятельно.
+    rule: casting#fan-cover
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: fan-access
+    type: single
+    prompt: Кто может применять веерные чары?
+    options:
+      - id: c
+        text: Каждый студент первого курса
+      - id: a
+        text: Владеющий особым умением
+        correct: true
+      - id: b
+        text: Любой, кто добавил слово «веерное»
+    explanation: >-
+      Веерное применение — отдельное умение, доступное не всем. Веерными могут быть только разрешённые
+      описанием боевые чары Максима или Ультима; веерных щитов нет.
+    rule: casting#fan-access
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: ultima-cast
+    type: single
+    prompt: Каково общее ограничение исполнения одной Ультимы?
+    options:
+      - id: a
+        text: Не более 15 секунд
+        correct: true
+      - id: b
+        text: Ровно 45 минут
+      - id: c
+        text: Не менее одной минуты
+    explanation: >-
+      Одну чару уровня Ультима нельзя делать более 15 секунд; цикл исполнения допустим только в Протего
+      Ультима.
+    rule: casting#ultima-cast
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: sitting
+    type: single
+    prompt: Какую чару разрешено делать из любого положения?
+    options:
+      - id: b
+        text: Ступефай Максима
+      - id: c
+        text: Инсендио Ультима
+      - id: a
+        text: Протего
+        correct: true
+    explanation: >-
+      Чары нельзя делать сидя, хотя можно вставая. Исключение — Протего, которое можно делать из любого
+      положения.
+    rule: casting#sitting
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: foreign-wand
+    type: single
+    prompt: Какой уровень чар обычно доступен с чужой палочкой?
+    options:
+      - id: c
+        text: Только Ультима
+      - id: a
+        text: Только Симпла
+        correct: true
+      - id: b
+        text: Любой выученный уровень
+    explanation: >-
+      Одновременно у волшебника может быть лишь одна «своя» палочка. Обычная чужая палочка позволяет исполнять
+      только Симплу; особые связи уточняют в Отделе Тайн.
+    rule: casting#foreign-wand
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: duel-wand
+    type: single
+    prompt: Как распознать дуэльные палочки и что они делают?
+    options:
+      - id: a
+        text: Белоснежные, создают лишь видимость чар
+        correct: true
+      - id: b
+        text: Чёрные, усиливают атакующие чары
+      - id: c
+        text: Красные, снимают все последствия
+    explanation: >-
+      Дуэльные палочки — пара белоснежных палочек, не производящих настоящих чар. Их можно одалживать и
+      использовать для отработки заклятий.
+    rule: casting#duel-wand
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: second-wand
+    type: single
+    prompt: Что допустимо взять второй палочкой при исполнении Ультимы?
+    options:
+      - id: b
+        text: Обязательно вторую личную палочку
+      - id: c
+        text: Любой тяжёлый металлический прут
+      - id: a
+        text: Симпловую или дуэльную палочку
+        correct: true
+    explanation: >-
+      Второй палочкой для Ультимы может быть любая симпловая или дуэльная; допустим подходящий статусный
+      предмет. Тяжёлых травмоопасных предметов следует избегать.
+    rule: casting#second-wand
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: register
+    type: single
+    prompt: Где должны быть записаны освоенные чары?
+    options:
+      - id: c
+        text: Только в расписании уроков
+      - id: a
+        text: В заявке и Паспорте Волшебника
+        correct: true
+      - id: b
+        text: Только в личной тетради
+    explanation: >-
+      Все освоенные чары обязательно фиксируются Отделом Тайн в заявке и визирующим обучение в Паспорте
+      Волшебника. Без этих записей чары у волшебника нет.
+    rule: casting#register
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: teach
+    type: single
+    prompt: На какой уровень обычно может обучить чаре волшебник без статуса Адепта?
+    options:
+      - id: a
+        text: На уровень ниже своего владения
+        correct: true
+      - id: b
+        text: Всегда на Ультиму
+      - id: c
+        text: Только тому, что сам не умеет
+    explanation: >-
+      Любой волшебник может обучить известной чаре на уровень ниже, после чего её чипует Умелец, Адепт или
+      Мастер. Для статусов есть дополнительные возможности.
+    rule: casting#teach
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: youth
+    type: single
+    prompt: Когда Максиму можно делать без возрастного надрыва?
+    options:
+      - id: b
+        text: Сразу после поступления в школу
+      - id: c
+        text: Только после 72 лет
+      - id: a
+        text: После 17 лет
+        correct: true
+    explanation: >-
+      В юности с 15 до 17 лет доступна Симпла; Максиму можно изучить, но без надрыва самостоятельно делать
+      только после 17 лет.
+    rule: casting#youth
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: young-slots
+    type: single
+    prompt: Сколько Ультим обычно можно делать без надрыва с 17 до 33 лет?
+    options:
+      - id: c
+        text: Неограниченно
+      - id: a
+        text: До трёх
+        correct: true
+      - id: b
+        text: До семи
+    explanation: >-
+      В возрасте от 17 до 33 лет можно научиться и делать без надрыва до трёх Ультим; прочие выученные
+      доступны, например, под Патронажем.
+    rule: casting#young-slots
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: mature-slots
+    type: single
+    prompt: Сколько Ультим можно делать без надрыва в возрасте от 33 до 72 лет?
+    options:
+      - id: a
+        text: Семь
+        correct: true
+      - id: b
+        text: Одну
+      - id: c
+        text: Двенадцать
+    explanation: >-
+      В зрелости с 33 до 72 лет можно владеть и делать без надрыва семь Ультим; доступно обучение веерной
+      Максиме.
+    rule: casting#mature-slots
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit

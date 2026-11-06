@@ -1,98 +1,797 @@
-# Демонстрационная тема: показывает формат, не является официальными правилами игры.
 id: spells
-title: Заклинания
-description: Формулы, жесты и условия колдовства
-order: 1
+title: Эффекты чар
+description: Боевые, специальные и бытовые заклинания с учётом правил игры
+order: 2
 questions:
-  - id: q1
+  - id: protego
     type: single
-    prompt: Что обязательно должно быть у персонажа, чтобы колдовать?
+    prompt: Какой щит соответствует Импедименте, Тарант Аллегра и Силенцио?
     options:
-      - { id: a, text: Волшебная палочка, correct: true }
-      - { id: b, text: Книга заклинаний }
-      - { id: c, text: Фамильяр }
-      - { id: d, text: Мантия факультета }
-    explanation: Для колдовства персонажу нужна волшебная палочка.
-    rule: spells#casting
-
-  - id: q2
+      - id: a
+        text: Протего
+        correct: true
+      - id: b
+        text: Парабеллум
+      - id: c
+        text: Флоридус
+    explanation: >-
+      Импедимента, Тарант Аллегра и Силенцио относятся к классу Протего. Обычный Протего защищает только со
+      стороны атаки, а не от чар в бок или спину.
+    rule: spells#protego
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: protego-ultima
     type: single
-    prompt: Какое заклинание выбивает предмет из рук цели?
+    prompt: Как долго держится физическая защита Протего Ультима?
     options:
-      - { id: a, text: Люмос }
-      - { id: b, text: Экспеллиармус, correct: true }
-      - { id: c, text: Акцио }
-    explanation: Экспеллиармус — обезоруживающее заклятие, оно выбивает предмет из рук цели.
-    rule: spells#disarming
-
-  - id: q3
-    type: multiple
-    prompt: Какие из этих заклятий относятся к непростительным?
-    options:
-      - { id: a, text: Империус, correct: true }
-      - { id: b, text: Круциатус, correct: true }
-      - { id: c, text: Экспеллиармус }
-      - { id: d, text: Люмос }
-    explanation: Непростительных заклятий три — Империус, Круциатус и Авада Кедавра. Экспеллиармус и Люмос к ним не относятся.
-    rule: spells#unforgivable
-
-  - id: q4
+      - id: b
+        text: 45 минут после окончания движений
+      - id: c
+        text: До следующего утра
+      - id: a
+        text: Только пока исполняются движения, не более 10 поворотов
+        correct: true
+    explanation: >-
+      Протего Ультима защищает от физических воздействий только во время исполнения; допустимо не более десяти
+      поворотов.
+    rule: spells#protego-ultima
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: impedimenta
     type: single
-    prompt: Какая формула у обезоруживающего заклятия?
+    prompt: Как действует Импедимента Симпла на ноги?
     options:
-      - { id: a, text: Экспеллиармус, correct: true }
-      - { id: b, text: Экспекто Патронум }
-      - { id: c, text: Круцио }
-      - { id: d, text: Вингардиум Левиоса }
-    explanation: Формула обезоруживающего заклятия — Экспеллиармус (Expelliarmus).
-    rule: spells#disarming
-
-  - id: q5
+      - id: c
+        text: Заставляет бежать без остановки
+      - id: a
+        text: Онемевает одна нога, можно сильно хромать
+        correct: true
+      - id: b
+        text: Полностью парализует обе руки
+    explanation: >-
+      Импедимента Симпла вызывает онемение одной ноги: можно ходить сильно прихрамывая и колдовать Симплу, но
+      нельзя бегать или делать Максиму и Ультиму.
+    rule: spells#impedimenta
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: impedimenta-maxima
     type: single
-    prompt: Какое заклинание создаёт свет на конце палочки?
+    prompt: Как можно перемещаться под Импедиментой Максима?
     options:
-      - { id: a, text: Нокс }
-      - { id: b, text: Люмос, correct: true }
-      - { id: c, text: Инсендио }
-    explanation: Заклинание света — Люмос (Lumos).
-    rule: spells
-
-  - id: q6
+      - id: a
+        text: Ползком, ноги не держат
+        correct: true
+      - id: b
+        text: Свободно бегать
+      - id: c
+        text: Только быстрым танцем
+    explanation: >-
+      Под Импедиментой Максима обе ноги подкашиваются, стоять нельзя; можно сидеть и ползти по-пластунски.
+      Речь сохраняется, из сидячего положения доступен Протего.
+    rule: spells#impedimenta-maxima
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: impedimenta-ultima
     type: single
-    prompt: Как правильно указать цель заклинания в посте?
+    prompt: Каково положение тела под Импедиментой Ультима?
     options:
-      - { id: a, text: "Не указывать, цель понятна из контекста" }
-      - { id: b, text: Явно назвать цель, correct: true }
-      - { id: c, text: Указать только палочку }
-    explanation: Цель заклинания в посте указывается явно.
-    rule: spells#casting
-
-  - id: q7
-    type: multiple
-    prompt: Что нужно записать в посте при колдовстве?
-    options:
-      - { id: a, text: Формулу заклинания целиком, correct: true }
-      - { id: b, text: Название палочки }
-      - { id: c, text: Цель заклинания, correct: true }
-    explanation: В посте записывается формула целиком и явно указывается цель.
-    rule: spells#casting
-
-  - id: q8
+      - id: b
+        text: Вертикальное, с прихрамыванием
+      - id: c
+        text: Любое, если не говорить
+      - id: a
+        text: Строго горизонтальное, без перемещения
+        correct: true
+    explanation: >-
+      Импедимента Ультима лишает возможности сидеть и перемещаться: положение строго горизонтальное, колдовать
+      нельзя, речевое общение сохраняется.
+    rule: spells#impedimenta-ultima
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: tarant-maxima
     type: single
-    prompt: Сколько всего непростительных заклятий?
+    prompt: Может ли цель Тарант Аллегра Максима выбрать направление танца?
     options:
-      - { id: a, text: Два }
-      - { id: b, text: Три, correct: true }
-      - { id: c, text: Пять }
-    explanation: Непростительных заклятий три — Империус, Круциатус и Авада Кедавра.
-    rule: spells#unforgivable
-
-  - id: q9
+      - id: c
+        text: Да, и может свободно колдовать
+      - id: a
+        text: Да, но продолжать бой не может
+        correct: true
+      - id: b
+        text: Нет, её всегда ведёт атакующий
+    explanation: >-
+      Тарант Аллегра Максима заставляет быстро танцевать без возможности стоять на месте. Направление движения
+      выбирает сама цель, но продолжать бой не может.
+    rule: spells#tarant-maxima
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: tarant-ultima
     type: single
-    prompt: Что делает заклинание Акцио?
+    prompt: Что происходит после первых пяти минут Тарант Аллегра Ультима?
     options:
-      - { id: a, text: Притягивает предмет к колдующему, correct: true }
-      - { id: b, text: Тушит огонь }
-      - { id: c, text: Усыпляет цель }
-    explanation: Акцио (Accio) притягивает предмет к колдующему.
-    rule: spells
+      - id: a
+        text: Можно сесть или лечь, но осмысленные действия недоступны ещё 40 минут
+        correct: true
+      - id: b
+        text: Эффект полностью заканчивается
+      - id: c
+        text: Можно сразу продолжать бой
+    explanation: >-
+      При Тарант Аллегра Ультима первые пять минут тело хаотически танцует; затем можно сесть или лечь,
+      оставаясь неспособным к осмысленным действиям до конца 45 минут.
+    rule: spells#tarant-ultima
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: silencio
+    type: single
+    prompt: Можно ли продолжать бой под Силенцио Симпла?
+    options:
+      - id: b
+        text: Да, ограничений на речь нет
+      - id: c
+        text: Только Ультимами
+      - id: a
+        text: Нет, нельзя чётко произносить заклинания
+        correct: true
+    explanation: >-
+      Силенцио Симпла оставляет шёпот или хрип, но лишает возможности чётко произносить формулы. Передвижение
+      и общение письменно или знаками не ограничены.
+    rule: spells#silencio
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: petrificus
+    type: single
+    prompt: Можно ли забрать вещи из карманов цели Петрификус Тоталус?
+    options:
+      - id: c
+        text: Да, все предметы сразу выпадают
+      - id: a
+        text: Нет, цель застывает вместе с одеждой и вещами
+        correct: true
+      - id: b
+        text: Да, цель просто спит
+    explanation: >-
+      Петрификус Тоталус бывает только Максимой и превращает волшебника с одеждой и вещами в неподвижную
+      «каменную статую». Сознание сохраняется, забрать вещи нельзя.
+    rule: spells#petrificus
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: stupefy
+    type: single
+    prompt: Что происходит под Ступефаем Симпла?
+    options:
+      - id: a
+        text: Сознание мутнеет, бой и связная речь недоступны
+        correct: true
+      - id: b
+        text: Цель засыпает на восемь часов
+      - id: c
+        text: Цель теряет память за последний час
+    explanation: >-
+      Ступефай Симпла оглушает: сознание помутнено, можно сделать несколько бессвязных шагов и сесть, но
+      нельзя продолжать бой или связно говорить.
+    rule: spells#stupefy
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: stupefy-maxima
+    type: single
+    prompt: Каков эффект Ступефай Максима?
+    options:
+      - id: b
+        text: Немота на 15 минут
+      - id: c
+        text: Страх противника на 45 минут
+      - id: a
+        text: Потеря сознания на 30 минут
+        correct: true
+    explanation: "Ступефай Максима лишает сознания на 30 минут: цель лежит, не двигается и не разговаривает."
+    rule: spells#stupefy-maxima
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: ache
+    type: single
+    prompt: Что остаётся доступным под Ахелитусом Симпла?
+    options:
+      - id: c
+        text: Колдовство, но не ходьба
+      - id: a
+        text: Передвижение при удушье, но не колдовство
+        correct: true
+      - id: b
+        text: Только пение
+    explanation: Ахелитус Симпла вызывает удушье и хрип, не позволяя колдовать, но передвижение не ограничивает.
+    rule: spells#ache
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: ache-ultima
+    type: single
+    prompt: Чем грозит неснятый за 45 минут Ахелитус Ультима?
+    options:
+      - id: a
+        text: Смертью от удушья
+        correct: true
+      - id: b
+        text: Только лёгкой усталостью
+      - id: c
+        text: Автоматическим превращением в призрака
+    explanation: >-
+      Ахелитус Ультима оставляет цель без сознания и движения. Если не снять заклинание в течение 45 минут,
+      наступает смерть от удушья.
+    rule: spells#ache-ultima
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: maledicero
+    type: single
+    prompt: Как влияет Маледицеро Симпла на колдовство?
+    options:
+      - id: b
+        text: Разрешает только Ультимы
+      - id: c
+        text: Усиливает все щиты
+      - id: a
+        text: Колдовать нельзя из-за раскоординации
+        correct: true
+    explanation: >-
+      Маледицеро Симпла нарушает координацию и восприятие: можно уйти заплетающимся шагом и разговаривать, но
+      нельзя колдовать и читать.
+    rule: spells#maledicero
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: incendio
+    type: single
+    prompt: Какой основной эффект у Инсендио Симпла?
+    options:
+      - id: c
+        text: Цель немедленно превращается в пепел
+      - id: a
+        text: Загорается одежда, цель катается по земле от ожогов
+        correct: true
+      - id: b
+        text: Образуется чистая вода
+    explanation: >-
+      Инсендио Симпла поджигает одежду, вызывает ожоги и вынуждает кататься по земле; бой невозможен. Эффект
+      длится 15 минут, к концу цель теряет сознание.
+    rule: spells#incendio
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: incendio-door
+    type: single
+    prompt: Можно ли сжечь дверь чарой Инсендио Симпла?
+    options:
+      - id: a
+        text: Нет
+        correct: true
+      - id: b
+        text: Да, любую за секунду
+      - id: c
+        text: Только запертую на Ультиму
+    explanation: >-
+      Инсендио Симпла может поджигать горючие предметы, но не сжигает дверь или обычный труп, не превращённый
+      в нежить.
+    rule: spells#incendio-door
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: incendio-ultima
+    type: single
+    prompt: Что произойдёт, если пламя Инсендио Ультима не потушить за 45 минут?
+    options:
+      - id: b
+        text: Пламя безопасно исчезнет
+      - id: c
+        text: Цель получит только насморк
+      - id: a
+        text: Цель умрёт от ожогов
+        correct: true
+    explanation: >-
+      Инсендио Ультима вызывает тяжёлые ожоги и потерю сознания. Если пламя не потушено к окончанию 45 минут,
+      наступает смерть; обычные средства этот огонь не тушат.
+    rule: spells#incendio-ultima
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: deluvium
+    type: single
+    prompt: Что Делювиум Симпла делает с поражённой целью?
+    options:
+      - id: c
+        text: Делает невидимой
+      - id: a
+        text: Вызывает слёзы и слюнотечение, мешающие говорить и колдовать
+        correct: true
+      - id: b
+        text: Полностью обездвиживает без иных эффектов
+    explanation: >-
+      Делювиум Симпла вызывает обильные слёзы и слюнотечение на 15 минут: передвигаться можно, но говорить и
+      продолжать бой нельзя. В быту чара наполняет небольшие ёмкости чистой водой.
+    rule: spells#deluvium
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: extinguish
+    type: single
+    prompt: На что направлять Делювиум Максима или Ультима при тушении горящей одежды?
+    options:
+      - id: a
+        text: На маркер «горящая одежда»
+        correct: true
+      - id: b
+        text: На самого пострадавшего без уточнения
+      - id: c
+        text: На свою палочку
+    explanation: >-
+      Делювиум Максима и Ультима тушат пламя Инсендио на свой уровень. Нужно использовать маркер «горящая
+      одежда»: чара в человека не тушит огонь и добавляет ему поражение.
+    rule: spells#extinguish
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: triple-fire
+    type: single
+    prompt: Что нужно для тройного Инсендио Максима по иммунной к нему цели?
+    options:
+      - id: b
+        text: Одна чара, произнесённая втрое громче
+      - id: c
+        text: Три одновременных Люмоса
+      - id: a
+        text: Три последовательные чары с промежутками не более 3 секунд
+        correct: true
+    explanation: >-
+      Три Инсендио Максима, пришедшие в иммунную к этому уровню цель подряд с интервалами не более трёх
+      секунд, дают эффект Ультимы. Аналогично работает Делювиум; на другие чары правило не переносится.
+    rule: spells#triple-fire
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: floridus
+    type: single
+    prompt: От какой чары защищает Флоридус?
+    options:
+      - id: c
+        text: Конъюктивитус
+      - id: a
+        text: Торменцио
+        correct: true
+      - id: b
+        text: Экспеллиармус
+    explanation: Флоридус является щитом от Торменцио, но не лечит уже сработавший эффект Торменцио.
+    rule: spells#floridus
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: tormentio
+    type: single
+    prompt: Через сколько без лечения умирает цель Торменцио Симпла?
+    options:
+      - id: a
+        text: Через 90 минут после наложения
+        correct: true
+      - id: b
+        text: Через 15 секунд
+      - id: c
+        text: Только через неделю
+    explanation: >-
+      Торменцио Симпла вызывает рвоту первые полторы минуты, затем даёт обманчивое облегчение; без лечения
+      смерть наступает через 90 минут после наложения.
+    rule: spells#tormentio
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: sensus
+    type: single
+    prompt: Какой щит соответствует Конъюктивитусу?
+    options:
+      - id: b
+        text: Энервейт
+      - id: c
+        text: Парабеллум
+      - id: a
+        text: Сенсус Виденди
+        correct: true
+    explanation: Сенсус Виденди — щит от Конъюктивитуса; чара также обостряет зрение.
+    rule: spells#sensus
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: sensus-ultima
+    type: single
+    prompt: Какой дополнительный эффект даёт Сенсус Виденди Ультима?
+    options:
+      - id: c
+        text: Неуязвимость к любому оружию
+      - id: a
+        text: Эффект Антииллюзина на 15 минут
+        correct: true
+      - id: b
+        text: Полную невидимость на час
+    explanation: >-
+      Сенсус Виденди Ультима даёт эффект Антииллюзина на 15 минут: при виде голубой ленты Иллюзии нужно
+      уточнить истинный облик. Чару можно накладывать на себя.
+    rule: spells#sensus-ultima
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: conjunct-ultima
+    type: single
+    prompt: Какова минимальная длительность Конъюнктивитуса Ультима?
+    options:
+      - id: a
+        text: Три часа
+        correct: true
+      - id: b
+        text: 45 минут
+      - id: c
+        text: Пять секунд
+    explanation: >-
+      Конъюнктивитус Ультима отправляет волшебника во внутреннее странствие минимум на три часа. Это
+      исключение из обычной длительности Ультимы.
+    rule: spells#conjunct-ultima
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: expelliarmus
+    type: single
+    prompt: Что должно вылететь из рук, если там есть палочка и другой предмет?
+    options:
+      - id: b
+        text: Всегда другой предмет
+      - id: c
+        text: Ничего, можно выбрать пустую руку
+      - id: a
+        text: Палочка
+        correct: true
+    explanation: >-
+      Экспеллиармус всегда имеет уровень Максима и выбивает предмет из рук; если в руках есть палочка,
+      вылетает именно она. Палочку нужно отбросить, а не просто положить.
+    rule: spells#expelliarmus
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: expelliarmus-tie
+    type: single
+    prompt: Спасёт ли верёвка, привязывающая палочку к руке, от Экспеллиармуса?
+    options:
+      - id: c
+        text: Да, если палочка из дерева
+      - id: a
+        text: Нет, чара рвёт верёвку
+        correct: true
+      - id: b
+        text: Да, полностью
+    explanation: >-
+      Привязывание предмета к руке не защищает от Экспеллиармуса: чара рвёт верёвку. Подкидывание или
+      укладывание палочки в момент исполнения тоже не спасает.
+    rule: spells#expelliarmus-tie
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: parabellum
+    type: single
+    prompt: Какой щит защищает от Экспеллиармуса?
+    options:
+      - id: a
+        text: Парабеллум
+        correct: true
+      - id: b
+        text: Протего Симпла
+      - id: c
+        text: Флоридус Ультима
+    explanation: Парабеллум — щит от Экспеллиармуса. Эта пара чар всегда уровня Максима и не бывает веерной.
+    rule: spells#parabellum
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: accio
+    type: single
+    prompt: На какую из перечисленных целей действует Акцио?
+    options:
+      - id: b
+        text: Волшебная палочка
+      - id: c
+        text: Живой кот
+      - id: a
+        text: Обычный неживой немагический предмет
+        correct: true
+    explanation: >-
+      Акцио притягивает указанный предмет на дистанции 0–7 метров, но не действует на палочки, магические вещи
+      и всё живое.
+    rule: spells#accio
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: mobilicorpus
+    type: single
+    prompt: Что нужно делать при переноске Мобиликорпусом?
+    options:
+      - id: c
+        text: Держать цель за ноги
+      - id: a
+        text: Постоянно касаться цели палочкой
+        correct: true
+      - id: b
+        text: Один раз махнуть издалека
+    explanation: >-
+      Мобиликорпус требует постоянного касания палочкой. Существо переносят с согласия, без сознания либо если
+      оно не сопротивляется; переносимый игрок идёт за несущим.
+    rule: spells#mobilicorpus
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: reparo
+    type: single
+    prompt: Какая чара восстанавливает сломанные обычные предметы?
+    options:
+      - id: a
+        text: Репаро
+        correct: true
+      - id: b
+        text: Нокс
+      - id: c
+        text: Силенциум
+    explanation: Репаро восстанавливает сломанные предметы, например зеркала и очки.
+    rule: spells#reparo
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: diffindo
+    type: single
+    prompt: Что можно разрезать бытовым Диффиндо?
+    options:
+      - id: b
+        text: Любой магический артефакт
+      - id: c
+        text: Неразрушимую Ультимную преграду
+      - id: a
+        text: Простую неволшебную ткань или бумагу
+        correct: true
+    explanation: Бытовое Диффиндо разрезает простые неволшебные вещи, например ткань и бумагу.
+    rule: spells#diffindo
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: alohomora
+    type: single
+    prompt: Какой замок открывает Алохомора?
+    options:
+      - id: c
+        text: Любой без исключений
+      - id: a
+        text: Коллопортус Симпла
+        correct: true
+      - id: b
+        text: Коллопортус Ультима
+    explanation: >-
+      Алохомора открывает двери, запертые Коллопортусом уровня Симпла; для Максимы используется Реперто, для
+      Ультимы — Бомбарда.
+    rule: spells#alohomora
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: reperto
+    type: single
+    prompt: Чем открывают Коллопортус Максима?
+    options:
+      - id: a
+        text: Реперто
+        correct: true
+      - id: b
+        text: Реласио
+      - id: c
+        text: Морфеус
+    explanation: Реперто раскрывает Коллопортус Максима.
+    rule: spells#reperto
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: bombarda
+    type: single
+    prompt: Как правильно моделировать Бомбарду у двери?
+    options:
+      - id: b
+        text: Бить ногой по двери
+      - id: c
+        text: Физически выбивать замок
+      - id: a
+        text: Топать ногой рядом с дверью
+        correct: true
+    explanation: >-
+      Бомбарда открывает Коллопортус Ультима, выразимо взрывая дверь. Жест требует топнуть рядом с дверью, а
+      не ударить по ней; дверь можно починить Репаро.
+    rule: spells#bombarda
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: lock-markers
+    type: single
+    prompt: Где размещают стикеры Коллопортуса?
+    options:
+      - id: c
+        text: Только на палочке
+      - id: a
+        text: С обеих сторон двери
+        correct: true
+      - id: b
+        text: Только внутри комнаты
+    explanation: Коллопортус любого уровня маркируют заметными стикерами с названием и уровнем чары с обеих сторон двери.
+    rule: spells#lock-markers
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: lock-cocoon
+    type: single
+    prompt: Можно ли выбраться через окно из комнаты, запертой Коллопортусом Ультима?
+    options:
+      - id: a
+        text: Нет, вокруг помещения образуется кокон
+        correct: true
+      - id: b
+        text: Да, Ультима запирает только ручку двери
+      - id: c
+        text: Да, если говорить шёпотом
+    explanation: >-
+      Коллопортус Ультима образует кокон вокруг помещения, препятствуя выходу через окно, но не
+      распространению звуков.
+    rule: spells#lock-cocoon
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: lumos
+    type: single
+    prompt: Какой цвет света моделирует обычный Люмос?
+    options:
+      - id: b
+        text: Зелёный
+      - id: c
+        text: Красный
+      - id: a
+        text: Белый
+        correct: true
+    explanation: Обычный Люмос зажигает белый фонарь или диод на конце палочки; другие цвета обозначают иные эффекты.
+    rule: spells#lumos
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: nox
+    type: single
+    prompt: Что делает Нокс?
+    options:
+      - id: c
+        text: Извлекает воспоминания
+      - id: a
+        text: Гасит свет на конце палочки
+        correct: true
+      - id: b
+        text: Поджигает одежду
+    explanation: Нокс гасит свет на конце палочки; в описании также указано принудительное погашение источников огня.
+    rule: spells#nox
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: memoria
+    type: single
+    prompt: Для чего служит Экстракто Мемориа?
+    options:
+      - id: a
+        text: Помещать и извлекать воспоминания из Думослива
+        correct: true
+      - id: b
+        text: Стирать любое знание навсегда
+      - id: c
+        text: Открывать механические замки
+    explanation: >-
+      Экстракто Мемориа позволяет поместить воспоминание в Думослив или колбу, извлечь его из Думослива и
+      прочитать. Требуется отдельное изучение.
+    rule: spells#memoria
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: morpheus
+    type: single
+    prompt: Каков основной эффект Морфеуса?
+    options:
+      - id: b
+        text: Страх на 90 минут
+      - id: c
+        text: Вечная потеря памяти
+      - id: a
+        text: Контактный колдовской сон на 30 минут
+        correct: true
+    explanation: >-
+      Морфеус — контактная чара колдовского сна на 30 минут; обычным пробуждением сон не снять. Без
+      последствий её можно наложить только два раза подряд.
+    rule: spells#morpheus
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: animosus
+    type: single
+    prompt: Чем снимают Морфеус?
+    options:
+      - id: c
+        text: Акцио
+      - id: a
+        text: Анимозусом
+        correct: true
+      - id: b
+        text: Репаро
+    explanation: Анимозус — контактные чары пробуждения, снимающие Морфеус и требующие особого жеста.
+    rule: spells#animosus
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: fidele
+    type: single
+    prompt: Какую область закрывает Фиделе эт Фортис?
+    options:
+      - id: a
+        text: 270 градусов спереди, оставляя спину открытой
+        correct: true
+      - id: b
+        text: Все направления без исключения
+      - id: c
+        text: Только верхнюю половину тела
+    explanation: >-
+      Фиделе эт Фортис защищает от физических воздействий в секторе 270 градусов спереди, пока волшебник
+      удерживает особую позу. Можно поворачиваться на месте вместе со щитом.
+    rule: spells#fidele
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: speculi
+    type: single
+    prompt: Как действует Спекули Верто на анимага?
+    options:
+      - id: b
+        text: Навсегда лишает магии
+      - id: c
+        text: Превращает в нежить
+      - id: a
+        text: Насильно возвращает человеческий облик
+        correct: true
+    explanation: >-
+      Спекули Верто возвращает анимага в человеческий облик. Чара дистанционная, 0–7 метров, требует особого
+      жеста и не бывает веерной.
+    rule: spells#speculi
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: riddikulus
+    type: single
+    prompt: Что нужно добавить к Риддикулусу против боггарта?
+    options:
+      - id: c
+        text: Потребовать от боггарта уснуть
+      - id: a
+        text: Озвучить превращение страшного в смешное
+        correct: true
+      - id: b
+        text: Назвать невыразимое имя игрока
+    explanation: >-
+      Для Риддикулуса нужно представить и озвучить превращение страшного образа в смешной; формулировка
+      индивидуальна. Дистанция 0–7 метров, особого жеста нет.
+    rule: spells#riddikulus
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: prior
+    type: single
+    prompt: О чём позволяет спросить Приоре Инкантато?
+    options:
+      - id: a
+        text: Об использовании до трёх выбранных заклинаний за последний час
+        correct: true
+      - id: b
+        text: О полном списке чар за жизнь владельца
+      - id: c
+        text: Об имени будущего владельца палочки
+    explanation: >-
+      Контактный Приоре Инкантато проверяет, делалось ли одно из трёх выбранных спрашивающим заклинаний за
+      последний час. Более трёх заклинаний спрашивать нельзя.
+    rule: spells#prior
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: finite
+    type: single
+    prompt: Какое из этих воздействий снимает Фините Инкантатем?
+    options:
+      - id: b
+        text: Любую Ультиму
+      - id: c
+        text: Фурункулюс
+      - id: a
+        text: Силенциум
+        correct: true
+    explanation: >-
+      Контактное Фините Инкантатем снимает не-ВИП чары Симпла, большинство хулиганских чар и Силенциум; не
+      является универсальным снятием любой магии.
+    rule: spells#finite
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: sectum-shield
+    type: single
+    prompt: Какой Протего защищает от Сектумсемпры без обморока за равную силу?
+    options:
+      - id: c
+        text: На два уровня ниже
+      - id: a
+        text: Уровнем выше Сектумсемпры
+        correct: true
+      - id: b
+        text: Любой Симпла
+    explanation: >-
+      Протего уровнем выше Сектумсемпры защищает полностью. Равный уровень работает как щит на уровень слабее
+      атаки — с соответствующим обмороком.
+    rule: spells#sectum-shield
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: sectum-maxima
+    type: single
+    prompt: Что произойдёт без лечения Сектумсемпры Максима?
+    options:
+      - id: a
+        text: Смерть от кровопотери через 30 минут
+        correct: true
+      - id: b
+        text: Рана сама заживёт через 15 минут
+      - id: c
+        text: Только исчезнет голос на час
+    explanation: >-
+      Сектумсемпра Максима оставляет глубокие незаживающие раны и без лечения убивает через 30 минут. Одно
+      исполнение наносит не более трёх ран; чара занимает Ультимный слот.
+    rule: spells#sectum-maxima
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: pranks
+    type: single
+    prompt: На кого обычно действуют хулиганские чары за пределами Хогвартса?
+    options:
+      - id: b
+        text: На всех без ограничений
+      - id: c
+        text: Только на преподавателей
+      - id: a
+        text: На не имеющих диплома общепризнанной школы магии
+        correct: true
+    explanation: >-
+      Вне Школы хулиганские чары действуют на не имеющих высшего магического образования; на территории Школы
+      — на всех.
+    rule: spells#pranks
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
+  - id: furunculus
+    type: single
+    prompt: Какой щит защищает от Фурункулюса?
+    options:
+      - id: c
+        text: Энервейт
+      - id: a
+        text: Формозитас
+        correct: true
+      - id: b
+        text: Парабеллум
+    explanation: >-
+      Формозитас — щит от Фурункулюса. Это особая пара ВИП-хулиганских чар; Фините Инкантатем Фурункулюс не
+      снимает.
+    rule: spells#furunculus
+    source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
