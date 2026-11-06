@@ -73,12 +73,17 @@ function onAnswer(answer: UserAnswer): void {
 }
 
 function next(): void {
+  if (!currentAnswer.value) return;
   if (isLast.value) {
     finished.value = true;
     if (!activeStudy.value) progress.record(activeKey.value, score.value, total.value);
   } else {
     index.value++;
   }
+}
+
+function previous(): void {
+  if (index.value > 0) index.value--;
 }
 
 watch(topics, backToStart);
@@ -152,21 +157,26 @@ watch(topics, backToStart);
             <ShuffleToggle />
           </div>
           <p v-if="isAll" class="muted" data-test="topic-label">Тема: {{ item.topicTitle }}</p>
-          <QuestionRenderer
-            :key="`${attempt}-${index}`"
-            :question="question"
-            :locked="currentAnswer !== null"
-            :answer="currentAnswer"
-            @answer="onAnswer"
-          />
+          <KeepAlive>
+            <QuestionRenderer
+              :key="`${attempt}-${index}`"
+              :question="question"
+              :locked="currentAnswer !== null"
+              :answer="currentAnswer"
+              @answer="onAnswer"
+            />
+          </KeepAlive>
           <template v-if="currentAnswer">
             <AnswerFeedback :question="question" :correct="currentCorrect" :study="activeStudy" />
-            <div class="btn-row">
-              <button type="button" class="btn" data-test="next" @click="next">
-                {{ isLast ? (activeStudy ? 'Завершить' : 'Показать результат') : 'Далее' }}
-              </button>
-            </div>
           </template>
+          <div class="btn-row">
+            <button v-if="index > 0" type="button" class="btn btn--secondary" data-test="previous" @click="previous">
+              Назад
+            </button>
+            <button v-if="currentAnswer" type="button" class="btn" data-test="next" @click="next">
+              {{ isLast ? (activeStudy ? 'Завершить' : 'Показать результат') : 'Далее' }}
+            </button>
+          </div>
         </template>
       </template>
     </LoadState>

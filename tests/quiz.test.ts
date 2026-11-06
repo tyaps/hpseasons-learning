@@ -61,6 +61,67 @@ afterEach(() => {
 });
 
 describe('QuizView: полное прохождение', () => {
+  it('назад показывает неизменяемые ответы и сохраняет незавершённый выбор', async () => {
+    const { wrapper } = await mountAt('/topic/t');
+    const click = async (selector: string) => {
+      await wrapper.find(selector).trigger('click');
+      await flushPromises();
+    };
+    await click('[data-test="start"]');
+    expect(wrapper.find('[data-test="previous"]').exists()).toBe(false);
+    await click('[data-option-id="b"]');
+    await click('[data-test="next"]');
+    await click('[data-option-id="a"]');
+    await click('[data-test="previous"]');
+    expect(wrapper.find('[data-test="progress"]').text()).toBe('Вопрос 1 из 3');
+    expect(wrapper.find('.feedback__verdict').text()).toBe('Неверно');
+    expect(wrapper.find('[data-option-id="b"]').classes()).toContain('is-wrong');
+    expect(wrapper.findAll('.option-btn').every((b) => b.attributes('disabled') !== undefined)).toBe(true);
+    await click('[data-option-id="a"]');
+    expect(wrapper.find('.feedback__verdict').text()).toBe('Неверно');
+    await click('[data-test="next"]');
+    expect(wrapper.find('[data-option-id="a"]').attributes('aria-pressed')).toBe('true');
+    expect(wrapper.find('.feedback').exists()).toBe(false);
+    await click('[data-option-id="c"]');
+    await click('[data-test="submit"]');
+    await click('[data-test="next"]');
+    await click('[data-test="previous"]');
+    expect(wrapper.find('.counter').text()).toBe('Выбрано 2 из 2');
+    expect(wrapper.find('.feedback__verdict').text()).toBe('Верно!');
+    expect(wrapper.find('[data-test="submit"]').exists()).toBe(false);
+    expect(wrapper.findAll('.option-btn').every((b) => b.attributes('disabled') !== undefined)).toBe(true);
+    expect(localStorage.getItem('hps-progress-v1')).toBeNull();
+    await click('[data-test="next"]');
+    await click('[data-option-id="b"]');
+    await click('[data-test="next"]');
+    expect(wrapper.find('[data-test="score"]').text()).toBe('2 из 3');
+  });
+
+  it('возврат сохраняет порядок вариантов даже после смены настройки перемешивания', async () => {
+    useSettings().setShuffle(true);
+    const { wrapper } = await mountAt('/topic/t');
+    await wrapper.find('[data-test="start"]').trigger('click');
+    const order = wrapper.findAll('.option-btn').map((b) => b.attributes('data-option-id'));
+    await wrapper.find('[data-option-id="a"]').trigger('click');
+    await wrapper.find('[data-test="next"]').trigger('click');
+    useSettings().setShuffle(false);
+    await wrapper.find('[data-test="previous"]').trigger('click');
+    expect(wrapper.findAll('.option-btn').map((b) => b.attributes('data-option-id'))).toEqual(order);
+    expect(wrapper.find('.feedback__verdict').text()).toBe('Верно!');
+  });
+
+  it('назад работает в режиме обучения, результат не записывается', async () => {
+    const { wrapper } = await mountAt('/topic/t');
+    await wrapper.find('[data-test="study-toggle"]').setValue(true);
+    await wrapper.find('[data-test="start"]').trigger('click');
+    await wrapper.find('[data-test="next"]').trigger('click');
+    await wrapper.find('[data-test="previous"]').trigger('click');
+    expect(wrapper.find('[data-test="progress"]').text()).toBe('Вопрос 1 из 3');
+    expect(wrapper.find('[data-test="explanation"]').text()).toBe('Потому что так.');
+    expect(wrapper.findAll('.option-btn').every((b) => b.attributes('disabled') !== undefined)).toBe(true);
+    expect(localStorage.getItem('hps-progress-v1')).toBeNull();
+  });
+
   it('ответ → разбор → далее → итог, счёт считается верно', async () => {
     const { wrapper } = await mountAt('/topic/t');
     const click = async (selector: string) => {
