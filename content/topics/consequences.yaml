@@ -1,0 +1,85 @@
+# Демонстрационная тема: показывает формат, не является официальными правилами игры.
+id: consequences
+title: Последствия
+description: К чему приводит колдовство и кто за это отвечает
+order: 2
+questions:
+  - id: q1
+    type: single
+    prompt: Что происходит с колдующим после серии сложных заклинаний?
+    options:
+      - { id: a, text: "Ничего, магия не утомляет" }
+      - { id: b, text: Он устаёт и нуждается в отдыхе, correct: true }
+      - { id: c, text: Он теряет палочку }
+    explanation: Чем сложнее заклинание, тем сильнее устаёт колдующий.
+    rule: consequences#fatigue
+
+  - id: q2
+    type: single
+    prompt: Заклинание попало не в ту цель. Кто отвечает за результат?
+    options:
+      - { id: a, text: "Тот, в кого попало заклинание" }
+      - { id: b, text: "Тот, кто произнёс заклинание", correct: true }
+      - { id: c, text: "Никто, это случайность" }
+    explanation: Ответственность за результат несёт тот, кто произнёс заклинание.
+    rule: consequences#responsibility
+
+  - id: q3
+    type: multiple
+    prompt: Что считается тяжёлым нарушением?
+    options:
+      - { id: a, text: Применение Круциатуса к человеку, correct: true }
+      - { id: b, text: Применение Люмоса }
+      - { id: c, text: Применение Империуса к человеку, correct: true }
+    explanation: Применение непростительных заклятий к человеку — тяжёлое нарушение.
+    rule: consequences#forbidden
+
+  - id: q4
+    type: single
+    prompt: Как называется третье непростительное заклятие, кроме Империуса и Круциатуса?
+    options:
+      - { id: a, text: Авада Кедавра, correct: true }
+      - { id: b, text: Экспеллиармус }
+      - { id: c, text: Инкарцеро }
+    explanation: Третье непростительное заклятие — Авада Кедавра.
+    rule: spells#unforgivable
+
+  - id: q5
+    type: single
+    prompt: Что нужно персонажу после серии сложных заклинаний?
+    options:
+      - { id: a, text: Отдых, correct: true }
+      - { id: b, text: Новая палочка }
+      - { id: c, text: Разрешение преподавателя }
+    explanation: После серии сложных заклинаний персонажу нужен отдых.
+    rule: consequences#fatigue
+
+  - id: q6
+    type: multiple
+    prompt: От чего зависит усталость колдующего?
+    options:
+      - { id: a, text: От сложности заклинаний, correct: true }
+      - { id: b, text: От числа заклинаний подряд, correct: true }
+      - { id: c, text: От цвета мантии }
+    explanation: Чем сложнее заклинание и чем больше их подряд, тем сильнее устаёт колдующий.
+    rule: consequences#fatigue
+
+  - id: q7
+    type: single
+    prompt: Применение непростительных заклятий к человеку — это...
+    options:
+      - { id: a, text: Допустимая самооборона }
+      - { id: b, text: Тяжёлое нарушение, correct: true }
+      - { id: c, text: Мелкий проступок }
+    explanation: Применение непростительных заклятий к человеку — тяжёлое нарушение.
+    rule: consequences#forbidden
+
+  - id: q8
+    type: single
+    prompt: Кто несёт ответственность, если заклинание оказалось сильнее, чем ожидалось?
+    options:
+      - { id: a, text: "Тот, кто колдовал", correct: true }
+      - { id: b, text: Автор игры }
+      - { id: c, text: Свидетели }
+    explanation: Ответственность за результат несёт тот, кто произнёс заклинание.
+    rule: consequences#responsibility

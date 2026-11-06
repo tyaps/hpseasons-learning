@@ -1,0 +1,98 @@
+# Демонстрационная тема: показывает формат, не является официальными правилами игры.
+id: spells
+title: Заклинания
+description: Формулы, жесты и условия колдовства
+order: 1
+questions:
+  - id: q1
+    type: single
+    prompt: Что обязательно должно быть у персонажа, чтобы колдовать?
+    options:
+      - { id: a, text: Волшебная палочка, correct: true }
+      - { id: b, text: Книга заклинаний }
+      - { id: c, text: Фамильяр }
+      - { id: d, text: Мантия факультета }
+    explanation: Для колдовства персонажу нужна волшебная палочка.
+    rule: spells#casting
+
+  - id: q2
+    type: single
+    prompt: Какое заклинание выбивает предмет из рук цели?
+    options:
+      - { id: a, text: Люмос }
+      - { id: b, text: Экспеллиармус, correct: true }
+      - { id: c, text: Акцио }
+    explanation: Экспеллиармус — обезоруживающее заклятие, оно выбивает предмет из рук цели.
+    rule: spells#disarming
+
+  - id: q3
+    type: multiple
+    prompt: Какие из этих заклятий относятся к непростительным?
+    options:
+      - { id: a, text: Империус, correct: true }
+      - { id: b, text: Круциатус, correct: true }
+      - { id: c, text: Экспеллиармус }
+      - { id: d, text: Люмос }
+    explanation: Непростительных заклятий три — Империус, Круциатус и Авада Кедавра. Экспеллиармус и Люмос к ним не относятся.
+    rule: spells#unforgivable
+
+  - id: q4
+    type: single
+    prompt: Какая формула у обезоруживающего заклятия?
+    options:
+      - { id: a, text: Экспеллиармус, correct: true }
+      - { id: b, text: Экспекто Патронум }
+      - { id: c, text: Круцио }
+      - { id: d, text: Вингардиум Левиоса }
+    explanation: Формула обезоруживающего заклятия — Экспеллиармус (Expelliarmus).
+    rule: spells#disarming
+
+  - id: q5
+    type: single
+    prompt: Какое заклинание создаёт свет на конце палочки?
+    options:
+      - { id: a, text: Нокс }
+      - { id: b, text: Люмос, correct: true }
+      - { id: c, text: Инсендио }
+    explanation: Заклинание света — Люмос (Lumos).
+    rule: spells
+
+  - id: q6
+    type: single
+    prompt: Как правильно указать цель заклинания в посте?
+    options:
+      - { id: a, text: "Не указывать, цель понятна из контекста" }
+      - { id: b, text: Явно назвать цель, correct: true }
+      - { id: c, text: Указать только палочку }
+    explanation: Цель заклинания в посте указывается явно.
+    rule: spells#casting
+
+  - id: q7
+    type: multiple
+    prompt: Что нужно записать в посте при колдовстве?
+    options:
+      - { id: a, text: Формулу заклинания целиком, correct: true }
+      - { id: b, text: Название палочки }
+      - { id: c, text: Цель заклинания, correct: true }
+    explanation: В посте записывается формула целиком и явно указывается цель.
+    rule: spells#casting
+
+  - id: q8
+    type: single
+    prompt: Сколько всего непростительных заклятий?
+    options:
+      - { id: a, text: Два }
+      - { id: b, text: Три, correct: true }
+      - { id: c, text: Пять }
+    explanation: Непростительных заклятий три — Империус, Круциатус и Авада Кедавра.
+    rule: spells#unforgivable
+
+  - id: q9
+    type: single
+    prompt: Что делает заклинание Акцио?
+    options:
+      - { id: a, text: Притягивает предмет к колдующему, correct: true }
+      - { id: b, text: Тушит огонь }
+      - { id: c, text: Усыпляет цель }
+    explanation: Акцио (Accio) притягивает предмет к колдующему.
+    rule: spells

@@ -1,0 +1,87 @@
+# Демонстрационная тема: показывает формат, не является официальными правилами игры.
+id: creatures
+title: Существа
+description: Кто восприимчив к какой магии
+order: 3
+questions:
+  - id: q1
+    type: single
+    prompt: Что помогает против дементора?
+    options:
+      - { id: a, text: Заклинание Патронуса, correct: true }
+      - { id: b, text: Обычное боевое заклинание }
+      - { id: c, text: Серебро }
+      - { id: d, text: Смех }
+    explanation: Дементоры не восприимчивы к обычным боевым заклинаниям, но отступают перед Патронусом.
+    rule: creatures#dementors
+    source: https://hp-seasons.ru/
+
+  - id: q2
+    type: multiple
+    prompt: Что верно про оборотней?
+    options:
+      - { id: a, text: Укус в полнолуние заразен, correct: true }
+      - { id: b, text: Серебро причиняет им особенно сильный вред, correct: true }
+      - { id: c, text: Они боятся Люмоса }
+    explanation: Укус оборотня в полнолуние заразен, а серебро причиняет им особенно сильный вред.
+    rule: creatures#werewolves
+
+  - id: q3
+    type: single
+    prompt: Каким заклинанием побеждают боггарта?
+    options:
+      - { id: a, text: Риддикулус, correct: true }
+      - { id: b, text: Люмос }
+      - { id: c, text: Экспеллиармус }
+    explanation: Боггарта побеждает заклинание Риддикулус и смех.
+    rule: creatures#boggarts
+
+  - id: q4
+    type: single
+    prompt: В какой облик превращается боггарт?
+    options:
+      - { id: a, text: В самого сильного противника }
+      - { id: b, text: "В самый сильный страх того, кто на него смотрит", correct: true }
+      - { id: c, text: В дементора }
+    explanation: Боггарт принимает облик самого сильного страха того, кто на него смотрит.
+    rule: creatures#boggarts
+
+  - id: q5
+    type: single
+    prompt: Как дементоры реагируют на обычные боевые заклинания?
+    options:
+      - { id: a, text: Не восприимчивы, correct: true }
+      - { id: b, text: Погибают сразу }
+      - { id: c, text: Становятся сильнее }
+    explanation: Дементоры не восприимчивы к обычным боевым заклинаниям.
+    rule: creatures#dementors
+
+  - id: q6
+    type: multiple
+    prompt: Что помогает справиться с боггартом?
+    options:
+      - { id: a, text: Заклинание Риддикулус, correct: true }
+      - { id: b, text: Смех, correct: true }
+      - { id: c, text: Заклинание Патронуса }
+    explanation: Боггарта побеждает заклинание Риддикулус и смех.
+    rule: creatures#boggarts
+
+  - id: q7
+    type: single
+    prompt: Когда укус оборотня заразен?
+    options:
+      - { id: a, text: В любое время суток }
+      - { id: b, text: В полнолуние, correct: true }
+      - { id: c, text: Только днём }
+    explanation: Укус оборотня в полнолуние заразен.
+    rule: creatures#werewolves
+
+  - id: q8
+    type: single
+    prompt: Какой металл особенно опасен для оборотней?
+    options:
+      - { id: a, text: Золото }
+      - { id: b, text: Серебро, correct: true }
+      - { id: c, text: Медь }
+    explanation: Серебро причиняет оборотням особенно сильный вред.
+    rule: creatures#werewolves
