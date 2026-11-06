@@ -36,3 +36,5 @@ export type Rule = RuleSummary & { html: string };
 export type UserAnswer =
   | { kind: 'single'; optionId: string }
   | { kind: 'multiple'; optionIds: string[] };
+
+export type AnswerReactions = { success: string[]; failure: string[]; portraits?: string[] };

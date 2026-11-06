@@ -5,7 +5,7 @@ import yaml from 'js-yaml';
 import matter from 'gray-matter';
 import MarkdownIt from 'markdown-it';
 import type { ZodIssue } from 'zod';
-import { ruleFrontmatterSchema, topicSchema } from './schema';
+import { ruleFrontmatterSchema, topicSchema, answerReactionsSchema } from './schema';
 import type { Rule, RuleAnchor, Topic, TopicSummary, RuleSummary, Question } from '../src/types/content';
 
 export class ContentError extends Error {
@@ -165,6 +165,16 @@ export function buildContent({ contentDir, outDir }: BuildOptions): BuildResult 
     topicIds.add(t.id);
   }
 
+  let reactions;
+  const reactionsPath = path.join(contentDir, 'reactions.yaml');
+  if (fs.existsSync(reactionsPath)) {
+    try {
+      const parsed = answerReactionsSchema.safeParse(yaml.load(fs.readFileSync(reactionsPath, 'utf8')));
+      if (parsed.success) reactions = parsed.data;
+      else problems.push(...formatIssues('reactions.yaml', parsed.error.issues));
+    } catch (e) { problems.push(`reactions.yaml: ${(e as Error).message}`); }
+  }
+
   if (problems.length > 0) throw new ContentError(problems);
 
   topics.sort((a, b) => a.order - b.order || a.title.localeCompare(b.title, 'ru'));
@@ -175,6 +185,15 @@ export function buildContent({ contentDir, outDir }: BuildOptions): BuildResult 
   fs.rmSync(outDir, { recursive: true, force: true });
   const assetsDir = path.join(contentDir, 'assets');
   if (fs.existsSync(assetsDir)) fs.cpSync(assetsDir, path.join(outDir, 'assets'), { recursive: true });
+
+  if (reactions) {
+    const portraitsDir = path.join(assetsDir, 'characters');
+    const portraits = fs.existsSync(portraitsDir)
+      ? fs.readdirSync(portraitsDir).filter(name => /\.(jpe?g|png|webp)$/i.test(name) && fs.statSync(path.join(portraitsDir, name)).isFile())
+        .sort().map(name => `assets/characters/${name}`)
+      : [];
+    writeJson(path.join(outDir, 'reactions.json'), { ...reactions, portraits });
+  }
 
   const topicSummaries: TopicSummary[] = topics.map(({ questions, ...summary }) => {
     const creatureQuestionCounts: Record<string, number> = {};

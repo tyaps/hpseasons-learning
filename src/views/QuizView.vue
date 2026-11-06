@@ -5,12 +5,13 @@ import AnswerFeedback from '../components/AnswerFeedback.vue';
 import LoadState from '../components/LoadState.vue';
 import QuestionRenderer from '../components/questions/QuestionRenderer.vue';
 import ShuffleToggle from '../components/ShuffleToggle.vue';
-import { useQuizTopics } from '../composables/useContent';
+import { useQuizTopics, useJson } from '../composables/useContent';
 import { useCreatureSelection, filterCreatureTopics } from '../composables/useCreatureSelection';
+import { useAnswerReaction } from '../composables/useAnswerReaction';
 import { useSettings } from '../composables/useSettings';
 import { correctAnswer, isCorrect } from '../domain/grading';
 import { RANDOM_QUIZ_SIZE, buildQuiz, parseQuizRange, type QuizItem, type QuizRange } from '../domain/quiz';
-import type { UserAnswer } from '../types/content';
+import type { UserAnswer, AnswerReactions } from '../types/content';
 import ResultView from './ResultView.vue';
 
 const route = useRoute();
@@ -28,6 +29,10 @@ const topics = computed(() => rawTopics.value ? filterCreatureTopics(rawTopics.v
 const title = computed(() => (isAll.value ? 'Тест по всем темам' : (topics.value?.[0]?.title ?? '')));
 const poolSize = computed(() => topics.value?.reduce((sum, t) => sum + t.questions.length, 0) ?? 0);
 
+const { data: reactions } = useJson<AnswerReactions>('reactions.json');
+const { reaction, portrait, showReaction, clearReaction } = useAnswerReaction(reactions);
+
+const forceReactions = ref(false);
 const started = ref(false);
 const finished = ref(false);
 const studyMode = ref(false);
@@ -60,6 +65,7 @@ const currentCorrect = computed(() =>
 const isLast = computed(() => index.value + 1 >= total.value);
 
 function start(): void {
+  clearReaction();
   if (!topics.value || !poolSize.value || rangeError.value) return;
   const range = settings.value.quizLength === 'all' ? rangeValidation.value.range ?? undefined : undefined;
   items.value = buildQuiz(topics.value, { length: settings.value.quizLength, mixed: isAll.value, range });
@@ -73,6 +79,7 @@ function start(): void {
 }
 
 function backToStart(): void {
+  clearReaction();
   started.value = false;
   finished.value = false;
 }
@@ -80,10 +87,12 @@ function backToStart(): void {
 function onAnswer(answer: UserAnswer): void {
   if (activeStudy.value || answers.value[index.value]) return;
   answers.value[index.value] = answer;
+  showReaction(isCorrect(question.value!, answer), forceReactions.value);
 }
 
 function next(): void {
   if (!currentAnswer.value) return;
+  clearReaction();
   if (isLast.value) {
     finished.value = true;
   } else {
@@ -92,6 +101,7 @@ function next(): void {
 }
 
 function previous(): void {
+  clearReaction();
   if (index.value > 0) index.value--;
 }
 
@@ -168,6 +178,10 @@ watch(rawTopics, backToStart);
             <span>Режим обучения: правильные ответы проставлены сразу</span>
           </label>
           <ShuffleToggle />
+          <label class="toggle">
+            <input v-model="forceReactions" type="checkbox" data-test="force-reactions" />
+            <span>Показывать реплику после каждого ответа (для проверки)</span>
+          </label>
 
           <div class="btn-row">
             <button type="button" class="btn" data-test="start" :disabled="!poolSize || !!rangeError" @click="start">Начать</button>
@@ -193,6 +207,10 @@ watch(rawTopics, backToStart);
             <span v-if="activeRange && total < poolSize" class="muted" data-test="original-number">№ {{ activeRange.from + index }} в полном списке</span>
             <span v-if="activeStudy" class="badge" data-test="study-badge">Режим обучения</span>
             <ShuffleToggle />
+          <label class="toggle">
+            <input v-model="forceReactions" type="checkbox" data-test="force-reactions" />
+            <span>Показывать реплику после каждого ответа (для проверки)</span>
+          </label>
           </div>
           <p v-if="isAll" class="muted" data-test="topic-label">Тема: {{ item.topicTitle }}</p>
           <KeepAlive>
@@ -205,7 +223,7 @@ watch(rawTopics, backToStart);
             />
           </KeepAlive>
           <template v-if="currentAnswer">
-            <AnswerFeedback :question="question" :correct="currentCorrect" :study="activeStudy" />
+            <AnswerFeedback :question="question" :correct="currentCorrect" :study="activeStudy" :reaction="reaction" :portrait="portrait" />
           </template>
           <div class="btn-row">
             <button v-if="index > 0" type="button" class="btn btn--secondary" data-test="previous" @click="previous">

@@ -84,6 +84,18 @@ afterEach(() => {
 });
 
 describe('buildContent: валидный контент', () => {
+  it('собирает редактируемые реплики, разрешает пустой набор и проверяет формат', () => {
+    write('reactions.yaml', 'success: ["Молодец!"]\nfailure: []\n');
+    run();
+    expect(readOut('reactions.json')).toEqual({ success: ['Молодец!'], failure: [], portraits: [] });
+    write('assets/characters/one.jpg', 'photo');
+    write('assets/characters/two.webp', 'photo');
+    write('assets/characters/notes.txt', 'ignore');
+    run();
+    expect(readOut<{ portraits: string[] }>('reactions.json').portraits).toEqual(['assets/characters/one.jpg', 'assets/characters/two.webp']);
+    write('reactions.yaml', 'success: [""]\nfailure: ошибочка\n');
+    expect(problemsOf(run).join('\n')).toContain('reactions.yaml');
+  });
   it('сохраняет иллюстрацию вопроса и требует существующий локальный файл', () => {
     write('topics/t1.yaml', TOPIC.replace('    prompt: Вопрос?',
       '    image: { src: assets/monsters/test.png, alt: Существо }\n    prompt: Вопрос?'));

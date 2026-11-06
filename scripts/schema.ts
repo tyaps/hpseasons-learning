@@ -102,3 +102,8 @@ export const ruleFrontmatterSchema = z
 
 export type TopicSource = z.infer<typeof topicSchema>;
 export type RuleFrontmatter = z.infer<typeof ruleFrontmatterSchema>;
+
+export const answerReactionsSchema = z.object({
+  success: z.array(nonEmpty),
+  failure: z.array(nonEmpty),
+}).strict();
