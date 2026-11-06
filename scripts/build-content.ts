@@ -140,6 +140,9 @@ export function buildContent({ contentDir, outDir }: BuildOptions): BuildResult 
         problems.push(`${file}: id: должен совпадать с именем файла`);
       }
       t.questions.forEach((q, qi) => {
+        if (q.image && !fs.existsSync(path.join(contentDir, q.image.src))) {
+          problems.push(`${file}: questions[${qi}].image.src: файл «${q.image.src}» не найден`);
+        }
         if (!q.rule) return;
         const [ruleId, anchor] = q.rule.split('#');
         const rule = rules.find((r) => r.id === ruleId);
@@ -170,8 +173,17 @@ export function buildContent({ contentDir, outDir }: BuildOptions): BuildResult 
   );
 
   fs.rmSync(outDir, { recursive: true, force: true });
+  const assetsDir = path.join(contentDir, 'assets');
+  if (fs.existsSync(assetsDir)) fs.cpSync(assetsDir, path.join(outDir, 'assets'), { recursive: true });
 
-  const topicSummaries: TopicSummary[] = topics.map(({ questions: _q, ...summary }) => summary);
+  const topicSummaries: TopicSummary[] = topics.map(({ questions, ...summary }) => {
+    const creatureQuestionCounts: Record<string, number> = {};
+    for (const q of questions) {
+      const id = q.rule?.split('#')[0];
+      if (id?.startsWith('monster-')) creatureQuestionCounts[id] = (creatureQuestionCounts[id] ?? 0) + 1;
+    }
+    return { ...summary, creatureQuestionCounts };
+  });
   writeJson(path.join(outDir, 'topics.json'), topicSummaries);
   for (const t of topics) writeJson(path.join(outDir, 'topics', `${t.id}.json`), t);
 

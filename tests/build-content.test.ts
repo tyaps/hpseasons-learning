@@ -84,6 +84,15 @@ afterEach(() => {
 });
 
 describe('buildContent: валидный контент', () => {
+  it('сохраняет иллюстрацию вопроса и требует существующий локальный файл', () => {
+    write('topics/t1.yaml', TOPIC.replace('    prompt: Вопрос?',
+      '    image: { src: assets/monsters/test.png, alt: Существо }\n    prompt: Вопрос?'));
+    expect(problemsOf(run).join('\n')).toContain('image.src: файл «assets/monsters/test.png» не найден');
+    write('assets/monsters/test.png', 'image fixture');
+    run();
+    const topic = readOut<{ questions: { image?: { src: string; alt: string } }[] }>('topics/t1.json');
+    expect(topic.questions[0].image).toEqual({ src: 'assets/monsters/test.png', alt: 'Существо' });
+  });
   it('создаёт все JSON-файлы', () => {
     expect(run()).toEqual({ topics: 1, rules: 1 });
     for (const f of ['topics.json', 'topics/t1.json', 'rules.json', 'rules/spells.json']) {

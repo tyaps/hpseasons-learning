@@ -10,6 +10,9 @@ export const routes = [
   { path: '/all', name: 'all', component: () => import('./views/QuizView.vue') },
   { path: '/rules', name: 'rules', component: RulesIndexView },
   { path: '/rules/:id', name: 'rule', component: RuleView },
+  { path: '/creature-settings', name: 'creature-settings', component: () => import('./views/CreatureSettingsView.vue') },
+  { path: '/monsters', name: 'monsters', component: () => import('./views/MonstersView.vue') },
+  { path: '/monsters/:id', name: 'monster', component: RuleView },
   { path: '/:pathMatch(.*)*', name: 'not-found', component: NotFoundView },
 ];
 

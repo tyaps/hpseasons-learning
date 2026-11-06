@@ -73,7 +73,7 @@ describe('QuizView: полное прохождение', () => {
     await click('[data-test="next"]');
     await click('[data-option-id="a"]');
     await click('[data-test="previous"]');
-    expect(wrapper.find('[data-test="progress"]').text()).toBe('Вопрос 1 из 3');
+    expect(wrapper.find('[data-test="question-position"]').text()).toBe('Вопрос 1 из 3');
     expect(wrapper.find('.feedback__verdict').text()).toBe('Неверно');
     expect(wrapper.find('[data-option-id="b"]').classes()).toContain('is-wrong');
     expect(wrapper.findAll('.option-btn').every((b) => b.attributes('disabled') !== undefined)).toBe(true);
@@ -116,7 +116,7 @@ describe('QuizView: полное прохождение', () => {
     await wrapper.find('[data-test="start"]').trigger('click');
     await wrapper.find('[data-test="next"]').trigger('click');
     await wrapper.find('[data-test="previous"]').trigger('click');
-    expect(wrapper.find('[data-test="progress"]').text()).toBe('Вопрос 1 из 3');
+    expect(wrapper.find('[data-test="question-position"]').text()).toBe('Вопрос 1 из 3');
     expect(wrapper.find('[data-test="explanation"]').text()).toBe('Потому что так.');
     expect(wrapper.findAll('.option-btn').every((b) => b.attributes('disabled') !== undefined)).toBe(true);
     expect(localStorage.getItem('hps-progress-v1')).toBeNull();
@@ -135,7 +135,7 @@ describe('QuizView: полное прохождение', () => {
     await click('[data-test="start"]');
 
     // Вопрос 1 (single): одним кликом, ошибка
-    expect(wrapper.find('[data-test="progress"]').text()).toBe('Вопрос 1 из 3');
+    expect(wrapper.find('[data-test="question-position"]').text()).toBe('Вопрос 1 из 3');
     expect(wrapper.find('[data-test="hint"]').text()).toBe('Выберите 1 вариант');
     expect(wrapper.find('[data-test="submit"]').exists()).toBe(false);
     expect(wrapper.find('.feedback').exists()).toBe(false);
@@ -152,7 +152,7 @@ describe('QuizView: полное прохождение', () => {
 
     // Вопрос 2 (multiple): верно
     await click('[data-test="next"]');
-    expect(wrapper.find('[data-test="progress"]').text()).toBe('Вопрос 2 из 3');
+    expect(wrapper.find('[data-test="question-position"]').text()).toBe('Вопрос 2 из 3');
     expect(wrapper.find('[data-test="hint"]').text()).toBe('Выберите 2 варианта');
     expect(wrapper.find('[data-test="submit"]').attributes('disabled')).toBeDefined();
     await click('[data-option-id="a"]');
@@ -182,7 +182,7 @@ describe('QuizView: полное прохождение', () => {
     await click('[data-test="restart"]');
     expect(wrapper.find('[data-test="start-screen"]').exists()).toBe(true);
     await click('[data-test="start"]');
-    expect(wrapper.find('[data-test="progress"]').text()).toBe('Вопрос 1 из 3');
+    expect(wrapper.find('[data-test="question-position"]').text()).toBe('Вопрос 1 из 3');
     expect(wrapper.find('.feedback').exists()).toBe(false);
   });
 

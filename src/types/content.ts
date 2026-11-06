@@ -4,6 +4,7 @@ export type QuestionBase = {
   explanation: string;
   rule?: string;
   source?: string;
+  image?: { src: string; alt: string };
 };
 
 export type Option = { id: string; text: string; correct?: boolean };
@@ -18,6 +19,7 @@ export type TopicSummary = {
   description: string;
   order: number;
   questionCount: number;
+  creatureQuestionCounts?: Record<string, number>;
 };
 export type Topic = TopicSummary & { questions: Question[] };
 

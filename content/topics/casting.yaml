@@ -43,8 +43,8 @@ questions:
       - id: b
         text: Да, если цель смотрит на атакующего
     explanation: >-
-      Начинать боевую чару при расстоянии до цели менее двух метров запрещено; завершить уже начатую по
-      приблизившейся цели можно.
+      Начинать боевую чару при расстоянии до цели менее двух метров запрещено; завершить уже начатую по приблизившейся
+      цели можно.
     rule: casting#start-distance
     source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
   - id: escape-range
@@ -73,8 +73,8 @@ questions:
         text: Как более 7 метров
         correct: true
     explanation: >-
-      Между полётом на метле и объектом на земле выразимо считается более 7 метров. Аналогичное правило
-      действует для второго этажа и земли.
+      Между полётом на метле и объектом на земле выразимо считается более 7 метров. Аналогичное правило действует для
+      второго этажа и земли.
     rule: casting#flying-range
     source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
   - id: visibility
@@ -89,8 +89,8 @@ questions:
       - id: b
         text: Только кончик палочки
     explanation: >-
-      Атакующий должен видеть две трети тела цели или её лицо; сам он должен быть открыт цели не менее чем на
-      две трети тела.
+      Атакующий должен видеть две трети тела цели или её лицо; сам он должен быть открыт цели не менее чем на две трети
+      тела.
     rule: casting#visibility
     source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
   - id: glass
@@ -133,8 +133,8 @@ questions:
       - id: b
         text: Чтобы увеличить дальность
     explanation: >-
-      Именная чара уточняет цель в ситуации неопределённости, но не отменяет правила дистанции и видимости.
-      Невыразимые имена использовать нельзя.
+      Именная чара уточняет цель в ситуации неопределённости, но не отменяет правила дистанции и видимости. Невыразимые
+      имена использовать нельзя.
     rule: casting#named
     source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
   - id: no-detection
@@ -149,8 +149,8 @@ questions:
       - id: c
         text: Да, но только ночью
     explanation: >-
-      Именную чару нельзя использовать для проверки неизвестного свойства цели: она не выбирает за колдующего,
-      кто является оборотнем.
+      Именную чару нельзя использовать для проверки неизвестного свойства цели: она не выбирает за колдующего, кто
+      является оборотнем.
     rule: casting#no-detection
     source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
   - id: rule-three
@@ -165,8 +165,8 @@ questions:
         text: После двух других атакующих боевых чар
         correct: true
     explanation: >-
-      Одну атакующую боевую чару независимо от уровня можно повторять лишь через две другие атакующие боевые
-      чары. Бытовые чары в этот счёт не входят.
+      Одну атакующую боевую чару независимо от уровня можно повторять лишь через две другие атакующие боевые чары.
+      Бытовые чары в этот счёт не входят.
     rule: casting#rule-three
     source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
   - id: shield-strength
@@ -223,8 +223,8 @@ questions:
       - id: b
         text: Поставить один щит от последней чары
     explanation: >-
-      Для последовательности атак щиты делают непрерывно в порядке поступления. Прерывание или нарушение
-      порядка пропускает ещё не отражённые чары.
+      Для последовательности атак щиты делают непрерывно в порядке поступления. Прерывание или нарушение порядка
+      пропускает ещё не отражённые чары.
     rule: casting#shield-queue
     source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
   - id: cover
@@ -239,8 +239,8 @@ questions:
       - id: c
         text: Произнести имя атакующего из укрытия
     explanation: >-
-      В течение одной секунды после завершения атаки можно встать между целью и атакующим и жестом и словом
-      обозначить принятие чары. Касаться защищаемого не нужно; затем допустим щит.
+      В течение одной секунды после завершения атаки можно встать между целью и атакующим и жестом и словом обозначить
+      принятие чары. Касаться защищаемого не нужно; затем допустим щит.
     rule: casting#cover
     source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
   - id: contact-back
@@ -254,9 +254,7 @@ questions:
       - id: a
         text: Нет
         correct: true
-    explanation: >-
-      Контактные чары нельзя делать со спины; их исполняют максимально аккуратно для безопасности другого
-      игрока.
+    explanation: Контактные чары нельзя делать со спины; их исполняют максимально аккуратно для безопасности другого игрока.
     rule: casting#contact-back
     source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
   - id: contact-ultima
@@ -284,9 +282,7 @@ questions:
         text: Круг на 360 градусов
       - id: c
         text: Только ближайшего человека
-    explanation: >-
-      Веерная чара атакует существ в конусе 90 градусов перед колдующим; дистанция и видимость продолжают
-      действовать.
+    explanation: Веерная чара атакует существ в конусе 90 градусов перед колдующим; дистанция и видимость продолжают действовать.
     rule: casting#fan-angle
     source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
   - id: fan-cover
@@ -317,8 +313,8 @@ questions:
       - id: b
         text: Любой, кто добавил слово «веерное»
     explanation: >-
-      Веерное применение — отдельное умение, доступное не всем. Веерными могут быть только разрешённые
-      описанием боевые чары Максима или Ультима; веерных щитов нет.
+      Веерное применение — отдельное умение, доступное не всем. Веерными могут быть только разрешённые описанием боевые
+      чары Максима или Ультима; веерных щитов нет.
     rule: casting#fan-access
     source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
   - id: ultima-cast
@@ -332,9 +328,7 @@ questions:
         text: Ровно 45 минут
       - id: c
         text: Не менее одной минуты
-    explanation: >-
-      Одну чару уровня Ультима нельзя делать более 15 секунд; цикл исполнения допустим только в Протего
-      Ультима.
+    explanation: Одну чару уровня Ультима нельзя делать более 15 секунд; цикл исполнения допустим только в Протего Ультима.
     rule: casting#ultima-cast
     source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
   - id: sitting
@@ -348,9 +342,7 @@ questions:
       - id: a
         text: Протего
         correct: true
-    explanation: >-
-      Чары нельзя делать сидя, хотя можно вставая. Исключение — Протего, которое можно делать из любого
-      положения.
+    explanation: Чары нельзя делать сидя, хотя можно вставая. Исключение — Протего, которое можно делать из любого положения.
     rule: casting#sitting
     source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
   - id: foreign-wand
@@ -365,8 +357,8 @@ questions:
       - id: b
         text: Любой выученный уровень
     explanation: >-
-      Одновременно у волшебника может быть лишь одна «своя» палочка. Обычная чужая палочка позволяет исполнять
-      только Симплу; особые связи уточняют в Отделе Тайн.
+      Одновременно у волшебника может быть лишь одна «своя» палочка. Обычная чужая палочка позволяет исполнять только
+      Симплу; особые связи уточняют в Отделе Тайн.
     rule: casting#foreign-wand
     source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
   - id: duel-wand
@@ -381,8 +373,8 @@ questions:
       - id: c
         text: Красные, снимают все последствия
     explanation: >-
-      Дуэльные палочки — пара белоснежных палочек, не производящих настоящих чар. Их можно одалживать и
-      использовать для отработки заклятий.
+      Дуэльные палочки — пара белоснежных палочек, не производящих настоящих чар. Их можно одалживать и использовать для
+      отработки заклятий.
     rule: casting#duel-wand
     source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
   - id: second-wand
@@ -397,8 +389,8 @@ questions:
         text: Симпловую или дуэльную палочку
         correct: true
     explanation: >-
-      Второй палочкой для Ультимы может быть любая симпловая или дуэльная; допустим подходящий статусный
-      предмет. Тяжёлых травмоопасных предметов следует избегать.
+      Второй палочкой для Ультимы может быть любая симпловая или дуэльная; допустим подходящий статусный предмет.
+      Тяжёлых травмоопасных предметов следует избегать.
     rule: casting#second-wand
     source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
   - id: register
@@ -413,8 +405,8 @@ questions:
       - id: b
         text: Только в личной тетради
     explanation: >-
-      Все освоенные чары обязательно фиксируются Отделом Тайн в заявке и визирующим обучение в Паспорте
-      Волшебника. Без этих записей чары у волшебника нет.
+      Все освоенные чары обязательно фиксируются Отделом Тайн в заявке и визирующим обучение в Паспорте Волшебника. Без
+      этих записей чары у волшебника нет.
     rule: casting#register
     source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
   - id: teach
@@ -429,8 +421,8 @@ questions:
       - id: c
         text: Только тому, что сам не умеет
     explanation: >-
-      Любой волшебник может обучить известной чаре на уровень ниже, после чего её чипует Умелец, Адепт или
-      Мастер. Для статусов есть дополнительные возможности.
+      Любой волшебник может обучить известной чаре на уровень ниже, после чего её чипует Умелец, Адепт или Мастер. Для
+      статусов есть дополнительные возможности.
     rule: casting#teach
     source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
   - id: youth
@@ -445,8 +437,8 @@ questions:
         text: После 17 лет
         correct: true
     explanation: >-
-      В юности с 15 до 17 лет доступна Симпла; Максиму можно изучить, но без надрыва самостоятельно делать
-      только после 17 лет.
+      В юности с 15 до 17 лет доступна Симпла; Максиму можно изучить, но без надрыва самостоятельно делать только после
+      17 лет.
     rule: casting#youth
     source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
   - id: young-slots
@@ -461,8 +453,8 @@ questions:
       - id: b
         text: До семи
     explanation: >-
-      В возрасте от 17 до 33 лет можно научиться и делать без надрыва до трёх Ультим; прочие выученные
-      доступны, например, под Патронажем.
+      В возрасте от 17 до 33 лет можно научиться и делать без надрыва до трёх Ультим; прочие выученные доступны,
+      например, под Патронажем.
     rule: casting#young-slots
     source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit
   - id: mature-slots
@@ -476,8 +468,6 @@ questions:
         text: Одну
       - id: c
         text: Двенадцать
-    explanation: >-
-      В зрелости с 33 до 72 лет можно владеть и делать без надрыва семь Ультим; доступно обучение веерной
-      Максиме.
+    explanation: В зрелости с 33 до 72 лет можно владеть и делать без надрыва семь Ультим; доступно обучение веерной Максиме.
     rule: casting#mature-slots
     source: https://docs.google.com/document/d/17qY32rzXL_mJcdsAcPoS1mWL1OWobbxq332HqNo9KN8/edit

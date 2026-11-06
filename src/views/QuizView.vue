@@ -6,34 +6,46 @@ import LoadState from '../components/LoadState.vue';
 import QuestionRenderer from '../components/questions/QuestionRenderer.vue';
 import ShuffleToggle from '../components/ShuffleToggle.vue';
 import { useQuizTopics } from '../composables/useContent';
-import { useProgress } from '../composables/useProgress';
+import { useCreatureSelection, filterCreatureTopics } from '../composables/useCreatureSelection';
 import { useSettings } from '../composables/useSettings';
 import { correctAnswer, isCorrect } from '../domain/grading';
-import { ALL_SCOPE, RANDOM_QUIZ_SIZE, buildQuiz, progressKey, type QuizItem } from '../domain/quiz';
+import { RANDOM_QUIZ_SIZE, buildQuiz, parseQuizRange, type QuizItem, type QuizRange } from '../domain/quiz';
 import type { UserAnswer } from '../types/content';
 import ResultView from './ResultView.vue';
 
 const route = useRoute();
-const progress = useProgress();
+// The cached attempt belongs to its original route, even while an article is open.
+const quizRouteName = route.name;
+const quizRouteId = String(route.params.id);
 const { settings, setQuizLength } = useSettings();
 
-const isAll = computed(() => route.name === 'all');
-const topicId = computed(() => (isAll.value ? null : String(route.params.id)));
-const { data: topics, error, loading, retry } = useQuizTopics(topicId);
+const isAll = computed(() => quizRouteName === 'all');
+const topicId = computed(() => (isAll.value ? null : quizRouteId));
+const { data: rawTopics, error, loading, retry } = useQuizTopics(topicId);
 
+const { excluded } = useCreatureSelection();
+const topics = computed(() => rawTopics.value ? filterCreatureTopics(rawTopics.value, excluded.value) : undefined);
 const title = computed(() => (isAll.value ? 'Тест по всем темам' : (topics.value?.[0]?.title ?? '')));
 const poolSize = computed(() => topics.value?.reduce((sum, t) => sum + t.questions.length, 0) ?? 0);
-const scope = computed(() => (isAll.value ? ALL_SCOPE : String(route.params.id)));
 
 const started = ref(false);
 const finished = ref(false);
 const studyMode = ref(false);
 const activeStudy = ref(false);
-const activeKey = ref('');
 const items = ref<QuizItem[]>([]);
 const index = ref(0);
 const answers = ref<UserAnswer[]>([]);
 const attempt = ref(0);
+const rangeFrom = ref('1');
+const rangeTo = ref('');
+const activeRange = ref<QuizRange>();
+const rangeValidation = computed(() => parseQuizRange(rangeFrom.value, rangeTo.value, poolSize.value));
+const rangeError = computed(() => settings.value.quizLength === 'all' ? rangeValidation.value.error : null);
+
+watch(poolSize, (size) => {
+  rangeFrom.value = '1';
+  rangeTo.value = String(size);
+}, { immediate: true });
 
 const total = computed(() => items.value.length);
 const item = computed(() => items.value[index.value]);
@@ -46,15 +58,13 @@ const currentCorrect = computed(() =>
   question.value && currentAnswer.value ? isCorrect(question.value, currentAnswer.value) : false,
 );
 const isLast = computed(() => index.value + 1 >= total.value);
-const score = computed(
-  () => items.value.filter((it, i) => answers.value[i] && isCorrect(it.question, answers.value[i])).length,
-);
 
 function start(): void {
-  if (!topics.value) return;
-  items.value = buildQuiz(topics.value, { length: settings.value.quizLength, mixed: isAll.value });
+  if (!topics.value || !poolSize.value || rangeError.value) return;
+  const range = settings.value.quizLength === 'all' ? rangeValidation.value.range ?? undefined : undefined;
+  items.value = buildQuiz(topics.value, { length: settings.value.quizLength, mixed: isAll.value, range });
+  activeRange.value = range;
   activeStudy.value = studyMode.value;
-  activeKey.value = progressKey(scope.value, settings.value.quizLength, poolSize.value);
   index.value = 0;
   answers.value = [];
   finished.value = false;
@@ -76,7 +86,6 @@ function next(): void {
   if (!currentAnswer.value) return;
   if (isLast.value) {
     finished.value = true;
-    if (!activeStudy.value) progress.record(activeKey.value, score.value, total.value);
   } else {
     index.value++;
   }
@@ -86,7 +95,7 @@ function previous(): void {
   if (index.value > 0) index.value--;
 }
 
-watch(topics, backToStart);
+watch(rawTopics, backToStart);
 </script>
 
 <template>
@@ -98,7 +107,10 @@ watch(topics, backToStart);
 
         <div v-if="!started" class="notice start-screen" data-test="start-screen">
           <fieldset class="start-screen__group">
-            <legend>Сколько вопросов</legend>
+            <legend>Вопросы и порядок</legend>
+            <p class="muted">Всего вопросов: {{ poolSize }}</p>
+            <p><RouterLink to="/creature-settings">Выбрать существ для тестов</RouterLink></p>
+            <p v-if="!poolSize" role="status">Нет вопросов для выбранных существ. Измените выбор в настройках.</p>
             <label class="radio">
               <input
                 type="radio"
@@ -114,33 +126,58 @@ watch(topics, backToStart);
                 </small>
               </span>
             </label>
+            <div class="quiz-ordered">
+              <label class="radio">
+                <input
+                  type="radio"
+                  name="quiz-length"
+                  data-test="length-all"
+                  :checked="settings.quizLength === 'all'"
+                  @change="setQuizLength('all')"
+                />
+                <span>Все вопросы (в одинаковом порядке)</span>
+              </label>
+              <div v-if="settings.quizLength === 'all'" class="quiz-range">
+                <label>
+                  с
+                  <input v-model="rangeFrom" type="text" inputmode="numeric" pattern="[0-9]+" aria-label="Первый вопрос"
+                    data-test="range-from" :aria-invalid="!!rangeError" :aria-describedby="rangeError ? 'quiz-range-error' : undefined" />
+                </label>
+                <label>
+                  по
+                  <input v-model="rangeTo" type="text" inputmode="numeric" pattern="[0-9]+" aria-label="Последний вопрос"
+                    data-test="range-to" :aria-invalid="!!rangeError" :aria-describedby="rangeError ? 'quiz-range-error' : undefined" />
+                </label>
+                <p v-if="rangeError" id="quiz-range-error" class="quiz-range__error" role="alert">{{ rangeError }}</p>
+              </div>
+            </div>
             <label class="radio">
               <input
                 type="radio"
                 name="quiz-length"
-                data-test="length-all"
-                :checked="settings.quizLength === 'all'"
-                @change="setQuizLength('all')"
+                data-test="length-shuffled"
+                :checked="settings.quizLength === 'shuffled'"
+                @change="setQuizLength('shuffled')"
               />
-              <span>Все вопросы ({{ poolSize }})</span>
+              <span>Все вопросы (в случайном порядке)</span>
             </label>
           </fieldset>
 
           <label class="toggle">
             <input v-model="studyMode" type="checkbox" data-test="study-toggle" />
-            <span>Режим обучения: правильные ответы проставлены сразу, результат не засчитывается</span>
+            <span>Режим обучения: правильные ответы проставлены сразу</span>
           </label>
           <ShuffleToggle />
 
           <div class="btn-row">
-            <button type="button" class="btn" data-test="start" @click="start">Начать</button>
+            <button type="button" class="btn" data-test="start" :disabled="!poolSize || !!rangeError" @click="start">Начать</button>
           </div>
         </div>
 
         <template v-else-if="finished && activeStudy">
           <section class="notice" data-test="study-done">
             <h2>Режим обучения пройден</h2>
-            <p>Просмотрено вопросов: {{ total }}. Результат не засчитывается.</p>
+            <p>Просмотрено вопросов: {{ total }}.</p>
             <div class="btn-row">
               <button type="button" class="btn" data-test="restart" @click="backToStart">Пройти заново</button>
               <RouterLink class="btn btn--secondary" to="/">К темам</RouterLink>
@@ -152,7 +189,8 @@ watch(topics, backToStart);
 
         <template v-else-if="question && item">
           <div class="quiz-meta">
-            <span data-test="progress">Вопрос {{ index + 1 }} из {{ total }}</span>
+            <span data-test="question-position">Вопрос {{ index + 1 }} из {{ total }}</span>
+            <span v-if="activeRange && total < poolSize" class="muted" data-test="original-number">№ {{ activeRange.from + index }} в полном списке</span>
             <span v-if="activeStudy" class="badge" data-test="study-badge">Режим обучения</span>
             <ShuffleToggle />
           </div>

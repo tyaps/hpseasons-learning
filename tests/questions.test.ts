@@ -18,6 +18,19 @@ beforeEach(() => {
   reloadSettings();
 });
 
+it('показывает локальную иллюстрацию существа и сохраняет её при разборе ответа', async () => {
+  const question: SingleQuestion = {
+    id: 'm', type: 'single', prompt: 'Авгур: эффект?', explanation: 'Разбор',
+    options: [{ id: 'a', text: 'Верно', correct: true }, { id: 'b', text: 'Ошибка' }],
+    image: { src: 'assets/monsters/image1.png', alt: 'Авгур' },
+  };
+  const wrapper = mount(QuestionRenderer, { props: { question, locked: false } });
+  expect(wrapper.find('img').attributes('src')).toBe(`${import.meta.env.BASE_URL}data/assets/monsters/image1.png`);
+  expect(wrapper.find('img').attributes('alt')).toBe('Авгур');
+  await wrapper.setProps({ locked: true, answer: { kind: 'single', optionId: 'a' } });
+  expect(wrapper.find('img').attributes('alt')).toBe('Авгур');
+});
+
 describe('SingleChoice', () => {
   const opts = options.map((o) => ({ ...o, correct: o.id === 'b' }));
 

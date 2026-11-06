@@ -30,7 +30,7 @@ export function parseSettings(raw: string | null): Settings {
     const data = JSON.parse(raw) as Partial<Settings> | null;
     if (data && typeof data === 'object') {
       if (typeof data.shuffleOptions === 'boolean') result.shuffleOptions = data.shuffleOptions;
-      if (data.quizLength === 'random' || data.quizLength === 'all') result.quizLength = data.quizLength;
+      if (data.quizLength === 'random' || data.quizLength === 'all' || data.quizLength === 'shuffled') result.quizLength = data.quizLength;
       if (data.theme === 'dossier' || data.theme === 'notion' || data.theme === 'owl') result.theme = data.theme;
     }
   } catch {

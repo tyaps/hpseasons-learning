@@ -1,0 +1,543 @@
+{
+  "source": "Монстробук с картинками финал.md",
+  "sha256": "5294d4e4c9fb63f1340c9248c78ca8e8b1ef01332677e1118d43ac1829810a47",
+  "cards": [
+    {
+      "id": "monster-01",
+      "title": "Авгур",
+      "images": [
+        "image1.png"
+      ],
+      "markdownSha256": "8db8610888e8df2222ffb7b82e02607350717283a57e3786861643253332efef"
+    },
+    {
+      "id": "monster-02",
+      "title": "Автоматон",
+      "images": [
+        "image2.png"
+      ],
+      "markdownSha256": "2bbfbfbb660ca75fe401caaf879bc9bf5ae9199c3becf00c0308b0a9a316b3ea"
+    },
+    {
+      "id": "monster-03",
+      "title": "Акнекрыс",
+      "images": [
+        "image3.png"
+      ],
+      "markdownSha256": "1458393ab077a685326c02978cf40b521200ee1abae71a667bc32639bbd28ace"
+    },
+    {
+      "id": "monster-04",
+      "title": "Акромантул",
+      "images": [
+        "image4.png"
+      ],
+      "markdownSha256": "417a0e91453ec18593dcfe7a828b7b8faaf5f371a1dbfa206056daa61ccf84a8"
+    },
+    {
+      "id": "monster-05",
+      "title": "Безликий",
+      "images": [
+        "image5.png"
+      ],
+      "markdownSha256": "3c83c0b90a1bfa7d1caccba340a50428edccd7b1e92fd5847833b1c44972dd2c"
+    },
+    {
+      "id": "monster-06",
+      "title": "Боггарт",
+      "images": [
+        "image6.png"
+      ],
+      "markdownSha256": "07f1c69667360ef03047e61ce78fb09da06de4c76e8b3176f6a2a88a977dac8d"
+    },
+    {
+      "id": "monster-07",
+      "title": "Болотная ведьма",
+      "images": [
+        "image7.png"
+      ],
+      "markdownSha256": "c90ac23231dd8db79046127b9559776f66491ce5558f8ea1ce3921740e3b54e4"
+    },
+    {
+      "id": "monster-08",
+      "title": "Бумсланг",
+      "images": [
+        "image8.png"
+      ],
+      "markdownSha256": "67289f6bb0bfc2eb46ac1534af3db6b54f60eb6390c6fba4f7449470d36839bc"
+    },
+    {
+      "id": "monster-09",
+      "title": "Вампир",
+      "images": [
+        "image9.png"
+      ],
+      "markdownSha256": "34eda84840f50b7c085325a393f5f3c7c6de14fb87f5b4a215f5f26ca91d9aa8"
+    },
+    {
+      "id": "monster-10",
+      "title": "Василиск",
+      "images": [
+        "image10.png"
+      ],
+      "markdownSha256": "72192ed7f5d0adbecd3fc187bb64ed5583b390bffd8aa02975ad823c9adec632"
+    },
+    {
+      "id": "monster-11",
+      "title": "Вейла",
+      "images": [
+        "image11.png"
+      ],
+      "markdownSha256": "d9cd396906ef57d4f2e09a17e640e105938a48f275b0e98d8b535fb655403838"
+    },
+    {
+      "id": "monster-12",
+      "title": "Виллиса",
+      "images": [
+        "image12.png"
+      ],
+      "markdownSha256": "80737185dd5b54fccc2879765ef2471fe17a3a90e24b00c5b437e321b10abc56"
+    },
+    {
+      "id": "monster-13",
+      "title": "Ветер (Поветрие)",
+      "images": [
+        "image13.png"
+      ],
+      "markdownSha256": "9fe170d8fb52eb2a6c5ac7bdd4b54b6f1383ceda2ba2668889724c0a58367ce3"
+    },
+    {
+      "id": "monster-14",
+      "title": "Ворон",
+      "images": [
+        "image14.png"
+      ],
+      "markdownSha256": "7f4ec47ff9051bbb5490ea250387fb2b3e8f7acb1e7d3ab44363c48bf62f8a67"
+    },
+    {
+      "id": "monster-15",
+      "title": "Гиппогриф",
+      "images": [
+        "image15.png"
+      ],
+      "markdownSha256": "7d64a5f323278f4a04709f18b591e395fdf97250eba7c2a32c60f5374405db23"
+    },
+    {
+      "id": "monster-16",
+      "title": "Гоблин",
+      "images": [
+        "image16.png"
+      ],
+      "markdownSha256": "b015028f7d3aca2b917544b372b8b0ca2b902a6b81138b98734ce7a782c31415"
+    },
+    {
+      "id": "monster-17",
+      "title": "Грим",
+      "images": [
+        "image17.png"
+      ],
+      "markdownSha256": "37338ec6609d7ea6566f500a5eafc85cbd30be4c10784d24e1bd93bdcaf23d76"
+    },
+    {
+      "id": "monster-18",
+      "title": "Гриндилоу",
+      "images": [
+        "image18.png"
+      ],
+      "markdownSha256": "67b54a2feb65ed776453a46bd3cc6e6e37e2733d900e1f61c0415367f0eb06d8"
+    },
+    {
+      "id": "monster-19",
+      "title": "Грюмошмель",
+      "images": [
+        "image19.png"
+      ],
+      "markdownSha256": "63991608c9cfefc62bbf6ac8d67bf19875468ba6462565624d8a42508e2a0543"
+    },
+    {
+      "id": "monster-20",
+      "title": "Грюмошмель Гигантский",
+      "images": [
+        "image20.png"
+      ],
+      "markdownSha256": "04a7901ef4397f8c06aae1ce6682b4fa3e41c3cbfecf20c3f7a261d5f9d9fc5d"
+    },
+    {
+      "id": "monster-21",
+      "title": "Дементор",
+      "images": [
+        "image21.png"
+      ],
+      "markdownSha256": "396d524994250875b198dcc7f4b01292e63ce7a22d74aedb9ac86ebb795786e7"
+    },
+    {
+      "id": "monster-22",
+      "title": "Дириколь",
+      "images": [
+        "image22.png"
+      ],
+      "markdownSha256": "7a6a92a2eb8fd20dd6e55e363a4026a871e6bd76f329342c4a6ff1efc958f49e"
+    },
+    {
+      "id": "monster-23",
+      "title": "Домовой Эльф",
+      "images": [
+        "image23.png"
+      ],
+      "markdownSha256": "eac274bdc1926e5bf90abe7d6828ae52975b7c719a7bdf7c9ec1e132069bf2f3"
+    },
+    {
+      "id": "monster-24",
+      "title": "Дракон",
+      "images": [
+        "image24.png"
+      ],
+      "markdownSha256": "6223737fca2e12dc4156dc11b7e98741415e7b4b5de7bfec136993aee956c068"
+    },
+    {
+      "id": "monster-25",
+      "title": "Единорог",
+      "images": [
+        "image25.png"
+      ],
+      "markdownSha256": "4a319cd41889f603b9b6ed39497eb09eed2ee3309a8020085fc80bdde7092fdd"
+    },
+    {
+      "id": "monster-26",
+      "title": "Жаба",
+      "images": [
+        "image26.png"
+      ],
+      "markdownSha256": "4690c9eb3931f93079141c30ce421f8718bea9f8b666e00166fa547b4fb47240"
+    },
+    {
+      "id": "monster-27",
+      "title": "Змея",
+      "images": [
+        "image27.png"
+      ],
+      "markdownSha256": "7f1703731c536f728a575042307f81f7da7a084ed2baac331e7d340b06b2cc23"
+    },
+    {
+      "id": "monster-28",
+      "title": "Змея Гигантская",
+      "images": [
+        "image28.png"
+      ],
+      "markdownSha256": "f82385b7ba737a60622b16b537deb94650b158380c9ba0172a3d7fbd92e1efe6"
+    },
+    {
+      "id": "monster-29",
+      "title": "Инфери",
+      "images": [
+        "image29.png"
+      ],
+      "markdownSha256": "5d581af5d61cef4165bf3621ddc72733a00ce944e2da8dcca71c552ce5db67e1"
+    },
+    {
+      "id": "monster-30",
+      "title": "Карпатский Йети",
+      "images": [
+        "image30.png"
+      ],
+      "markdownSha256": "33f5e663b3a7657a6fd54d7f25eb712a3ad16c2045038c781d19e0685db4302d"
+    },
+    {
+      "id": "monster-31",
+      "title": "Келпи",
+      "images": [
+        "image31.png"
+      ],
+      "markdownSha256": "ac4a8d684964bea2c401ec67195d53b8eff89276226213f2bc70609eb77e333a"
+    },
+    {
+      "id": "monster-32",
+      "title": "Клубкопух",
+      "images": [
+        "image32.png"
+      ],
+      "markdownSha256": "033d38fff6ccc6173abe0a928113858c34bf90974382842a18f3535a0b19cacf"
+    },
+    {
+      "id": "monster-33",
+      "title": "Книззл",
+      "images": [
+        "image33.png"
+      ],
+      "markdownSha256": "3cff6063214e3a91214924a7f183c5c6e7325e88e79276d43674713f32d2f14d"
+    },
+    {
+      "id": "monster-34",
+      "title": "Кокатрикс",
+      "images": [
+        "image34.png"
+      ],
+      "markdownSha256": "dc2cbf44b43c375acc2495c1dbd1c7056633bceebf8b84e1ff7909104c624eb3"
+    },
+    {
+      "id": "monster-35",
+      "title": "Красный колпак",
+      "images": [
+        "image35.png"
+      ],
+      "markdownSha256": "5d2d1f444746c5f09f3935b6ac2455b1f151b89bbd537b9eeed2aadcf9bff904"
+    },
+    {
+      "id": "monster-36",
+      "title": "Крыса-скавен",
+      "images": [
+        "image36.png"
+      ],
+      "markdownSha256": "d070435a5fea9402e67510867460c882c64bfe4d69a7ebc02b06a96b0a89cbc0"
+    },
+    {
+      "id": "monster-37",
+      "title": "Лечурка (Лукотрус)",
+      "images": [
+        "image37.png"
+      ],
+      "markdownSha256": "584a83a08b6a50dfca9c5b25b769c9928cd7933e0869adf9af63f56b2409edb8"
+    },
+    {
+      "id": "monster-38",
+      "title": "Лунтеленок",
+      "images": [
+        "image38.png"
+      ],
+      "markdownSha256": "c6ccaca5a2063d22c1fc46fa7b6e323cf8fd0af87ad65347e8d9faaa65dbc6e4"
+    },
+    {
+      "id": "monster-39",
+      "title": "Мантикора",
+      "images": [
+        "image39.png"
+      ],
+      "markdownSha256": "6dc893e74fc861580c9c0464202d8b91c880d660d64883da236ac0d28690dac7"
+    },
+    {
+      "id": "monster-40",
+      "title": "Некро-херня любого типа",
+      "images": [
+        "image40.png"
+      ],
+      "markdownSha256": "8a44f8be9c93a8d56b77283ccd5ce9432e744c9a2df16f970795d7c24ed83c8a"
+    },
+    {
+      "id": "monster-41",
+      "title": "Мумия",
+      "images": [
+        "image41.png"
+      ],
+      "markdownSha256": "a643e9df6fc29afc0c9602ef568e0cc348b8109a111f452b89105134fc81e8ad"
+    },
+    {
+      "id": "monster-42",
+      "title": "Нунду",
+      "images": [
+        "image42.png"
+      ],
+      "markdownSha256": "10bf8d755e268dcacd3f3aca762df0cfcbbcc69d933a98f4481ed445ae8ce531"
+    },
+    {
+      "id": "monster-43",
+      "title": "Нюхлер",
+      "images": [
+        "image43.png"
+      ],
+      "markdownSha256": "f6fa756658dc73fcef1dd7ee2b4823dc673de96cefc5d3c5bb512a3e7ce6ab76"
+    },
+    {
+      "id": "monster-44",
+      "title": "Оборотень",
+      "images": [
+        "image44.png"
+      ],
+      "markdownSha256": "e94793a79978ac1bfc22685a26e75a88e4bf724c96d12778bfa6bdf5c3d3a880"
+    },
+    {
+      "id": "monster-45",
+      "title": "Обскур",
+      "images": [
+        "image45.png"
+      ],
+      "markdownSha256": "f3abb72e980f90be3bed52d226bebde446973fe3d41c4a6decb073d1b7f50e9c"
+    },
+    {
+      "id": "monster-46",
+      "title": "Пеплозмей",
+      "images": [
+        "image46.png"
+      ],
+      "markdownSha256": "39ce5086736f41977deb71c8abc9d0a9402b64ebf922d8b412da85c7f511b6ce"
+    },
+    {
+      "id": "monster-47",
+      "title": "Пикирующий злыдень",
+      "images": [
+        "image47.png"
+      ],
+      "markdownSha256": "84af533fce5b4bf15ec65c9e1a18d47e243ab29ee4b0f78bee8c1f629dcb6e8a"
+    },
+    {
+      "id": "monster-48",
+      "title": "Пикси",
+      "images": [
+        "image48.png"
+      ],
+      "markdownSha256": "14b39e041f14b195c66cbd49248a0637f5a619f7d9f303c9409b3e8f771157e7"
+    },
+    {
+      "id": "monster-49",
+      "title": "Полтергейст",
+      "images": [
+        "image49.png"
+      ],
+      "markdownSha256": "47ec3d8d6ae98af0d12a83d5e88ddd263521abe59c498a9cbaf681fd61a7b059"
+    },
+    {
+      "id": "monster-50",
+      "title": "Призрак/Привидение",
+      "images": [
+        "image50.png"
+      ],
+      "markdownSha256": "5cfad5a69386a30928ef4c3ddef00f7abf11bd74d17da8802cee4a7a817ac16f"
+    },
+    {
+      "id": "monster-51",
+      "title": "Русалка",
+      "images": [
+        "image51.png"
+      ],
+      "markdownSha256": "01afcd41dd2c91eb3e52929d902dafa4c4bd2c9caf3677144c4ade401bc69891"
+    },
+    {
+      "id": "monster-52",
+      "title": "Саламандра",
+      "images": [
+        "image52.png"
+      ],
+      "markdownSha256": "a06c4f89135099c1a77b364596f5d1d1056ded0e39b78712c4216b109b1ae62e"
+    },
+    {
+      "id": "monster-53",
+      "title": "Сид (ши)",
+      "images": [
+        "image53.png",
+        "image54.png"
+      ],
+      "markdownSha256": "b9982013ac2fa2841c8c337e5508f799e404c4aa0a92c3d4680f103c755a4dbc"
+    },
+    {
+      "id": "monster-54",
+      "title": "Сниджет",
+      "images": [
+        "image55.png"
+      ],
+      "markdownSha256": "c4cce39a5e07134925d64a995514ef5367e1115bd1a28c69427af3f34e0b55fa"
+    },
+    {
+      "id": "monster-55",
+      "title": "Сова",
+      "images": [
+        "image56.png"
+      ],
+      "markdownSha256": "8081e7fd48ac39eb725c6e449a2100b913caafa330f27a2a98b710e09b619498"
+    },
+    {
+      "id": "monster-56",
+      "title": "Тень",
+      "images": [
+        "image57.png"
+      ],
+      "markdownSha256": "348958a968445be407e9394f52d9ce4d1ef131513279d4d3e70f3e9bf025d0b4"
+    },
+    {
+      "id": "monster-57",
+      "title": "Тролль",
+      "images": [
+        "image58.png"
+      ],
+      "markdownSha256": "f6c1f85f3140e7bcc81f57796f2bdfbf4065e22f6af1b4c6c6acd0cb9fd2fabc"
+    },
+    {
+      "id": "monster-58",
+      "title": "Упырь",
+      "images": [
+        "image59.png"
+      ],
+      "markdownSha256": "d810ae091ac99bdb846c1376b1e23cc585d4371b8b53b40b4d1700d66367f171"
+    },
+    {
+      "id": "monster-59",
+      "title": "Фавн",
+      "images": [
+        "image60.png"
+      ],
+      "markdownSha256": "686449514434c8407078396aafb1f5eb39e042664906042680aa98d556d997a6"
+    },
+    {
+      "id": "monster-60",
+      "title": "Феникс",
+      "images": [
+        "image61.png"
+      ],
+      "markdownSha256": "d518f98f11c6f752fabef4e11046c03d438fd59517f74e6018619636b3f9b6a9"
+    },
+    {
+      "id": "monster-61",
+      "title": "Фестрал",
+      "images": [
+        "image62.png"
+      ],
+      "markdownSha256": "7f2671680ae556f0f7e722ceb8bf4cd4e02be4561c12106556ba03eea88ebe85"
+    },
+    {
+      "id": "monster-62",
+      "title": "Флоббер-червь",
+      "images": [
+        "image63.png"
+      ],
+      "markdownSha256": "8db1fe9cff44baa73db9ebe58d94f1685dd1f8338a93ceccb97fe480abfd2fb0"
+    },
+    {
+      "id": "monster-63",
+      "title": "Флоббер-червь гигантский",
+      "images": [
+        "image64.png"
+      ],
+      "markdownSha256": "bba4f0c56d3557f800ce169a1a1be2e5e8ae1a32dff7f297d5f8af3476eaaf04"
+    },
+    {
+      "id": "monster-64",
+      "title": "Химера",
+      "images": [
+        "image65.png"
+      ],
+      "markdownSha256": "0306dfc37375f519f1ab4cf885b4773b8cd6984f8a976e248c15d5a3737e7b0b"
+    },
+    {
+      "id": "monster-65",
+      "title": "Цербер",
+      "images": [
+        "image66.png"
+      ],
+      "markdownSha256": "cd885106372c1dda43cea0a69fff0a1ff759fa7618aa2da152d127548fdff7c6"
+    },
+    {
+      "id": "monster-66",
+      "title": "Эрклинг/Детоед",
+      "images": [
+        "image67.png"
+      ],
+      "markdownSha256": "504613f804356ea1916a179e9fbc734870380dc3afe9bfce6e79da3f70e84187"
+    },
+    {
+      "id": "monster-67",
+      "title": "Яркополз",
+      "images": [
+        "image68.png"
+      ],
+      "markdownSha256": "da9d88a40118a49cc6b7463134b58cbbb0a4cf5fd000a849b23bc61e61d3fc59"
+    }
+  ]
+}

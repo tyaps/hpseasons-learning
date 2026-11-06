@@ -1,0 +1,785 @@
+id: creature-holding
+title: "Существа: удержание"
+description: "Монстробук: кто может удерживать и при каких условиях"
+order: 9
+questions:
+  - id: m02-holding
+    type: single
+    prompt: "Автоматон: какой вариант удержания соответствует карточке?"
+    options:
+      - id: b
+        text: Удержание полностью отсутствует
+      - id: c
+        text: Безусловно удерживает сразу семь волшебников
+      - id: a
+        text: Может и удерживать и переносить волшебника
+        correct: true
+    explanation: "Монстробук, «Автоматон»: Может и удерживать и переносить волшебника.."
+    rule: monster-02#profile
+    image:
+      src: assets/monsters/image2.png
+      alt: Автоматон
+  - id: m03-holding
+    type: single
+    prompt: "Акнекрыс: может ли удерживать волшебника?"
+    options:
+      - id: c
+        text: Удерживает только при свете Люмоса
+      - id: a
+        text: Не удерживает
+        correct: true
+      - id: b
+        text: Удерживает любого волшебника без условий
+    explanation: "Монстробук, «Акнекрыс»: Нет"
+    rule: monster-03#profile
+    image:
+      src: assets/monsters/image3.png
+      alt: Акнекрыс
+  - id: m04-holding
+    type: single
+    prompt: "Акромантул: может ли существо удерживать волшебника?"
+    options:
+      - id: a
+        text: Да, удержание предусмотрено карточкой
+        correct: true
+      - id: b
+        text: Нет, удержание отсутствует
+      - id: c
+        text: Только если жертва добровольно уснула
+    explanation: "Монстробук, «Акромантул»: Да"
+    rule: monster-04#profile
+    image:
+      src: assets/monsters/image4.png
+      alt: Акромантул
+  - id: m05-holding
+    type: single
+    prompt: "Безликий: может ли удерживать волшебника?"
+    options:
+      - id: b
+        text: Удерживает любого волшебника без условий
+      - id: c
+        text: Удерживает только при свете Люмоса
+      - id: a
+        text: Не удерживает
+        correct: true
+    explanation: "Монстробук, «Безликий»: Нет"
+    rule: monster-05#profile
+    image:
+      src: assets/monsters/image5.png
+      alt: Безликий
+  - id: m06-holding
+    type: single
+    prompt: "Боггарт: какой вариант удержания соответствует карточке?"
+    options:
+      - id: c
+        text: Безусловно удерживает сразу семь волшебников
+      - id: a
+        text: Зависит от формы
+        correct: true
+      - id: b
+        text: Удержание полностью отсутствует
+    explanation: "Монстробук, «Боггарт»: Зависит от формы"
+    rule: monster-06#profile
+    image:
+      src: assets/monsters/image6.png
+      alt: Боггарт
+  - id: m07-holding
+    type: single
+    prompt: "Болотная ведьма: какой вариант удержания соответствует карточке?"
+    options:
+      - id: a
+        text: Детей до 17 лет, мелких тварей
+        correct: true
+      - id: b
+        text: Удержание полностью отсутствует
+      - id: c
+        text: Безусловно удерживает сразу семь волшебников
+    explanation: "Монстробук, «Болотная ведьма»: Детей до 17 лет, мелких тварей"
+    rule: monster-07#profile
+    image:
+      src: assets/monsters/image7.png
+      alt: Болотная ведьма
+  - id: m09-holding
+    type: single
+    prompt: "Вампир: может ли существо удерживать волшебника?"
+    options:
+      - id: c
+        text: Только если жертва добровольно уснула
+      - id: a
+        text: Да, удержание предусмотрено карточкой
+        correct: true
+      - id: b
+        text: Нет, удержание отсутствует
+    explanation: "Монстробук, «Вампир»: Удерживает волшебника."
+    rule: monster-09#profile
+    image:
+      src: assets/monsters/image9.png
+      alt: Вампир
+  - id: m10-holding
+    type: single
+    prompt: "Василиск: может ли существо удерживать волшебника?"
+    options:
+      - id: a
+        text: Да, удержание предусмотрено карточкой
+        correct: true
+      - id: b
+        text: Нет, удержание отсутствует
+      - id: c
+        text: Только если жертва добровольно уснула
+    explanation: "Монстробук, «Василиск»: Да, волшебника"
+    rule: monster-10#profile
+    image:
+      src: assets/monsters/image10.png
+      alt: Василиск
+  - id: m11-holding
+    type: single
+    prompt: "Вейла: какой вариант удержания соответствует карточке?"
+    options:
+      - id: b
+        text: Удержание полностью отсутствует
+      - id: c
+        text: Безусловно удерживает сразу семь волшебников
+      - id: a
+        text: В Гарпии - да
+        correct: true
+    explanation: "Монстробук, «Вейла»: В Гарпии - да"
+    rule: monster-11#profile
+    image:
+      src: assets/monsters/image11.png
+      alt: Вейла
+  - id: m12-holding
+    type: single
+    prompt: "Виллиса: какой вариант удержания соответствует карточке?"
+    options:
+      - id: c
+        text: Безусловно удерживает сразу семь волшебников
+      - id: a
+        text: Только при объятиях и утаскивании
+        correct: true
+      - id: b
+        text: Удержание полностью отсутствует
+    explanation: "Монстробук, «Виллиса»: Только при объятиях и утаскивании"
+    rule: monster-12#profile
+    image:
+      src: assets/monsters/image12.png
+      alt: Виллиса
+  - id: m13-holding
+    type: single
+    prompt: "Ветер (Поветрие): может ли удерживать волшебника?"
+    options:
+      - id: a
+        text: Не удерживает
+        correct: true
+      - id: b
+        text: Удерживает любого волшебника без условий
+      - id: c
+        text: Удерживает только при свете Люмоса
+    explanation: "Монстробук, «Ветер (Поветрие)»: Нет"
+    rule: monster-13#profile
+    image:
+      src: assets/monsters/image13.png
+      alt: Ветер (Поветрие)
+  - id: m15-holding
+    type: single
+    prompt: "Гиппогриф: какой вариант удержания соответствует карточке?"
+    options:
+      - id: c
+        text: Безусловно удерживает сразу семь волшебников
+      - id: a
+        text: Может унести волшебника в когтях
+        correct: true
+      - id: b
+        text: Удержание полностью отсутствует
+    explanation: "Монстробук, «Гиппогриф»: Может унести волшебника в когтях"
+    rule: monster-15#profile
+    image:
+      src: assets/monsters/image15.png
+      alt: Гиппогриф
+  - id: m16-holding
+    type: single
+    prompt: "Гоблин: может ли удерживать волшебника?"
+    options:
+      - id: a
+        text: Не удерживает
+        correct: true
+      - id: b
+        text: Удерживает любого волшебника без условий
+      - id: c
+        text: Удерживает только при свете Люмоса
+    explanation: "Монстробук, «Гоблин»: Нет"
+    rule: monster-16#profile
+    image:
+      src: assets/monsters/image16.png
+      alt: Гоблин
+  - id: m17-holding
+    type: single
+    prompt: "Грим: может ли существо удерживать волшебника?"
+    options:
+      - id: b
+        text: Нет, удержание отсутствует
+      - id: c
+        text: Только если жертва добровольно уснула
+      - id: a
+        text: Да, удержание предусмотрено карточкой
+        correct: true
+    explanation: "Монстробук, «Грим»: Да"
+    rule: monster-17#profile
+    image:
+      src: assets/monsters/image17.png
+      alt: Грим
+  - id: m18-holding
+    type: single
+    prompt: "Гриндилоу: может ли существо удерживать волшебника?"
+    options:
+      - id: c
+        text: Только если жертва добровольно уснула
+      - id: a
+        text: Да, удержание предусмотрено карточкой
+        correct: true
+      - id: b
+        text: Нет, удержание отсутствует
+    explanation: "Монстробук, «Гриндилоу»: Да"
+    rule: monster-18#profile
+    image:
+      src: assets/monsters/image18.png
+      alt: Гриндилоу
+  - id: m20-holding
+    type: single
+    prompt: "Грюмошмель Гигантский: может ли удерживать волшебника?"
+    options:
+      - id: b
+        text: Удерживает любого волшебника без условий
+      - id: c
+        text: Удерживает только при свете Люмоса
+      - id: a
+        text: Не удерживает
+        correct: true
+    explanation: "Монстробук, «Грюмошмель Гигантский»: Нет"
+    rule: monster-20#profile
+    image:
+      src: assets/monsters/image20.png
+      alt: Грюмошмель Гигантский
+  - id: m21-holding
+    type: single
+    prompt: "Дементор: какой вариант удержания соответствует карточке?"
+    options:
+      - id: c
+        text: Безусловно удерживает сразу семь волшебников
+      - id: a
+        text: После касания волшебник не может двигаться и колдовать 15 секунд
+        correct: true
+      - id: b
+        text: Удержание полностью отсутствует
+    explanation: "Монстробук, «Дементор»: После касания волшебник не может двигаться и колдовать 15 секунд."
+    rule: monster-21#profile
+    image:
+      src: assets/monsters/image21.png
+      alt: Дементор
+  - id: m23-holding
+    type: single
+    prompt: "Домовой Эльф: какой вариант удержания соответствует карточке?"
+    options:
+      - id: b
+        text: Удержание полностью отсутствует
+      - id: c
+        text: Безусловно удерживает сразу семь волшебников
+      - id: a
+        text: Удержать - нет, может аппарировать волшебника против воли по правилам аппарации
+        correct: true
+    explanation: "Монстробук, «Домовой Эльф»: Удержать - нет, может аппарировать волшебника против воли по правилам аппарации."
+    rule: monster-23#profile
+    image:
+      src: assets/monsters/image23.png
+      alt: Домовой Эльф
+  - id: m24-holding
+    type: single
+    prompt: "Дракон: может ли существо удерживать волшебника?"
+    options:
+      - id: c
+        text: Только если жертва добровольно уснула
+      - id: a
+        text: Да, удержание предусмотрено карточкой
+        correct: true
+      - id: b
+        text: Нет, удержание отсутствует
+    explanation: "Монстробук, «Дракон»: Да"
+    rule: monster-24#profile
+    image:
+      src: assets/monsters/image24.png
+      alt: Дракон
+  - id: m25-holding
+    type: single
+    prompt: "Единорог: может ли удерживать волшебника?"
+    options:
+      - id: a
+        text: Не удерживает
+        correct: true
+      - id: b
+        text: Удерживает любого волшебника без условий
+      - id: c
+        text: Удерживает только при свете Люмоса
+    explanation: "Монстробук, «Единорог»: Нет"
+    rule: monster-25#profile
+    image:
+      src: assets/monsters/image25.png
+      alt: Единорог
+  - id: m28-holding
+    type: single
+    prompt: "Змея Гигантская: может ли существо удерживать волшебника?"
+    options:
+      - id: a
+        text: Да, удержание предусмотрено карточкой
+        correct: true
+      - id: b
+        text: Нет, удержание отсутствует
+      - id: c
+        text: Только если жертва добровольно уснула
+    explanation: "Монстробук, «Змея Гигантская»: Да"
+    rule: monster-28#profile
+    image:
+      src: assets/monsters/image28.png
+      alt: Змея Гигантская
+  - id: m30-holding
+    type: single
+    prompt: "Карпатский Йети: может ли существо удерживать волшебника?"
+    options:
+      - id: b
+        text: Нет, удержание отсутствует
+      - id: c
+        text: Только если жертва добровольно уснула
+      - id: a
+        text: Да, удержание предусмотрено карточкой
+        correct: true
+    explanation: "Монстробук, «Карпатский Йети»: Да."
+    rule: monster-30#profile
+    image:
+      src: assets/monsters/image30.png
+      alt: Карпатский Йети
+  - id: m31-holding
+    type: single
+    prompt: "Келпи: какой вариант удержания соответствует карточке?"
+    options:
+      - id: c
+        text: Безусловно удерживает сразу семь волшебников
+      - id: a
+        text: Под водой
+        correct: true
+      - id: b
+        text: Удержание полностью отсутствует
+    explanation: "Монстробук, «Келпи»: Под водой"
+    rule: monster-31#profile
+    image:
+      src: assets/monsters/image31.png
+      alt: Келпи
+  - id: m34-holding
+    type: single
+    prompt: "Кокатрикс: может ли удерживать волшебника?"
+    options:
+      - id: c
+        text: Удерживает только при свете Люмоса
+      - id: a
+        text: Не удерживает
+        correct: true
+      - id: b
+        text: Удерживает любого волшебника без условий
+    explanation: "Монстробук, «Кокатрикс»: Нет"
+    rule: monster-34#profile
+    image:
+      src: assets/monsters/image34.png
+      alt: Кокатрикс
+  - id: m35-holding
+    type: single
+    prompt: "Красный колпак: может ли удерживать волшебника?"
+    options:
+      - id: a
+        text: Не удерживает
+        correct: true
+      - id: b
+        text: Удерживает любого волшебника без условий
+      - id: c
+        text: Удерживает только при свете Люмоса
+    explanation: "Монстробук, «Красный колпак»: Нет"
+    rule: monster-35#profile
+    image:
+      src: assets/monsters/image35.png
+      alt: Красный колпак
+  - id: m36-holding
+    type: single
+    prompt: "Крыса-скавен: может ли существо удерживать волшебника?"
+    options:
+      - id: b
+        text: Нет, удержание отсутствует
+      - id: c
+        text: Только если жертва добровольно уснула
+      - id: a
+        text: Да, удержание предусмотрено карточкой
+        correct: true
+    explanation: "Монстробук, «Крыса-скавен»: Волшебника да"
+    rule: monster-36#profile
+    image:
+      src: assets/monsters/image36.png
+      alt: Крыса-скавен
+  - id: m38-holding
+    type: single
+    prompt: "Лунтеленок: может ли удерживать волшебника?"
+    options:
+      - id: a
+        text: Не удерживает
+        correct: true
+      - id: b
+        text: Удерживает любого волшебника без условий
+      - id: c
+        text: Удерживает только при свете Люмоса
+    explanation: "Монстробук, «Лунтеленок»: Нет"
+    rule: monster-38#profile
+    image:
+      src: assets/monsters/image38.png
+      alt: Лунтеленок
+  - id: m39-holding
+    type: single
+    prompt: "Мантикора: может ли существо удерживать волшебника?"
+    options:
+      - id: b
+        text: Нет, удержание отсутствует
+      - id: c
+        text: Только если жертва добровольно уснула
+      - id: a
+        text: Да, удержание предусмотрено карточкой
+        correct: true
+    explanation: "Монстробук, «Мантикора»: Да"
+    rule: monster-39#profile
+    image:
+      src: assets/monsters/image39.png
+      alt: Мантикора
+  - id: m41-holding
+    type: single
+    prompt: "Мумия: может ли существо удерживать волшебника?"
+    options:
+      - id: c
+        text: Только если жертва добровольно уснула
+      - id: a
+        text: Да, удержание предусмотрено карточкой
+        correct: true
+      - id: b
+        text: Нет, удержание отсутствует
+    explanation: "Монстробук, «Мумия»: Да"
+    rule: monster-41#profile
+    image:
+      src: assets/monsters/image41.png
+      alt: Мумия
+  - id: m42-holding
+    type: single
+    prompt: "Нунду: может ли существо удерживать волшебника?"
+    options:
+      - id: a
+        text: Да, удержание предусмотрено карточкой
+        correct: true
+      - id: b
+        text: Нет, удержание отсутствует
+      - id: c
+        text: Только если жертва добровольно уснула
+    explanation: "Монстробук, «Нунду»: Да"
+    rule: monster-42#profile
+    image:
+      src: assets/monsters/image42.png
+      alt: Нунду
+  - id: m45-holding
+    type: single
+    prompt: "Обскур: может ли удерживать волшебника?"
+    options:
+      - id: c
+        text: Удерживает только при свете Люмоса
+      - id: a
+        text: Не удерживает
+        correct: true
+      - id: b
+        text: Удерживает любого волшебника без условий
+    explanation: "Монстробук, «Обскур»: Нет."
+    rule: monster-45#profile
+    image:
+      src: assets/monsters/image45.png
+      alt: Обскур
+  - id: m47-holding
+    type: single
+    prompt: "Пикирующий злыдень: может ли существо удерживать волшебника?"
+    options:
+      - id: b
+        text: Нет, удержание отсутствует
+      - id: c
+        text: Только если жертва добровольно уснула
+      - id: a
+        text: Да, удержание предусмотрено карточкой
+        correct: true
+    explanation: "Монстробук, «Пикирующий злыдень»: Да"
+    rule: monster-47#profile
+    image:
+      src: assets/monsters/image47.png
+      alt: Пикирующий злыдень
+  - id: m49-holding
+    type: single
+    prompt: "Полтергейст: может ли удерживать волшебника?"
+    options:
+      - id: a
+        text: Не удерживает
+        correct: true
+      - id: b
+        text: Удерживает любого волшебника без условий
+      - id: c
+        text: Удерживает только при свете Люмоса
+    explanation: "Монстробук, «Полтергейст»: Нет"
+    rule: monster-49#profile
+    image:
+      src: assets/monsters/image49.png
+      alt: Полтергейст
+  - id: m50-holding
+    type: single
+    prompt: "Призрак/Привидение: может ли удерживать волшебника?"
+    options:
+      - id: b
+        text: Удерживает любого волшебника без условий
+      - id: c
+        text: Удерживает только при свете Люмоса
+      - id: a
+        text: Не удерживает
+        correct: true
+    explanation: "Монстробук, «Призрак/Привидение»: Нет"
+    rule: monster-50#profile
+    image:
+      src: assets/monsters/image50.png
+      alt: Призрак/Привидение
+  - id: m51-holding
+    type: single
+    prompt: "Русалка: какой вариант удержания соответствует карточке?"
+    options:
+      - id: c
+        text: Безусловно удерживает сразу семь волшебников
+      - id: a
+        text: Под водой
+        correct: true
+      - id: b
+        text: Удержание полностью отсутствует
+    explanation: "Монстробук, «Русалка»: Под водой"
+    rule: monster-51#profile
+    image:
+      src: assets/monsters/image51.png
+      alt: Русалка
+  - id: m53-holding
+    type: single
+    prompt: "Сид (ши): какой вариант удержания соответствует карточке?"
+    options:
+      - id: b
+        text: Удержание полностью отсутствует
+      - id: c
+        text: Безусловно удерживает сразу семь волшебников
+      - id: a
+        text: Словесно должника
+        correct: true
+    explanation: "Монстробук, «Сид (ши)»: Словесно должника"
+    rule: monster-53#profile
+    image:
+      src: assets/monsters/image53.png
+      alt: Сид (ши)
+  - id: m56-holding
+    type: single
+    prompt: "Тень: может ли удерживать волшебника?"
+    options:
+      - id: b
+        text: Удерживает любого волшебника без условий
+      - id: c
+        text: Удерживает только при свете Люмоса
+      - id: a
+        text: Не удерживает
+        correct: true
+    explanation: "Монстробук, «Тень»: Нет"
+    rule: monster-56#profile
+    image:
+      src: assets/monsters/image57.png
+      alt: Тень
+  - id: m57-holding
+    type: single
+    prompt: "Тролль: может ли существо удерживать волшебника?"
+    options:
+      - id: c
+        text: Только если жертва добровольно уснула
+      - id: a
+        text: Да, удержание предусмотрено карточкой
+        correct: true
+      - id: b
+        text: Нет, удержание отсутствует
+    explanation: "Монстробук, «Тролль»: Да"
+    rule: monster-57#profile
+    image:
+      src: assets/monsters/image58.png
+      alt: Тролль
+  - id: m58-holding
+    type: single
+    prompt: "Упырь: может ли существо удерживать волшебника?"
+    options:
+      - id: a
+        text: Да, удержание предусмотрено карточкой
+        correct: true
+      - id: b
+        text: Нет, удержание отсутствует
+      - id: c
+        text: Только если жертва добровольно уснула
+    explanation: "Монстробук, «Упырь»: Да."
+    rule: monster-58#profile
+    image:
+      src: assets/monsters/image59.png
+      alt: Упырь
+  - id: m59-holding
+    type: single
+    prompt: "Фавн: может ли удерживать волшебника?"
+    options:
+      - id: b
+        text: Удерживает любого волшебника без условий
+      - id: c
+        text: Удерживает только при свете Люмоса
+      - id: a
+        text: Не удерживает
+        correct: true
+    explanation: "Монстробук, «Фавн»: Нет"
+    rule: monster-59#profile
+    image:
+      src: assets/monsters/image60.png
+      alt: Фавн
+  - id: m60-holding
+    type: single
+    prompt: "Феникс: какой вариант удержания соответствует карточке?"
+    options:
+      - id: c
+        text: Безусловно удерживает сразу семь волшебников
+      - id: a
+        text: Может перенести волшебника в другое место без его согласия
+        correct: true
+      - id: b
+        text: Удержание полностью отсутствует
+    explanation: "Монстробук, «Феникс»: Может перенести волшебника в другое место без его согласия."
+    rule: monster-60#profile
+    image:
+      src: assets/monsters/image61.png
+      alt: Феникс
+  - id: m61-holding
+    type: single
+    prompt: "Фестрал: может ли удерживать волшебника?"
+    options:
+      - id: a
+        text: Не удерживает
+        correct: true
+      - id: b
+        text: Удерживает любого волшебника без условий
+      - id: c
+        text: Удерживает только при свете Люмоса
+    explanation: "Монстробук, «Фестрал»: Нет"
+    rule: monster-61#profile
+    image:
+      src: assets/monsters/image62.png
+      alt: Фестрал
+  - id: m63-holding
+    type: single
+    prompt: "Флоббер-червь гигантский: может ли удерживать волшебника?"
+    options:
+      - id: c
+        text: Удерживает только при свете Люмоса
+      - id: a
+        text: Не удерживает
+        correct: true
+      - id: b
+        text: Удерживает любого волшебника без условий
+    explanation: "Монстробук, «Флоббер-червь гигантский»: Нет"
+    rule: monster-63#profile
+    image:
+      src: assets/monsters/image64.png
+      alt: Флоббер-червь гигантский
+  - id: m64-holding
+    type: single
+    prompt: "Химера: какой вариант удержания соответствует карточке?"
+    options:
+      - id: a
+        text: Может удерживать упавшего волшебника
+        correct: true
+      - id: b
+        text: Удержание полностью отсутствует
+      - id: c
+        text: Безусловно удерживает сразу семь волшебников
+    explanation: "Монстробук, «Химера»: Может удерживать упавшего волшебника"
+    rule: monster-64#profile
+    image:
+      src: assets/monsters/image65.png
+      alt: Химера
+  - id: m65-holding
+    type: single
+    prompt: "Цербер: может ли существо удерживать волшебника?"
+    options:
+      - id: b
+        text: Нет, удержание отсутствует
+      - id: c
+        text: Только если жертва добровольно уснула
+      - id: a
+        text: Да, удержание предусмотрено карточкой
+        correct: true
+    explanation: "Монстробук, «Цербер»: Да"
+    rule: monster-65#profile
+    image:
+      src: assets/monsters/image66.png
+      alt: Цербер
+  - id: m66-holding
+    type: single
+    prompt: "Эрклинг/Детоед: может ли удерживать волшебника?"
+    options:
+      - id: c
+        text: Удерживает только при свете Люмоса
+      - id: a
+        text: Не удерживает
+        correct: true
+      - id: b
+        text: Удерживает любого волшебника без условий
+    explanation: "Монстробук, «Эрклинг/Детоед»: Нет"
+    rule: monster-66#profile
+    image:
+      src: assets/monsters/image67.png
+      alt: Эрклинг/Детоед
+  - id: m44-holding-wizard
+    type: single
+    prompt: "Оборотень: в какой форме удерживает волшебника?"
+    options:
+      - id: b
+        text: Только в человеческой форме
+      - id: c
+        text: Не удерживает ни в какой форме
+      - id: a
+        text: В форме волка
+        correct: true
+    explanation: >-
+      Монстробук, «Оборотень»: Волшебника - да, в форме волка. Вампира - да, даже в человеческой форме. Сопротивляющийся
+      Тьме оборотень по силе сравним с анимагом в крупного зверя. Однако принявший Тьму оборотень гораздо сильнее любого
+      анимага. Каковы сравнительные характеристики оборотня, анимага, упыря, инфери, вампира, если они решат драться в
+      рукопашную? Инфери может быть разорван на части всеми вышеупомянутыми, если анимаг достаточно крупный. Ликантроп
+      кроме этого обладает возможностью разорвать вампира, и упыря, но не анимага. Упырь и инфери опасны для анимага
+      тем, что оставленные им раны не заживут при превращении обратно.
+    rule: monster-44#profile
+    image:
+      src: assets/monsters/image44.png
+      alt: Оборотень
+  - id: m44-holding-vampire
+    type: single
+    prompt: "Оборотень: может ли удержать вампира в человеческой форме?"
+    options:
+      - id: c
+        text: Нет, вампиры всегда сильнее
+      - id: a
+        text: Да, даже в человеческой форме
+        correct: true
+      - id: b
+        text: Нет, только в волчьей
+    explanation: >-
+      Монстробук, «Оборотень»: Волшебника - да, в форме волка. Вампира - да, даже в человеческой форме. Сопротивляющийся
+      Тьме оборотень по силе сравним с анимагом в крупного зверя. Однако принявший Тьму оборотень гораздо сильнее любого
+      анимага. Каковы сравнительные характеристики оборотня, анимага, упыря, инфери, вампира, если они решат драться в
+      рукопашную? Инфери может быть разорван на части всеми вышеупомянутыми, если анимаг достаточно крупный. Ликантроп
+      кроме этого обладает возможностью разорвать вампира, и упыря, но не анимага. Упырь и инфери опасны для анимага
+      тем, что оставленные им раны не заживут при превращении обратно.
+    rule: monster-44#profile
+    image:
+      src: assets/monsters/image44.png
+      alt: Оборотень

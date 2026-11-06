@@ -1,309 +1,1108 @@
 id: creatures
-title: Волшебные существа
-description: Взаимодействия, приручение, дементоры, боггарты и нежить
+title: "Существа: реакции на магию"
+description: "Монстробук: уязвимости, щиты, особые условия и общение"
 order: 5
 questions:
-  - id: safe-contact
+  - id: m01-avada
     type: single
-    prompt: Как моделируют когти, укусы и удерживание существ?
+    prompt: "Авгур: какой эффект от Авады Кедавры?"
     options:
       - id: a
-        text: Символически, объявляя эффект словами
+        text: Убивает
         correct: true
       - id: b
-        text: Настоящими силовыми захватами
+        text: Не действует
       - id: c
-        text: Ударами до падения игрока
-    explanation: >-
-      Боёвка преимущественно бесконтактная. Когти, хвосты, рваные раны и удерживание моделируют символически и
-      объявляют словами; толкать, ронять и бить игроков нельзя.
-    rule: creatures#safe-contact
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: scream
+        text: Лишь обездвиживает на одну минуту
+    explanation: "Монстробук, «Авгур»: Убивает"
+    rule: monster-01#vulnerabilities
+    image:
+      src: assets/monsters/image1.png
+      alt: Авгур
+  - id: m02-avada
     type: single
-    prompt: Что позволяет непрерывный крик, пока существо рвёт жертву и ещё не сообщило эффект?
+    prompt: "Автоматон: какой эффект от Авады Кедавры?"
     options:
       - id: b
-        text: Одновременно колдовать без ограничений
+        text: Не действует
       - id: c
-        text: Мгновенно уничтожить любое существо
+        text: Лишь обездвиживает на одну минуту
       - id: a
-        text: Отложить получение эффекта, ничего другого не делая
+        text: Убивает сердце
         correct: true
-    explanation: >-
-      Если существо начало «рвать», но ещё не сообщило эффект, можно непрерывно кричать: пока крик длится,
-      эффект не получен, но иные действия запрещены. Если существо спугнули за это время, урона нет.
-    rule: creatures#scream
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: hold
+    explanation: "Монстробук, «Автоматон»: Убивает сердце"
+    rule: monster-02#vulnerabilities
+    image:
+      src: assets/monsters/image2.png
+      alt: Автоматон
+  - id: m03-avada
     type: single
-    prompt: Можно ли аппарировать из объявленного удержания сильным существом?
+    prompt: "Акнекрыс: какой эффект от Авады Кедавры?"
     options:
       - id: c
-        text: Да, если закрыть глаза
+        text: Лишь обездвиживает на одну минуту
       - id: a
-        text: Нет, пока оно держит
+        text: Убивает
         correct: true
       - id: b
-        text: Да, удержание мешает только ходьбе
-    explanation: >-
-      При объявленном удержании достаточно сильным существом жертва не может сама убежать, аппарировать или
-      иначе сопротивляться, пока её держат.
-    rule: creatures#hold
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: pet-ingredient
+        text: Не действует
+    explanation: "Монстробук, «Акнекрыс»: Убивает"
+    rule: monster-03#vulnerabilities
+    image:
+      src: assets/monsters/image3.png
+      alt: Акнекрыс
+  - id: m04-avada
     type: single
-    prompt: Можно ли собирать ингредиент с простого домашнего питомца без приручения?
+    prompt: "Акромантул: какой эффект от Авады Кедавры?"
+    options:
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+    explanation: "Монстробук, «Акромантул»: Убивает"
+    rule: monster-04#vulnerabilities
+    image:
+      src: assets/monsters/image4.png
+      alt: Акромантул
+  - id: m05-avada
+    type: single
+    prompt: "Безликий: какой эффект от Авады Кедавры?"
+    options:
+      - id: b
+        text: Усиливает существо на один уровень
+      - id: c
+        text: Превращает в безопасный обычный предмет
+      - id: a
+        text: Полностью и окончательно разрывает связь Безликого с оператором.. То есть да
+        correct: true
+    explanation: "Монстробук, «Безликий»: Полностью и окончательно разрывает связь Безликого с оператором.. То есть да."
+    rule: monster-05#vulnerabilities
+    image:
+      src: assets/monsters/image5.png
+      alt: Безликий
+  - id: m06-avada
+    type: single
+    prompt: "Боггарт: какой эффект от Авады Кедавры?"
+    options:
+      - id: c
+        text: Лишает сознания ровно на 15 минут
+      - id: a
+        text: Нет
+        correct: true
+      - id: b
+        text: Мгновенно убивает
+    explanation: "Монстробук, «Боггарт»: Нет"
+    rule: monster-06#vulnerabilities
+    image:
+      src: assets/monsters/image6.png
+      alt: Боггарт
+  - id: m07-avada
+    type: single
+    prompt: "Болотная ведьма: какой эффект от Авады Кедавры?"
+    options:
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+    explanation: "Монстробук, «Болотная ведьма»: Убивает."
+    rule: monster-07#vulnerabilities
+    image:
+      src: assets/monsters/image7.png
+      alt: Болотная ведьма
+  - id: m08-avada
+    type: single
+    prompt: "Бумсланг: какой эффект от Авады Кедавры?"
+    options:
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает
+        correct: true
+    explanation: "Монстробук, «Бумсланг»: Убивает"
+    rule: monster-08#vulnerabilities
+    image:
+      src: assets/monsters/image8.png
+      alt: Бумсланг
+  - id: m09-avada
+    type: single
+    prompt: "Вампир: какой эффект от Авады Кедавры?"
+    options:
+      - id: c
+        text: Превращает в безопасный обычный предмет
+      - id: a
+        text: Обездвиживает на 1-5 минут
+        correct: true
+      - id: b
+        text: Усиливает существо на один уровень
+    explanation: "Монстробук, «Вампир»: Обездвиживает на 1-5 минут"
+    rule: monster-09#vulnerabilities
+    image:
+      src: assets/monsters/image9.png
+      alt: Вампир
+  - id: m11-avada
+    type: single
+    prompt: "Вейла: какой эффект от Авады Кедавры?"
+    options:
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+    explanation: "Монстробук, «Вейла»: Убивает"
+    rule: monster-11#vulnerabilities
+    image:
+      src: assets/monsters/image11.png
+      alt: Вейла
+  - id: m12-avada
+    type: single
+    prompt: "Виллиса: какой эффект от Авады Кедавры?"
+    options:
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает
+        correct: true
+    explanation: "Монстробук, «Виллиса»: Убивает"
+    rule: monster-12#vulnerabilities
+    image:
+      src: assets/monsters/image12.png
+      alt: Виллиса
+  - id: m13-avada
+    type: single
+    prompt: "Ветер (Поветрие): какой эффект от Авады Кедавры?"
+    options:
+      - id: c
+        text: Лишает сознания ровно на 15 минут
+      - id: a
+        text: Нет
+        correct: true
+      - id: b
+        text: Мгновенно убивает
+    explanation: "Монстробук, «Ветер (Поветрие)»: Нет"
+    rule: monster-13#vulnerabilities
+    image:
+      src: assets/monsters/image13.png
+      alt: Ветер (Поветрие)
+  - id: m14-avada
+    type: single
+    prompt: "Ворон: какой эффект от Авады Кедавры?"
+    options:
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+    explanation: "Монстробук, «Ворон»: Убивает"
+    rule: monster-14#vulnerabilities
+    image:
+      src: assets/monsters/image14.png
+      alt: Ворон
+  - id: m15-avada
+    type: single
+    prompt: "Гиппогриф: какой эффект от Авады Кедавры?"
+    options:
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает
+        correct: true
+    explanation: "Монстробук, «Гиппогриф»: Убивает"
+    rule: monster-15#vulnerabilities
+    image:
+      src: assets/monsters/image15.png
+      alt: Гиппогриф
+  - id: m16-avada
+    type: single
+    prompt: "Гоблин: какой эффект от Авады Кедавры?"
+    options:
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает всегда
+        correct: true
+      - id: b
+        text: Не действует
+    explanation: "Монстробук, «Гоблин»: Убивает всегда."
+    rule: monster-16#vulnerabilities
+    image:
+      src: assets/monsters/image16.png
+      alt: Гоблин
+  - id: m17-avada
+    type: single
+    prompt: "Грим: какой эффект от Авады Кедавры?"
+    options:
+      - id: a
+        text: Также на несколько секунд
+        correct: true
+      - id: b
+        text: Усиливает существо на один уровень
+      - id: c
+        text: Превращает в безопасный обычный предмет
+    explanation: "Монстробук, «Грим»: Также на несколько секунд."
+    rule: monster-17#vulnerabilities
+    image:
+      src: assets/monsters/image17.png
+      alt: Грим
+  - id: m18-avada
+    type: single
+    prompt: "Гриндилоу: какой эффект от Авады Кедавры?"
+    options:
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает
+        correct: true
+    explanation: "Монстробук, «Гриндилоу»: Убивает"
+    rule: monster-18#vulnerabilities
+    image:
+      src: assets/monsters/image18.png
+      alt: Гриндилоу
+  - id: m19-avada
+    type: single
+    prompt: "Грюмошмель: какой эффект от Авады Кедавры?"
+    options:
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+    explanation: "Монстробук, «Грюмошмель»: Убивает"
+    rule: monster-19#vulnerabilities
+    image:
+      src: assets/monsters/image19.png
+      alt: Грюмошмель
+  - id: m20-avada
+    type: single
+    prompt: "Грюмошмель Гигантский: какой эффект от Авады Кедавры?"
+    options:
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+    explanation: "Монстробук, «Грюмошмель Гигантский»: Убивает"
+    rule: monster-20#vulnerabilities
+    image:
+      src: assets/monsters/image20.png
+      alt: Грюмошмель Гигантский
+  - id: m21-avada
+    type: single
+    prompt: "Дементор: какой эффект от Авады Кедавры?"
+    options:
+      - id: b
+        text: Мгновенно убивает
+      - id: c
+        text: Лишает сознания ровно на 15 минут
+      - id: a
+        text: Нет
+        correct: true
+    explanation: "Монстробук, «Дементор»: Нет"
+    rule: monster-21#vulnerabilities
+    image:
+      src: assets/monsters/image21.png
+      alt: Дементор
+  - id: m22-avada
+    type: single
+    prompt: "Дириколь: какой эффект от Авады Кедавры?"
+    options:
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+    explanation: "Монстробук, «Дириколь»: Убивает"
+    rule: monster-22#vulnerabilities
+    image:
+      src: assets/monsters/image22.png
+      alt: Дириколь
+  - id: m23-avada
+    type: single
+    prompt: "Домовой Эльф: какой эффект от Авады Кедавры?"
+    options:
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+    explanation: "Монстробук, «Домовой Эльф»: Убивает"
+    rule: monster-23#vulnerabilities
+    image:
+      src: assets/monsters/image23.png
+      alt: Домовой Эльф
+  - id: m25-avada
+    type: single
+    prompt: "Единорог: какой эффект от Авады Кедавры?"
+    options:
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает
+        correct: true
+    explanation: "Монстробук, «Единорог»: Убивает"
+    rule: monster-25#vulnerabilities
+    image:
+      src: assets/monsters/image25.png
+      alt: Единорог
+  - id: m26-avada
+    type: single
+    prompt: "Жаба: какой эффект от Авады Кедавры?"
+    options:
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+    explanation: "Монстробук, «Жаба»: Убивает"
+    rule: monster-26#vulnerabilities
+    image:
+      src: assets/monsters/image26.png
+      alt: Жаба
+  - id: m27-avada
+    type: single
+    prompt: "Змея: какой эффект от Авады Кедавры?"
+    options:
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+    explanation: "Монстробук, «Змея»: Убивает"
+    rule: monster-27#vulnerabilities
+    image:
+      src: assets/monsters/image27.png
+      alt: Змея
+  - id: m28-avada
+    type: single
+    prompt: "Змея Гигантская: какой эффект от Авады Кедавры?"
+    options:
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает
+        correct: true
+    explanation: "Монстробук, «Змея Гигантская»: Убивает"
+    rule: monster-28#vulnerabilities
+    image:
+      src: assets/monsters/image28.png
+      alt: Змея Гигантская
+  - id: m29-avada
+    type: single
+    prompt: "Инфери: какой эффект от Авады Кедавры?"
+    options:
+      - id: c
+        text: Превращает в безопасный обычный предмет
+      - id: a
+        text: Обездвиживает на 1 минуту
+        correct: true
+      - id: b
+        text: Усиливает существо на один уровень
+    explanation: "Монстробук, «Инфери»: Обездвиживает на 1 минуту"
+    rule: monster-29#vulnerabilities
+    image:
+      src: assets/monsters/image29.png
+      alt: Инфери
+  - id: m30-avada
+    type: single
+    prompt: "Карпатский Йети: какой эффект от Авады Кедавры?"
+    options:
+      - id: a
+        text: Обездвиживает на 1 минуту
+        correct: true
+      - id: b
+        text: Усиливает существо на один уровень
+      - id: c
+        text: Превращает в безопасный обычный предмет
+    explanation: "Монстробук, «Карпатский Йети»: Обездвиживает на 1 минуту."
+    rule: monster-30#vulnerabilities
+    image:
+      src: assets/monsters/image30.png
+      alt: Карпатский Йети
+  - id: m31-avada
+    type: single
+    prompt: "Келпи: какой эффект от Авады Кедавры?"
+    options:
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает
+        correct: true
+    explanation: "Монстробук, «Келпи»: Убивает"
+    rule: monster-31#vulnerabilities
+    image:
+      src: assets/monsters/image31.png
+      alt: Келпи
+  - id: m32-avada
+    type: single
+    prompt: "Клубкопух: какой эффект от Авады Кедавры?"
+    options:
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+    explanation: "Монстробук, «Клубкопух»: Убивает"
+    rule: monster-32#vulnerabilities
+    image:
+      src: assets/monsters/image32.png
+      alt: Клубкопух
+  - id: m33-avada
+    type: single
+    prompt: "Книззл: какой эффект от Авады Кедавры?"
+    options:
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+    explanation: "Монстробук, «Книззл»: Убивает"
+    rule: monster-33#vulnerabilities
+    image:
+      src: assets/monsters/image33.png
+      alt: Книззл
+  - id: m34-avada
+    type: single
+    prompt: "Кокатрикс: какой эффект от Авады Кедавры?"
+    options:
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает
+        correct: true
+    explanation: "Монстробук, «Кокатрикс»: Убивает"
+    rule: monster-34#vulnerabilities
+    image:
+      src: assets/monsters/image34.png
+      alt: Кокатрикс
+  - id: m35-avada
+    type: single
+    prompt: "Красный колпак: какой эффект от Авады Кедавры?"
+    options:
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+    explanation: "Монстробук, «Красный колпак»: Убивает"
+    rule: monster-35#vulnerabilities
+    image:
+      src: assets/monsters/image35.png
+      alt: Красный колпак
+  - id: m36-avada
+    type: single
+    prompt: "Крыса-скавен: какой эффект от Авады Кедавры?"
+    options:
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+    explanation: "Монстробук, «Крыса-скавен»: Убивает"
+    rule: monster-36#vulnerabilities
+    image:
+      src: assets/monsters/image36.png
+      alt: Крыса-скавен
+  - id: m37-avada
+    type: single
+    prompt: "Лечурка (Лукотрус): какой эффект от Авады Кедавры?"
+    options:
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает
+        correct: true
+    explanation: "Монстробук, «Лечурка (Лукотрус)»: Убивает"
+    rule: monster-37#vulnerabilities
+    image:
+      src: assets/monsters/image37.png
+      alt: Лечурка (Лукотрус)
+  - id: m38-avada
+    type: single
+    prompt: "Лунтеленок: какой эффект от Авады Кедавры?"
+    options:
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+    explanation: "Монстробук, «Лунтеленок»: Убивает"
+    rule: monster-38#vulnerabilities
+    image:
+      src: assets/monsters/image38.png
+      alt: Лунтеленок
+  - id: m39-avada
+    type: single
+    prompt: "Мантикора: какой эффект от Авады Кедавры?"
+    options:
+      - id: a
+        text: Убивает только 3 подряд
+        correct: true
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+    explanation: "Монстробук, «Мантикора»: Убивает только 3 подряд."
+    rule: monster-39#vulnerabilities
+    image:
+      src: assets/monsters/image39.png
+      alt: Мантикора
+  - id: m41-avada
+    type: single
+    prompt: "Мумия: какой эффект от Авады Кедавры?"
+    options:
+      - id: b
+        text: Усиливает существо на один уровень
+      - id: c
+        text: Превращает в безопасный обычный предмет
+      - id: a
+        text: Обездвиживает на 1 минуту
+        correct: true
+    explanation: "Монстробук, «Мумия»: Обездвиживает на 1 минуту"
+    rule: monster-41#vulnerabilities
+    image:
+      src: assets/monsters/image41.png
+      alt: Мумия
+  - id: m42-avada
+    type: single
+    prompt: "Нунду: какой эффект от Авады Кедавры?"
+    options:
+      - id: c
+        text: Превращает в безопасный обычный предмет
+      - id: a
+        text: Заменяет в цепочке любые две чары
+        correct: true
+      - id: b
+        text: Усиливает существо на один уровень
+    explanation: "Монстробук, «Нунду»: Заменяет в цепочке любые две чары."
+    rule: monster-42#vulnerabilities
+    image:
+      src: assets/monsters/image42.png
+      alt: Нунду
+  - id: m43-avada
+    type: single
+    prompt: "Нюхлер: какой эффект от Авады Кедавры?"
+    options:
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+    explanation: "Монстробук, «Нюхлер»: Убивает"
+    rule: monster-43#vulnerabilities
+    image:
+      src: assets/monsters/image43.png
+      alt: Нюхлер
+  - id: m44-avada
+    type: single
+    prompt: "Оборотень: какой эффект от Авады Кедавры?"
+    options:
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает всегда
+        correct: true
+    explanation: "Монстробук, «Оборотень»: Убивает всегда"
+    rule: monster-44#vulnerabilities
+    image:
+      src: assets/monsters/image44.png
+      alt: Оборотень
+  - id: m45-avada
+    type: single
+    prompt: "Обскур: какой эффект от Авады Кедавры?"
+    options:
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает вместе с носителем
+        correct: true
+      - id: b
+        text: Не действует
+    explanation: "Монстробук, «Обскур»: Убивает вместе с носителем"
+    rule: monster-45#vulnerabilities
+    image:
+      src: assets/monsters/image45.png
+      alt: Обскур
+  - id: m46-avada
+    type: single
+    prompt: "Пеплозмей: какой эффект от Авады Кедавры?"
+    options:
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+    explanation: "Монстробук, «Пеплозмей»: Убивает"
+    rule: monster-46#vulnerabilities
+    image:
+      src: assets/monsters/image46.png
+      alt: Пеплозмей
+  - id: m47-avada
+    type: single
+    prompt: "Пикирующий злыдень: какой эффект от Авады Кедавры?"
+    options:
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает всегда
+        correct: true
+    explanation: "Монстробук, «Пикирующий злыдень»: Убивает всегда"
+    rule: monster-47#vulnerabilities
+    image:
+      src: assets/monsters/image47.png
+      alt: Пикирующий злыдень
+  - id: m48-avada
+    type: single
+    prompt: "Пикси: какой эффект от Авады Кедавры?"
+    options:
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+    explanation: "Монстробук, «Пикси»: Убивает"
+    rule: monster-48#vulnerabilities
+    image:
+      src: assets/monsters/image48.png
+      alt: Пикси
+  - id: m49-avada
+    type: single
+    prompt: "Полтергейст: какой эффект от Авады Кедавры?"
+    options:
+      - id: a
+        text: Исчезает на 1 минуту, потом появляется вновь
+        correct: true
+      - id: b
+        text: Усиливает существо на один уровень
+      - id: c
+        text: Превращает в безопасный обычный предмет
+    explanation: "Монстробук, «Полтергейст»: Исчезает на 1 минуту, потом появляется вновь."
+    rule: monster-49#vulnerabilities
+    image:
+      src: assets/monsters/image49.png
+      alt: Полтергейст
+  - id: m50-avada
+    type: single
+    prompt: "Призрак/Привидение: какой эффект от Авады Кедавры?"
+    options:
+      - id: b
+        text: Мгновенно убивает
+      - id: c
+        text: Лишает сознания ровно на 15 минут
+      - id: a
+        text: Нет
+        correct: true
+    explanation: "Монстробук, «Призрак/Привидение»: Нет"
+    rule: monster-50#vulnerabilities
+    image:
+      src: assets/monsters/image50.png
+      alt: Призрак/Привидение
+  - id: m51-avada
+    type: single
+    prompt: "Русалка: какой эффект от Авады Кедавры?"
+    options:
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+    explanation: "Монстробук, «Русалка»: Убивает"
+    rule: monster-51#vulnerabilities
+    image:
+      src: assets/monsters/image51.png
+      alt: Русалка
+  - id: m52-avada
+    type: single
+    prompt: "Саламандра: какой эффект от Авады Кедавры?"
+    options:
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+    explanation: "Монстробук, «Саламандра»: Убивает"
+    rule: monster-52#vulnerabilities
+    image:
+      src: assets/monsters/image52.png
+      alt: Саламандра
+  - id: m54-avada
+    type: single
+    prompt: "Сниджет: какой эффект от Авады Кедавры?"
+    options:
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает
+        correct: true
+    explanation: "Монстробук, «Сниджет»: Убивает"
+    rule: monster-54#vulnerabilities
+    image:
+      src: assets/monsters/image55.png
+      alt: Сниджет
+  - id: m55-avada
+    type: single
+    prompt: "Сова: какой эффект от Авады Кедавры?"
+    options:
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает. В полете сову можно сбить только этой чарой
+        correct: true
+      - id: b
+        text: Не действует
+    explanation: "Монстробук, «Сова»: Убивает. В полете сову можно сбить только этой чарой."
+    rule: monster-55#vulnerabilities
+    image:
+      src: assets/monsters/image56.png
+      alt: Сова
+  - id: m56-avada
+    type: single
+    prompt: "Тень: какой эффект от Авады Кедавры?"
     options:
       - id: a
         text: Нет
         correct: true
       - id: b
-        text: Да, каждый час
+        text: Мгновенно убивает
       - id: c
-        text: Да, после любого Люмоса
+        text: Лишает сознания ровно на 15 минут
+    explanation: "Монстробук, «Тень»: Нет"
+    rule: monster-56#vulnerabilities
+    image:
+      src: assets/monsters/image57.png
+      alt: Тень
+  - id: m57-avada
+    type: single
+    prompt: "Тролль: какой эффект от Авады Кедавры?"
+    options:
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает
+        correct: true
+    explanation: "Монстробук, «Тролль»: Убивает"
+    rule: monster-57#vulnerabilities
+    image:
+      src: assets/monsters/image58.png
+      alt: Тролль
+  - id: m58-avada
+    type: single
+    prompt: "Упырь: какой эффект от Авады Кедавры?"
+    options:
+      - id: c
+        text: Превращает в безопасный обычный предмет
+      - id: a
+        text: Обездвиживает на 1 минуту
+        correct: true
+      - id: b
+        text: Усиливает существо на один уровень
+    explanation: "Монстробук, «Упырь»: Обездвиживает на 1 минуту."
+    rule: monster-58#vulnerabilities
+    image:
+      src: assets/monsters/image59.png
+      alt: Упырь
+  - id: m59-avada
+    type: single
+    prompt: "Фавн: какой эффект от Авады Кедавры?"
+    options:
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+    explanation: "Монстробук, «Фавн»: Убивает"
+    rule: monster-59#vulnerabilities
+    image:
+      src: assets/monsters/image60.png
+      alt: Фавн
+  - id: m60-avada
+    type: single
+    prompt: "Феникс: какой эффект от Авады Кедавры?"
+    options:
+      - id: b
+        text: Усиливает существо на один уровень
+      - id: c
+        text: Превращает в безопасный обычный предмет
+      - id: a
+        text: Обращает его в горстку пепла, откуда рождается птенец
+        correct: true
+    explanation: "Монстробук, «Феникс»: Обращает его в горстку пепла, откуда рождается птенец."
+    rule: monster-60#vulnerabilities
+    image:
+      src: assets/monsters/image61.png
+      alt: Феникс
+  - id: m61-avada
+    type: single
+    prompt: "Фестрал: какой эффект от Авады Кедавры?"
+    options:
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+    explanation: "Монстробук, «Фестрал»: Убивает"
+    rule: monster-61#vulnerabilities
+    image:
+      src: assets/monsters/image62.png
+      alt: Фестрал
+  - id: m62-avada
+    type: single
+    prompt: "Флоббер-червь: какой эффект от Авады Кедавры?"
+    options:
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+    explanation: "Монстробук, «Флоббер-червь»: Убивает"
+    rule: monster-62#vulnerabilities
+    image:
+      src: assets/monsters/image63.png
+      alt: Флоббер-червь
+  - id: m63-avada
+    type: single
+    prompt: "Флоббер-червь гигантский: какой эффект от Авады Кедавры?"
+    options:
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает
+        correct: true
+    explanation: "Монстробук, «Флоббер-червь гигантский»: Убивает"
+    rule: monster-63#vulnerabilities
+    image:
+      src: assets/monsters/image64.png
+      alt: Флоббер-червь гигантский
+  - id: m64-avada
+    type: single
+    prompt: "Химера: какой эффект от Авады Кедавры?"
+    options:
+      - id: c
+        text: Превращает в безопасный обычный предмет
+      - id: a
+        text: Работает всегда, убивает
+        correct: true
+      - id: b
+        text: Усиливает существо на один уровень
+    explanation: "Монстробук, «Химера»: Работает всегда, убивает."
+    rule: monster-64#vulnerabilities
+    image:
+      src: assets/monsters/image65.png
+      alt: Химера
+  - id: m66-avada
+    type: single
+    prompt: "Эрклинг/Детоед: какой эффект от Авады Кедавры?"
+    options:
+      - id: a
+        text: Убивает
+        correct: true
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+    explanation: "Монстробук, «Эрклинг/Детоед»: Убивает"
+    rule: monster-66#vulnerabilities
+    image:
+      src: assets/monsters/image67.png
+      alt: Эрклинг/Детоед
+  - id: m67-avada
+    type: single
+    prompt: "Яркополз: какой эффект от Авады Кедавры?"
+    options:
+      - id: b
+        text: Не действует
+      - id: c
+        text: Лишь обездвиживает на одну минуту
+      - id: a
+        text: Убивает
+        correct: true
+    explanation: "Монстробук, «Яркополз»: Убивает"
+    rule: monster-67#vulnerabilities
+    image:
+      src: assets/monsters/image68.png
+      alt: Яркополз
+  - id: m01-ground-immunity
+    type: single
+    prompt: "Авгур: какие чары не работают на земле?"
+    options:
+      - id: c
+        text: Только Инсендио Ультима
+      - id: a
+        text: Импедимента и Тарант Аллегра любого уровня
+        correct: true
+      - id: b
+        text: Только Люмос
     explanation: >-
-      Домашний питомец без взаимодействия по приручению ингредиентов не даёт. Задания приручения могут
-      принести ингредиент или привести к потере существа.
-    rule: creatures#pet-ingredient
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: one-pet
+      Монстробук, «Авгур»: НЕ РАБОТАЕТ: Импедимента любого уровня Тарант Аллегра любого уровня. Остальные стандартно на
+      земле Летящее животное можно сбить только Авадой.
+    rule: monster-01#vulnerabilities
+    image:
+      src: assets/monsters/image1.png
+      alt: Авгур
+  - id: m01-flight
     type: single
-    prompt: Сколько питомцев можно приручать одновременно?
+    prompt: "Авгур: чем можно сбить летящее существо?"
     options:
-      - id: b
-        text: Трёх
-      - id: c
-        text: Любое количество
       - id: a
-        text: Одного
-        correct: true
-    explanation: Приручать более одного питомца одновременно невозможно. Не все зверьки пригодны для приручения.
-    rule: creatures#one-pet
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: pet-marker
-    type: single
-    prompt: Каким маркером отмечены подходящие дикие зверьки для начала приручения?
-    options:
-      - id: c
-        text: Голубая лента на запястье
-      - id: a
-        text: MAGIC с кодом T-1
+        text: Только Авадой Кедаврой
         correct: true
       - id: b
-        text: Белая дуэльная палочка
+        text: Импедиментой Симпла
+      - id: c
+        text: Тарант Аллегра Максима
     explanation: >-
-      Для начала приручения ищут зверька с маркером MAGIC и кодом T-1, затем обращаются в Отдел Тайн за
-      специальным ботом с заданиями.
-    rule: creatures#pet-marker
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: pet-success
+      Монстробук, «Авгур»: НЕ РАБОТАЕТ: Импедимента любого уровня Тарант Аллегра любого уровня. Остальные стандартно на
+      земле Летящее животное можно сбить только Авадой.
+    rule: monster-01#vulnerabilities
+    image:
+      src: assets/monsters/image1.png
+      alt: Авгур
+  - id: m02-simpla
     type: single
-    prompt: Куда обратиться после успешного приручения, когда зверёк даёт ингредиент?
-    options:
-      - id: a
-        text: В Отдел Тайн
-        correct: true
-      - id: b
-        text: Только в дуэльный клуб
-      - id: c
-        text: Никуда, успех не фиксируется
-    explanation: >-
-      После получения ингредиента по итогам приручения обращаются в Отдел Тайн, где Невыразимцы фиксируют
-      успех. Погибшего или сбежавшего зверька также сдают туда.
-    rule: creatures#pet-success
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: pet-cub
-    type: single
-    prompt: Сколько семестров растёт правильно приручаемый детёныш крупного существа?
+    prompt: "Автоматон: действуют ли чары Симпла?"
     options:
       - id: b
-        text: Один час
+        text: Да, все стандартно
       - id: c
-        text: Десять семестров
+        text: Только если кукла бежит
       - id: a
-        text: Два семестра
+        text: Нет, Симпла не действует
         correct: true
     explanation: >-
-      Детёныш крупного существа растёт два семестра, каждый семестр даря ингредиент при правильном приручении,
-      затем уходит в лес; игрушку сдают в Отдел Тайн.
-    rule: creatures#pet-cub
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: pet-small
+      Монстробук, «Автоматон»: Симпла не действует! Ступефай Максима  приостанавливает на 1-3 секунды Импедимента
+      Максима выбивает ноги на 1 минуту, можно ползти Инкарцеро Максима связывает на 1 минуту Флексио Флуктус Аэрис
+      отбрасывает куклу на 5-7 метров Тарант Аллегра Максима ускоряет куклу на 1 минуту (Бег) Лаэза Кордис убивает
+      сердце за 15 минут Ступефай Ультима ломает куклу (можно починить Репаро) Импедимента Ультима ломает ноги, можно
+      ползти (можно починить Репаро) Инкарцеро Ультима - кукла в коконе на 15 минут, достать нельзя Тарант Аллегра
+      Ультима ускоряет куклу на 15 минут (Бег) Лаэза Кордис Ультима убивает сердце за 7,5 минут Бомббарда открывает ящик
+      сердцем, если автоматон обездвижен или поврежден.
+    rule: monster-02#vulnerabilities
+    image:
+      src: assets/monsters/image2.png
+      alt: Автоматон
+  - id: m02-stupefy-maxima
     type: single
-    prompt: Сколько семестров живёт взрослое маленькое существо в модели приручения?
+    prompt: "Автоматон: как действует Ступефай Максима?"
     options:
       - id: c
-        text: Двенадцать
+        text: Ускоряет на 15 минут
       - id: a
-        text: Четыре
+        text: Приостанавливает на 1–3 секунды
         correct: true
       - id: b
-        text: Два
+        text: Ломает куклу навсегда
     explanation: >-
-      Взрослое маленькое существо живёт четыре семестра. Каждый цикл требует нового приручения и может
-      подарить ингредиент; после срока зверька сдают в Отдел Тайн.
-    rule: creatures#pet-small
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: super-transfiguration
+      Монстробук, «Автоматон»: Симпла не действует! Ступефай Максима  приостанавливает на 1-3 секунды Импедимента
+      Максима выбивает ноги на 1 минуту, можно ползти Инкарцеро Максима связывает на 1 минуту Флексио Флуктус Аэрис
+      отбрасывает куклу на 5-7 метров Тарант Аллегра Максима ускоряет куклу на 1 минуту (Бег) Лаэза Кордис убивает
+      сердце за 15 минут Ступефай Ультима ломает куклу (можно починить Репаро) Импедимента Ультима ломает ноги, можно
+      ползти (можно починить Репаро) Инкарцеро Ультима - кукла в коконе на 15 минут, достать нельзя Тарант Аллегра
+      Ультима ускоряет куклу на 15 минут (Бег) Лаэза Кордис Ультима убивает сердце за 7,5 минут Бомббарда открывает ящик
+      сердцем, если автоматон обездвижен или поврежден.
+    rule: monster-02#vulnerabilities
+    image:
+      src: assets/monsters/image2.png
+      alt: Автоматон
+  - id: m02-impedimenta-maxima
     type: single
-    prompt: Действует ли трансфигурация на сверхволшебных существ по общему правилу?
+    prompt: "Автоматон: что делает Импедимента Максима?"
     options:
       - id: a
-        text: Нет
+        text: Выбивает ноги на минуту, ползти можно
         correct: true
       - id: b
-        text: Да, всегда Симпла
+        text: Полностью уничтожает сердце
       - id: c
-        text: Да, если существо летает
+        text: Заставляет летать
     explanation: >-
-      Для сверхволшебных существ общее правило: трансфигурация не действует, иммунитет к чарам очень силён;
-      частные уязвимости описаны отдельно.
-    rule: creatures#super-transfiguration
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: boggart-form
+      Монстробук, «Автоматон»: Симпла не действует! Ступефай Максима  приостанавливает на 1-3 секунды Импедимента
+      Максима выбивает ноги на 1 минуту, можно ползти Инкарцеро Максима связывает на 1 минуту Флексио Флуктус Аэрис
+      отбрасывает куклу на 5-7 метров Тарант Аллегра Максима ускоряет куклу на 1 минуту (Бег) Лаэза Кордис убивает
+      сердце за 15 минут Ступефай Ультима ломает куклу (можно починить Репаро) Импедимента Ультима ломает ноги, можно
+      ползти (можно починить Репаро) Инкарцеро Ультима - кукла в коконе на 15 минут, достать нельзя Тарант Аллегра
+      Ультима ускоряет куклу на 15 минут (Бег) Лаэза Кордис Ультима убивает сердце за 7,5 минут Бомббарда открывает ящик
+      сердцем, если автоматон обездвижен или поврежден.
+    rule: monster-02#vulnerabilities
+    image:
+      src: assets/monsters/image2.png
+      alt: Автоматон
+  - id: m02-incarcero-maxima
     type: single
-    prompt: В какой облик обычно превращается боггарт перед волшебником?
-    options:
-      - id: b
-        text: В любимого питомца
-      - id: c
-        text: Всегда в чёрный дым
-      - id: a
-        text: В его худший страх
-        correct: true
-    explanation: >-
-      Боггарт принимает форму существа, объекта или предмета, которого стоящий перед ним волшебник боится
-      больше всего; для разных людей выглядит по-разному.
-    rule: creatures#boggart-form
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: boggart-name
-    type: single
-    prompt: Почему боггарту нельзя давать имя?
-    options:
-      - id: c
-        text: Он теряет способность менять форму
-      - id: a
-        text: Его сила возрастает, он выходит из-под контроля
-        correct: true
-      - id: b
-        text: Он немедленно становится домашним питомцем
-    explanation: >-
-      В справочнике существ прямо сказано не давать боггартам имён: это увеличивает их силу и делает
-      неподконтрольными.
-    rule: creatures#boggart-name
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: dementor-near
-    type: single
-    prompt: Можно ли применять Патронус, оказавшись в двух метрах от дементора?
-    options:
-      - id: a
-        text: Нет, на такой дистанции это невозможно
-        correct: true
-      - id: b
-        text: Да, на любой дистанции
-      - id: c
-        text: Только если шептать
-    explanation: >-
-      На расстоянии двух метров от дементора невозможно применять Патронус; убегать и применять другие
-      заклинания можно.
-    rule: creatures#dementor-near
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: dementor-touch
-    type: single
-    prompt: Каков непосредственный эффект касания дементора?
-    options:
-      - id: b
-        text: Цель становится невидимой на час
-      - id: c
-        text: Только выпадает палочка
-      - id: a
-        text: Нельзя двигаться и колдовать, нужно сесть или лечь на 15 секунд
-        correct: true
-    explanation: >-
-      Касание дементора вызывает полную неспособность двигаться и колдовать: нужно сесть или лечь на 15
-      секунд.
-    rule: creatures#dementor-touch
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: dementor-patronus
-    type: single
-    prompt: Как удерживать одного дементора на расстоянии Патронусом?
-    options:
-      - id: c
-        text: Громко смеяться без света
-      - id: a
-        text: Направлять на него луч, не используя другую чару
-        correct: true
-      - id: b
-        text: Один раз включить фонарь и убрать его
-    explanation: >-
-      Патронус отгоняет одного дементора на 7 метров и не даёт подойти, пока луч направлен на него и волшебник
-      не использует другое заклинание.
-    rule: creatures#dementor-patronus
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: dementor-avada
-    type: single
-    prompt: Действует ли Авада Кедавра на дементора?
-    options:
-      - id: a
-        text: Нет
-        correct: true
-      - id: b
-        text: Да, мгновенно уничтожает
-      - id: c
-        text: Обездвиживает на пять минут
-    explanation: >-
-      Согласно разделу о дементоре, Авада Кедавра на него не действует; трансфигурация также не действует,
-      обычными чарами его не поразить.
-    rule: creatures#dementor-avada
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: dementor-interrupted
-    type: single
-    prompt: Что обычно происходит при поцелуе дементора, прерванном раньше 60 секунд?
-    options:
-      - id: b
-        text: Мгновенное полное восстановление
-      - id: c
-        text: Вечное превращение в камень
-      - id: a
-        text: Бессознательное состояние на пять минут
-        correct: true
-    explanation: >-
-      Поцелуй дементора, прерванный раньше 60 секунд, обычно вводит жертву в бессознательное состояние на пять
-      минут; об иных случаях сообщают отдельно.
-    rule: creatures#dementor-interrupted
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: aconite
-    type: single
-    prompt: Предотвращает ли аконит превращение оборотня?
-    options:
-      - id: c
-        text: Да, навсегда снимает проклятие
-      - id: a
-        text: Нет, позволяет контролировать себя, но превращение происходит
-        correct: true
-      - id: b
-        text: Да, полностью отменяет превращение
-    explanation: Оборотень, принявший аконит, может контролировать себя, но превращение всё равно произойдёт.
-    rule: creatures#aconite
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: werewolf-transform
-    type: single
-    prompt: Какие чары не спадают с оборотня при превращении?
-    options:
-      - id: a
-        text: Ультимы
-        correct: true
-      - id: b
-        text: Только бытовые Симплы
-      - id: c
-        text: Все без исключения спадают
-    explanation: В момент превращения с оборотня спадают все чары, кроме Ультимы.
-    rule: creatures#werewolf-transform
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: yeti-laesa
-    type: single
-    prompt: На сколько Лаэза Кордис Ультима обездвиживает Карпатского Йети?
+    prompt: "Автоматон: на сколько связывает Инкарцеро Максима?"
     options:
       - id: b
         text: На 45 минут
@@ -313,30 +1112,2253 @@ questions:
         text: На одну минуту
         correct: true
     explanation: >-
-      Лаэза Кордис Ультима обездвиживает Карпатского Йети на одну минуту; Авада Кедавра также обездвиживает
-      его на минуту.
-    rule: creatures#yeti-laesa
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: yeti-transform
+      Монстробук, «Автоматон»: Симпла не действует! Ступефай Максима  приостанавливает на 1-3 секунды Импедимента
+      Максима выбивает ноги на 1 минуту, можно ползти Инкарцеро Максима связывает на 1 минуту Флексио Флуктус Аэрис
+      отбрасывает куклу на 5-7 метров Тарант Аллегра Максима ускоряет куклу на 1 минуту (Бег) Лаэза Кордис убивает
+      сердце за 15 минут Ступефай Ультима ломает куклу (можно починить Репаро) Импедимента Ультима ломает ноги, можно
+      ползти (можно починить Репаро) Инкарцеро Ультима - кукла в коконе на 15 минут, достать нельзя Тарант Аллегра
+      Ультима ускоряет куклу на 15 минут (Бег) Лаэза Кордис Ультима убивает сердце за 7,5 минут Бомббарда открывает ящик
+      сердцем, если автоматон обездвижен или поврежден.
+    rule: monster-02#vulnerabilities
+    image:
+      src: assets/monsters/image2.png
+      alt: Автоматон
+  - id: m02-tarant-maxima
     type: single
-    prompt: Что происходит после пяти минут трансфигурации Карпатского Йети?
+    prompt: "Автоматон: как действует Тарант Аллегра Максима?"
     options:
       - id: c
-        text: Он становится домашним питомцем
+        text: Уничтожает сердце
       - id: a
-        text: Возвращается исходная форма и появляется иммунитет к этому превращению
+        text: Ускоряет куклу на минуту, позволяя бегать
         correct: true
       - id: b
-        text: Он навсегда теряет разум
+        text: Усыпляет на 30 минут
     explanation: >-
-      Трансфигурация любого уровня превращает Йети на пять минут, после чего он возвращается и приобретает
-      иммунитет к конкретному превращению. Для длительного превращения требуется серия разных вариантов по
-      полным правилам.
-    rule: creatures#yeti-transform
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: ghoul-ground
+      Монстробук, «Автоматон»: Симпла не действует! Ступефай Максима  приостанавливает на 1-3 секунды Импедимента
+      Максима выбивает ноги на 1 минуту, можно ползти Инкарцеро Максима связывает на 1 минуту Флексио Флуктус Аэрис
+      отбрасывает куклу на 5-7 метров Тарант Аллегра Максима ускоряет куклу на 1 минуту (Бег) Лаэза Кордис убивает
+      сердце за 15 минут Ступефай Ультима ломает куклу (можно починить Репаро) Импедимента Ультима ломает ноги, можно
+      ползти (можно починить Репаро) Инкарцеро Ультима - кукла в коконе на 15 минут, достать нельзя Тарант Аллегра
+      Ультима ускоряет куклу на 15 минут (Бег) Лаэза Кордис Ультима убивает сердце за 7,5 минут Бомббарда открывает ящик
+      сердцем, если автоматон обездвижен или поврежден.
+    rule: monster-02#vulnerabilities
+    image:
+      src: assets/monsters/image2.png
+      alt: Автоматон
+  - id: m02-stupefy-ultima
     type: single
-    prompt: Что делает Лаэза Кордис Ультима с упырём на земле?
+    prompt: "Автоматон: как действует Ступефай Ультима?"
+    options:
+      - id: a
+        text: Ломает куклу; можно починить Репаро
+        correct: true
+      - id: b
+        text: Только смешит
+      - id: c
+        text: Ускоряет на минуту
+    explanation: >-
+      Монстробук, «Автоматон»: Симпла не действует! Ступефай Максима  приостанавливает на 1-3 секунды Импедимента
+      Максима выбивает ноги на 1 минуту, можно ползти Инкарцеро Максима связывает на 1 минуту Флексио Флуктус Аэрис
+      отбрасывает куклу на 5-7 метров Тарант Аллегра Максима ускоряет куклу на 1 минуту (Бег) Лаэза Кордис убивает
+      сердце за 15 минут Ступефай Ультима ломает куклу (можно починить Репаро) Импедимента Ультима ломает ноги, можно
+      ползти (можно починить Репаро) Инкарцеро Ультима - кукла в коконе на 15 минут, достать нельзя Тарант Аллегра
+      Ультима ускоряет куклу на 15 минут (Бег) Лаэза Кордис Ультима убивает сердце за 7,5 минут Бомббарда открывает ящик
+      сердцем, если автоматон обездвижен или поврежден.
+    rule: monster-02#vulnerabilities
+    image:
+      src: assets/monsters/image2.png
+      alt: Автоматон
+  - id: m02-impedimenta-ultima
+    type: single
+    prompt: "Автоматон: что делает Импедимента Ультима?"
+    options:
+      - id: b
+        text: Убивает сердце мгновенно
+      - id: c
+        text: Не действует
+      - id: a
+        text: Ломает ноги, можно ползти; чинится Репаро
+        correct: true
+    explanation: >-
+      Монстробук, «Автоматон»: Симпла не действует! Ступефай Максима  приостанавливает на 1-3 секунды Импедимента
+      Максима выбивает ноги на 1 минуту, можно ползти Инкарцеро Максима связывает на 1 минуту Флексио Флуктус Аэрис
+      отбрасывает куклу на 5-7 метров Тарант Аллегра Максима ускоряет куклу на 1 минуту (Бег) Лаэза Кордис убивает
+      сердце за 15 минут Ступефай Ультима ломает куклу (можно починить Репаро) Импедимента Ультима ломает ноги, можно
+      ползти (можно починить Репаро) Инкарцеро Ультима - кукла в коконе на 15 минут, достать нельзя Тарант Аллегра
+      Ультима ускоряет куклу на 15 минут (Бег) Лаэза Кордис Ультима убивает сердце за 7,5 минут Бомббарда открывает ящик
+      сердцем, если автоматон обездвижен или поврежден.
+    rule: monster-02#vulnerabilities
+    image:
+      src: assets/monsters/image2.png
+      alt: Автоматон
+  - id: m02-incarcero-ultima
+    type: single
+    prompt: "Автоматон: что создаёт Инкарцеро Ультима?"
+    options:
+      - id: c
+        text: Безопасный сон на восемь часов
+      - id: a
+        text: Кокон на 15 минут, куклу нельзя достать
+        correct: true
+      - id: b
+        text: Кокон на 15 секунд
+    explanation: >-
+      Монстробук, «Автоматон»: Симпла не действует! Ступефай Максима  приостанавливает на 1-3 секунды Импедимента
+      Максима выбивает ноги на 1 минуту, можно ползти Инкарцеро Максима связывает на 1 минуту Флексио Флуктус Аэрис
+      отбрасывает куклу на 5-7 метров Тарант Аллегра Максима ускоряет куклу на 1 минуту (Бег) Лаэза Кордис убивает
+      сердце за 15 минут Ступефай Ультима ломает куклу (можно починить Репаро) Импедимента Ультима ломает ноги, можно
+      ползти (можно починить Репаро) Инкарцеро Ультима - кукла в коконе на 15 минут, достать нельзя Тарант Аллегра
+      Ультима ускоряет куклу на 15 минут (Бег) Лаэза Кордис Ультима убивает сердце за 7,5 минут Бомббарда открывает ящик
+      сердцем, если автоматон обездвижен или поврежден.
+    rule: monster-02#vulnerabilities
+    image:
+      src: assets/monsters/image2.png
+      alt: Автоматон
+  - id: m02-tarant-ultima
+    type: single
+    prompt: "Автоматон: как действует Тарант Аллегра Ультима?"
+    options:
+      - id: a
+        text: Ускоряет куклу на 15 минут
+        correct: true
+      - id: b
+        text: Убивает за 7,5 минуты
+      - id: c
+        text: Отнимает способность двигаться навсегда
+    explanation: >-
+      Монстробук, «Автоматон»: Симпла не действует! Ступефай Максима  приостанавливает на 1-3 секунды Импедимента
+      Максима выбивает ноги на 1 минуту, можно ползти Инкарцеро Максима связывает на 1 минуту Флексио Флуктус Аэрис
+      отбрасывает куклу на 5-7 метров Тарант Аллегра Максима ускоряет куклу на 1 минуту (Бег) Лаэза Кордис убивает
+      сердце за 15 минут Ступефай Ультима ломает куклу (можно починить Репаро) Импедимента Ультима ломает ноги, можно
+      ползти (можно починить Репаро) Инкарцеро Ультима - кукла в коконе на 15 минут, достать нельзя Тарант Аллегра
+      Ультима ускоряет куклу на 15 минут (Бег) Лаэза Кордис Ультима убивает сердце за 7,5 минут Бомббарда открывает ящик
+      сердцем, если автоматон обездвижен или поврежден.
+    rule: monster-02#vulnerabilities
+    image:
+      src: assets/monsters/image2.png
+      alt: Автоматон
+  - id: m02-bombarda
+    type: single
+    prompt: "Автоматон: когда Бомбарда открывает ящик с сердцем?"
+    options:
+      - id: b
+        text: Только когда он бежит
+      - id: c
+        text: Только если он добровольно согласен
+      - id: a
+        text: Когда автоматон обездвижен или повреждён
+        correct: true
+    explanation: >-
+      Монстробук, «Автоматон»: Симпла не действует! Ступефай Максима  приостанавливает на 1-3 секунды Импедимента
+      Максима выбивает ноги на 1 минуту, можно ползти Инкарцеро Максима связывает на 1 минуту Флексио Флуктус Аэрис
+      отбрасывает куклу на 5-7 метров Тарант Аллегра Максима ускоряет куклу на 1 минуту (Бег) Лаэза Кордис убивает
+      сердце за 15 минут Ступефай Ультима ломает куклу (можно починить Репаро) Импедимента Ультима ломает ноги, можно
+      ползти (можно починить Репаро) Инкарцеро Ультима - кукла в коконе на 15 минут, достать нельзя Тарант Аллегра
+      Ультима ускоряет куклу на 15 минут (Бег) Лаэза Кордис Ультима убивает сердце за 7,5 минут Бомббарда открывает ящик
+      сердцем, если автоматон обездвижен или поврежден.
+    rule: monster-02#vulnerabilities
+    image:
+      src: assets/monsters/image2.png
+      alt: Автоматон
+  - id: m02-legilimens
+    type: single
+    prompt: "Автоматон: что получает пытающийся применить Легилименцию к кукле?"
+    options:
+      - id: c
+        text: Бесплатный щит Протего Ультима
+      - id: a
+        text: Менто Менорес уровня применённой Легилименции
+        correct: true
+      - id: b
+        text: Полный контроль без последствий
+    explanation: >-
+      Монстробук, «Автоматон»: При попытке залегилиментить куклу, волшебник получает эффект Менто Менорес, соразмерный
+      уровню применённой Легилименции.
+    rule: monster-02#vulnerabilities
+    image:
+      src: assets/monsters/image2.png
+      alt: Автоматон
+  - id: m04-legs
+    type: single
+    prompt: "Акромантул: на что действуют Импедимента и Тарант Аллегра Симпла и Максима?"
+    options:
+      - id: a
+        text: На отдельные лапы
+        correct: true
+      - id: b
+        text: Только на глаза
+      - id: c
+        text: На все восемь лап сразу без различий
+    explanation: >-
+      Монстробук, «Акромантул»: На отдельные лапы действуют Тарант Аллегра и Импедимента симпла и максима. После пяти
+      поврежденных лап не может быстро ходить. Любая Ультима.
+    rule: monster-04#vulnerabilities
+    image:
+      src: assets/monsters/image4.png
+      alt: Акромантул
+  - id: m04-five-legs
+    type: single
+    prompt: "Акромантул: к чему приводит повреждение пяти лап?"
+    options:
+      - id: b
+        text: Существо мгновенно умирает
+      - id: c
+        text: Полностью восстанавливает все лапы
+      - id: a
+        text: Существо не может быстро ходить
+        correct: true
+    explanation: >-
+      Монстробук, «Акромантул»: На отдельные лапы действуют Тарант Аллегра и Импедимента симпла и максима. После пяти
+      поврежденных лап не может быстро ходить. Любая Ультима.
+    rule: monster-04#vulnerabilities
+    image:
+      src: assets/monsters/image4.png
+      alt: Акромантул
+  - id: m04-ultima
+    type: single
+    prompt: "Акромантул: какой уровень чар указан как действующий без ограничения отдельными лапами?"
+    options:
+      - id: c
+        text: Только бытовой Люмос
+      - id: a
+        text: Любая Ультима
+        correct: true
+      - id: b
+        text: Любая Симпла
+    explanation: >-
+      Монстробук, «Акромантул»: На отдельные лапы действуют Тарант Аллегра и Импедимента симпла и максима. После пяти
+      поврежденных лап не может быстро ходить. Любая Ультима.
+    rule: monster-04#vulnerabilities
+    image:
+      src: assets/monsters/image4.png
+      alt: Акромантул
+  - id: m04-communication
+    type: single
+    prompt: "Акромантул: что нужно съесть волшебнику для разговора с существом?"
+    options:
+      - id: a
+        text: Паучью капусту
+        correct: true
+      - id: b
+        text: Молоко Гриндилоу
+      - id: c
+        text: Просо
+    explanation: "Монстробук, «Акромантул»: Едят мясо. Разговаривает, если волшебник съел Паучью капусту."
+    rule: monster-04#profile
+    image:
+      src: assets/monsters/image4.png
+      alt: Акромантул
+  - id: m05-unblocked
+    type: single
+    prompt: "Безликий: что делают неотбитые чары?"
+    options:
+      - id: b
+        text: Всегда убивают мгновенно
+      - id: c
+        text: Усиливают оператора
+      - id: a
+        text: Обездвиживают на пять минут
+        correct: true
+    explanation: >-
+      Монстробук, «Безликий»: Все неотбитые чары  обездвиживают на 5 минут. Если в течение часа использовать Инсендио
+      Ультима каждые 5 минут, то сгорает полностью. (ошибочный закл увеличивает время горения на 10 минут) Если
+      применить формулу "Exorciso te, N, omnis spiritus immundus", где N - расшифрованное имя, которое написано на теле
+      Безликого в виде анаграммы - рассыплется сам. Можно выбить или трансфигурировать кость в руки, найдет новую за 3
+      секунды.
+    rule: monster-05#vulnerabilities
+    image:
+      src: assets/monsters/image5.png
+      alt: Безликий
+  - id: m05-burn
+    type: single
+    prompt: "Безликий: как полностью сжечь существо Инсендио Ультима?"
+    options:
+      - id: c
+        text: Держать Люмос десять секунд
+      - id: a
+        text: Применять каждые пять минут в течение часа
+        correct: true
+      - id: b
+        text: Один раз применить Симплу
+    explanation: >-
+      Монстробук, «Безликий»: Все неотбитые чары  обездвиживают на 5 минут. Если в течение часа использовать Инсендио
+      Ультима каждые 5 минут, то сгорает полностью. (ошибочный закл увеличивает время горения на 10 минут) Если
+      применить формулу "Exorciso te, N, omnis spiritus immundus", где N - расшифрованное имя, которое написано на теле
+      Безликого в виде анаграммы - рассыплется сам. Можно выбить или трансфигурировать кость в руки, найдет новую за 3
+      секунды.
+    rule: monster-05#vulnerabilities
+    image:
+      src: assets/monsters/image5.png
+      alt: Безликий
+  - id: m05-burn-error
+    type: single
+    prompt: "Безликий: на сколько ошибочная чара увеличивает время сжигания?"
+    options:
+      - id: a
+        text: На десять минут
+        correct: true
+      - id: b
+        text: На одну секунду
+      - id: c
+        text: Не меняет срок
+    explanation: >-
+      Монстробук, «Безликий»: Все неотбитые чары  обездвиживают на 5 минут. Если в течение часа использовать Инсендио
+      Ультима каждые 5 минут, то сгорает полностью. (ошибочный закл увеличивает время горения на 10 минут) Если
+      применить формулу "Exorciso te, N, omnis spiritus immundus", где N - расшифрованное имя, которое написано на теле
+      Безликого в виде анаграммы - рассыплется сам. Можно выбить или трансфигурировать кость в руки, найдет новую за 3
+      секунды.
+    rule: monster-05#vulnerabilities
+    image:
+      src: assets/monsters/image5.png
+      alt: Безликий
+  - id: m05-bone
+    type: single
+    prompt: "Безликий: как быстро найдёт новую кость после выбивания или трансфигурации старой?"
+    options:
+      - id: b
+        text: За полчаса
+      - id: c
+        text: Никогда
+      - id: a
+        text: За три секунды
+        correct: true
+    explanation: >-
+      Монстробук, «Безликий»: Все неотбитые чары  обездвиживают на 5 минут. Если в течение часа использовать Инсендио
+      Ультима каждые 5 минут, то сгорает полностью. (ошибочный закл увеличивает время горения на 10 минут) Если
+      применить формулу "Exorciso te, N, omnis spiritus immundus", где N - расшифрованное имя, которое написано на теле
+      Безликого в виде анаграммы - рассыплется сам. Можно выбить или трансфигурировать кость в руки, найдет новую за 3
+      секунды.
+    rule: monster-05#vulnerabilities
+    image:
+      src: assets/monsters/image5.png
+      alt: Безликий
+  - id: m06-riddikulus
+    type: single
+    prompt: "Боггарт: какая чара указана единственной действующей?"
+    options:
+      - id: c
+        text: Авада Кедавра
+      - id: a
+        text: Ридикулус
+        correct: true
+      - id: b
+        text: Инсендио Ультима
+    explanation: "Монстробук, «Боггарт»: Только Ридикулус."
+    rule: monster-06#vulnerabilities
+    image:
+      src: assets/monsters/image6.png
+      alt: Боггарт
+  - id: m07-immune
+    type: single
+    prompt: "Болотная ведьма: какая из этих чар не действует никогда?"
+    options:
+      - id: a
+        text: Менто Менорес
+        correct: true
+      - id: b
+        text: Круциатус
+      - id: c
+        text: Экзитус Виталис
+    explanation: >-
+      Монстробук, «Болотная ведьма»: Не действует никогда: Лаэза Кордис, Менто Менорес, Морфиус, Империус. Одна ведьма:
+      всё стандартно Две ведьмы: Симпла сбивает с ног Максима даёт свой эффект на 1 мин Ультима стандартно Три ведьмы:
+      Симпла не работает Максима сбивает с ног Ультима даёт свой эффект на 1 мин
+    rule: monster-07#vulnerabilities
+    image:
+      src: assets/monsters/image7.png
+      alt: Болотная ведьма
+  - id: m07-two-simpla
+    type: single
+    prompt: "Болотная ведьма: как Симпла действует на двух ведьм вместе?"
+    options:
+      - id: b
+        text: Не действует вообще
+      - id: c
+        text: Убивает мгновенно
+      - id: a
+        text: Сбивает с ног
+        correct: true
+    explanation: >-
+      Монстробук, «Болотная ведьма»: Не действует никогда: Лаэза Кордис, Менто Менорес, Морфиус, Империус. Одна ведьма:
+      всё стандартно Две ведьмы: Симпла сбивает с ног Максима даёт свой эффект на 1 мин Ультима стандартно Три ведьмы:
+      Симпла не работает Максима сбивает с ног Ультима даёт свой эффект на 1 мин
+    rule: monster-07#vulnerabilities
+    image:
+      src: assets/monsters/image7.png
+      alt: Болотная ведьма
+  - id: m07-two-maxima
+    type: single
+    prompt: "Болотная ведьма: сколько даёт свой эффект Максима против двух ведьм?"
+    options:
+      - id: c
+        text: Три часа
+      - id: a
+        text: Одну минуту
+        correct: true
+      - id: b
+        text: 30 минут
+    explanation: >-
+      Монстробук, «Болотная ведьма»: Не действует никогда: Лаэза Кордис, Менто Менорес, Морфиус, Империус. Одна ведьма:
+      всё стандартно Две ведьмы: Симпла сбивает с ног Максима даёт свой эффект на 1 мин Ультима стандартно Три ведьмы:
+      Симпла не работает Максима сбивает с ног Ультима даёт свой эффект на 1 мин
+    rule: monster-07#vulnerabilities
+    image:
+      src: assets/monsters/image7.png
+      alt: Болотная ведьма
+  - id: m07-three-simpla
+    type: single
+    prompt: "Болотная ведьма: как Симпла действует на трёх ведьм вместе?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Сбивает с ног
+      - id: c
+        text: Действует стандартно 15 минут
+    explanation: >-
+      Монстробук, «Болотная ведьма»: Не действует никогда: Лаэза Кордис, Менто Менорес, Морфиус, Империус. Одна ведьма:
+      всё стандартно Две ведьмы: Симпла сбивает с ног Максима даёт свой эффект на 1 мин Ультима стандартно Три ведьмы:
+      Симпла не работает Максима сбивает с ног Ультима даёт свой эффект на 1 мин
+    rule: monster-07#vulnerabilities
+    image:
+      src: assets/monsters/image7.png
+      alt: Болотная ведьма
+  - id: m07-three-maxima
+    type: single
+    prompt: "Болотная ведьма: как Максима действует на трёх ведьм вместе?"
+    options:
+      - id: b
+        text: Убивает всех мгновенно
+      - id: c
+        text: Полностью стандартно 30 минут
+      - id: a
+        text: Сбивает с ног
+        correct: true
+    explanation: >-
+      Монстробук, «Болотная ведьма»: Не действует никогда: Лаэза Кордис, Менто Менорес, Морфиус, Империус. Одна ведьма:
+      всё стандартно Две ведьмы: Симпла сбивает с ног Максима даёт свой эффект на 1 мин Ультима стандартно Три ведьмы:
+      Симпла не работает Максима сбивает с ног Ультима даёт свой эффект на 1 мин
+    rule: monster-07#vulnerabilities
+    image:
+      src: assets/monsters/image7.png
+      alt: Болотная ведьма
+  - id: m07-three-ultima
+    type: single
+    prompt: "Болотная ведьма: как долго действует Ультима на трёх ведьм вместе?"
+    options:
+      - id: c
+        text: 90 минут
+      - id: a
+        text: Одну минуту
+        correct: true
+      - id: b
+        text: 45 минут
+    explanation: >-
+      Монстробук, «Болотная ведьма»: Не действует никогда: Лаэза Кордис, Менто Менорес, Морфиус, Империус. Одна ведьма:
+      всё стандартно Две ведьмы: Симпла сбивает с ног Максима даёт свой эффект на 1 мин Ультима стандартно Три ведьмы:
+      Симпла не работает Максима сбивает с ног Ультима даёт свой эффект на 1 мин
+    rule: monster-07#vulnerabilities
+    image:
+      src: assets/monsters/image7.png
+      alt: Болотная ведьма
+  - id: m07-transfiguration
+    type: single
+    prompt: "Болотная ведьма: какое превращение допустимо?"
+    options:
+      - id: a
+        text: Только в жабу на 30 секунд
+        correct: true
+      - id: b
+        text: В любой предмет на час
+      - id: c
+        text: Никакое превращение не действует
+    explanation: "Монстробук, «Болотная ведьма»: Только в жабу на 30 секунд"
+    rule: monster-07#vulnerabilities
+    image:
+      src: assets/monsters/image7.png
+      alt: Болотная ведьма
+  - id: m08-immunity
+    type: single
+    prompt: "Бумсланг: какие чары не работают?"
+    options:
+      - id: b
+        text: Все чары Ультима
+      - id: c
+        text: Только Инсендио
+      - id: a
+        text: Импедимента и Тарант Аллегра любого уровня
+        correct: true
+    explanation: "Монстробук, «Бумсланг»: НЕ РАБОТАЮТ: Импедимента любого уровня Тарант Аллегра любого уровня Остальные стандартно."
+    rule: monster-08#vulnerabilities
+    image:
+      src: assets/monsters/image8.png
+      alt: Бумсланг
+  - id: m09-incarcero
+    type: single
+    prompt: "Вампир: на сколько связывает Инкарцеро Ультима?"
+    options:
+      - id: c
+        text: Навсегда
+      - id: a
+        text: На 30 минут
+        correct: true
+      - id: b
+        text: На 15 секунд
+    explanation: >-
+      Монстробук, «Вампир»: Инсендио Ультима, Риктусемпра Ультима обездвиживают на 5 минут  (чем выше уровень – тем
+      больше вероятность, что чара подействует на вампира, на юного может сработать симпла, на старого только Ультима)
+      Малидицеро Максима, Ультима действуют стандартно 5 минут (аналогично про возраст) Инкарцеро Ультима связывает на
+      30 минут Убить: неподвижному вампиру нужно воткнуть кол в сердце и отрубить голову. В этот момент рассыпается
+      прахом. Для отрубания головы годятся меч или топор, даже не магические, однако таким оружием придется отрубать
+      голову целых 5 минут, тогда как волшебное оружие, способное причинить вред волшебнику, отрубает голову вампира в
+      одно движение.
+    rule: monster-09#vulnerabilities
+    image:
+      src: assets/monsters/image9.png
+      alt: Вампир
+  - id: m09-fire
+    type: single
+    prompt: "Вампир: на сколько обездвиживают указанные в карточке Инсендио и Риктусемпра Ультима?"
+    options:
+      - id: a
+        text: На пять минут
+        correct: true
+      - id: b
+        text: На 45 минут
+      - id: c
+        text: Мгновенно уничтожают навсегда
+    explanation: >-
+      Монстробук, «Вампир»: Инсендио Ультима, Риктусемпра Ультима обездвиживают на 5 минут  (чем выше уровень – тем
+      больше вероятность, что чара подействует на вампира, на юного может сработать симпла, на старого только Ультима)
+      Малидицеро Максима, Ультима действуют стандартно 5 минут (аналогично про возраст) Инкарцеро Ультима связывает на
+      30 минут Убить: неподвижному вампиру нужно воткнуть кол в сердце и отрубить голову. В этот момент рассыпается
+      прахом. Для отрубания головы годятся меч или топор, даже не магические, однако таким оружием придется отрубать
+      голову целых 5 минут, тогда как волшебное оружие, способное причинить вред волшебнику, отрубает голову вампира в
+      одно движение.
+    rule: monster-09#vulnerabilities
+    image:
+      src: assets/monsters/image9.png
+      alt: Вампир
+  - id: m09-transfiguration
+    type: single
+    prompt: "Вампир: действует ли трансфигурация?"
+    options:
+      - id: b
+        text: Да, любая
+      - id: c
+        text: Да, только в летучую мышь
+      - id: a
+        text: Нет
+        correct: true
+    explanation: "Монстробук, «Вампир»: Нет"
+    rule: monster-09#vulnerabilities
+    image:
+      src: assets/monsters/image9.png
+      alt: Вампир
+  - id: m10-immunity
+    type: single
+    prompt: "Василиск: сколько Ультим нужно, чтобы ранить и заставить уползти?"
+    options:
+      - id: c
+        text: Сто
+      - id: a
+        text: Двадцать
+        correct: true
+      - id: b
+        text: Три
+    explanation: >-
+      Монстробук, «Василиск»: 20 (двадцать) Ультим ранят и заставят уползти. Если уползти не удалось, то убивает после
+      снятия иммунитета любая убивающая чара.
+    rule: monster-10#vulnerabilities
+    image:
+      src: assets/monsters/image10.png
+      alt: Василиск
+  - id: m10-avada
+    type: single
+    prompt: "Василиск: скольким Ультимам равна одна Авада при снятии иммунитета?"
+    options:
+      - id: a
+        text: Двум
+        correct: true
+      - id: b
+        text: Одной
+      - id: c
+        text: Десяти
+    explanation: >-
+      Монстробук, «Василиск»: 10 авад ранят и заставляют уползти (можно миксовать с ультимами, 1 авада = 2 ультимы).
+      Убивает после снятия иммунитета.
+    rule: monster-10#vulnerabilities
+    image:
+      src: assets/monsters/image10.png
+      alt: Василиск
+  - id: m10-transfiguration
+    type: single
+    prompt: "Василиск: можно ли применить трансфигурацию?"
+    options:
+      - id: b
+        text: Да, по полному имени
+      - id: c
+        text: Да, после Люмоса
+      - id: a
+        text: Нет
+        correct: true
+    explanation: "Монстробук, «Василиск»: Нет"
+    rule: monster-10#vulnerabilities
+    image:
+      src: assets/monsters/image10.png
+      alt: Василиск
+  - id: m11-harpy
+    type: single
+    prompt: "Вейла: какие чары действуют в форме Гарпии?"
+    options:
+      - id: c
+        text: Только Люмос
+      - id: a
+        text: Только Ультимы
+        correct: true
+      - id: b
+        text: Любая Симпла
+    explanation: "Монстробук, «Вейла»: Чары стандартно. В Гарпии только Ультимы."
+    rule: monster-11#vulnerabilities
+    image:
+      src: assets/monsters/image11.png
+      alt: Вейла
+  - id: m12-immunity
+    type: single
+    prompt: "Виллиса: действуют ли Делювиум и Риктусемпра?"
+    options:
+      - id: a
+        text: Нет, ни на одном уровне
+        correct: true
+      - id: b
+        text: Да, стандартно
+      - id: c
+        text: Только на Симпле
+    explanation: >-
+      Монстробук, «Виллиса»: НЕ РАБОТАЮТ: Вся Симпла. Делювиум С,М,У. Риктусемпра С,М,У. Петрификус Тоталус Остальное
+      стандартно. Если подарить кольцо или венок, то будет рассматривать и можно убежать. Если потеряет пояс, станет
+      беспомощной и стыдливой.
+    rule: monster-12#vulnerabilities
+    image:
+      src: assets/monsters/image12.png
+      alt: Виллиса
+  - id: m12-simpla
+    type: single
+    prompt: "Виллиса: действует ли вся Симпла?"
+    options:
+      - id: b
+        text: Да, вся стандартно
+      - id: c
+        text: Только если подарить кольцо
+      - id: a
+        text: Нет
+        correct: true
+    explanation: >-
+      Монстробук, «Виллиса»: НЕ РАБОТАЮТ: Вся Симпла. Делювиум С,М,У. Риктусемпра С,М,У. Петрификус Тоталус Остальное
+      стандартно. Если подарить кольцо или венок, то будет рассматривать и можно убежать. Если потеряет пояс, станет
+      беспомощной и стыдливой.
+    rule: monster-12#vulnerabilities
+    image:
+      src: assets/monsters/image12.png
+      alt: Виллиса
+  - id: m13-magic
+    type: single
+    prompt: "Ветер (Поветрие): есть ли в таблице действующие обычные чары?"
+    options:
+      - id: c
+        text: Только Тарант Аллегра
+      - id: a
+        text: Нет
+        correct: true
+      - id: b
+        text: Да, все Ультимы
+    explanation: "Монстробук, «Ветер (Поветрие)»: Нет"
+    rule: monster-13#vulnerabilities
+    image:
+      src: assets/monsters/image13.png
+      alt: Ветер (Поветрие)
+  - id: m14-immunity
+    type: single
+    prompt: "Ворон: какие чары не действуют?"
+    options:
+      - id: a
+        text: Импедимента и Тарант Аллегра любого уровня
+        correct: true
+      - id: b
+        text: Люмос и Нокс
+      - id: c
+        text: Все чары Максима
+    explanation: >-
+      Монстробук, «Ворон»: НЕ РАБОТАЕТ: Импедимента любого уровня Тарант Аллегра любого уровня. Остальные стандартно на
+      земле Летящее животное можно сбить только Авадой.
+    rule: monster-14#vulnerabilities
+    image:
+      src: assets/monsters/image14.png
+      alt: Ворон
+  - id: m14-flight
+    type: single
+    prompt: "Ворон: чем можно сбить в полёте?"
+    options:
+      - id: b
+        text: Любой Импедиментой
+      - id: c
+        text: Протего Симпла
+      - id: a
+        text: Только Авадой
+        correct: true
+    explanation: >-
+      Монстробук, «Ворон»: НЕ РАБОТАЕТ: Импедимента любого уровня Тарант Аллегра любого уровня. Остальные стандартно на
+      земле Летящее животное можно сбить только Авадой.
+    rule: monster-14#vulnerabilities
+    image:
+      src: assets/monsters/image14.png
+      alt: Ворон
+  - id: m15-incarcero
+    type: single
+    prompt: "Гиппогриф: как действует Инкарцеро Ультима?"
+    options:
+      - id: c
+        text: Мгновенно убивает
+      - id: a
+        text: Сковывает на несколько секунд
+        correct: true
+      - id: b
+        text: Удерживает в коконе на 45 минут
+    explanation: >-
+      Монстробук, «Гиппогриф»: НЕ РАБОТАЮТ: Инкарцеро Симпла, Максима Малидицеро Симла, Максима Тарант Аллегра все
+      уровни Импедимента все уровни Риктусемпра все уровни Конъюктивитус все уровни Инкарцеро Ультима сковывает на
+      несколько секунд, но очень злит! Летящее животное можно сбить только Авадой.
+    rule: monster-15#vulnerabilities
+    image:
+      src: assets/monsters/image15.png
+      alt: Гиппогриф
+  - id: m15-immunity
+    type: single
+    prompt: "Гиппогриф: работает ли Конъюктивитус на это существо?"
+    options:
+      - id: a
+        text: Нет, никакого уровня
+        correct: true
+      - id: b
+        text: Да, только Ультима
+      - id: c
+        text: Да, стандартно
+    explanation: >-
+      Монстробук, «Гиппогриф»: НЕ РАБОТАЮТ: Инкарцеро Симпла, Максима Малидицеро Симла, Максима Тарант Аллегра все
+      уровни Импедимента все уровни Риктусемпра все уровни Конъюктивитус все уровни Инкарцеро Ультима сковывает на
+      несколько секунд, но очень злит! Летящее животное можно сбить только Авадой.
+    rule: monster-15#vulnerabilities
+    image:
+      src: assets/monsters/image15.png
+      alt: Гиппогриф
+  - id: m15-flight
+    type: single
+    prompt: "Гиппогриф: чем можно сбить в полёте?"
+    options:
+      - id: b
+        text: Инкарцеро Симпла
+      - id: c
+        text: Тарант Аллегра Максима
+      - id: a
+        text: Только Авадой
+        correct: true
+    explanation: >-
+      Монстробук, «Гиппогриф»: НЕ РАБОТАЮТ: Инкарцеро Симпла, Максима Малидицеро Симла, Максима Тарант Аллегра все
+      уровни Импедимента все уровни Риктусемпра все уровни Конъюктивитус все уровни Инкарцеро Ультима сковывает на
+      несколько секунд, но очень злит! Летящее животное можно сбить только Авадой.
+    rule: monster-15#vulnerabilities
+    image:
+      src: assets/monsters/image15.png
+      alt: Гиппогриф
+  - id: m16-ache
+    type: single
+    prompt: "Гоблин: как действует Ахелитус любого уровня?"
+    options:
+      - id: c
+        text: Только слегка щекочет
+      - id: a
+        text: Всегда работает и убивает
+        correct: true
+      - id: b
+        text: Никогда не работает
+    explanation: >-
+      Монстробук, «Гоблин»: Ахелитус любого уровня всегда работает и всегда убивает! Если Гоблин стоит на земле, то не
+      работают никакие чары. Если Гоблин не стоит на земле, то работают только Ультимы.
+    rule: monster-16#vulnerabilities
+    image:
+      src: assets/monsters/image16.png
+      alt: Гоблин
+  - id: m16-ground
+    type: single
+    prompt: "Гоблин: как земля влияет на обычные чары, кроме явных исключений?"
+    options:
+      - id: a
+        text: Стоящего на земле гоблина они не берут
+        correct: true
+      - id: b
+        text: На земле действуют все Симплы
+      - id: c
+        text: Земля удваивает их силу
+    explanation: >-
+      Монстробук, «Гоблин»: Ахелитус любого уровня всегда работает и всегда убивает! Если Гоблин стоит на земле, то не
+      работают никакие чары. Если Гоблин не стоит на земле, то работают только Ультимы.
+    rule: monster-16#vulnerabilities
+    image:
+      src: assets/monsters/image16.png
+      alt: Гоблин
+  - id: m16-above-ground
+    type: single
+    prompt: "Гоблин: какие обычные чары действуют, если гоблин не стоит на земле?"
+    options:
+      - id: b
+        text: Только Симплы
+      - id: c
+        text: Все без исключений
+      - id: a
+        text: Только Ультимы
+        correct: true
+    explanation: >-
+      Монстробук, «Гоблин»: Ахелитус любого уровня всегда работает и всегда убивает! Если Гоблин стоит на земле, то не
+      работают никакие чары. Если Гоблин не стоит на земле, то работают только Ультимы.
+    rule: monster-16#vulnerabilities
+    image:
+      src: assets/monsters/image16.png
+      alt: Гоблин
+  - id: m17-cemetery
+    type: single
+    prompt: "Грим: какие чары действуют на кладбище?"
+    options:
+      - id: c
+        text: Все бытовые
+      - id: a
+        text: Только Ультимы
+        correct: true
+      - id: b
+        text: Только Симплы
+    explanation: >-
+      Монстробук, «Грим»: Сраженный Грим рассыпается, но через несколько секунд появляется в другом месте кладбища. На
+      кладбище только Ультимы. Вне кладбища все чары стандартно. Чтобы убить нужно найти кости Грима, вынести с кладбища
+      с уничтожить. Или иной способ, если у Грима другие ТТХ. Уточнить в ОТ!
+    rule: monster-17#vulnerabilities
+    image:
+      src: assets/monsters/image17.png
+      alt: Грим
+  - id: m17-outside
+    type: single
+    prompt: "Грим: как действуют чары вне кладбища?"
+    options:
+      - id: a
+        text: Стандартно
+        correct: true
+      - id: b
+        text: Никак
+      - id: c
+        text: Только если это Люмос
+    explanation: >-
+      Монстробук, «Грим»: Сраженный Грим рассыпается, но через несколько секунд появляется в другом месте кладбища. На
+      кладбище только Ультимы. Вне кладбища все чары стандартно. Чтобы убить нужно найти кости Грима, вынести с кладбища
+      с уничтожить. Или иной способ, если у Грима другие ТТХ. Уточнить в ОТ!
+    rule: monster-17#vulnerabilities
+    image:
+      src: assets/monsters/image17.png
+      alt: Грим
+  - id: m17-transfiguration
+    type: single
+    prompt: "Грим: где возможна трансфигурация по имени?"
+    options:
+      - id: b
+        text: Только на кладбище
+      - id: c
+        text: Нигде
+      - id: a
+        text: Вне кладбища
+        correct: true
+    explanation: "Монстробук, «Грим»: На кладбище нет, вне кладбища по имени."
+    rule: monster-17#vulnerabilities
+    image:
+      src: assets/monsters/image17.png
+      alt: Грим
+  - id: m18-water
+    type: single
+    prompt: "Гриндилоу: какая чара не действует на любом уровне?"
+    options:
+      - id: c
+        text: Инсендио
+      - id: a
+        text: Делювиум
+        correct: true
+      - id: b
+        text: Ступефай
+    explanation: "Монстробук, «Гриндилоу»: Не работает Делювиум любого уровня. Остальное стандартно."
+    rule: monster-18#vulnerabilities
+    image:
+      src: assets/monsters/image18.png
+      alt: Гриндилоу
+  - id: m19-immunity
+    type: single
+    prompt: "Грюмошмель: какое из заклинаний не работает на любом уровне?"
+    options:
+      - id: a
+        text: Маледицеро
+        correct: true
+      - id: b
+        text: Ступефай
+      - id: c
+        text: Инсендио
+    explanation: >-
+      Монстробук, «Грюмошмель»: Не работает: Импедимента любого уровня Тарант Аллегра любого уровня Маледицеро любого
+      уровня Остальное стандартно.
+    rule: monster-19#vulnerabilities
+    image:
+      src: assets/monsters/image19.png
+      alt: Грюмошмель
+  - id: m20-eyes
+    type: single
+    prompt: "Грюмошмель Гигантский: действует ли Конъюктивитус любого уровня?"
+    options:
+      - id: b
+        text: Да, всегда
+      - id: c
+        text: Только Симпла
+      - id: a
+        text: Нет
+        correct: true
+    explanation: >-
+      Монстробук, «Грюмошмель Гигантский»: НЕ РАБОТАЕТ: Импедимента любого уровня Тарант Аллегра любого уровня
+      Маледицеро любого уровня Конъюктивитус любого уровня Остальное стандартно. Летящее животное можно сбить только
+      Авадой.
+    rule: monster-20#vulnerabilities
+    image:
+      src: assets/monsters/image20.png
+      alt: Грюмошмель Гигантский
+  - id: m20-flight
+    type: single
+    prompt: "Грюмошмель Гигантский: чем можно сбить в полёте?"
+    options:
+      - id: c
+        text: Тарант Аллегра Максима
+      - id: a
+        text: Только Авадой
+        correct: true
+      - id: b
+        text: Маледицеро Симпла
+    explanation: >-
+      Монстробук, «Грюмошмель Гигантский»: НЕ РАБОТАЕТ: Импедимента любого уровня Тарант Аллегра любого уровня
+      Маледицеро любого уровня Конъюктивитус любого уровня Остальное стандартно. Летящее животное можно сбить только
+      Авадой.
+    rule: monster-20#vulnerabilities
+    image:
+      src: assets/monsters/image20.png
+      alt: Грюмошмель Гигантский
+  - id: m21-patronus
+    type: single
+    prompt: "Дементор: что делает направленный луч Патронуса?"
+    options:
+      - id: a
+        text: Отгоняет на семь метров, пока удерживается
+        correct: true
+      - id: b
+        text: Убивает мгновенно
+      - id: c
+        text: Делает дементора домашним питомцем
+    explanation: >-
+      Монстробук, «Дементор»: Патронус (пока луч направлен) отгоняет на 7 метров. Круциатус, примененный в радиусе 2-х
+      метров в другого волшебника или существо - моментально сжигает.
+    rule: monster-21#vulnerabilities
+    image:
+      src: assets/monsters/image21.png
+      alt: Дементор
+  - id: m21-crucio
+    type: single
+    prompt: "Дементор: что происходит от Круциатуса в другую цель в радиусе двух метров?"
+    options:
+      - id: b
+        text: Дементор становится сильнее
+      - id: c
+        text: Ничего не происходит
+      - id: a
+        text: Дементор моментально сгорает
+        correct: true
+    explanation: >-
+      Монстробук, «Дементор»: Патронус (пока луч направлен) отгоняет на 7 метров. Круциатус, примененный в радиусе 2-х
+      метров в другого волшебника или существо - моментально сжигает.
+    rule: monster-21#vulnerabilities
+    image:
+      src: assets/monsters/image21.png
+      alt: Дементор
+  - id: m21-mental
+    type: single
+    prompt: "Дементор: чем грозит попытка Легилименции?"
+    options:
+      - id: c
+        text: Пятнадцатисекундным сном дементора
+      - id: a
+        text: Безумием и комой; нужно отправить в Отдел Тайн
+        correct: true
+      - id: b
+        text: Безопасным чтением всех мыслей
+    explanation: >-
+      Монстробук, «Дементор»: Попытка легилименции сводит волшебника с ума (падает в кому, отправить в ОТ как и с прочей
+      нежитью)
+    rule: monster-21#vulnerabilities
+    image:
+      src: assets/monsters/image21.png
+      alt: Дементор
+  - id: m22-transfiguration
+    type: single
+    prompt: "Дириколь: как реагирует на попытку трансфигурации?"
+    options:
+      - id: a
+        text: Моментально телепортируется; превращение не действует
+        correct: true
+      - id: b
+        text: Превращается в камень навсегда
+      - id: c
+        text: Теряет крылья на час
+    explanation: "Монстробук, «Дириколь»: Нет (моментально телепортируется в другое место)"
+    rule: monster-22#vulnerabilities
+    image:
+      src: assets/monsters/image22.png
+      alt: Дириколь
+  - id: m23-shield
+    type: single
+    prompt: "Домовой Эльф: как отражает направленную в него чару?"
+    options:
+      - id: b
+        text: Всегда поглощает все чары без действия
+      - id: c
+        text: Отражает только Люмос
+      - id: a
+        text: Щелчком пальцев; неотбитая действует стандартно
+        correct: true
+    explanation: "Монстробук, «Домовой Эльф»: Может отбить любую чару щелчком пальцев. Если не отбил, то стандартно."
+    rule: monster-23#vulnerabilities
+    image:
+      src: assets/monsters/image23.png
+      alt: Домовой Эльф
+  - id: m24-eyes-maxima
+    type: single
+    prompt: "Дракон: как долго ослепляет Конъюктивитус Максима?"
+    options:
+      - id: c
+        text: На три часа
+      - id: a
+        text: На 5–10 секунд
+        correct: true
+      - id: b
+        text: На 30 минут
+    explanation: >-
+      Монстробук, «Дракон»: Конъюктивитус Максима - ослепляет на 5-10 секунд, после чего дракон супер агрессивен.
+      Конъюктивитус Ультима - ослепляет на 3 минуты, после чего дракон супер агрессивен. Иммунитет дракона = 10 любых
+      Ультим (Конъюктивитус максима и ультима работают всегда, см. выше). После снятия иммунитета, работает любая
+      Ультима, кроме Инсендио.
+    rule: monster-24#vulnerabilities
+    image:
+      src: assets/monsters/image24.png
+      alt: Дракон
+  - id: m24-eyes-ultima
+    type: single
+    prompt: "Дракон: как долго ослепляет Конъюктивитус Ультима?"
+    options:
+      - id: a
+        text: На три минуты
+        correct: true
+      - id: b
+        text: На 45 минут
+      - id: c
+        text: Навсегда
+    explanation: >-
+      Монстробук, «Дракон»: Конъюктивитус Максима - ослепляет на 5-10 секунд, после чего дракон супер агрессивен.
+      Конъюктивитус Ультима - ослепляет на 3 минуты, после чего дракон супер агрессивен. Иммунитет дракона = 10 любых
+      Ультим (Конъюктивитус максима и ультима работают всегда, см. выше). После снятия иммунитета, работает любая
+      Ультима, кроме Инсендио.
+    rule: monster-24#vulnerabilities
+    image:
+      src: assets/monsters/image24.png
+      alt: Дракон
+  - id: m24-immunity
+    type: single
+    prompt: "Дракон: каков указанный запас иммунитета?"
+    options:
+      - id: b
+        text: Двадцать Симпл
+      - id: c
+        text: Сто Максим
+      - id: a
+        text: Десять любых Ультим
+        correct: true
+    explanation: >-
+      Монстробук, «Дракон»: Конъюктивитус Максима - ослепляет на 5-10 секунд, после чего дракон супер агрессивен.
+      Конъюктивитус Ультима - ослепляет на 3 минуты, после чего дракон супер агрессивен. Иммунитет дракона = 10 любых
+      Ультим (Конъюктивитус максима и ультима работают всегда, см. выше). После снятия иммунитета, работает любая
+      Ультима, кроме Инсендио.
+    rule: monster-24#vulnerabilities
+    image:
+      src: assets/monsters/image24.png
+      alt: Дракон
+  - id: m24-avada
+    type: single
+    prompt: "Дракон: как Авада влияет на иммунитет?"
+    options:
+      - id: c
+        text: Всегда добавляет два уровня защиты
+      - id: a
+        text: Снимает эквивалент двух Ультим; без иммунитета убивает
+        correct: true
+      - id: b
+        text: Всегда никак
+    explanation: "Монстробук, «Дракон»: Снижает иммунитет = 2 Ультимы. Без иммунитета убивает."
+    rule: monster-24#vulnerabilities
+    image:
+      src: assets/monsters/image24.png
+      alt: Дракон
+  - id: m24-fire
+    type: single
+    prompt: "Дракон: какая Ультима не работает даже после снятия иммунитета?"
+    options:
+      - id: a
+        text: Инсендио
+        correct: true
+      - id: b
+        text: Ступефай
+      - id: c
+        text: Инкарцеро
+    explanation: >-
+      Монстробук, «Дракон»: Конъюктивитус Максима - ослепляет на 5-10 секунд, после чего дракон супер агрессивен.
+      Конъюктивитус Ультима - ослепляет на 3 минуты, после чего дракон супер агрессивен. Иммунитет дракона = 10 любых
+      Ультим (Конъюктивитус максима и ультима работают всегда, см. выше). После снятия иммунитета, работает любая
+      Ультима, кроме Инсендио.
+    rule: monster-24#vulnerabilities
+    image:
+      src: assets/monsters/image24.png
+      alt: Дракон
+  - id: m25-cutting
+    type: single
+    prompt: "Единорог: какие уровни Сектумсемпры перечислены как действующие?"
+    options:
+      - id: b
+        text: Только Симпла
+      - id: c
+        text: Ни один
+      - id: a
+        text: Максима и Ультима
+        correct: true
+    explanation: >-
+      Монстробук, «Единорог»: РАБОТАЮТ ТОЛЬКО: Ахелитус Ультима Торменцио Ультима Сектумсемпра Максима и Ультима
+      Круциатус всех уровней Если убили, нужно спросить игрока “кто” и сразу сообщить в Отдел Тайн.
+    rule: monster-25#vulnerabilities
+    image:
+      src: assets/monsters/image25.png
+      alt: Единорог
+  - id: m26-standard
+    type: single
+    prompt: "Жаба: как действуют обычные чары по таблице?"
+    options:
+      - id: c
+        text: Никак
+      - id: a
+        text: Все стандартно
+        correct: true
+      - id: b
+        text: Только Ультимы
+    explanation: "Монстробук, «Жаба»: Все стандартно."
+    rule: monster-26#vulnerabilities
+    image:
+      src: assets/monsters/image26.png
+      alt: Жаба
+  - id: m27-immunity
+    type: single
+    prompt: "Змея: какие чары не работают?"
+    options:
+      - id: a
+        text: Импедимента и Тарант Аллегра любого уровня
+        correct: true
+      - id: b
+        text: Все чары Максима
+      - id: c
+        text: Только Инсендио Ультима
+    explanation: "Монстробук, «Змея»: НЕ РАБОТАЮТ: Импедимента любого уровня Тарант Аллегра любого уровня Остальные стандартно."
+    rule: monster-27#vulnerabilities
+    image:
+      src: assets/monsters/image27.png
+      alt: Змея
+  - id: m28-simpla
+    type: single
+    prompt: "Змея Гигантская: как действуют чары Симпла?"
+    options:
+      - id: b
+        text: Все стандартно
+      - id: c
+        text: Усиливаются втрое
+      - id: a
+        text: Не действуют
+        correct: true
+    explanation: >-
+      Монстробук, «Змея Гигантская»: Не работают чары уровня Симпла. Не работают: Импедимента любого уровня Тарант
+      Аллегра любого уровня Остальное стандартно.
+    rule: monster-28#vulnerabilities
+    image:
+      src: assets/monsters/image28.png
+      alt: Змея Гигантская
+  - id: m28-mental
+    type: single
+    prompt: "Змея Гигантская: на каких уровнях указаны Легилименс и Обливейт?"
+    options:
+      - id: c
+        text: Все уровни запрещены
+      - id: a
+        text: Максима и Ультима
+        correct: true
+      - id: b
+        text: Только Симпла
+    explanation: "Монстробук, «Змея Гигантская»: Легилименс М. У. Обливейт М, У."
+    rule: monster-28#vulnerabilities
+    image:
+      src: assets/monsters/image28.png
+      alt: Змея Гигантская
+  - id: m29-fire
+    type: single
+    prompt: "Инфери: на сколько обездвиживает Инсендио любого уровня?"
+    options:
+      - id: a
+        text: На пять минут
+        correct: true
+      - id: b
+        text: На 45 минут
+      - id: c
+        text: Навсегда
+    explanation: >-
+      Монстробук, «Инфери»: Работает только: Инсендио любого уровня обездвиживает на 5 минут. Если использовать Инсендио
+      Ультима каждые 5 минут в течение часа, то сгорает полностью. Каждое ошибочное заклинание (например, Инсендио
+      уровнем ниже) увеличивает время сжигания на 10 минут. Сектумсемпра Ультима на голову и конечности делают инфери
+      безопасным. Экзорцизм: Если волшебники разгадали написанную анаграмму, то они произносят “Exorcizo te, N, omnis
+      spiritus immundus”. Если разгадали правильно, то Инфери рассыплется.
+    rule: monster-29#vulnerabilities
+    image:
+      src: assets/monsters/image29.png
+      alt: Инфери
+  - id: m29-burn
+    type: single
+    prompt: "Инфери: как полностью сжечь существо?"
+    options:
+      - id: b
+        text: Один Люмос
+      - id: c
+        text: Один Ступефай Симпла
+      - id: a
+        text: Инсендио Ультима каждые пять минут в течение часа
+        correct: true
+    explanation: >-
+      Монстробук, «Инфери»: Работает только: Инсендио любого уровня обездвиживает на 5 минут. Если использовать Инсендио
+      Ультима каждые 5 минут в течение часа, то сгорает полностью. Каждое ошибочное заклинание (например, Инсендио
+      уровнем ниже) увеличивает время сжигания на 10 минут. Сектумсемпра Ультима на голову и конечности делают инфери
+      безопасным. Экзорцизм: Если волшебники разгадали написанную анаграмму, то они произносят “Exorcizo te, N, omnis
+      spiritus immundus”. Если разгадали правильно, то Инфери рассыплется.
+    rule: monster-29#vulnerabilities
+    image:
+      src: assets/monsters/image29.png
+      alt: Инфери
+  - id: m29-sectum
+    type: single
+    prompt: "Инфери: что делает Сектумсемпра Ультима по голове и конечностям?"
+    options:
+      - id: c
+        text: Только ускоряет
+      - id: a
+        text: Делает инфери безопасным
+        correct: true
+      - id: b
+        text: Сразу превращает его в живого человека
+    explanation: >-
+      Монстробук, «Инфери»: Работает только: Инсендио любого уровня обездвиживает на 5 минут. Если использовать Инсендио
+      Ультима каждые 5 минут в течение часа, то сгорает полностью. Каждое ошибочное заклинание (например, Инсендио
+      уровнем ниже) увеличивает время сжигания на 10 минут. Сектумсемпра Ультима на голову и конечности делают инфери
+      безопасным. Экзорцизм: Если волшебники разгадали написанную анаграмму, то они произносят “Exorcizo te, N, omnis
+      spiritus immundus”. Если разгадали правильно, то Инфери рассыплется.
+    rule: monster-29#vulnerabilities
+    image:
+      src: assets/monsters/image29.png
+      alt: Инфери
+  - id: m30-ordinary
+    type: single
+    prompt: "Карпатский Йети: что сказано об обычных чарах?"
+    options:
+      - id: a
+        text: Не работают
+        correct: true
+      - id: b
+        text: Все стандартно
+      - id: c
+        text: Все убивают за секунду
+    explanation: "Монстробук, «Карпатский Йети»: Обычные не работают."
+    rule: monster-30#vulnerabilities
+    image:
+      src: assets/monsters/image30.png
+      alt: Карпатский Йети
+  - id: m30-transform-duration
+    type: single
+    prompt: "Карпатский Йети: сколько длится отдельное превращение?"
+    options:
+      - id: b
+        text: 45 минут
+      - id: c
+        text: Три часа
+      - id: a
+        text: Пять минут
+        correct: true
+    explanation: >-
+      Монстробук, «Карпатский Йети»: Работает только трансфигурация: Любая транфса превращает на 5 минут. Потом
+      возвращается в исходную форму. Если в течение часа делать каждые 5 минут новую трансфигурацию в новый предмет, то
+      после 12-го раза Йети останется в форме последнего предмета. Если оставить Йети нетрансфигурированным на 30
+      секунд, то нужно начинать сначала.
+    rule: monster-30#vulnerabilities
+    image:
+      src: assets/monsters/image30.png
+      alt: Карпатский Йети
+  - id: m30-transform-chain
+    type: single
+    prompt: "Карпатский Йети: что нужно для сохранения последней предметной формы?"
+    options:
+      - id: c
+        text: Один раз превратить и уйти
+      - id: a
+        text: В течение часа каждые пять минут превращать в новый предмет
+        correct: true
+      - id: b
+        text: Двенадцать раз подряд в один предмет за секунду
+    explanation: >-
+      Монстробук, «Карпатский Йети»: Работает только трансфигурация: Любая транфса превращает на 5 минут. Потом
+      возвращается в исходную форму. Если в течение часа делать каждые 5 минут новую трансфигурацию в новый предмет, то
+      после 12-го раза Йети останется в форме последнего предмета. Если оставить Йети нетрансфигурированным на 30
+      секунд, то нужно начинать сначала.
+    rule: monster-30#vulnerabilities
+    image:
+      src: assets/monsters/image30.png
+      alt: Карпатский Йети
+  - id: m30-transform-reset
+    type: single
+    prompt: "Карпатский Йети: какой перерыв в непревращённом виде сбрасывает серию?"
+    options:
+      - id: a
+        text: 30 секунд
+        correct: true
+      - id: b
+        text: Три часа
+      - id: c
+        text: Одни сутки
+    explanation: >-
+      Монстробук, «Карпатский Йети»: Работает только трансфигурация: Любая транфса превращает на 5 минут. Потом
+      возвращается в исходную форму. Если в течение часа делать каждые 5 минут новую трансфигурацию в новый предмет, то
+      после 12-го раза Йети останется в форме последнего предмета. Если оставить Йети нетрансфигурированным на 30
+      секунд, то нужно начинать сначала.
+    rule: monster-30#vulnerabilities
+    image:
+      src: assets/monsters/image30.png
+      alt: Карпатский Йети
+  - id: m31-immunity
+    type: single
+    prompt: "Келпи: действует ли Инсендио любого уровня?"
+    options:
+      - id: b
+        text: Да, стандартно
+      - id: c
+        text: Только Симпла
+      - id: a
+        text: Нет
+        correct: true
+    explanation: >-
+      Монстробук, «Келпи»: НЕ РАБОТАЕТ: Все чары Симпла. Делювиум любого уровня Инсендио любого уровня Риктусемпра
+      любого уровня Петрификус Тоталус
+    rule: monster-31#vulnerabilities
+    image:
+      src: assets/monsters/image31.png
+      alt: Келпи
+  - id: m32-standard
+    type: single
+    prompt: "Клубкопух: как действуют обычные чары?"
+    options:
+      - id: c
+        text: Никак
+      - id: a
+        text: Все стандартно
+        correct: true
+      - id: b
+        text: Только Максима
+    explanation: "Монстробук, «Клубкопух»: Все стандартно"
+    rule: monster-32#vulnerabilities
+    image:
+      src: assets/monsters/image32.png
+      alt: Клубкопух
+  - id: m33-standard
+    type: single
+    prompt: "Книззл: как действуют обычные чары?"
+    options:
+      - id: a
+        text: Все стандартно
+        correct: true
+      - id: b
+        text: Только Ультима
+      - id: c
+        text: Никак
+    explanation: "Монстробук, «Книззл»: Все стандартно."
+    rule: monster-33#vulnerabilities
+    image:
+      src: assets/monsters/image33.png
+      alt: Книззл
+  - id: m34-mirror
+    type: single
+    prompt: "Кокатрикс: что происходит при взгляде в зеркало?"
+    options:
+      - id: b
+        text: Получает неуязвимость
+      - id: c
+        text: Только меняет цвет
+      - id: a
+        text: Накладывает на себя Петрификус Тоталус на 15 минут
+        correct: true
+    explanation: >-
+      Монстробук, «Кокатрикс»: Не работает Симла. Остальные стандартно. При виде куницы - убегает. При взгляде в зеркало
+      накладывает на себя Петрификус Тоталус на 15 минут.
+    rule: monster-34#vulnerabilities
+    image:
+      src: assets/monsters/image34.png
+      alt: Кокатрикс
+  - id: m35-mental
+    type: single
+    prompt: "Красный колпак: какие уровни Легилименции и Обливейта действуют?"
+    options:
+      - id: c
+        text: Никакие
+      - id: a
+        text: Максима и Ультима
+        correct: true
+      - id: b
+        text: Только Симпла
+    explanation: "Монстробук, «Красный колпак»: Легилименция М.У. Обливейт М.У."
+    rule: monster-35#vulnerabilities
+    image:
+      src: assets/monsters/image35.png
+      alt: Красный колпак
+  - id: m36-king
+    type: single
+    prompt: "Крыса-скавен: какие чары работают на крысу в присутствии Крысиного Короля?"
+    options:
+      - id: a
+        text: Только Ультима
+        correct: true
+      - id: b
+        text: Любая Симпла
+      - id: c
+        text: Только бытовые
+    explanation: >-
+      Монстробук, «Крыса-скавен»: Не работает Симпла. (на большую) В присутствии Крысиного Короля работает только
+      Ультима. Остальное стандартно, на игрушку работает все.
+    rule: monster-36#vulnerabilities
+    image:
+      src: assets/monsters/image36.png
+      alt: Крыса-скавен
+  - id: m36-toy
+    type: single
+    prompt: "Крыса-скавен: как действуют чары на игрушечную крысу?"
+    options:
+      - id: b
+        text: Не действует ничего
+      - id: c
+        text: Только Авада
+      - id: a
+        text: Работают все
+        correct: true
+    explanation: >-
+      Монстробук, «Крыса-скавен»: Не работает Симпла. (на большую) В присутствии Крысиного Короля работает только
+      Ультима. Остальное стандартно, на игрушку работает все.
+    rule: monster-36#vulnerabilities
+    image:
+      src: assets/monsters/image36.png
+      alt: Крыса-скавен
+  - id: m36-transfiguration
+    type: single
+    prompt: "Крыса-скавен: работает ли превращение на Крысиного Короля и крыс рядом с ним?"
+    options:
+      - id: c
+        text: Только ночью
+      - id: a
+        text: Нет
+        correct: true
+      - id: b
+        text: Да, всегда
+    explanation: "Монстробук, «Крыса-скавен»: По имени. КК и крыс в его присутствии - нет"
+    rule: monster-36#vulnerabilities
+    image:
+      src: assets/monsters/image36.png
+      alt: Крыса-скавен
+  - id: m37-floridus
+    type: single
+    prompt: "Лечурка (Лукотрус): что делает Флоридус?"
+    options:
+      - id: a
+        text: Снимает все эффекты
+        correct: true
+      - id: b
+        text: Мгновенно сжигает
+      - id: c
+        text: Ускоряет вдвое
+    explanation: >-
+      Монстробук, «Лечурка (Лукотрус)»: Маледицеро не работает любого уровня. Флоридус снимает все эффекты. Инсендио
+      мгновенно сжигает. Остальные чары стандартно.
+    rule: monster-37#vulnerabilities
+    image:
+      src: assets/monsters/image37.png
+      alt: Лечурка (Лукотрус)
+  - id: m37-fire
+    type: single
+    prompt: "Лечурка (Лукотрус): что делает Инсендио?"
+    options:
+      - id: b
+        text: Не действует
+      - id: c
+        text: Усыпляет на минуту
+      - id: a
+        text: Мгновенно сжигает
+        correct: true
+    explanation: >-
+      Монстробук, «Лечурка (Лукотрус)»: Маледицеро не работает любого уровня. Флоридус снимает все эффекты. Инсендио
+      мгновенно сжигает. Остальные чары стандартно.
+    rule: monster-37#vulnerabilities
+    image:
+      src: assets/monsters/image37.png
+      alt: Лечурка (Лукотрус)
+  - id: m37-maledicero
+    type: single
+    prompt: "Лечурка (Лукотрус): действует ли Маледицеро?"
+    options:
+      - id: c
+        text: Только Симпла
+      - id: a
+        text: Нет, ни на одном уровне
+        correct: true
+      - id: b
+        text: Да, все уровни
+    explanation: >-
+      Монстробук, «Лечурка (Лукотрус)»: Маледицеро не работает любого уровня. Флоридус снимает все эффекты. Инсендио
+      мгновенно сжигает. Остальные чары стандартно.
+    rule: monster-37#vulnerabilities
+    image:
+      src: assets/monsters/image37.png
+      alt: Лечурка (Лукотрус)
+  - id: m38-standard
+    type: single
+    prompt: "Лунтеленок: как действуют обычные чары?"
+    options:
+      - id: a
+        text: Все стандартно
+        correct: true
+      - id: b
+        text: Никак
+      - id: c
+        text: Только Ультима
+    explanation: "Монстробук, «Лунтеленок»: Все стандартно"
+    rule: monster-38#vulnerabilities
+    image:
+      src: assets/monsters/image38.png
+      alt: Лунтеленок
+  - id: m39-avada-series
+    type: single
+    prompt: "Мантикора: сколько Авад подряд требуется для убийства?"
+    options:
+      - id: b
+        text: Одна
+      - id: c
+        text: Десять
+      - id: a
+        text: Три
+        correct: true
+    explanation: "Монстробук, «Мантикора»: Убивает только 3 подряд."
+    rule: monster-39#vulnerabilities
+    image:
+      src: assets/monsters/image39.png
+      alt: Мантикора
+  - id: m39-spell-series
+    type: single
+    prompt: "Мантикора: какой способ с Инсендио указан в таблице?"
+    options:
+      - id: c
+        text: Только Люмос перед Инсендио
+      - id: a
+        text: Три подряд от Симплы до Ультимы
+        correct: true
+      - id: b
+        text: Один Симпла
+    explanation: >-
+      Монстробук, «Мантикора»: Инсендио 3 подряд от симплы до ультимы. Риктусемпра 3 подряд от симплы до ультимы.
+      Торменцио 3 подряд от симплы до ультимы.
+    rule: monster-39#vulnerabilities
+    image:
+      src: assets/monsters/image39.png
+      alt: Мантикора
+  - id: m40-avada-ratio
+    type: single
+    prompt: "Некро-херня любого типа: какое общее соотношение приведено для Авады и Ультим?"
+    options:
+      - id: a
+        text: Одна Авада равна трём Ультимным чарам
+        correct: true
+      - id: b
+        text: Одна Авада равна одной Симпле
+      - id: c
+        text: Одна Авада равна десяти Ультимам
+    explanation: >-
+      Монстробук, «Некро-херня любого типа»: Уничтожает от 1 до нескольких штук. В общем случае 1 Авада = 3 Ультимных
+      чары.
+    rule: monster-40#vulnerabilities
+    image:
+      src: assets/monsters/image40.png
+      alt: Некро-херня любого типа
+  - id: m41-dust
+    type: single
+    prompt: "Мумия: как действует Риктусемпра Ультима?"
+    options:
+      - id: b
+        text: Уничтожает навсегда
+      - id: c
+        text: Не действует
+      - id: a
+        text: Превращает в прах на пять минут
+        correct: true
+    explanation: >-
+      Монстробук, «Мумия»: Инсендио Ультима - в прах на 5 минут Риктусемпра Ультима - в прах на 5 минут Некоторые
+      волшебники владеют способностью "крепкое тело", и грызть их придётся в 2 раза дольше.
+    rule: monster-41#vulnerabilities
+    image:
+      src: assets/monsters/image41.png
+      alt: Мумия
+  - id: m42-water
+    type: single
+    prompt: "Нунду: как действует Делювиум Ультима?"
+    options:
+      - id: c
+        text: Усыпляет на 45 минут
+      - id: a
+        text: Один раз отвлекает на отряхивание на десять секунд, затем Ярость
+        correct: true
+      - id: b
+        text: Убивает мгновенно
+    explanation: >-
+      Монстробук, «Нунду»: НЕ РАБОТАЮТ НИКАКИЕ!!! Делювиум Ультима - отряхивается от воды 10 секунд один единственный
+      раз. После этого впадает в Ярость. Убивается цепочкой из 100 заклинаний, сделанными разными волшебниками. На
+      каждого Нунду своя цепочка. Нельзя использовать в цепочке следующие заклинания: Ахелитус Ультима Инкарцеро Ультима
+      Силенцио Ультима Менто Менорис Ультима Торменцио Ультима
+    rule: monster-42#vulnerabilities
+    image:
+      src: assets/monsters/image42.png
+      alt: Нунду
+  - id: m42-chain
+    type: single
+    prompt: "Нунду: сколько заклинаний в цепочке для убийства?"
+    options:
+      - id: a
+        text: Сто, выполненных разными волшебниками
+        correct: true
+      - id: b
+        text: Десять одним волшебником
+      - id: c
+        text: Три одновременных Люмоса
+    explanation: >-
+      Монстробук, «Нунду»: НЕ РАБОТАЮТ НИКАКИЕ!!! Делювиум Ультима - отряхивается от воды 10 секунд один единственный
+      раз. После этого впадает в Ярость. Убивается цепочкой из 100 заклинаний, сделанными разными волшебниками. На
+      каждого Нунду своя цепочка. Нельзя использовать в цепочке следующие заклинания: Ахелитус Ультима Инкарцеро Ультима
+      Силенцио Ультима Менто Менорис Ультима Торменцио Ультима
+    rule: monster-42#vulnerabilities
+    image:
+      src: assets/monsters/image42.png
+      alt: Нунду
+  - id: m42-transform
+    type: single
+    prompt: "Нунду: при каком условии действует превращение?"
+    options:
+      - id: b
+        text: Если один прошепчет имя
+      - id: c
+        text: Только ночью
+      - id: a
+        text: Если одновременно делают сто волшебников
+        correct: true
+    explanation: "Монстробук, «Нунду»: Работает, если одновременно сделают 100 волшебников."
+    rule: monster-42#vulnerabilities
+    image:
+      src: assets/monsters/image42.png
+      alt: Нунду
+  - id: m43-transform
+    type: single
+    prompt: "Нюхлер: что происходит с содержимым кармана при успешном превращении?"
+    options:
+      - id: c
+        text: Превращается в золото
+      - id: a
+        text: Всё вываливается
+        correct: true
+      - id: b
+        text: Безвозвратно исчезает
+    explanation: "Монстробук, «Нюхлер»: Да, при успешной трансфигурации все содержимое кармана вываливается"
+    rule: monster-43#vulnerabilities
+    image:
+      src: assets/monsters/image43.png
+      alt: Нюхлер
+  - id: m44-strong
+    type: single
+    prompt: "Оборотень: как действуют чары на сильного оборотня в звериной форме?"
+    options:
+      - id: a
+        text: Только Ультима, на пять минут
+        correct: true
+      - id: b
+        text: Любая Симпла на час
+      - id: c
+        text: Никакие, даже Авада
+    explanation: >-
+      Монстробук, «Оборотень»: Иммунитет к когтям вампира даже в человеческой форме. Слабый - работает Максима и Ультима
+      Сильный - работает только Ультима, действует 5 минут. На проклятого волшебника в человеческом обличье чары
+      действуют стандартно.
+    rule: monster-44#vulnerabilities
+    image:
+      src: assets/monsters/image44.png
+      alt: Оборотень
+  - id: m44-human
+    type: single
+    prompt: "Оборотень: как действуют чары в человеческом облике?"
+    options:
+      - id: b
+        text: Только Ультимы
+      - id: c
+        text: Не действуют
+      - id: a
+        text: Стандартно
+        correct: true
+    explanation: >-
+      Монстробук, «Оборотень»: Иммунитет к когтям вампира даже в человеческой форме. Слабый - работает Максима и Ультима
+      Сильный - работает только Ультима, действует 5 минут. На проклятого волшебника в человеческом обличье чары
+      действуют стандартно.
+    rule: monster-44#vulnerabilities
+    image:
+      src: assets/monsters/image44.png
+      alt: Оборотень
+  - id: m44-mental
+    type: single
+    prompt: "Оборотень: можно ли безопасно применять Легилименцию к звериной форме?"
+    options:
+      - id: c
+        text: Да, но только Симплу
+      - id: a
+        text: Нет, ментальная магия не сработает, Легилименция опасна
+        correct: true
+      - id: b
+        text: Да, без ограничений
+    explanation: >-
+      Монстробук, «Оборотень»: Нет Легилименция несет негативные последствия для волшебника, сообщить в ОТ. Ментальная
+      магия не сработает на оборотня в звериной форме, а легиллименция крайне опасна для ментального мага.
+    rule: monster-44#vulnerabilities
+    image:
+      src: assets/monsters/image44.png
+      alt: Оборотень
+  - id: m44-transform
+    type: single
+    prompt: "Оборотень: на кого в звериной форме не действует превращение?"
+    options:
+      - id: a
+        text: На оборотней, отдавшихся проклятию
+        correct: true
+      - id: b
+        text: На всех без исключения
+      - id: c
+        text: Только на молодых сопротивляющихся
+    explanation: >-
+      Монстробук, «Оборотень»: В звериной форме не действует только на оборотней, отдавшихся проклятию. На молодых
+      особей, на сопротивляющихся проклятию и на всех в человеческом облике - действует стандартно по полному имени
+      волшебника.
+    rule: monster-44#vulnerabilities
+    image:
+      src: assets/monsters/image44.png
+      alt: Оборотень
+  - id: m45-carrier
+    type: single
+    prompt: "Обскур: куда проходят чары, направленные в обскура?"
+    options:
+      - id: b
+        text: В случайного прохожего
+      - id: c
+        text: Не имеют никакой цели
+      - id: a
+        text: В волшебника-носителя
+        correct: true
+    explanation: >-
+      Монстробук, «Обскур»: Все чары проходят в волшебника-носителя. Если были сделаны убивающие чары, то по истечении
+      времени действия чары, обскур умирает вместе с носителем.. Ахелитус Ультима Инсендио Ультима Делювиум Ультима
+      Торменцио С. М. У Сектумсемпра М. У Лаэза Кордис М, У.
+    rule: monster-45#vulnerabilities
+    image:
+      src: assets/monsters/image45.png
+      alt: Обскур
+  - id: m45-transform
+    type: single
+    prompt: "Обскур: на что может действовать трансфигурация?"
+    options:
+      - id: c
+        text: Только на тень на земле
+      - id: a
+        text: На носителя по правилам волшебника, не на самого обскура
+        correct: true
+      - id: b
+        text: На обскура как обычный дым
+    explanation: "Монстробук, «Обскур»: Нет. Работает на носителя по правилам трансфигурации волшебника."
+    rule: monster-45#vulnerabilities
+    image:
+      src: assets/monsters/image45.png
+      alt: Обскур
+  - id: m46-fire
+    type: single
+    prompt: "Пеплозмей: действует ли Инсендио?"
+    options:
+      - id: a
+        text: Нет, ни на одном уровне
+        correct: true
+      - id: b
+        text: Да, всегда
+      - id: c
+        text: Только Ультима
+    explanation: >-
+      Монстробук, «Пеплозмей»: НЕ РАБОТАЕТ:  Инсендио всех уровней. Импедимента всех уровней. Тарант Аллегра всех
+      уровней. Остальные чары стандартно.
+    rule: monster-46#vulnerabilities
+    image:
+      src: assets/monsters/image46.png
+      alt: Пеплозмей
+  - id: m47-cocoon
+    type: single
+    prompt: "Пикирующий злыдень: как отвечает на направленную чару?"
+    options:
+      - id: b
+        text: Мгновенно умирает
+      - id: c
+        text: Засыпает на час
+      - id: a
+        text: Сворачивается в непробиваемый кокон
+        correct: true
+    explanation: >-
+      Монстробук, «Пикирующий злыдень»: На каждую чару сворачивается в кокон, который не пробивается. В моменте, когда
+      присасывается к лицу жертвы, считается кокон открытым. Если сделать на раскрытом злыдне Маледицеро любого уровня,
+      то не сможет свернуться и все чары начнут действовать стандартно.
+    rule: monster-47#vulnerabilities
+    image:
+      src: assets/monsters/image47.png
+      alt: Пикирующий злыдень
+  - id: m47-maledicero
+    type: single
+    prompt: "Пикирующий злыдень: как лишить раскрытого злыдня возможности свернуться?"
+    options:
+      - id: c
+        text: Протего Симпла на себя
+      - id: a
+        text: Маледицеро любого уровня по раскрытому существу
+        correct: true
+      - id: b
+        text: Люмосом по закрытому кокону
+    explanation: >-
+      Монстробук, «Пикирующий злыдень»: На каждую чару сворачивается в кокон, который не пробивается. В моменте, когда
+      присасывается к лицу жертвы, считается кокон открытым. Если сделать на раскрытом злыдне Маледицеро любого уровня,
+      то не сможет свернуться и все чары начнут действовать стандартно.
+    rule: monster-47#vulnerabilities
+    image:
+      src: assets/monsters/image47.png
+      alt: Пикирующий злыдень
+  - id: m48-maxima
+    type: single
+    prompt: "Пикси: что делают действующие чары Максима и выше?"
+    options:
+      - id: a
+        text: Взрывают на месте
+        correct: true
+      - id: b
+        text: Только усыпляют
+      - id: c
+        text: Не имеют эффекта
+    explanation: >-
+      Монстробук, «Пикси»: НЕ РАБОТАЮТ: Импедимента всех уровней Тарант Аллегра всех уровней Маледицеро Симпла Чары
+      уровня Симпла - стандартно. Чары уровня Максима и выше взрывают на месте. Экспеллиармус выбивает палочку, если она
+      в руках у Пикси.
+    rule: monster-48#vulnerabilities
+    image:
+      src: assets/monsters/image48.png
+      alt: Пикси
+  - id: m48-expelliarmus
+    type: single
+    prompt: "Пикси: как работает Экспеллиармус, если у пикси палочка?"
+    options:
+      - id: b
+        text: Не действует на палочки
+      - id: c
+        text: Превращает пикси в птицу
+      - id: a
+        text: Выбивает палочку
+        correct: true
+    explanation: >-
+      Монстробук, «Пикси»: НЕ РАБОТАЮТ: Импедимента всех уровней Тарант Аллегра всех уровней Маледицеро Симпла Чары
+      уровня Симпла - стандартно. Чары уровня Максима и выше взрывают на месте. Экспеллиармус выбивает палочку, если она
+      в руках у Пикси.
+    rule: monster-48#vulnerabilities
+    image:
+      src: assets/monsters/image48.png
+      alt: Пикси
+  - id: m48-transform
+    type: single
+    prompt: "Пикси: в какой предмет можно превратить?"
+    options:
+      - id: c
+        text: В любой без ограничений
+      - id: a
+        text: Только на букву «П»
+        correct: true
+      - id: b
+        text: Только на букву «А»
+    explanation: "Монстробук, «Пикси»: Только в предмет на букву “П”"
+    rule: monster-48#vulnerabilities
+    image:
+      src: assets/monsters/image48.png
+      alt: Пикси
+  - id: m48-communication
+    type: single
+    prompt: "Пикси: какие слова понимает и произносит?"
+    options:
+      - id: a
+        text: Только на букву «П»
+        correct: true
+      - id: b
+        text: Только на латыни
+      - id: c
+        text: Любые без ограничений
+    explanation: >-
+      Монстробук, «Пикси»: Летают. Пищат в формате “Пи-пи-пи” тоненьким голосом. Произносят и понимают только слова на
+      букву П. Любят предметы на букву П. Всегда пытаются выхватить и украсть палочку волшебника. Волшебник без своей
+      палочки не особо интересен для Пикси.
+    rule: monster-48#profile
+    image:
+      src: assets/monsters/image48.png
+      alt: Пикси
+  - id: m49-ordinary
+    type: single
+    prompt: "Полтергейст: действуют ли обычные чары?"
+    options:
+      - id: b
+        text: Да, стандартно
+      - id: c
+        text: Только Максима
+      - id: a
+        text: Нет
+        correct: true
+    explanation: "Монстробук, «Полтергейст»: Нет"
+    rule: monster-49#vulnerabilities
+    image:
+      src: assets/monsters/image49.png
+      alt: Полтергейст
+  - id: m50-exorcism
+    type: single
+    prompt: "Призрак/Привидение: что делает правильно составленный экзорцизм?"
+    options:
+      - id: c
+        text: Превращает в камень
+      - id: a
+        text: Вынуждает удалиться в указанном направлении
+        correct: true
+      - id: b
+        text: Навсегда возвращает тело
+    explanation: >-
+      Монстробук, «Призрак/Привидение»: Нет. Изгоняются экзорцизмом. Экзорцизм - словесная формула, изгоняющая
+      привидение, фантом, либо дух из помещения, в котором он сейчас находится (предлагающее ему пойти куда подальше).
+      Заклинание состоит как минимум из четырех слов, объясняющих кто, какой, что должен делать и куда направиться.
+      Каждое из этих слов содержит хотя бы один нецензурный корень. Пример: У*вай на* п*оское мудопроище. Призрак
+      удалится в указанном направлении даже против желания.
+    rule: monster-50#vulnerabilities
+    image:
+      src: assets/monsters/image50.png
+      alt: Призрак/Привидение
+  - id: m51-communication
+    type: single
+    prompt: "Русалка: что выпить, чтобы понимать собственную речь русалки?"
+    options:
+      - id: a
+        text: Молоко Гриндилоу
+        correct: true
+      - id: b
+        text: Воду с просом
+      - id: c
+        text: Сок Паучьей капусты
+    explanation: >-
+      Монстробук, «Русалка»: Разумна, плохо знает язык волшебников и плохо говорит простые фразы, но понимает язык.
+      Может говорить на своей речи свободно, но ее понимает тот, кто выпьет молоко Гриндилоу. Водится у воды.
+    rule: monster-51#profile
+    image:
+      src: assets/monsters/image51.png
+      alt: Русалка
+  - id: m51-immunity
+    type: single
+    prompt: "Русалка: действует ли Петрификус Тоталус?"
+    options:
+      - id: b
+        text: Да, стандартно
+      - id: c
+        text: Только под водой
+      - id: a
+        text: Нет
+        correct: true
+    explanation: >-
+      Монстробук, «Русалка»: НЕ РАБОТАЮТ: Все чары уровня Симпла. Делювиум всех уровней. Инсендио всех уровней.
+      Риктусемпра всех уровней. Петрификус Тоталус. Остальные чары стандартно.
+    rule: monster-51#vulnerabilities
+    image:
+      src: assets/monsters/image51.png
+      alt: Русалка
+  - id: m52-fire
+    type: single
+    prompt: "Саламандра: действует ли Инсендио?"
+    options:
+      - id: c
+        text: Да, всегда
+      - id: a
+        text: Нет, ни на одном уровне
+        correct: true
+      - id: b
+        text: Да, только Симпла
+    explanation: "Монстробук, «Саламандра»: НЕ РАБОТАЕТ: Инсендио всех уровней. Остальное стандартно."
+    rule: monster-52#vulnerabilities
+    image:
+      src: assets/monsters/image52.png
+      alt: Саламандра
+  - id: m53-avada-no-name
+    type: single
+    prompt: "Сид (ши): что делает Авада без имён?"
+    options:
+      - id: a
+        text: Не убивает, надолго отправляет в Холм
+        correct: true
+      - id: b
+        text: Всегда убивает
+      - id: c
+        text: Не делает ничего
+    explanation: >-
+      Монстробук, «Сид (ши)»: Позволяет проигнорировать одно любое из имён (см. правила по сидским именам), убивает если
+      применена вместе с ПЕРВЫМ именем (или вместе со всеми кроме Первого) Просто, без имён, не убивает, но отправляет в
+      Холм надолго (длительность зависит от силы сида)
+    rule: monster-53#vulnerabilities
+    image:
+      src: assets/monsters/image53.png
+      alt: Сид (ши)
+  - id: m53-legilimens
+    type: single
+    prompt: "Сид (ши): при каком количестве имён работает Легилименс Ультима?"
+    options:
+      - id: b
+        text: Пять или больше
+      - id: c
+        text: Любое количество
+      - id: a
+        text: Три или меньше
+        correct: true
+    explanation: >-
+      Монстробук, «Сид (ши)»: Легилименс Ультима - работает, если у сида 3 имени и меньше Обливейт Ультима - работает
+      ТОЛЬКО до момента возвращения сида в Холм (в Холме всё вспоминает). На сидов, у которых 5 и больше имён (т.е. на
+      хозяев Холма) вообще не действует.
+    rule: monster-53#vulnerabilities
+    image:
+      src: assets/monsters/image53.png
+      alt: Сид (ши)
+  - id: m53-obliviate
+    type: single
+    prompt: "Сид (ши): до какого момента сохраняется Обливейт Ультима, когда он применим?"
+    options:
+      - id: c
+        text: Ровно 15 секунд
+      - id: a
+        text: До возвращения сида в Холм, где всё вспоминается
+        correct: true
+      - id: b
+        text: Навсегда
+    explanation: >-
+      Монстробук, «Сид (ши)»: Легилименс Ультима - работает, если у сида 3 имени и меньше Обливейт Ультима - работает
+      ТОЛЬКО до момента возвращения сида в Холм (в Холме всё вспоминает). На сидов, у которых 5 и больше имён (т.е. на
+      хозяев Холма) вообще не действует.
+    rule: monster-53#vulnerabilities
+    image:
+      src: assets/monsters/image53.png
+      alt: Сид (ши)
+  - id: m53-true-name
+    type: single
+    prompt: "Сид (ши): какое имя требуется для превращения?"
+    options:
+      - id: a
+        text: Истинное имя
+        correct: true
+      - id: b
+        text: Невыразимое имя игрока
+      - id: c
+        text: Любое прозвище
+    explanation: "Монстробук, «Сид (ши)»: По истинному имени"
+    rule: monster-53#vulnerabilities
+    image:
+      src: assets/monsters/image53.png
+      alt: Сид (ши)
+  - id: m54-flight
+    type: single
+    prompt: "Сниджет: чем можно сбить в полёте?"
+    options:
+      - id: b
+        text: Импедиментой Симпла
+      - id: c
+        text: Тарант Аллегра Ультима
+      - id: a
+        text: Только Авадой
+        correct: true
+    explanation: >-
+      Монстробук, «Сниджет»: НЕ РАБОТАЮТ: Импедимента всех уровней Тарант Аллегра всех уровней Остальные чары
+      стандартно. Летящее животное можно сбить только Авадой.
+    rule: monster-54#vulnerabilities
+    image:
+      src: assets/monsters/image55.png
+      alt: Сниджет
+  - id: m55-night
+    type: single
+    prompt: "Сова: действует ли Конъюктивитус ночью?"
+    options:
+      - id: c
+        text: Только Симпла
+      - id: a
+        text: Нет, никакого уровня
+        correct: true
+      - id: b
+        text: Да, все уровни
+    explanation: >-
+      Монстробук, «Сова»: НЕ РАБОТАЮТ: Импедимента всех уровней. Тарант Аллегра всех уровней. Остальные чары стандартно
+      вне полета. В ночное время не работает Конъюктивитус любого уровня. В полете можно сбить только Авадой! По время
+      доставки писем можно сбить только Авадой, сами письма забрать никак нельзя (уносим на тешку, отдаем следующей
+      сове)
+    rule: monster-55#vulnerabilities
+    image:
+      src: assets/monsters/image56.png
+      alt: Сова
+  - id: m55-delivery
+    type: single
+    prompt: "Сова: чем можно сбить во время доставки писем?"
+    options:
+      - id: a
+        text: Только Авадой
+        correct: true
+      - id: b
+        text: Любым Ступефаем
+      - id: c
+        text: Любым Акцио
+    explanation: >-
+      Монстробук, «Сова»: НЕ РАБОТАЮТ: Импедимента всех уровней. Тарант Аллегра всех уровней. Остальные чары стандартно
+      вне полета. В ночное время не работает Конъюктивитус любого уровня. В полете можно сбить только Авадой! По время
+      доставки писем можно сбить только Авадой, сами письма забрать никак нельзя (уносим на тешку, отдаем следующей
+      сове)
+    rule: monster-55#vulnerabilities
+    image:
+      src: assets/monsters/image56.png
+      alt: Сова
+  - id: m56-ordinary
+    type: single
+    prompt: "Тень: есть ли действующие обычные чары в таблице?"
+    options:
+      - id: b
+        text: Да, все Ультимы
+      - id: c
+        text: Только Морфеус
+      - id: a
+        text: Нет
+        correct: true
+    explanation: "Монстробук, «Тень»: Нет"
+    rule: monster-56#vulnerabilities
+    image:
+      src: assets/monsters/image57.png
+      alt: Тень
+  - id: m57-stupefy
+    type: single
+    prompt: "Тролль: сколько Ступефаев любого уровня заставляют сесть и держаться за голову?"
+    options:
+      - id: c
+        text: Сто
+      - id: a
+        text: Тридцать
+        correct: true
+      - id: b
+        text: Три
+    explanation: >-
+      Монстробук, «Тролль»: Тролля можно одолеть:: 30 заклинаний Ступефай любого уровня заставят тролля сесть на землю и
+      несколько минут держаться за голову; Один волшебник делает Люмос Соляре и держит луч на тролле. Второй волшебник в
+      этот момент делает Петрификус Тоталус. Тролль превращается в камень. Ступефай любого уровня разрушает камень и
+      тролль умирает.
+    rule: monster-57#vulnerabilities
+    image:
+      src: assets/monsters/image58.png
+      alt: Тролль
+  - id: m57-stone
+    type: single
+    prompt: "Тролль: как превратить тролля в камень?"
+    options:
+      - id: a
+        text: Удерживать Люмос Соляре и одновременно наложить Петрификус Тоталус
+        correct: true
+      - id: b
+        text: Одним Люмосом
+      - id: c
+        text: Одной Импедиментой
+    explanation: >-
+      Монстробук, «Тролль»: Тролля можно одолеть:: 30 заклинаний Ступефай любого уровня заставят тролля сесть на землю и
+      несколько минут держаться за голову; Один волшебник делает Люмос Соляре и держит луч на тролле. Второй волшебник в
+      этот момент делает Петрификус Тоталус. Тролль превращается в камень. Ступефай любого уровня разрушает камень и
+      тролль умирает.
+    rule: monster-57#vulnerabilities
+    image:
+      src: assets/monsters/image58.png
+      alt: Тролль
+  - id: m57-break-stone
+    type: single
+    prompt: "Тролль: что делает Ступефай с уже окаменевшим троллем?"
+    options:
+      - id: b
+        text: Возвращает здоровье
+      - id: c
+        text: Не действует
+      - id: a
+        text: Разрушает камень, тролль умирает
+        correct: true
+    explanation: >-
+      Монстробук, «Тролль»: Тролля можно одолеть:: 30 заклинаний Ступефай любого уровня заставят тролля сесть на землю и
+      несколько минут держаться за голову; Один волшебник делает Люмос Соляре и держит луч на тролле. Второй волшебник в
+      этот момент делает Петрификус Тоталус. Тролль превращается в камень. Ступефай любого уровня разрушает камень и
+      тролль умирает.
+    rule: monster-57#vulnerabilities
+    image:
+      src: assets/monsters/image58.png
+      alt: Тролль
+  - id: m58-fire
+    type: single
+    prompt: "Упырь: на сколько обездвиживает Инсендио Ультима?"
+    options:
+      - id: c
+        text: Навсегда
+      - id: a
+        text: На пять минут
+        correct: true
+      - id: b
+        text: На 45 минут
+    explanation: "Монстробук, «Упырь»: На пять минут"
+    rule: monster-58#vulnerabilities
+    image:
+      src: assets/monsters/image59.png
+      alt: Упырь
+  - id: m58-laesa-ground
+    type: single
+    prompt: "Упырь: как действует Лаэза Кордис Ультима на земле?"
     options:
       - id: a
         text: Загоняет под землю на минуту
@@ -346,83 +3368,1707 @@ questions:
       - id: c
         text: Обездвиживает на 45 минут
     explanation: >-
-      Лаэза Кордис Ультима загоняет находящегося на земле упыря под землю на минуту. Это актуальная поправка
-      взамен старого правила о пяти минутах обездвиживания.
-    rule: creatures#ghoul-ground
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: ghoul-air
+      Монстробук, «Упырь»: Лаэза Кордрис Ультима загоняет под землю на 1 минуту. Если земли нет (стоит на другой
+      поверхности), то обездвиживает на 30 секунд.
+    rule: monster-58#vulnerabilities
+    image:
+      src: assets/monsters/image59.png
+      alt: Упырь
+  - id: m58-laesa-other
     type: single
-    prompt: Как действует Лаэза Кордис Ультима на упыря не на земле?
+    prompt: "Упырь: как действует Лаэза Кордис Ультима на иной поверхности без земли?"
     options:
       - id: b
-        text: Упырь исчезает навсегда
+        text: Сжигает мгновенно
       - id: c
-        text: Упырь немедленно закапывается в камень
+        text: Загоняет под камень на час
       - id: a
-        text: Упырь падает на 30 секунд
+        text: Обездвиживает на 30 секунд
         correct: true
-    explanation: Если Лаэза Кордис Ультима попадает в упыря не на земле, он падает на 30 секунд.
-    rule: creatures#ghoul-air
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: ghoul-hidden
-    type: single
-    prompt: Уязвим ли закопавшийся упырь для обычных чар?
-    options:
-      - id: c
-        text: Только для Люмоса
-      - id: a
-        text: Нет, под землёй он неуязвим для чар
-        correct: true
-      - id: b
-        text: Да, для всех Симпл
     explanation: >-
-      Под землёй упырь неуязвим для чар; его местоположение заметно по взгорбленной земле. Закапывание или
-      выкапывание занимает полторы секунды.
-    rule: creatures#ghoul-hidden
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: ghoul-floor
+      Монстробук, «Упырь»: Лаэза Кордрис Ультима загоняет под землю на 1 минуту. Если земли нет (стоит на другой
+      поверхности), то обездвиживает на 30 секунд.
+    rule: monster-58#vulnerabilities
+    image:
+      src: assets/monsters/image59.png
+      alt: Упырь
+  - id: m59-simpla
     type: single
-    prompt: Может ли упырь выкопаться на каменном или деревянном полу?
+    prompt: "Фавн: действуют ли чары Симпла?"
     options:
+      - id: c
+        text: Только ночью
       - id: a
         text: Нет
         correct: true
       - id: b
-        text: Да, без ограничений
-      - id: c
-        text: Только при свете Люмоса
-    explanation: Упырь не может выкапываться на деревянном или каменном полу либо объектах.
-    rule: creatures#ghoul-floor
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: ghoul-millet
+        text: Да, стандартно
+    explanation: "Монстробук, «Фавн»: Не работают чары Симпла. Остальные чары стандартно."
+    rule: monster-59#vulnerabilities
+    image:
+      src: assets/monsters/image60.png
+      alt: Фавн
+  - id: m60-variable
     type: single
-    prompt: Что нужно для отвлечения упыря просом?
+    prompt: "Феникс: можно ли вывести фиксированный эффект всех обычных чар из таблицы?"
     options:
-      - id: b
-        text: Молча спрятать крупу в далёком углу
-      - id: c
-        text: Показать рисунок крупы
       - id: a
-        text: Бросить крупу перед ним и привлечь внимание криком «Просо»
-        correct: true
-    explanation: >-
-      Для отвлечения крупу бросают перед упырём и привлекают внимание криком «Просо». Обычно это даёт не более
-      десяти секунд; уже пожирающего жертву упыря просо не отвлечёт.
-    rule: creatures#ghoul-millet
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
-  - id: ghoul-salt
-    type: single
-    prompt: Как действует кольцо соли с возвышенными стихами против упыря?
-    options:
-      - id: c
-        text: Немедленно уничтожает упыря
-      - id: a
-        text: Не позволяет проникнуть внутрь, даже под землёй
+        text: Нет, эффекты вариативны, подробности в индивидуальном загрузе
         correct: true
       - id: b
-        text: Работает только как украшение
+        text: Да, любая Симпла убивает
+      - id: c
+        text: Да, любая Ультима всегда действует 45 минут
     explanation: >-
-      Упырь, как нежить, не может проникнуть в кольцо соли, внутри которого с чувством читают возвышенные
-      стихи или поют возвышенные песни; запрет действует и под землёй.
-    rule: creatures#ghoul-salt
-    source: https://docs.google.com/document/d/1LX_9AGgZwZWI4Wy6d0y-KLOZSraZWeTs6M29RWv5w8Y/edit
+      Монстробук, «Феникс»: Вариативно. Зависит от времени года и настроения Феникса. (см подробнее в Загрузе для
+      Феникса)
+    rule: monster-60#vulnerabilities
+    image:
+      src: assets/monsters/image61.png
+      alt: Феникс
+  - id: m61-ultima
+    type: single
+    prompt: "Фестрал: какой уровень обычных чар действует?"
+    options:
+      - id: b
+        text: Только Симпла
+      - id: c
+        text: Все уровни одинаково
+      - id: a
+        text: Только Ультима
+        correct: true
+    explanation: "Монстробук, «Фестрал»: Работает только Ультима."
+    rule: monster-61#vulnerabilities
+    image:
+      src: assets/monsters/image62.png
+      alt: Фестрал
+  - id: m61-transform
+    type: single
+    prompt: "Фестрал: на сколько действует превращение?"
+    options:
+      - id: c
+        text: Навсегда
+      - id: a
+        text: На 30 секунд
+        correct: true
+      - id: b
+        text: На 30 минут
+    explanation: "Монстробук, «Фестрал»: Да, длительность 30 секунд."
+    rule: monster-61#vulnerabilities
+    image:
+      src: assets/monsters/image62.png
+      alt: Фестрал
+  - id: m62-laesa
+    type: single
+    prompt: "Флоббер-червь: что вызывает Лаэза Кордис Ультима?"
+    options:
+      - id: a
+        text: Взрыв с эффектом Ступефай Ультима в радиусе семи метров
+        correct: true
+      - id: b
+        text: Только обычный сон
+      - id: c
+        text: Лишь смену цвета
+    explanation: >-
+      Монстробук, «Флоббер-червь»: РАБОТАЕТ ТОЛЬКО: Лаэза Кордис Ультима: долго извивается, разбрасывая слизь вокруг, а
+      после этого взрывается, поражая эффектом Ступефая Ультима всех в радиусе 7 м от точки взрыва.
+    rule: monster-62#vulnerabilities
+    image:
+      src: assets/monsters/image63.png
+      alt: Флоббер-червь
+  - id: m63-laesa
+    type: single
+    prompt: "Флоббер-червь гигантский: что вызывает Лаэза Кордис Ультима?"
+    options:
+      - id: b
+        text: Лишь замедление на секунду
+      - id: c
+        text: Мгновенное приручение
+      - id: a
+        text: Взрыв с эффектом Ступефай Ультима в радиусе семи метров
+        correct: true
+    explanation: >-
+      Монстробук, «Флоббер-червь гигантский»: РАБОТАЕТ ТОЛЬКО:: Лаэза Кордис Ультима: долго извивается, разбрасывая
+      слизь вокруг, а после этого взрывается, поражая эффектом Ступефая Ультима в всех радиусе 7 м от точки взрыва.
+    rule: monster-63#vulnerabilities
+    image:
+      src: assets/monsters/image64.png
+      alt: Флоббер-червь гигантский
+  - id: m64-salt
+    type: single
+    prompt: "Химера: что открывает уязвимость к Ультимам, включая ментальные?"
+    options:
+      - id: c
+        text: Просо перед мордой
+      - id: a
+        text: Соль, насыпанная на хвост
+        correct: true
+      - id: b
+        text: Мёд на лапах
+    explanation: >-
+      Монстробук, «Химера»: Если насыпать химере на хвост соли – действуют любые заклинания уровня Ультима, включая
+      ментальные. Если нет, работает только авада. Соль с хвоста можно смыть чарой Делювиум М.У.
+    rule: monster-64#vulnerabilities
+    image:
+      src: assets/monsters/image65.png
+      alt: Химера
+  - id: m64-wash
+    type: single
+    prompt: "Химера: какой чарой можно смыть соль с хвоста?"
+    options:
+      - id: a
+        text: Делювиум Максима или Ультима
+        correct: true
+      - id: b
+        text: Люмосом
+      - id: c
+        text: Силенцио Симпла
+    explanation: >-
+      Монстробук, «Химера»: Если насыпать химере на хвост соли – действуют любые заклинания уровня Ультима, включая
+      ментальные. Если нет, работает только авада. Соль с хвоста можно смыть чарой Делювиум М.У.
+    rule: monster-64#vulnerabilities
+    image:
+      src: assets/monsters/image65.png
+      alt: Химера
+  - id: m64-transform
+    type: single
+    prompt: "Химера: что нужно для превращения при наличии соли?"
+    options:
+      - id: b
+        text: Одно любое превращение без уточнения
+      - id: c
+        text: Только два Люмоса
+      - id: a
+        text: Три превращения отдельно на голову, тело и хвост
+        correct: true
+    explanation: >-
+      Монстробук, «Химера»: Трансфигурация без соли не действует; с солью необходимы три трансфигурационных превращения
+      на разные части тела химеры как на три разных предмета (голова химеры, тело химеры, хвост химеры).
+    rule: monster-64#vulnerabilities
+    image:
+      src: assets/monsters/image65.png
+      alt: Химера
+  - id: m65-immunity
+    type: single
+    prompt: "Цербер: каков запас иммунитета?"
+    options:
+      - id: c
+        text: Сто Максим
+      - id: a
+        text: Двадцать Ультим
+        correct: true
+      - id: b
+        text: Десять Симпл
+    explanation: >-
+      Монстробук, «Цербер»: Симпла и Максима не работают. Иммунитет цербера = 20 ультим Ахелитус Ультима - 3 (три) раза
+      - убивает всегда.
+    rule: monster-65#vulnerabilities
+    image:
+      src: assets/monsters/image66.png
+      alt: Цербер
+  - id: m65-ache
+    type: single
+    prompt: "Цербер: какая серия всегда убивает?"
+    options:
+      - id: a
+        text: Три Ахелитуса Ультима
+        correct: true
+      - id: b
+        text: Один Люмос
+      - id: c
+        text: Три Силенцио Симпла
+    explanation: >-
+      Монстробук, «Цербер»: Симпла и Максима не работают. Иммунитет цербера = 20 ультим Ахелитус Ультима - 3 (три) раза
+      - убивает всегда.
+    rule: monster-65#vulnerabilities
+    image:
+      src: assets/monsters/image66.png
+      alt: Цербер
+  - id: m65-avada
+    type: single
+    prompt: "Цербер: как Авада влияет на иммунитет?"
+    options:
+      - id: b
+        text: Удваивает иммунитет
+      - id: c
+        text: Не действует никогда
+      - id: a
+        text: Снимает эквивалент двух Ультим, без иммунитета убивает
+        correct: true
+    explanation: "Монстробук, «Цербер»: Снижает иммунитет = 2 Ультимы. Без иммунитета убивает."
+    rule: monster-65#vulnerabilities
+    image:
+      src: assets/monsters/image66.png
+      alt: Цербер
+  - id: m66-accio
+    type: single
+    prompt: "Эрклинг/Детоед: какая комбинация нейтрализации указана в карточке?"
+    options:
+      - id: c
+        text: Алохомора на землю
+      - id: a
+        text: Акцио на трубочку и последующий удар ею по голове
+        correct: true
+      - id: b
+        text: Люмос на собственную палочку
+    explanation: >-
+      Монстробук, «Эрклинг/Детоед»: Работают все чары стандартно, а также: Нейтрализуется чарами «Акцио!» на трубочку и
+      последующим ударом по голове этой трубочкой.
+    rule: monster-66#vulnerabilities
+    image:
+      src: assets/monsters/image67.png
+      alt: Эрклинг/Детоед
+  - id: m67-maledicero
+    type: single
+    prompt: "Яркополз: действует ли Маледицеро?"
+    options:
+      - id: a
+        text: Нет, ни на одном уровне
+        correct: true
+      - id: b
+        text: Да, только Максима
+      - id: c
+        text: Да, все уровни
+    explanation: "Монстробук, «Яркополз»: НЕ РАБОТАЕТ: Маледицеро всех уровней. Остальные чары - стандартно."
+    rule: monster-67#vulnerabilities
+    image:
+      src: assets/monsters/image68.png
+      alt: Яркополз
+  - id: m01-immune-impedimenta
+    type: single
+    prompt: "Авгур: какой эффект от Импедименты Ультима (на земле)?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: Импедимента любого уровня не действует на авгура.
+    rule: monster-01#vulnerabilities
+    image:
+      src: assets/monsters/image1.png
+      alt: Авгур
+  - id: m01-immune-tarant
+    type: single
+    prompt: "Авгур: какой эффект от Тарант Аллегра Максима (на земле)?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: Тарант Аллегра любого уровня не действует на авгура.
+    rule: monster-01#vulnerabilities
+    image:
+      src: assets/monsters/image1.png
+      alt: Авгур
+  - id: m02-immune-stupefy
+    type: single
+    prompt: "Автоматон: какой эффект от Ступефая Симпла?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: На автоматона не действуют чары Симпла; эффекты Ступефая Максима и Ультима описаны отдельно.
+    rule: monster-02#vulnerabilities
+    image:
+      src: assets/monsters/image2.png
+      alt: Автоматон
+  - id: m06-immune-stupefy
+    type: single
+    prompt: "Боггарт: какой эффект от Ступефая Ультима?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: Против боггарта действует только Ридикулус.
+    rule: monster-06#vulnerabilities
+    image:
+      src: assets/monsters/image6.png
+      alt: Боггарт
+  - id: m07-immune-laesa
+    type: single
+    prompt: "Болотная ведьма: какой эффект от Лаэза Кордис Ультима?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: Лаэза Кордис никогда не действует на болотную ведьму, независимо от количества ведьм.
+    rule: monster-07#vulnerabilities
+    image:
+      src: assets/monsters/image7.png
+      alt: Болотная ведьма
+  - id: m07-immune-mento
+    type: single
+    prompt: "Болотная ведьма: какой эффект от Менто Менорес Максима?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: Менто Менорес никогда не действует на болотную ведьму.
+    rule: monster-07#vulnerabilities
+    image:
+      src: assets/monsters/image7.png
+      alt: Болотная ведьма
+  - id: m07-immune-morpheus
+    type: single
+    prompt: "Болотная ведьма: какой эффект от Морфеуса?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: Морфеус (в источнике «Морфиус») не действует на болотную ведьму.
+    rule: monster-07#vulnerabilities
+    image:
+      src: assets/monsters/image7.png
+      alt: Болотная ведьма
+  - id: m07-immune-imperio
+    type: single
+    prompt: "Болотная ведьма: какой эффект от Империуса Ультима?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: Империус никогда не действует на болотную ведьму.
+    rule: monster-07#vulnerabilities
+    image:
+      src: assets/monsters/image7.png
+      alt: Болотная ведьма
+  - id: m07-immune-three-simpla
+    type: single
+    prompt: "Болотная ведьма: какой эффект от Ступефая Симпла (если ведьм три)?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: На трёх болотных ведьм вместе Симпла не работает; это условие не переносится на одну или двух ведьм.
+    rule: monster-07#vulnerabilities
+    image:
+      src: assets/monsters/image7.png
+      alt: Болотная ведьма
+  - id: m08-immune-impedimenta
+    type: single
+    prompt: "Бумсланг: какой эффект от Импедименты Ультима?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: На бумсланга не действует Импедимента любого уровня.
+    rule: monster-08#vulnerabilities
+    image:
+      src: assets/monsters/image8.png
+      alt: Бумсланг
+  - id: m08-immune-tarant
+    type: single
+    prompt: "Бумсланг: какой эффект от Тарант Аллегра Максима?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: На бумсланга не действует Тарант Аллегра любого уровня.
+    rule: monster-08#vulnerabilities
+    image:
+      src: assets/monsters/image8.png
+      alt: Бумсланг
+  - id: m11-immune-harpy-maxima
+    type: single
+    prompt: "Вейла: какой эффект от Ступефая Максима (в форме Гарпии)?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: На вейлу в форме Гарпии действуют только Ультимы; вне этой формы чары действуют стандартно.
+    rule: monster-11#vulnerabilities
+    image:
+      src: assets/monsters/image11.png
+      alt: Вейла
+  - id: m12-immune-deluvium
+    type: single
+    prompt: "Виллиса: какой эффект от Делювиума Ультима?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: На виллису не действует Делювиум ни одного уровня.
+    rule: monster-12#vulnerabilities
+    image:
+      src: assets/monsters/image12.png
+      alt: Виллиса
+  - id: m12-immune-rictusempra
+    type: single
+    prompt: "Виллиса: какой эффект от Риктусемпры Максима?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: На виллису не действует Риктусемпра ни одного уровня.
+    rule: monster-12#vulnerabilities
+    image:
+      src: assets/monsters/image12.png
+      alt: Виллиса
+  - id: m12-immune-petrificus
+    type: single
+    prompt: "Виллиса: какой эффект от Петрификус Тоталус?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: Петрификус Тоталус перечислен среди чар, не действующих на виллису.
+    rule: monster-12#vulnerabilities
+    image:
+      src: assets/monsters/image12.png
+      alt: Виллиса
+  - id: m12-immune-stupefy
+    type: single
+    prompt: "Виллиса: какой эффект от Ступефая Симпла?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: На виллису не действует вся Симпла.
+    rule: monster-12#vulnerabilities
+    image:
+      src: assets/monsters/image12.png
+      alt: Виллиса
+  - id: m13-immune-stupefy
+    type: single
+    prompt: "Ветер (Поветрие): какой эффект от Ступефая Ультима?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: В таблице уязвимостей Поветрия для обычных чар указано «Нет».
+    rule: monster-13#vulnerabilities
+    image:
+      src: assets/monsters/image13.png
+      alt: Ветер (Поветрие)
+  - id: m14-immune-impedimenta
+    type: single
+    prompt: "Ворон: какой эффект от Импедименты Ультима (на земле)?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: На ворона не действует Импедимента любого уровня, в том числе на земле.
+    rule: monster-14#vulnerabilities
+    image:
+      src: assets/monsters/image14.png
+      alt: Ворон
+  - id: m14-immune-tarant
+    type: single
+    prompt: "Ворон: какой эффект от Тарант Аллегра Максима (на земле)?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: На ворона не действует Тарант Аллегра любого уровня.
+    rule: monster-14#vulnerabilities
+    image:
+      src: assets/monsters/image14.png
+      alt: Ворон
+  - id: m15-immune-incarcero
+    type: single
+    prompt: "Гиппогриф: какой эффект от Инкарцеро Максима (на земле)?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: На гиппогрифа не действуют Инкарцеро Симпла и Максима; Ультима имеет другой эффект.
+    rule: monster-15#vulnerabilities
+    image:
+      src: assets/monsters/image15.png
+      alt: Гиппогриф
+  - id: m15-immune-maledicero
+    type: single
+    prompt: "Гиппогриф: какой эффект от Маледицеро Максима (на земле)?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: Маледицеро Симпла и Максима перечислены среди недействующих на гиппогрифа чар.
+    rule: monster-15#vulnerabilities
+    image:
+      src: assets/monsters/image15.png
+      alt: Гиппогриф
+  - id: m15-immune-tarant
+    type: single
+    prompt: "Гиппогриф: какой эффект от Тарант Аллегра Ультима (на земле)?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: Тарант Аллегра всех уровней не действует на гиппогрифа.
+    rule: monster-15#vulnerabilities
+    image:
+      src: assets/monsters/image15.png
+      alt: Гиппогриф
+  - id: m15-immune-impedimenta
+    type: single
+    prompt: "Гиппогриф: какой эффект от Импедименты Ультима (на земле)?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: Импедимента всех уровней не действует на гиппогрифа.
+    rule: monster-15#vulnerabilities
+    image:
+      src: assets/monsters/image15.png
+      alt: Гиппогриф
+  - id: m15-immune-rictusempra
+    type: single
+    prompt: "Гиппогриф: какой эффект от Риктусемпры Ультима (на земле)?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: Риктусемпра всех уровней не действует на гиппогрифа.
+    rule: monster-15#vulnerabilities
+    image:
+      src: assets/monsters/image15.png
+      alt: Гиппогриф
+  - id: m15-immune-conjunctivitis
+    type: single
+    prompt: "Гиппогриф: какой эффект от Конъюктивитуса Ультима (на земле)?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: Конъюктивитус всех уровней не действует на гиппогрифа.
+    rule: monster-15#vulnerabilities
+    image:
+      src: assets/monsters/image15.png
+      alt: Гиппогриф
+  - id: m16-immune-ground-stupefy
+    type: single
+    prompt: "Гоблин: какой эффект от Ступефая Ультима (когда гоблин стоит на земле)?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: На стоящего на земле гоблина обычные чары не действуют; Ахелитус и Авада имеют явно описанные исключения.
+    rule: monster-16#vulnerabilities
+    image:
+      src: assets/monsters/image16.png
+      alt: Гоблин
+  - id: m16-immune-air-maxima
+    type: single
+    prompt: "Гоблин: какой эффект от Ступефая Максима (когда гоблин не стоит на земле)?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: Когда гоблин не стоит на земле, действуют только Ультимы, кроме отдельных явно указанных исключений.
+    rule: monster-16#vulnerabilities
+    image:
+      src: assets/monsters/image16.png
+      alt: Гоблин
+  - id: m17-immune-cemetery-maxima
+    type: single
+    prompt: "Грим: какой эффект от Ступефая Максима (на кладбище)?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: На Грима на кладбище действуют только Ультимы; вне кладбища чары действуют стандартно.
+    rule: monster-17#vulnerabilities
+    image:
+      src: assets/monsters/image17.png
+      alt: Грим
+  - id: m18-immune-deluvium
+    type: single
+    prompt: "Гриндилоу: какой эффект от Делювиума Ультима?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: На гриндилоу не действует Делювиум любого уровня.
+    rule: monster-18#vulnerabilities
+    image:
+      src: assets/monsters/image18.png
+      alt: Гриндилоу
+  - id: m19-immune-impedimenta
+    type: single
+    prompt: "Грюмошмель: какой эффект от Импедименты Ультима?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: На грюмошмеля не действует Импедимента любого уровня.
+    rule: monster-19#vulnerabilities
+    image:
+      src: assets/monsters/image19.png
+      alt: Грюмошмель
+  - id: m19-immune-tarant
+    type: single
+    prompt: "Грюмошмель: какой эффект от Тарант Аллегра Максима?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: На грюмошмеля не действует Тарант Аллегра любого уровня.
+    rule: monster-19#vulnerabilities
+    image:
+      src: assets/monsters/image19.png
+      alt: Грюмошмель
+  - id: m19-immune-maledicero
+    type: single
+    prompt: "Грюмошмель: какой эффект от Маледицеро Ультима?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: На грюмошмеля не действует Маледицеро любого уровня.
+    rule: monster-19#vulnerabilities
+    image:
+      src: assets/monsters/image19.png
+      alt: Грюмошмель
+  - id: m20-immune-impedimenta
+    type: single
+    prompt: "Грюмошмель Гигантский: какой эффект от Импедименты Ультима (на земле)?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: На гигантского грюмошмеля не действует Импедимента любого уровня.
+    rule: monster-20#vulnerabilities
+    image:
+      src: assets/monsters/image20.png
+      alt: Грюмошмель Гигантский
+  - id: m20-immune-tarant
+    type: single
+    prompt: "Грюмошмель Гигантский: какой эффект от Тарант Аллегра Максима (на земле)?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: На гигантского грюмошмеля не действует Тарант Аллегра любого уровня.
+    rule: monster-20#vulnerabilities
+    image:
+      src: assets/monsters/image20.png
+      alt: Грюмошмель Гигантский
+  - id: m20-immune-maledicero
+    type: single
+    prompt: "Грюмошмель Гигантский: какой эффект от Маледицеро Ультима (на земле)?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: На гигантского грюмошмеля не действует Маледицеро любого уровня.
+    rule: monster-20#vulnerabilities
+    image:
+      src: assets/monsters/image20.png
+      alt: Грюмошмель Гигантский
+  - id: m20-immune-conjunctivitis
+    type: single
+    prompt: "Грюмошмель Гигантский: какой эффект от Конъюктивитуса Ультима (на земле)?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: На гигантского грюмошмеля не действует Конъюктивитус любого уровня.
+    rule: monster-20#vulnerabilities
+    image:
+      src: assets/monsters/image20.png
+      alt: Грюмошмель Гигантский
+  - id: m21-immune-stupefy
+    type: single
+    prompt: "Дементор: какой эффект от Ступефая Ультима?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: >-
+      Обычный Ступефай не входит в действующие на дементора воздействия: указаны Патронус и Круциатус в другую цель
+      поблизости.
+    rule: monster-21#vulnerabilities
+    image:
+      src: assets/monsters/image21.png
+      alt: Дементор
+  - id: m22-immune-impedimenta
+    type: single
+    prompt: "Дириколь: какой эффект от Импедименты Ультима?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: На дириколя не действует Импедимента любого уровня.
+    rule: monster-22#vulnerabilities
+    image:
+      src: assets/monsters/image22.png
+      alt: Дириколь
+  - id: m22-immune-tarant
+    type: single
+    prompt: "Дириколь: какой эффект от Тарант Аллегра Максима?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: На дириколя не действует Тарант Аллегра любого уровня.
+    rule: monster-22#vulnerabilities
+    image:
+      src: assets/monsters/image22.png
+      alt: Дириколь
+  - id: m24-immune-incendio
+    type: single
+    prompt: "Дракон: какой эффект от Инсендио Ультима (после снятия иммунитета)?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: >-
+      После снятия иммунитета на дракона действует любая Ультима, кроме Инсендио. Отсутствие эффекта не надо путать со
+      снятием иммунитета предшествующими чарами.
+    rule: monster-24#vulnerabilities
+    image:
+      src: assets/monsters/image24.png
+      alt: Дракон
+  - id: m25-immune-stupefy
+    type: single
+    prompt: "Единорог: какой эффект от Ступефая Ультима?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: >-
+      Ступефай не входит в перечень действующих на единорога чар. В таблице действует принцип: если воздействие не
+      указано, оно не работает.
+    rule: monster-25#vulnerabilities
+    image:
+      src: assets/monsters/image25.png
+      alt: Единорог
+  - id: m27-immune-impedimenta
+    type: single
+    prompt: "Змея: какой эффект от Импедименты Ультима?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: На змею не действует Импедимента любого уровня.
+    rule: monster-27#vulnerabilities
+    image:
+      src: assets/monsters/image27.png
+      alt: Змея
+  - id: m27-immune-tarant
+    type: single
+    prompt: "Змея: какой эффект от Тарант Аллегра Максима?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: На змею не действует Тарант Аллегра любого уровня.
+    rule: monster-27#vulnerabilities
+    image:
+      src: assets/monsters/image27.png
+      alt: Змея
+  - id: m28-immune-simpla
+    type: single
+    prompt: "Змея Гигантская: какой эффект от Ступефая Симпла?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: На гигантскую змею не действуют чары Симпла.
+    rule: monster-28#vulnerabilities
+    image:
+      src: assets/monsters/image28.png
+      alt: Змея Гигантская
+  - id: m28-immune-impedimenta
+    type: single
+    prompt: "Змея Гигантская: какой эффект от Импедименты Ультима?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: Импедимента любого уровня не действует на гигантскую змею.
+    rule: monster-28#vulnerabilities
+    image:
+      src: assets/monsters/image28.png
+      alt: Змея Гигантская
+  - id: m28-immune-tarant
+    type: single
+    prompt: "Змея Гигантская: какой эффект от Тарант Аллегра Максима?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: Тарант Аллегра любого уровня не действует на гигантскую змею.
+    rule: monster-28#vulnerabilities
+    image:
+      src: assets/monsters/image28.png
+      alt: Змея Гигантская
+  - id: m29-immune-stupefy
+    type: single
+    prompt: "Инфери: какой эффект от Ступефая Ультима?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: Ступефай не указан среди действующих на инфери чар; Инсендио, Сектумсемпра Ультима и экзорцизм описаны отдельно.
+    rule: monster-29#vulnerabilities
+    image:
+      src: assets/monsters/image29.png
+      alt: Инфери
+  - id: m30-immune-stupefy
+    type: single
+    prompt: "Карпатский Йети: какой эффект от Ступефая Ультима?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: На Карпатского Йети обычные чары не работают; специальные уязвимости не заменяются общим эффектом Ступефая.
+    rule: monster-30#vulnerabilities
+    image:
+      src: assets/monsters/image30.png
+      alt: Карпатский Йети
+  - id: m31-immune-deluvium
+    type: single
+    prompt: "Келпи: какой эффект от Делювиума Ультима?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: На келпи не действует Делювиум любого уровня.
+    rule: monster-31#vulnerabilities
+    image:
+      src: assets/monsters/image31.png
+      alt: Келпи
+  - id: m31-immune-incendio
+    type: single
+    prompt: "Келпи: какой эффект от Инсендио Ультима?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: На келпи не действует Инсендио любого уровня.
+    rule: monster-31#vulnerabilities
+    image:
+      src: assets/monsters/image31.png
+      alt: Келпи
+  - id: m31-immune-rictusempra
+    type: single
+    prompt: "Келпи: какой эффект от Риктусемпры Максима?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: На келпи не действует Риктусемпра любого уровня.
+    rule: monster-31#vulnerabilities
+    image:
+      src: assets/monsters/image31.png
+      alt: Келпи
+  - id: m31-immune-petrificus
+    type: single
+    prompt: "Келпи: какой эффект от Петрификус Тоталус?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: Петрификус Тоталус не действует на келпи.
+    rule: monster-31#vulnerabilities
+    image:
+      src: assets/monsters/image31.png
+      alt: Келпи
+  - id: m31-immune-simpla
+    type: single
+    prompt: "Келпи: какой эффект от Ступефая Симпла?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: На келпи не действует вся Симпла.
+    rule: monster-31#vulnerabilities
+    image:
+      src: assets/monsters/image31.png
+      alt: Келпи
+  - id: m34-immune-simpla
+    type: single
+    prompt: "Кокатрикс: какой эффект от Ступефая Симпла?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: На кокатрикса не действуют чары Симпла; это не иммунитет к Максиме и Ультиме.
+    rule: monster-34#vulnerabilities
+    image:
+      src: assets/monsters/image34.png
+      alt: Кокатрикс
+  - id: m36-immune-large-simpla
+    type: single
+    prompt: "Крыса-скавен: какой эффект от Ступефая Симпла (на большую крысу, а не игрушку)?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: На большую крысу-скавена не действует Симпла; на игрушечную крысу работают все чары.
+    rule: monster-36#vulnerabilities
+    image:
+      src: assets/monsters/image36.png
+      alt: Крыса-скавен
+  - id: m36-immune-king-maxima
+    type: single
+    prompt: "Крыса-скавен: какой эффект от Ступефая Максима (на большую крысу в присутствии Крысиного Короля)?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: В присутствии Крысиного Короля на крыс работает только Ультима; ограничение сформулировано для большой крысы.
+    rule: monster-36#vulnerabilities
+    image:
+      src: assets/monsters/image36.png
+      alt: Крыса-скавен
+  - id: m37-immune-maledicero
+    type: single
+    prompt: "Лечурка (Лукотрус): какой эффект от Маледицеро Ультима?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: На лечурку не действует Маледицеро любого уровня.
+    rule: monster-37#vulnerabilities
+    image:
+      src: assets/monsters/image37.png
+      alt: Лечурка (Лукотрус)
+  - id: m41-immune-stupefy
+    type: single
+    prompt: "Мумия: какой эффект от Ступефая Ультима?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: Ступефай не указан среди действующих на мумию чар; Инсендио и Риктусемпра Ультима имеют отдельный эффект.
+    rule: monster-41#vulnerabilities
+    image:
+      src: assets/monsters/image41.png
+      alt: Мумия
+  - id: m44-immune-strong-maxima
+    type: single
+    prompt: "Оборотень: какой эффект от Ступефая Максима (на сильного оборотня в звериной форме)?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: На сильного оборотня действует только Ультима. На волшебника в человеческом облике чары действуют стандартно.
+    rule: monster-44#vulnerabilities
+    image:
+      src: assets/monsters/image44.png
+      alt: Оборотень
+  - id: m44-immune-weak-simpla
+    type: single
+    prompt: "Оборотень: какой эффект от Ступефая Симпла (на слабого оборотня в звериной форме)?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: На слабого оборотня действуют Максима и Ультима; Симпла в этом перечне отсутствует.
+    rule: monster-44#vulnerabilities
+    image:
+      src: assets/monsters/image44.png
+      alt: Оборотень
+  - id: m46-immune-incendio
+    type: single
+    prompt: "Пеплозмей: какой эффект от Инсендио Ультима?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: На пеплозмея не действует Инсендио любого уровня.
+    rule: monster-46#vulnerabilities
+    image:
+      src: assets/monsters/image46.png
+      alt: Пеплозмей
+  - id: m46-immune-impedimenta
+    type: single
+    prompt: "Пеплозмей: какой эффект от Импедименты Ультима?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: На пеплозмея не действует Импедимента любого уровня.
+    rule: monster-46#vulnerabilities
+    image:
+      src: assets/monsters/image46.png
+      alt: Пеплозмей
+  - id: m46-immune-tarant
+    type: single
+    prompt: "Пеплозмей: какой эффект от Тарант Аллегра Максима?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: На пеплозмея не действует Тарант Аллегра любого уровня.
+    rule: monster-46#vulnerabilities
+    image:
+      src: assets/monsters/image46.png
+      alt: Пеплозмей
+  - id: m48-immune-impedimenta
+    type: single
+    prompt: "Пикси: какой эффект от Импедименты Ультима?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: Импедимента всех уровней входит в явные исключения для пикси; правило о взрыве от Максимы и выше их не отменяет.
+    rule: monster-48#vulnerabilities
+    image:
+      src: assets/monsters/image48.png
+      alt: Пикси
+  - id: m48-immune-tarant
+    type: single
+    prompt: "Пикси: какой эффект от Тарант Аллегра Максима?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: Тарант Аллегра всех уровней не действует на пикси и является исключением из общего эффекта Максимы.
+    rule: monster-48#vulnerabilities
+    image:
+      src: assets/monsters/image48.png
+      alt: Пикси
+  - id: m48-immune-maledicero
+    type: single
+    prompt: "Пикси: какой эффект от Маледицеро Симпла?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: В списке недействующих на пикси чар указан именно Маледицеро Симпла.
+    rule: monster-48#vulnerabilities
+    image:
+      src: assets/monsters/image48.png
+      alt: Пикси
+  - id: m49-immune-stupefy
+    type: single
+    prompt: "Полтергейст: какой эффект от Ступефая Ультима?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: В таблице полтергейста для обычных чар указано «Нет»; Авада имеет отдельный временный эффект.
+    rule: monster-49#vulnerabilities
+    image:
+      src: assets/monsters/image49.png
+      alt: Полтергейст
+  - id: m50-immune-stupefy
+    type: single
+    prompt: "Призрак/Привидение: какой эффект от Ступефая Ультима?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: Обычные чары на призрака не действуют; экзорцизм рассматривается отдельно.
+    rule: monster-50#vulnerabilities
+    image:
+      src: assets/monsters/image50.png
+      alt: Призрак/Привидение
+  - id: m51-immune-simpla
+    type: single
+    prompt: "Русалка: какой эффект от Ступефая Симпла?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: На русалку не действуют все чары Симпла.
+    rule: monster-51#vulnerabilities
+    image:
+      src: assets/monsters/image51.png
+      alt: Русалка
+  - id: m51-immune-deluvium
+    type: single
+    prompt: "Русалка: какой эффект от Делювиума Ультима?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: Делювиум всех уровней не действует на русалку.
+    rule: monster-51#vulnerabilities
+    image:
+      src: assets/monsters/image51.png
+      alt: Русалка
+  - id: m51-immune-incendio
+    type: single
+    prompt: "Русалка: какой эффект от Инсендио Ультима?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: Инсендио всех уровней не действует на русалку.
+    rule: monster-51#vulnerabilities
+    image:
+      src: assets/monsters/image51.png
+      alt: Русалка
+  - id: m51-immune-rictusempra
+    type: single
+    prompt: "Русалка: какой эффект от Риктусемпры Максима?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: Риктусемпра всех уровней не действует на русалку.
+    rule: monster-51#vulnerabilities
+    image:
+      src: assets/monsters/image51.png
+      alt: Русалка
+  - id: m51-immune-petrificus
+    type: single
+    prompt: "Русалка: какой эффект от Петрификус Тоталус?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: Петрификус Тоталус не действует на русалку.
+    rule: monster-51#vulnerabilities
+    image:
+      src: assets/monsters/image51.png
+      alt: Русалка
+  - id: m52-immune-incendio
+    type: single
+    prompt: "Саламандра: какой эффект от Инсендио Ультима?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: Инсендио всех уровней не действует на саламандру.
+    rule: monster-52#vulnerabilities
+    image:
+      src: assets/monsters/image52.png
+      alt: Саламандра
+  - id: m53-immune-stupefy
+    type: single
+    prompt: "Сид (ши): какой эффект от Ступефая Ультима?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: В таблице сида для обычных чар указано «Нет»; действия Авады и ментальных чар зависят от особых условий.
+    rule: monster-53#vulnerabilities
+    image:
+      src: assets/monsters/image53.png
+      alt: Сид (ши)
+  - id: m54-immune-impedimenta
+    type: single
+    prompt: "Сниджет: какой эффект от Импедименты Ультима (на земле)?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: На сниджета не действует Импедимента любого уровня.
+    rule: monster-54#vulnerabilities
+    image:
+      src: assets/monsters/image55.png
+      alt: Сниджет
+  - id: m54-immune-tarant
+    type: single
+    prompt: "Сниджет: какой эффект от Тарант Аллегра Максима (на земле)?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: На сниджета не действует Тарант Аллегра любого уровня.
+    rule: monster-54#vulnerabilities
+    image:
+      src: assets/monsters/image55.png
+      alt: Сниджет
+  - id: m55-immune-impedimenta
+    type: single
+    prompt: "Сова: какой эффект от Импедименты Ультима (вне полёта)?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: На сову не действует Импедимента любого уровня, в том числе вне полёта.
+    rule: monster-55#vulnerabilities
+    image:
+      src: assets/monsters/image56.png
+      alt: Сова
+  - id: m55-immune-tarant
+    type: single
+    prompt: "Сова: какой эффект от Тарант Аллегра Максима (вне полёта)?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: На сову не действует Тарант Аллегра любого уровня.
+    rule: monster-55#vulnerabilities
+    image:
+      src: assets/monsters/image56.png
+      alt: Сова
+  - id: m55-immune-night-conjunctivitis
+    type: single
+    prompt: "Сова: какой эффект от Конъюктивитуса Ультима (ночью, вне полёта)?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: В ночное время на сову не действует Конъюктивитус любого уровня; условие не переносится на день.
+    rule: monster-55#vulnerabilities
+    image:
+      src: assets/monsters/image56.png
+      alt: Сова
+  - id: m56-immune-stupefy
+    type: single
+    prompt: "Тень: какой эффект от Ступефая Ультима?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: >-
+      В таблице Тени для обычных чар указано «Нет»; индивидуальные способности не задают универсального эффекта
+      Ступефая.
+    rule: monster-56#vulnerabilities
+    image:
+      src: assets/monsters/image57.png
+      alt: Тень
+  - id: m58-immune-stupefy
+    type: single
+    prompt: "Упырь: какой эффект от Ступефая Ультима (когда упырь находится на поверхности)?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: >-
+      Ступефай не входит в действующие на упыря чары. Это не отменяет отдельно указанных эффектов Инсендио, Риктусемпры
+      и Лаэза Кордис.
+    rule: monster-58#vulnerabilities
+    image:
+      src: assets/monsters/image59.png
+      alt: Упырь
+  - id: m59-immune-simpla
+    type: single
+    prompt: "Фавн: какой эффект от Ступефая Симпла?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: На фавна не действуют чары Симпла.
+    rule: monster-59#vulnerabilities
+    image:
+      src: assets/monsters/image60.png
+      alt: Фавн
+  - id: m61-immune-maxima
+    type: single
+    prompt: "Фестрал: какой эффект от Ступефая Максима?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: На фестрала работает только Ультима; Максима не действует.
+    rule: monster-61#vulnerabilities
+    image:
+      src: assets/monsters/image62.png
+      alt: Фестрал
+  - id: m62-immune-stupefy
+    type: single
+    prompt: "Флоббер-червь: какой эффект от Ступефая Ультима?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: >-
+      Ступефай не указан как действующая на флоббер-червя чара. Эффект Ступефая Ультима от его взрыва — другое
+      воздействие.
+    rule: monster-62#vulnerabilities
+    image:
+      src: assets/monsters/image63.png
+      alt: Флоббер-червь
+  - id: m63-immune-stupefy
+    type: single
+    prompt: "Флоббер-червь гигантский: какой эффект от Ступефая Ультима?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: >-
+      Ступефай не действует на гигантского флоббер-червя. Это не то же самое, что эффект его взрыва после Лаэза Кордис
+      Ультима.
+    rule: monster-63#vulnerabilities
+    image:
+      src: assets/monsters/image64.png
+      alt: Флоббер-червь гигантский
+  - id: m64-immune-no-salt
+    type: single
+    prompt: "Химера: какой эффект от Ступефая Ультима (если на хвосте нет соли)?"
+    options:
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+    explanation: Без соли на хвосте на химеру работает только Авада; наличие соли открывает уязвимости к Ультимам.
+    rule: monster-64#vulnerabilities
+    image:
+      src: assets/monsters/image65.png
+      alt: Химера
+  - id: m65-immune-maxima
+    type: single
+    prompt: "Цербер: какой эффект от Ступефая Максима?"
+    options:
+      - id: b
+        text: Действует стандартно, как на волшебника
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+    explanation: На цербера не работают Симпла и Максима. Это не вопрос о снятии его иммунитета Ультимами.
+    rule: monster-65#vulnerabilities
+    image:
+      src: assets/monsters/image66.png
+      alt: Цербер
+  - id: m67-immune-maledicero
+    type: single
+    prompt: "Яркополз: какой эффект от Маледицеро Ультима?"
+    options:
+      - id: c
+        text: Действует стандартно, но вдвое дольше
+      - id: a
+        text: Не действует
+        correct: true
+      - id: b
+        text: Действует стандартно, как на волшебника
+    explanation: На яркополза не действует Маледицеро любого уровня.
+    rule: monster-67#vulnerabilities
+    image:
+      src: assets/monsters/image68.png
+      alt: Яркополз

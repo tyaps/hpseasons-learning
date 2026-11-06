@@ -5,6 +5,7 @@ import { shuffle } from '../../domain/shuffle';
 import type { Option, Question, UserAnswer } from '../../types/content';
 import MultipleChoice from './MultipleChoice.vue';
 import SingleChoice from './SingleChoice.vue';
+import { dataUrl } from '../../composables/useContent';
 
 const props = defineProps<{
   question: Question;
@@ -25,6 +26,7 @@ const options: Option[] = settings.value.shuffleOptions ? shuffle(q.options) : [
 <template>
   <div class="question">
     <p class="question__prompt">{{ question.prompt }}</p>
+    <img v-if="question.image" class="question__image" :src="dataUrl(question.image.src)" :alt="question.image.alt" />
     <p class="question__hint" data-test="hint">{{ selectionHint(question) }}</p>
     <SingleChoice
       v-if="question.type === 'single'"

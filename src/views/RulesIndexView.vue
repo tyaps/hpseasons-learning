@@ -10,6 +10,7 @@ const { data: rules, error, loading, retry } = useJson<RuleSummary[]>('rules.jso
 const sections = computed(() => {
   const groups = new Map<string, RuleSummary[]>();
   for (const rule of rules.value ?? []) {
+    if (rule.section === 'Монстробук') continue;
     const list = groups.get(rule.section) ?? [];
     list.push(rule);
     groups.set(rule.section, list);

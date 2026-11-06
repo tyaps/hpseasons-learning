@@ -25,6 +25,10 @@ const baseShape = {
     .regex(/^[a-z0-9]+(-[a-z0-9]+)*(#.+)?$/, 'формат: <id статьи> или <id статьи>#<якорь>')
     .optional(),
   source: z.string().url('должен быть URL').optional(),
+  image: z.object({
+    src: z.string().regex(/^assets\/(?:[a-zA-Z0-9_-]+\/)*[a-zA-Z0-9_-]+\.(?:png|jpe?g|gif|webp)$/, 'ожидается локальное изображение assets/...'),
+    alt: nonEmpty,
+  }).strict().optional(),
 };
 
 const singleSchema = z
