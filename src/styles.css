@@ -1,20 +1,77 @@
-:root {
-  --bg: #f6f4ef;
-  --surface: #ffffff;
-  --text: #25222b;
-  --muted: #6b6677;
-  --primary: #5b3fa0;
-  --primary-hover: #4a3283;
-  --primary-soft: #ece6f8;
-  --ok: #1e7a46;
-  --ok-soft: #e3f4ea;
-  --bad: #b3261e;
-  --bad-soft: #fbe7e5;
-  --border: #d9d4e3;
-  --radius: 12px;
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.5;
+/* ==========================================================================
+   HP Seasons: Visual Themes (Dossier, Notion, O.W.L.)
+   ========================================================================== */
+
+/* 1. ТЕМА «АРХИВ МИНИСТЕРСТВА МАГИИ» (dossier) — по умолчанию */
+:root,
+[data-theme="dossier"] {
+  --bg: #ece4d4;
+  --surface: #f7f1e6;
+  --surface-alt: #eee6d7;
+  --text: #211c15;
+  --muted: #6e6556;
+  --primary: #7c2d12;
+  --primary-hover: #5d220d;
+  --primary-soft: #e3d2be;
+  --ok: #1e5a32;
+  --ok-soft: #d5ebd9;
+  --bad: #991b1b;
+  --bad-soft: #fbd5d5;
+  --border: #c8bba6;
+  --border-strong: #9e8d75;
+  --radius: 4px;
+  --font-main: 'PT Serif', Georgia, 'Times New Roman', serif;
+  --font-accent: 'Courier Prime', 'Courier New', monospace;
+  --shadow: 0 2px 5px rgba(40, 30, 20, 0.12);
 }
+
+/* 2. ТЕМА «МИНИМАЛИСТИЧНАЯ БАЗА ЗНАНИЙ» (notion) */
+[data-theme="notion"] {
+  --bg: #f7f7f5;
+  --surface: #ffffff;
+  --surface-alt: #f1f1ef;
+  --text: #37352f;
+  --muted: #787774;
+  --primary: #2383e2;
+  --primary-hover: #1b6bb8;
+  --primary-soft: #e8f3fc;
+  --ok: #0f7b6c;
+  --ok-soft: #edf6f5;
+  --bad: #eb5757;
+  --bad-soft: #fdeeee;
+  --border: #e9e9e7;
+  --border-strong: #d3d3d0;
+  --radius: 8px;
+  --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
+  --font-accent: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
+  --shadow: 0 1px 3px rgba(15, 15, 15, 0.06);
+}
+
+/* 3. ТЕМА «ЭКЗАМЕН С.О.В.» (owl) */
+[data-theme="owl"] {
+  --bg: #f8f4ea;
+  --surface: #fffdf7;
+  --surface-alt: #f3eedf;
+  --text: #1a2433;
+  --muted: #5e6b7c;
+  --primary: #1f3a60;
+  --primary-hover: #142742;
+  --primary-soft: #e6eef8;
+  --ok: #14532d;
+  --ok-soft: #eaf5ee;
+  --bad: #991b1b;
+  --bad-soft: #fae8e8;
+  --border: #ded5bf;
+  --border-strong: #b8ab8e;
+  --radius: 2px;
+  --font-main: 'EB Garamond', Georgia, serif;
+  --font-accent: 'Caveat', 'Marck Script', cursive, Georgia, serif;
+  --shadow: 0 2px 6px rgba(45, 35, 20, 0.08);
+}
+
+/* ==========================================================================
+   Базовые стили
+   ========================================================================== */
 
 * {
   box-sizing: border-box;
@@ -24,24 +81,36 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
+  font-family: var(--font-main);
+  line-height: 1.55;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 h1 {
-  font-size: 1.6rem;
+  font-size: 1.65rem;
   margin: 0.5rem 0 0.75rem;
+  font-weight: 700;
 }
 
 h2 {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
+  margin: 1.25rem 0 0.5rem;
+  font-weight: 700;
 }
 
 a {
   color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  filter: brightness(0.9);
 }
 
 .container {
   width: 100%;
-  max-width: 760px;
+  max-width: 780px;
   margin: 0 auto;
   padding: 1rem;
 }
@@ -50,10 +119,15 @@ a {
   color: var(--muted);
 }
 
-/* Шапка */
+/* ==========================================================================
+   Шапка и селектор тем
+   ========================================================================== */
+
 .site-header {
   background: var(--surface);
   border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .site-header__inner {
@@ -61,7 +135,7 @@ a {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem 1rem;
+  gap: 0.75rem 1rem;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
@@ -70,64 +144,132 @@ a {
   font-weight: 700;
   text-decoration: none;
   color: var(--text);
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.site-header__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1rem;
 }
 
 .site-nav {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.35rem;
 }
 
 .site-nav a {
-  padding: 0.4rem 0.8rem;
-  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius);
   text-decoration: none;
+  color: var(--text);
+  font-size: 0.95rem;
+  transition: background 0.15s ease;
 }
 
 .site-nav a.is-active {
   background: var(--primary-soft);
-  font-weight: 600;
+  color: var(--primary);
+  font-weight: 700;
 }
 
-/* Кнопки */
+/* Сегментный переключатель темы */
+.theme-selector {
+  display: inline-flex;
+  background: var(--surface-alt);
+  padding: 0.2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  gap: 0.2rem;
+}
+
+.theme-selector__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.55rem;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  border-radius: var(--radius);
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.theme-selector__btn:hover {
+  color: var(--text);
+}
+
+.theme-selector__btn.is-active {
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 700;
+  box-shadow: var(--shadow);
+}
+
+.theme-selector__icon {
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+/* ==========================================================================
+   Кнопки
+   ========================================================================== */
+
 .btn {
   display: inline-block;
-  padding: 0.7rem 1.2rem;
-  border: 0;
+  padding: 0.65rem 1.25rem;
+  border: 1px solid transparent;
   border-radius: var(--radius);
   background: var(--primary);
   color: #fff;
-  font: inherit;
+  font-family: var(--font-main);
+  font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: all 0.15s ease;
 }
 
 .btn:hover:not(:disabled) {
   background: var(--primary-hover);
+  filter: brightness(1.05);
 }
 
 .btn:disabled {
   opacity: 0.45;
   cursor: not-allowed;
+  box-shadow: none;
 }
 
 .btn--secondary {
   background: var(--primary-soft);
   color: var(--primary);
+  border-color: var(--border);
 }
 
 .btn--secondary:hover:not(:disabled) {
-  background: #ddd2f3;
+  background: var(--border);
+  color: var(--text);
 }
 
 .btn-row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-top: 1rem;
+  margin-top: 1.25rem;
 }
 
-/* Карточки и списки */
+/* ==========================================================================
+   Карточки и списки тем
+   ========================================================================== */
+
 .card-list,
 .link-list {
   list-style: none;
@@ -137,30 +279,35 @@ a {
 
 .card-list {
   display: grid;
-  gap: 0.75rem;
+  gap: 0.85rem;
   margin-top: 1rem;
 }
 
 .card {
   display: block;
-  padding: 1rem;
+  padding: 1.1rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   color: inherit;
   text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: all 0.15s ease;
 }
 
 .card:hover {
   border-color: var(--primary);
+  transform: translateY(-1px);
 }
 
 .card__title {
-  margin: 0 0 0.25rem;
+  margin: 0 0 0.35rem;
+  font-size: 1.15rem;
 }
 
 .card__text {
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.6rem;
+  color: var(--text);
 }
 
 .card__meta {
@@ -169,15 +316,30 @@ a {
   font-size: 0.9rem;
 }
 
+.card--all {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+
+@media (min-width: 640px) {
+  .card-list {
+    grid-template-columns: 1fr 1fr;
+  }
+  .card-list > li:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
 .link-list li {
-  padding: 0.35rem 0;
+  padding: 0.4rem 0;
 }
 
 .notice {
-  padding: 1rem;
+  padding: 1rem 1.25rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .notice--error {
@@ -186,21 +348,27 @@ a {
 }
 
 .breadcrumbs {
-  margin: 0;
+  margin: 0 0 0.5rem;
 }
 
-/* Статья правил */
+/* ==========================================================================
+   Статьи правил
+   ========================================================================== */
+
 .rule {
-  padding: 0.5rem 1rem 1rem;
+  padding: 0.75rem 1.25rem 1.25rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .toc {
-  padding: 0.5rem 1rem;
-  background: var(--primary-soft);
+  padding: 0.75rem 1.25rem;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
+  margin-bottom: 1.5rem;
 }
 
 .rule__body h2,
@@ -211,12 +379,16 @@ a {
 
 .rule__body blockquote {
   margin: 1rem 0;
-  padding: 0.25rem 1rem;
+  padding: 0.5rem 1rem;
   border-left: 4px solid var(--primary);
-  background: var(--primary-soft);
+  background: var(--surface-alt);
+  border-radius: 0 var(--radius) var(--radius) 0;
 }
 
-/* Тест */
+/* ==========================================================================
+   Интерфейс теста
+   ========================================================================== */
+
 .quiz-meta {
   display: flex;
   flex-wrap: wrap;
@@ -224,24 +396,28 @@ a {
   justify-content: space-between;
   gap: 0.5rem;
   color: var(--muted);
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
 }
 
 .question {
-  padding: 1rem;
+  padding: 1.25rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .question__prompt {
-  margin: 0 0 0.5rem;
-  font-size: 1.2rem;
-  font-weight: 600;
+  margin: 0 0 0.6rem;
+  font-size: 1.25rem;
+  font-weight: 700;
 }
 
 .question__hint {
-  margin: 0 0 0.75rem;
+  margin: 0 0 1rem;
   color: var(--muted);
+  font-size: 0.95rem;
 }
 
 .options {
@@ -252,23 +428,27 @@ a {
 .option-btn {
   width: 100%;
   min-height: 3.25rem;
-  padding: 0.8rem 1rem;
+  padding: 0.85rem 1.15rem;
   border: 2px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface);
   color: var(--text);
-  font: inherit;
+  font-family: var(--font-main);
+  font-size: 1rem;
   text-align: left;
   cursor: pointer;
+  transition: all 0.15s ease;
 }
 
 .option-btn:hover:not(:disabled) {
   border-color: var(--primary);
+  background: var(--surface-alt);
 }
 
 .option-btn[aria-pressed='true'] {
   border-color: var(--primary);
   background: var(--primary-soft);
+  font-weight: 600;
 }
 
 .option-btn:disabled {
@@ -276,33 +456,37 @@ a {
 }
 
 .option-btn.is-correct {
-  border-color: var(--ok);
-  background: var(--ok-soft);
+  border-color: var(--ok) !important;
+  background: var(--ok-soft) !important;
+  color: var(--ok);
+  font-weight: 600;
 }
 
 .option-btn.is-wrong {
-  border-color: var(--bad);
-  background: var(--bad-soft);
+  border-color: var(--bad) !important;
+  background: var(--bad-soft) !important;
+  color: var(--bad);
 }
 
 .counter {
   margin: 0.75rem 0 0;
   color: var(--muted);
+  font-weight: 600;
 }
 
-.text-input {
-  width: 100%;
-  padding: 0.8rem 1rem;
-  border: 2px solid var(--border);
-  border-radius: var(--radius);
-  font: inherit;
-}
+/* ==========================================================================
+   Разбор ответа (AnswerFeedback) и адаптация под темы
+   ========================================================================== */
 
 .feedback {
-  margin-top: 1rem;
-  padding: 1rem;
+  position: relative;
+  margin-top: 1.25rem;
+  padding: 1.15rem;
   border-radius: var(--radius);
-  border: 1px solid var(--border);
+  border: 2px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  overflow: hidden;
 }
 
 .feedback--ok {
@@ -317,7 +501,173 @@ a {
 
 .feedback__verdict {
   margin: 0 0 0.5rem;
+  font-size: 1.15rem;
   font-weight: 700;
+}
+
+.feedback__correct-row {
+  margin: 0 0 0.5rem;
+}
+
+.feedback__explanation {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+}
+
+.feedback__links {
+  margin: 0.75rem 0 0;
+  font-size: 0.95rem;
+}
+
+/* Переключаемые тематические блоки в AnswerFeedback */
+.feedback__dossier-stamp,
+.feedback__owl-header,
+.feedback__notion-header {
+  display: none;
+}
+
+/* 1. Декорации темы ДОСЬЕ */
+[data-theme="dossier"] .feedback__dossier-stamp {
+  display: block;
+  float: right;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+[data-theme="dossier"] .stamp {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border: 2px dashed currentColor;
+  border-radius: 2px;
+  font-family: var(--font-accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transform: rotate(-3deg);
+}
+
+[data-theme="dossier"] .stamp--ok {
+  color: var(--ok);
+  background: rgba(30, 90, 50, 0.08);
+}
+
+[data-theme="dossier"] .stamp--bad {
+  color: var(--bad);
+  background: rgba(142, 28, 28, 0.08);
+}
+
+[data-theme="dossier"] .stamp--study {
+  color: var(--primary);
+  background: rgba(107, 38, 38, 0.08);
+}
+
+[data-theme="dossier"] .question__prompt::before {
+  content: "§ ";
+  color: var(--muted);
+  font-family: var(--font-accent);
+}
+
+/* 2. Декорации темы NOTION */
+[data-theme="notion"] .feedback {
+  border-width: 1px;
+}
+
+[data-theme="notion"] .feedback__notion-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="notion"] .feedback__notion-icon {
+  font-size: 1.15rem;
+}
+
+[data-theme="notion"] .feedback__notion-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* 3. Декорации темы ЭКЗАМЕН С.О.В. */
+[data-theme="owl"] .feedback {
+  border-left: 5px solid currentColor;
+}
+
+[data-theme="owl"] .feedback--ok {
+  border-left-color: var(--ok);
+}
+
+[data-theme="owl"] .feedback--bad {
+  border-left-color: var(--bad);
+}
+
+[data-theme="owl"] .feedback__owl-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+[data-theme="owl"] .feedback__owl-title {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+[data-theme="owl"] .feedback__owl-grade {
+  font-family: var(--font-accent);
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+[data-theme="owl"] .feedback__owl-grade--ok {
+  color: var(--ok);
+}
+
+[data-theme="owl"] .feedback__owl-grade--bad {
+  color: var(--bad);
+}
+
+/* ==========================================================================
+   Стартовый экран, переключатели и итоги
+   ========================================================================== */
+
+.start-screen {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.start-screen__group {
+  margin: 0;
+  padding: 0.85rem 1.15rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.start-screen__group legend {
+  padding: 0 0.5rem;
+  font-weight: 700;
+}
+
+.radio {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.45rem 0;
+  cursor: pointer;
+}
+
+.radio input {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.15rem;
 }
 
 .toggle {
@@ -325,6 +675,7 @@ a {
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
+  font-weight: 500;
 }
 
 .toggle input {
@@ -333,14 +684,18 @@ a {
 }
 
 .score {
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: 700;
+  margin: 0.5rem 0;
 }
 
-@media (min-width: 640px) {
-  .card-list {
-    grid-template-columns: 1fr 1fr;
-  }
+.badge {
+  padding: 0.2rem 0.65rem;
+  background: var(--primary-soft);
+  color: var(--primary);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
 }
 
 .mistakes {
@@ -349,57 +704,4 @@ a {
 
 .mistakes li {
   margin-bottom: 0.75rem;
-}
-
-/* Стартовый экран теста */
-.start-screen {
-  display: grid;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.start-screen__group {
-  margin: 0;
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-}
-
-.start-screen__group legend {
-  padding: 0 0.35rem;
-  font-weight: 700;
-}
-
-.radio {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
-  padding: 0.4rem 0;
-  cursor: pointer;
-}
-
-.radio input {
-  width: 1.25rem;
-  height: 1.25rem;
-  margin-top: 0.1rem;
-}
-
-.badge {
-  padding: 0.15rem 0.6rem;
-  background: var(--primary-soft);
-  color: var(--primary);
-  border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 700;
-}
-
-.card--all {
-  border-color: var(--primary);
-  background: var(--primary-soft);
-}
-
-@media (min-width: 640px) {
-  .card-list > li:first-child {
-    grid-column: 1 / -1;
-  }
 }
