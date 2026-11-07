@@ -1,23 +1,27 @@
-/* Оформление «Экзамен С.О.В.» */
+/* Оформление «Пастельная школа» — тёплый сервисный UI с лёгким хэллоуин-фоном */
 :root {
-  --bg: #f8f4ea;
-  --surface: #fffdf7;
-  --surface-alt: #f3eedf;
-  --text: #1a2433;
-  --muted: #5e6b7c;
-  --primary: #1f3a60;
-  --primary-hover: #142742;
-  --primary-soft: #e6eef8;
-  --ok: #14532d;
-  --ok-soft: #eaf5ee;
-  --bad: #991b1b;
-  --bad-soft: #fae8e8;
-  --border: #ded5bf;
-  --border-strong: #b8ab8e;
-  --radius: 2px;
-  --font-main: 'EB Garamond', Georgia, serif;
-  --font-accent: 'Caveat', 'Marck Script', cursive, Georgia, serif;
-  --shadow: 0 2px 6px rgba(45, 35, 20, 0.08);
+  --bg: #fdf6ee;
+  --surface: #fffcf8;
+  --surface-alt: #f5ebe0;
+  --text: #3d2c24;
+  --muted: #8a7568;
+  --primary: #6b4e3d;
+  --primary-hover: #563e30;
+  --primary-soft: #fce8dc;
+  --accent: #e8a87c;
+  --accent-deep: #d9895a;
+  --ok: #5a8f7b;
+  --ok-soft: #e8f3ef;
+  --bad: #c45c4a;
+  --bad-soft: #fce8e6;
+  --border: #f0e4d8;
+  --border-strong: #dcc9b8;
+  --radius: 14px;
+  --radius-pill: 999px;
+  --font-main: 'DM Sans', system-ui, sans-serif;
+  --font-heading: 'Fraunces', Georgia, serif;
+  --font-accent: 'Fraunces', Georgia, serif;
+  --shadow: 0 16px 40px rgba(61, 44, 36, 0.08);
 }
 
 /* ==========================================================================
@@ -34,17 +38,31 @@ body {
   color: var(--text);
   font-family: var(--font-main);
   line-height: 1.55;
-  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.app-shell {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+.card__title,
+.question__prompt,
+.score {
+  font-family: var(--font-heading);
 }
 
 h1 {
-  font-size: 1.65rem;
+  font-size: clamp(1.55rem, 4vw, 1.85rem);
   margin: 0.5rem 0 0.75rem;
   font-weight: 700;
+  line-height: 1.2;
 }
 
 h2 {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   margin: 1.25rem 0 0.5rem;
   font-weight: 700;
 }
@@ -61,9 +79,9 @@ a:hover {
 
 .container {
   width: 100%;
-  max-width: 780px;
+  max-width: 720px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 1rem 1.1rem 2.5rem;
 }
 
 .muted {
@@ -75,10 +93,12 @@ a:hover {
    ========================================================================== */
 
 .site-header {
-  background: var(--surface);
+  background: rgba(255, 252, 248, 0.92);
   border-bottom: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  transition: background-color 0.15s ease, border-color 0.15s ease;
+  box-shadow: 0 4px 24px rgba(61, 44, 36, 0.06);
+  backdrop-filter: blur(8px);
+  position: relative;
+  z-index: 2;
 }
 
 .site-header__inner {
@@ -92,11 +112,12 @@ a:hover {
 }
 
 .site-header__logo {
+  font-family: var(--font-heading);
   font-weight: 700;
   text-decoration: none;
   color: var(--text);
-  font-size: 1.05rem;
-  letter-spacing: -0.01em;
+  font-size: 1.08rem;
+  letter-spacing: -0.02em;
 }
 
 .site-header__controls {
@@ -112,17 +133,23 @@ a:hover {
 }
 
 .site-nav a {
-  padding: 0.35rem 0.75rem;
-  border-radius: var(--radius);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-pill);
   text-decoration: none;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.site-nav a:hover {
   color: var(--text);
-  font-size: 0.95rem;
-  transition: background 0.15s ease;
+  background: var(--surface-alt);
 }
 
 .site-nav a.is-active {
-  background: var(--primary-soft);
-  color: var(--primary);
+  background: var(--primary);
+  color: var(--bg);
   font-weight: 700;
 }
 
@@ -132,23 +159,23 @@ a:hover {
 
 .btn {
   display: inline-block;
-  padding: 0.65rem 1.25rem;
+  padding: 0.7rem 1.35rem;
   border: 1px solid transparent;
-  border-radius: var(--radius);
-  background: var(--primary);
-  color: #fff;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  color: var(--text);
   font-family: var(--font-main);
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: var(--shadow);
-  transition: all 0.15s ease;
+  box-shadow: 0 8px 22px rgba(217, 137, 90, 0.28);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .btn:hover:not(:disabled) {
-  background: var(--primary-hover);
-  filter: brightness(1.05);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(217, 137, 90, 0.34);
 }
 
 .btn:disabled {
@@ -158,14 +185,16 @@ a:hover {
 }
 
 .btn--secondary {
-  background: var(--primary-soft);
+  background: var(--surface);
   color: var(--primary);
-  border-color: var(--border);
+  border-color: var(--border-strong);
+  box-shadow: none;
 }
 
 .btn--secondary:hover:not(:disabled) {
-  background: var(--border);
+  background: var(--surface-alt);
   color: var(--text);
+  transform: none;
 }
 
 .btn-row {
@@ -205,8 +234,9 @@ a:hover {
 }
 
 .card:hover {
-  border-color: var(--primary);
-  transform: translateY(-1px);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 44px rgba(61, 44, 36, 0.1);
 }
 
 .card__title {
@@ -226,8 +256,8 @@ a:hover {
 }
 
 .card--all {
-  border-color: var(--primary);
-  background: var(--primary-soft);
+  border-color: rgba(232, 168, 124, 0.55);
+  background: linear-gradient(145deg, #fff9f4, var(--primary-soft));
 }
 
 @media (min-width: 640px) {
@@ -298,6 +328,21 @@ a:hover {
    Интерфейс теста
    ========================================================================== */
 
+.quiz-progress {
+  height: 8px;
+  background: var(--surface-alt);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  margin: 0.5rem 0 1rem;
+}
+
+.quiz-progress__bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--ok), #7ab89f);
+  border-radius: inherit;
+  transition: width 0.25s ease;
+}
+
 .quiz-meta {
   display: flex;
   flex-wrap: wrap;
@@ -306,7 +351,8 @@ a:hover {
   gap: 0.5rem;
   color: var(--muted);
   margin-bottom: 0.75rem;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .question {
@@ -319,8 +365,9 @@ a:hover {
 
 .question__prompt {
   margin: 0 0 0.6rem;
-  font-size: 1.25rem;
+  font-size: clamp(1.15rem, 3.5vw, 1.35rem);
   font-weight: 700;
+  line-height: 1.35;
 }
 
 .question__hint {
@@ -337,25 +384,27 @@ a:hover {
 .option-btn {
   width: 100%;
   min-height: 3.25rem;
-  padding: 0.85rem 1.15rem;
-  border: 2px solid var(--border);
+  padding: 0.9rem 1.1rem;
+  border: 2px solid var(--border-strong);
   border-radius: var(--radius);
   background: var(--surface);
   color: var(--text);
   font-family: var(--font-main);
-  font-size: 1rem;
+  font-size: 0.98rem;
+  font-weight: 500;
   text-align: left;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.12s ease;
 }
 
 .option-btn:hover:not(:disabled) {
-  border-color: var(--primary);
-  background: var(--surface-alt);
+  border-color: var(--accent);
+  background: #fff9f4;
+  transform: translateX(2px);
 }
 
 .option-btn[aria-pressed='true'] {
-  border-color: var(--primary);
+  border-color: var(--accent-deep);
   background: var(--primary-soft);
   font-weight: 600;
 }
@@ -428,19 +477,6 @@ a:hover {
   font-size: 0.95rem;
 }
 
-/* Пометки экзаменатора */
-.feedback {
-  border-left: 5px solid currentColor;
-}
-
-.feedback--ok {
-  border-left-color: var(--ok);
-}
-
-.feedback--bad {
-  border-left-color: var(--bad);
-}
-
 .feedback__owl-header {
   display: flex;
   flex-wrap: wrap;
@@ -456,9 +492,10 @@ a:hover {
 
 .feedback__owl-grade {
   font-family: var(--font-accent);
-  font-size: 1.45rem;
-  font-weight: 700;
-  line-height: 1;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.2;
 }
 
 .feedback__owl-grade--ok {
@@ -481,8 +518,8 @@ a:hover {
 
 .start-screen__group {
   margin: 0;
-  padding: 0.85rem 1.15rem;
-  background: var(--surface);
+  padding: 1rem 1.15rem;
+  background: var(--surface-alt);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -527,11 +564,11 @@ a:hover {
 }
 
 .badge {
-  padding: 0.2rem 0.65rem;
-  background: var(--primary-soft);
-  color: var(--primary);
-  border-radius: 999px;
-  font-size: 0.85rem;
+  padding: 0.25rem 0.7rem;
+  background: var(--ok-soft);
+  color: var(--ok);
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
   font-weight: 700;
 }
 
@@ -545,7 +582,7 @@ a:hover {
 
 /* Illustrated monsterbook: wide source tables stay inside the page on mobile. */
 .monster-search { display: grid; gap: .5rem; max-width: 32rem; }
-.monster-search input { font: inherit; padding: .7rem; border: 1px solid var(--border); border-radius: .4rem; background: var(--surface); color: inherit; }
+.monster-search input { font: inherit; padding: .75rem 1rem; border: 2px solid var(--border-strong); border-radius: var(--radius); background: var(--surface); color: inherit; }
 .monster-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: .8rem; padding: 0; list-style: none; }
 .monster-list .card { display: block; height: 100%; }
 .rule__body { overflow-x: auto; }
@@ -606,17 +643,17 @@ a:hover {
 }
 .comic-reaction__portrait {
   width: clamp(7rem, 20vw, 10rem); height: auto; max-height: 20rem; object-fit: contain; object-position: top right;
-  flex: 0 0 auto; border-radius: .5rem; filter: drop-shadow(0 3px 5px rgb(0 0 0 / 25%));
+  flex: 0 0 auto; border: 2px solid #fff; border-radius: .5rem; filter: drop-shadow(0 3px 5px rgb(0 0 0 / 25%));
 }
 .comic-reaction__bubble {
-  position: relative; margin: .25rem 0 0; padding: .7rem .8rem;
-  border: 2px solid #222; border-radius: 1rem; background: #fff; color: #171717;
-  font-weight: 700; font-size: 1rem; line-height: 1.35; overflow-wrap: anywhere;
-  box-shadow: 3px 3px 0 rgb(0 0 0 / 15%);
+  position: relative; margin: .25rem 0 0; padding: .75rem .9rem;
+  border: 2px solid var(--primary); border-radius: 1rem; background: var(--surface); color: var(--text);
+  font-weight: 700; font-size: .98rem; line-height: 1.35; overflow-wrap: anywhere;
+  box-shadow: var(--shadow);
 }
 .comic-reaction__bubble::before {
   content: ''; position: absolute; right: -.45rem; top: 1rem; width: .65rem; height: .65rem;
-  background: #fff; border-right: 2px solid #222; border-top: 2px solid #222; transform: rotate(45deg);
+  background: var(--surface); border-right: 2px solid var(--primary); border-top: 2px solid var(--primary); transform: rotate(45deg);
 }
 @media (max-width: 600px) {
   .comic-reaction { right: .5rem; width: calc(100% - 1rem); }

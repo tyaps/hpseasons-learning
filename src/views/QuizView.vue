@@ -30,7 +30,7 @@ const title = computed(() => (isAll.value ? 'Тест по всем темам' 
 const poolSize = computed(() => topics.value?.reduce((sum, t) => sum + t.questions.length, 0) ?? 0);
 
 const { data: reactions } = useJson<AnswerReactions>('reactions.json');
-const { reaction, portrait, showReaction, clearReaction } = useAnswerReaction(reactions);
+const { reaction, portrait, showReaction, clearReaction, resetReactionStreak } = useAnswerReaction(reactions);
 
 const started = ref(false);
 const finished = ref(false);
@@ -65,6 +65,7 @@ const isLast = computed(() => index.value + 1 >= total.value);
 
 function start(): void {
   clearReaction();
+  resetReactionStreak();
   if (!topics.value || !poolSize.value || rangeError.value) return;
   const range = settings.value.quizLength === 'all' ? rangeValidation.value.range ?? undefined : undefined;
   items.value = buildQuiz(topics.value, { length: settings.value.quizLength, mixed: isAll.value, range });
@@ -79,6 +80,7 @@ function start(): void {
 
 function backToStart(): void {
   clearReaction();
+  resetReactionStreak();
   started.value = false;
   finished.value = false;
 }
@@ -197,6 +199,16 @@ watch(rawTopics, backToStart);
         <ResultView v-else-if="finished" :items="items" :answers="answers" @restart="backToStart" />
 
         <template v-else-if="question && item">
+          <div
+            class="quiz-progress"
+            role="progressbar"
+            :aria-valuenow="index + 1"
+            :aria-valuemin="1"
+            :aria-valuemax="total"
+            :aria-label="`Прогресс теста: вопрос ${index + 1} из ${total}`"
+          >
+            <div class="quiz-progress__bar" :style="{ width: `${((index + 1) / total) * 100}%` }" />
+          </div>
           <div class="quiz-meta">
             <span data-test="question-position">Вопрос {{ index + 1 }} из {{ total }}</span>
             <span v-if="activeRange && total < poolSize" class="muted" data-test="original-number">№ {{ activeRange.from + index }} в полном списке</span>

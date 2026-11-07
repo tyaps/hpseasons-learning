@@ -1,6 +1,7 @@
 import { beforeEach, afterEach, describe, it, expect, vi } from 'vitest';
 import { flushPromises } from '@vue/test-utils';
 import { clearContentCache } from '../src/composables/useContent';
+import { shouldShowAnswerReaction } from '../src/composables/useAnswerReaction';
 import { reloadSettings, useSettings } from '../src/composables/useSettings';
 import { mockFetch, mountAt } from './helpers';
 
@@ -22,6 +23,21 @@ async function start() {
   return mounted;
 }
 
+describe('shouldShowAnswerReaction', () => {
+  it('сохраняет шанс 33% и накапливает промахи', () => {
+    expect(shouldShowAnswerReaction(0, 0.32).show).toBe(true);
+    expect(shouldShowAnswerReaction(0, 0.33).show).toBe(false);
+    expect(shouldShowAnswerReaction(0, 0.33).missesNext).toBe(1);
+    expect(shouldShowAnswerReaction(4, 0.99).show).toBe(false);
+    expect(shouldShowAnswerReaction(4, 0.99).missesNext).toBe(5);
+  });
+
+  it('гарантирует показ после пяти промахов подряд', () => {
+    expect(shouldShowAnswerReaction(5, 0.99).show).toBe(true);
+    expect(shouldShowAnswerReaction(5, 0.99).missesNext).toBe(0);
+  });
+});
+
 describe('Реплика персонажа после ответа', () => {
   it.each([['a', 'Молодец!'], ['b', 'Облом!']])('выбирает реплику для ответа %s и скрывает ровно через 3 секунды', async (id, text) => {
     vi.spyOn(Math, 'random').mockReturnValue(0);
@@ -41,6 +57,26 @@ describe('Реплика персонажа после ответа', () => {
     const { wrapper } = await start();
     await wrapper.find('[data-option-id="a"]').trigger('click');
     expect(wrapper.find('[data-test="answer-reaction"]').exists()).toBe(false);
+    wrapper.unmount();
+  });
+  it('показывает реплику на шестом ответе после пяти промахов подряд', async () => {
+    const sixQ = {
+      ...topic,
+      questionCount: 6,
+      questions: [1, 2, 3, 4, 5, 6].map(n => ({ ...topic.questions[0], id: `q${n}`, prompt: `Вопрос ${n}` })),
+    };
+    mockFetch({ 'data/topics/t.json': sixQ, 'data/rules.json': [], 'data/reactions.json': messages,
+      'data/rules/spells.json': { id: 'spells', title: 'Статья', section: 'Магия', order: 1, anchors: [], html: '<p>Правило</p>' } });
+    vi.spyOn(Math, 'random').mockReturnValue(0.9);
+    const { wrapper } = await start();
+    for (let i = 0; i < 5; i++) {
+      await wrapper.find('[data-option-id="a"]').trigger('click');
+      expect(wrapper.find('[data-test="answer-reaction"]').exists()).toBe(false);
+      if (i < 4) await wrapper.find('[data-test="next"]').trigger('click');
+    }
+    await wrapper.find('[data-test="next"]').trigger('click');
+    await wrapper.find('[data-option-id="a"]').trigger('click');
+    expect(wrapper.find('[data-test="answer-reaction"]').exists()).toBe(true);
     wrapper.unmount();
   });
   it('показывает при числе ниже 0.33, выбирает реплику и не повторяет при просмотре прошлого ответа', async () => {

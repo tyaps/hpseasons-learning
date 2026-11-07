@@ -14,9 +14,8 @@ defineProps<{ question: Question; correct: boolean; study?: boolean; reaction?: 
 <template>
   <div class="feedback" :class="study || correct ? 'feedback--ok' : 'feedback--bad'" role="status">
     <div class="feedback__content">
-      <!-- Пометка экзаменатора -->
       <div class="feedback__owl-header" aria-hidden="true">
-        <span class="feedback__owl-title">Пометка экзаменатора:</span>
+        <span class="feedback__owl-title">Заметка преподавателя:</span>
         <span v-if="!study" class="feedback__owl-grade" :class="correct ? 'feedback__owl-grade--ok' : 'feedback__owl-grade--bad'">
           {{ correct ? '«Превосходно!»' : '«Ошибка!»' }}
         </span>

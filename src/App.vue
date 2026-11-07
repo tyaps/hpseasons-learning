@@ -5,6 +5,7 @@ import { useJson } from './composables/useContent';
 import { useCreatureSelection } from './composables/useCreatureSelection';
 import type { RuleSummary } from './types/content';
 import { quizReturnKey } from './composables/useQuizReturn';
+import SiteBackdrop from './components/SiteBackdrop.vue';
 
 // Удаляем результаты, сохранённые прежними версиями приложения.
 try { localStorage.removeItem('hps-progress-v1'); } catch { /* Хранилище недоступно. */ }
@@ -35,26 +36,29 @@ watch(() => route.name, (to, from) => {
 </script>
 
 <template>
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <RouterLink class="site-header__logo" to="/">HP Seasons: тренажёр правил</RouterLink>
-      <div class="site-header__controls">
-        <nav class="site-nav" aria-label="Основная навигация" @click="returnToQuiz = null; returnToSettings = false">
-          <RouterLink to="/" exact-active-class="is-active">Тесты</RouterLink>
-          <RouterLink to="/rules" active-class="is-active">Справочник</RouterLink>
-          <RouterLink to="/monsters" active-class="is-active">Монстробук</RouterLink>
-          <RouterLink to="/creature-settings" active-class="is-active">Существа в тестах<span v-if="monsters"> ({{ selectedCount }} из {{ monsters.length }})</span></RouterLink>
-        </nav>
+  <SiteBackdrop />
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <RouterLink class="site-header__logo" to="/">HP Seasons: тренажёр правил</RouterLink>
+        <div class="site-header__controls">
+          <nav class="site-nav" aria-label="Основная навигация" @click="returnToQuiz = null; returnToSettings = false">
+            <RouterLink to="/" exact-active-class="is-active">Тесты</RouterLink>
+            <RouterLink to="/rules" active-class="is-active">Справочник</RouterLink>
+            <RouterLink to="/monsters" active-class="is-active">Монстробук</RouterLink>
+            <RouterLink to="/creature-settings" active-class="is-active">Существа в тестах<span v-if="monsters"> ({{ selectedCount }} из {{ monsters.length }})</span></RouterLink>
+          </nav>
+        </div>
       </div>
-    </div>
-  </header>
-  <main class="container" :class="{ 'has-quiz-return': showQuizReturn || showSettingsReturn }">
-    <RouterView v-slot="{ Component, route: viewRoute }">
-      <KeepAlive include="QuizView" :max="1">
-        <component :is="Component" :key="viewRoute.path" />
-      </KeepAlive>
-    </RouterView>
-  </main>
+    </header>
+    <main class="container" :class="{ 'has-quiz-return': showQuizReturn || showSettingsReturn }">
+      <RouterView v-slot="{ Component, route: viewRoute }">
+        <KeepAlive include="QuizView" :max="1">
+          <component :is="Component" :key="viewRoute.path" />
+        </KeepAlive>
+      </RouterView>
+    </main>
+  </div>
   <RouterLink v-if="showSettingsReturn" to="/creature-settings" class="btn quiz-return" data-test="settings-return">
     ← Назад в настройки
   </RouterLink>
